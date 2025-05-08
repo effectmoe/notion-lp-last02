@@ -71,6 +71,9 @@ export default function Home() {
   };
 
   useEffect(() => {
+    // クライアントサイドでのみ実行するコード
+    if (typeof window === 'undefined') return;
+    
     // フェードインアニメーション効果
     const heroText = document.querySelector('.hero-text');
     const heroImage = document.querySelector('.hero-image');
@@ -237,7 +240,6 @@ export default function Home() {
 
 .integration-icon:hover {
   transform: scale(1.1);
-}
 }
 
 .integration-icon i {
@@ -783,18 +785,15 @@ export default function Home() {
           margin-top: 15px;
           padding: 10px;
           border-radius: 4px;
-          display: none;
         }
         
         .form-status.success {
-          display: block;
           background-color: #d4edda;
           color: #155724;
           border: 1px solid #c3e6cb;
         }
         
         .form-status.error {
-          display: block;
           background-color: #f8d7da;
           color: #721c24;
           border: 1px solid #f5c6cb;
@@ -1244,11 +1243,9 @@ export default function Home() {
                   >
                     {isSubmitting ? '送信中...' : '無料相談を申し込む'}
                   </button>
-                  {formStatus.show && (
-                    <div className={`form-status ${formStatus.type}`}>
-                      {formStatus.message}
-                    </div>
-                  )}
+                  <div className={`form-status ${formStatus.type}`} style={{display: formStatus.show ? 'block' : 'none'}}>
+                    {formStatus.message}
+                  </div>
                 </form>
               </div>
             </div>
