@@ -1,10 +1,37 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Notion×LLMOで実現するAI時代のコンテンツ最適化</title>
-    <meta name="description" content="SEOからLLMOへ。AI検索時代に最適化されたNotionブログの構築方法と実践テクニックを解説します。">
+    <title>Notion×LLMOで実現するAI検索時代のコンテンツ最適化 | EFFECT</title>
+    <meta name="description"
+        content="SEOからLLMO（大規模言語モデル最適化）へ。AI検索時代に対応したNotionブログの構築方法と、ChatGPT、Bing AIなどのAIに理解されるコンテンツ戦略を解説します。">
+
+    <!-- OGPタグの拡充 -->
+    <meta property="og:title" content="Notion×LLMOで実現するAI検索時代のコンテンツ最適化">
+    <meta property="og:description" content="SEOからLLMO（大規模言語モデル最適化）へ。AI検索時代に最適化されたNotionブログの構築方法と実践テクニックを解説します。">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://notion.effect.moe/">
+    <meta property="og:image" content="https://notion.effect.moe/images/notion-llmo-ogp.jpg">
+    <meta property="og:site_name" content="EFFECT">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Notion×LLMOで実現するAI検索時代のコンテンツ最適化">
+    <meta name="twitter:description" content="SEOからLLMO（大規模言語モデル最適化）へ。AI検索時代に最適化されたNotionブログの構築方法と実践テクニックを解説します。">
+    <meta name="twitter:image" content="https://notion.effect.moe/images/notion-llmo-ogp.jpg">
+
+    <!-- 関連キーワード -->
+    <meta name="keywords"
+        content="LLMO, LLMOとは, LLMO対策, SEO, SEO対策, AEO, AEO対策, AIO, AIO対策, GEO, GEO対策, Notion, AIマーケティング, AI検索, 大規模言語モデル最適化">
+
+    <!-- 著者情報 -->
+    <meta name="author" content="朱 剛明（シュ コウメイ）">
+
+    <!-- 更新情報 -->
+    <meta name="revised" content="2025-05-08">
+    <link rel="canonical" href="https://notion.effect.moe/">
     <style>
         :root {
             --primary-color: #2e75b5;
@@ -19,39 +46,39 @@
             --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             --transition: all 0.3s ease;
         }
-        
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-        
+
         body {
             font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', Meiryo, sans-serif;
             line-height: 1.6;
             color: var(--text-color);
             background-color: var(--white);
         }
-        
+
         header {
             background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
             color: var(--white);
             padding: 80px 20px;
             text-align: center;
         }
-        
+
         h1 {
             font-size: 2.5rem;
             margin-bottom: 20px;
             line-height: 1.3;
         }
-        
+
         .subtitle {
             font-size: 1.2rem;
             margin-bottom: 30px;
             opacity: 0.9;
         }
-        
+
         .cta-buttons {
             display: flex;
             justify-content: center;
@@ -59,7 +86,7 @@
             margin-top: 30px;
             flex-wrap: wrap;
         }
-        
+
         .btn {
             display: inline-block;
             padding: 12px 24px;
@@ -72,48 +99,48 @@
             border: none;
             cursor: pointer;
         }
-        
+
         .btn:hover {
             transform: translateY(-3px);
             box-shadow: var(--box-shadow);
         }
-        
+
         .btn-outline {
             background-color: transparent;
             border: 2px solid var(--white);
         }
-        
+
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 20px;
         }
-        
+
         .section {
             padding: 80px 0;
         }
-        
+
         .section-title {
             text-align: center;
             margin-bottom: 50px;
             font-size: 2rem;
             color: var(--primary-color);
         }
-        
+
         .section-subtitle {
             text-align: center;
             margin-bottom: 40px;
             font-size: 1.2rem;
             color: var(--gray);
         }
-        
+
         .features {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
             gap: 30px;
         }
-        
+
         .feature-card {
             flex: 1;
             min-width: 300px;
@@ -124,93 +151,88 @@
             box-shadow: var(--box-shadow);
             transition: var(--transition);
         }
-        
+
         .feature-card:hover {
             transform: translateY(-5px);
         }
-        
+
         .feature-icon {
             font-size: 2.5rem;
             color: var(--primary-color);
             margin-bottom: 20px;
         }
-        
+
         .feature-title {
             font-size: 1.3rem;
             margin-bottom: 15px;
             color: var(--primary-color);
         }
-        
+
         .comparison {
             display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
+            flex-direction: column;
             gap: 40px;
             margin-top: 40px;
         }
-        
+
         .comparison-card {
             flex: 1;
-            min-width: 300px;
-            max-width: 500px;
-            background-color: var(--white);
-            border-radius: var(--border-radius);
-            padding: 30px;
-            box-shadow: var(--box-shadow);
+            min-width: 100%;
+            max-width: 100%;
         }
-        
+
         .comparison-title {
             font-size: 1.5rem;
             margin-bottom: 20px;
             text-align: center;
             color: var(--primary-color);
         }
-        
+
         .comparison-item {
             display: flex;
             align-items: center;
             margin-bottom: 15px;
         }
-        
+
         .comparison-icon {
             margin-right: 10px;
             color: var(--accent-color);
             font-size: 1.2rem;
         }
-        
+
         .steps {
             margin-top: 50px;
         }
-        
+
         .step {
             display: flex;
             margin-bottom: 40px;
             align-items: center;
             flex-wrap: wrap;
         }
-        
+
         .step:nth-child(even) {
             flex-direction: row-reverse;
         }
-        
+
         .step-content {
             flex: 1;
             min-width: 300px;
             padding: 20px;
         }
-        
+
         .step-image {
             flex: 1;
             min-width: 300px;
             text-align: center;
         }
-        
+
         .step-image img {
             max-width: 100%;
             border-radius: var(--border-radius);
             box-shadow: var(--box-shadow);
         }
-        
+
         .step-number {
             display: inline-block;
             width: 40px;
@@ -223,20 +245,20 @@
             margin-right: 15px;
             font-weight: bold;
         }
-        
+
         .step-title {
             font-size: 1.5rem;
             margin-bottom: 15px;
             color: var(--primary-color);
             display: inline-block;
         }
-        
+
         .testimonials {
             background-color: var(--light-bg);
             padding: 80px 0;
             text-align: center;
         }
-        
+
         .testimonial-cards {
             display: flex;
             flex-wrap: wrap;
@@ -244,7 +266,7 @@
             gap: 30px;
             margin-top: 40px;
         }
-        
+
         .testimonial-card {
             flex: 1;
             min-width: 300px;
@@ -254,28 +276,28 @@
             padding: 30px;
             box-shadow: var(--box-shadow);
         }
-        
+
         .testimonial-text {
             font-style: italic;
             margin-bottom: 20px;
         }
-        
+
         .testimonial-author {
             font-weight: bold;
             color: var(--primary-color);
         }
-        
+
         .pricing {
             text-align: center;
             background-color: var(--white);
             padding: 80px 0;
         }
-        
+
         .faq {
             background-color: var(--light-bg);
             padding: 80px 0;
         }
-        
+
         .faq-item {
             margin-bottom: 20px;
             background-color: var(--white);
@@ -283,7 +305,7 @@
             padding: 20px;
             box-shadow: var(--box-shadow);
         }
-        
+
         .faq-question {
             font-weight: bold;
             font-size: 1.2rem;
@@ -291,23 +313,23 @@
             color: var(--primary-color);
             cursor: pointer;
         }
-        
+
         .faq-answer {
             padding-top: 10px;
         }
-        
+
         .cta-section {
             background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
             color: var(--white);
             padding: 80px 20px;
             text-align: center;
         }
-        
+
         .cta-title {
             font-size: 2.2rem;
             margin-bottom: 20px;
         }
-        
+
         .cta-text {
             font-size: 1.2rem;
             margin-bottom: 30px;
@@ -315,20 +337,20 @@
             margin-left: auto;
             margin-right: auto;
         }
-        
+
         footer {
             background-color: var(--dark-bg);
             color: var(--white);
             padding: 30px 0;
             text-align: center;
         }
-        
+
         .footer-logo {
             margin-bottom: 20px;
             font-size: 1.5rem;
             font-weight: bold;
         }
-        
+
         .footer-links {
             display: flex;
             justify-content: center;
@@ -336,17 +358,17 @@
             margin-bottom: 20px;
             flex-wrap: wrap;
         }
-        
+
         .footer-link {
             color: var(--white);
             text-decoration: none;
             transition: var(--transition);
         }
-        
+
         .footer-link:hover {
             color: var(--accent-color);
         }
-        
+
         .copyright {
             font-size: 0.9rem;
             opacity: 0.8;
@@ -357,57 +379,85 @@
             h1 {
                 font-size: 2rem;
             }
-            
+
             .section {
                 padding: 60px 0;
             }
-            
-            .step, .step:nth-child(even) {
+
+            .step,
+            .step:nth-child(even) {
                 flex-direction: column;
             }
-            
+
             .step-image {
                 margin-top: 20px;
                 order: 2;
             }
-            
+
             .step-content {
                 order: 1;
             }
         }
 
         .diagram-container {
-            background-color: var(--white);
-            border-radius: var(--border-radius);
-            box-shadow: var(--box-shadow);
-            padding: 20px;
+            background-color: transparent;
+            /* 背景色を透明に */
+            border-radius: 0;
+            /* 角丸を削除 */
+            box-shadow: none;
+            /* 影を削除 */
+            padding: 0 20px;
+            /* 上下のパディングを削除、左右のみ保持 */
             margin: 30px 0;
         }
-        
+
         .diagram-title {
             text-align: center;
             margin-bottom: 20px;
             color: var(--primary-color);
         }
-        
+
         .diagram {
             width: 100%;
-            max-width: 800px;
+            max-width: 100%;
+            /* コンテンツを最大幅に合わせる */
+            margin: 0;
+            /* 余分なマージンを削除 */
+        }
+
+        .diagram img {
+            width: 100%;
+            /* 画像を親要素に合わせる */
+            height: auto;
+            /* アスペクト比を維持 */
+            display: block;
+            /* インライン要素のデフォルト余白を削除 */
             margin: 0 auto;
         }
-        
+
+        .diagram-caption {
+            text-align: center;
+            font-size: 0.9rem;
+            color: var(--gray);
+            margin-top: 10px;
+            padding-bottom: 30px;
+        }
+
         .two-column {
             display: flex;
-            flex-wrap: wrap;
+            flex-direction: column;
+            /* 縦並びに変更 */
             gap: 30px;
             margin: 40px 0;
         }
-        
+
         .column {
             flex: 1;
-            min-width: 300px;
+            min-width: 100%;
+            /* 幅を100%に設定 */
+            width: 100%;
         }
-        
+
         .highlight-box {
             background-color: rgba(46, 117, 181, 0.1);
             border-left: 4px solid var(--primary-color);
@@ -415,27 +465,32 @@
             border-radius: 0 var(--border-radius) var(--border-radius) 0;
             margin: 30px 0;
         }
-        
+
         .highlight-title {
             color: var(--primary-color);
             font-weight: bold;
             margin-bottom: 10px;
         }
-        
+
         /* LLMO対策サービスセクション用のスタイル */
         .service-section {
             padding: 80px 0;
             background-color: var(--light-bg);
         }
-        
+
         .service-cards {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
             gap: 30px;
             margin-top: 40px;
+            /* 追加するプロパティ */
+            align-items: stretch;
+            /* カードの高さを揃える */
+            width: 100%;
+            /* コンテナ幅を確保 */
         }
-        
+
         .service-card {
             flex: 1;
             min-width: 300px;
@@ -445,52 +500,83 @@
             padding: 30px;
             box-shadow: var(--box-shadow);
             transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+
+            /* 修正点：固定高さを使わない */
+            height: auto;
+            /* 固定値ではなく自動調整 */
+            min-height: 550px;
+            /* 最小高さを設定（調整可能） */
+
+            /* カード内のコンテンツ配置を調整 */
+            justify-content: flex-start;
+            /* コンテンツを上から配置 */
         }
-        
+
         .service-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
         }
-        
+
+        .card-header {
+            margin-bottom: 20px;
+        }
+
         .card-icon {
-            width: 80px;
-            height: 80px;
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
             margin: 0 auto 20px;
             display: flex;
             align-items: center;
             justify-content: center;
             background-color: rgba(46, 117, 181, 0.1);
-            border-radius: 50%;
+            border-radius: 16px;
+            /* 適度な角丸 */
+            overflow: hidden;
+            /* 画像がはみ出さないように */
         }
-        
+
         .card-icon img {
-            width: 50px;
-            height: 50px;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            /* 画像全体が見えるように */
+            border-radius: 0;
+            /* 画像自体の角丸は不要 */
         }
-        
+
         .service-card h3 {
             font-size: 1.5rem;
             color: var(--primary-color);
             margin-bottom: 15px;
             text-align: center;
         }
-        
+
+        .card-content {
+            /* 重要: コンテンツを拡張して空間を埋める */
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
         .service-card p {
             margin-bottom: 20px;
             color: var(--text-color);
         }
-        
+
         .feature-list {
             list-style-type: none;
             margin-bottom: 25px;
         }
-        
+
         .feature-list li {
             position: relative;
             padding-left: 25px;
             margin-bottom: 10px;
         }
-        
+
         .feature-list li:before {
             content: "✓";
             position: absolute;
@@ -498,7 +584,14 @@
             color: var(--accent-color);
             font-weight: bold;
         }
-        
+
+        .card-footer {
+            margin-top: auto;
+            /* フッターを下部に押し出す */
+            width: 100%;
+            /* 幅を親に合わせる */
+        }
+
         .cta-button {
             display: block;
             padding: 12px 20px;
@@ -510,94 +603,109 @@
             font-weight: bold;
             transition: var(--transition);
         }
-        
+
         .cta-button:hover {
             background-color: var(--secondary-color);
         }
-        
+
         /* LLMO比較セクション用のスタイル */
         .llmo-section {
             padding: 80px 0;
         }
-        
+
         .comparison-container {
             display: flex;
-            flex-wrap: wrap;
+            flex-direction: column;
+            /* 縦並びに変更 */
             align-items: center;
             gap: 40px;
             margin-top: 40px;
         }
-        
+
         .comparison-image {
-            flex: 1;
-            min-width: 300px;
-            max-width: 500px;
+            margin: 0 auto;
+            /* 中央配置 */
+            max-width: 100%;
+            /* コンテナ幅に合わせる */
+            display: flex;
+            /* フレックスボックス化 */
+            justify-content: center;
+            /* 水平方向の中央揃え */
+            align-items: center;
+            /* 垂直方向の中央揃え */
         }
-        
+
         .comparison-image img {
             width: 100%;
-            border-radius: var(--border-radius);
-            box-shadow: var(--box-shadow);
+            /* 画像を最大幅で表示 */
+            max-width: 100%;
+            /* 親要素からはみ出さないように */
+            height: auto;
+            /* アスペクト比を維持 */
+            object-fit: contain;
+            /* 画像が収まるようにする */
+            margin: 0;
+            /* 余白をなくす */
         }
-        
+
         .comparison-text {
             flex: 1;
-            min-width: 300px;
+            min-width: 100%;
         }
-        
+
         .comparison-text h3 {
             font-size: 1.7rem;
             color: var(--primary-color);
             margin-bottom: 20px;
         }
-        
+
         .llmo-features {
             margin-top: 30px;
         }
-        
+
         .feature-item {
             margin-bottom: 20px;
             padding-bottom: 15px;
             border-bottom: 1px solid rgba(0, 0, 0, 0.1);
         }
-        
+
         .feature-item:last-child {
             border-bottom: none;
         }
-        
+
         .feature-item h4 {
             font-size: 1.2rem;
             color: var(--primary-color);
             margin-bottom: 10px;
         }
-        
+
         .notion-llmo {
             margin-top: 40px;
             padding: 25px;
             background-color: rgba(46, 117, 181, 0.05);
             border-radius: var(--border-radius);
         }
-        
+
         .notion-llmo h3 {
             font-size: 1.4rem;
             margin-bottom: 15px;
         }
-        
+
         .notion-llmo ul {
             padding-left: 20px;
             margin: 15px 0;
         }
-        
+
         .notion-llmo li {
             margin-bottom: 8px;
         }
-        
+
         /* お問い合わせフォーム用のスタイル */
         .contact-section {
             padding: 80px 0;
             background-color: var(--white);
         }
-        
+
         .contact-form {
             max-width: 700px;
             margin: 40px auto 0;
@@ -606,18 +714,18 @@
             border-radius: var(--border-radius);
             box-shadow: var(--box-shadow);
         }
-        
+
         .form-group {
             margin-bottom: 25px;
         }
-        
+
         .form-group label {
             display: block;
             margin-bottom: 8px;
             font-weight: bold;
             color: var(--primary-color);
         }
-        
+
         .form-group input,
         .form-group textarea,
         .form-group select {
@@ -628,7 +736,7 @@
             font-size: 1rem;
             transition: var(--transition);
         }
-        
+
         .form-group input:focus,
         .form-group textarea:focus,
         .form-group select:focus {
@@ -636,7 +744,7 @@
             outline: none;
             box-shadow: 0 0 0 2px rgba(46, 117, 181, 0.2);
         }
-        
+
         .submit-button {
             display: block;
             width: 100%;
@@ -650,12 +758,80 @@
             cursor: pointer;
             transition: var(--transition);
         }
-        
+
         .submit-button:hover {
             background-color: var(--secondary-color);
         }
+
+        @media (max-width: 768px) {
+            .diagram-container {
+                padding: 15px;
+            }
+
+            .diagram-title {
+                font-size: 1.2rem;
+                /* モバイルで小さくする */
+            }
+
+            /* 画像下のキャプションを調整 */
+            .diagram-container p {
+                font-size: 0.8rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .diagram-container {
+                padding: 10px;
+            }
+        }
+
+        /* レスポンシブ対応のメディアクエリ追加 */
+        @media (min-width: 992px) {
+
+            /* PCサイズでも1カラム表示を維持 */
+            .two-column {
+                flex-direction: column;
+            }
+
+            .column {
+                min-width: 100%;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .section-title {
+                font-size: 1.8rem;
+            }
+
+            .section-subtitle {
+                font-size: 1.1rem;
+            }
+
+            .feature-title,
+            .comparison-title {
+                font-size: 1.2rem;
+            }
+
+            .container {
+                padding: 15px;
+            }
+        }
+
+        /* モバイル環境では余計な余白を削減 */
+        @media (max-width: 768px) {
+            .comparison-container {
+                gap: 20px;
+                /* 余白を小さくする */
+            }
+
+            .section-title {
+                margin-bottom: 30px;
+                /* タイトルの下余白を調整 */
+            }
+        }
     </style>
 </head>
+
 <body>
     <header>
         <div class="container">
@@ -668,36 +844,44 @@
         </div>
     </header>
 
+
     <section class="section">
         <div class="container">
             <h2 class="section-title">AI検索時代の新たな波：LLMO</h2>
             <p class="section-subtitle">SEOからLLMOへ。情報検索のパラダイムシフトが始まっています</p>
-            
+
             <div class="diagram-container">
                 <h3 class="diagram-title">AI検索とLLMOの概念図</h3>
                 <div class="diagram">
-                    <img src="/api/placeholder/800/400" alt="AI検索とLLMOの概念図" />
+                    <img src="images/ai-search-llmo-concept-diagram.svg"
+                        alt="AIアシスタントによる検索結果生成とLLMO(大規模言語モデル最適化)の関係を示す概念図">
                 </div>
+                <p class="diagram-caption">
+                    図1：AI検索では、ユーザーの質問に対してAIが複数のウェブサイトから情報を集約して回答を生成します</p>
             </div>
-            
+
             <div class="two-column">
                 <div class="column">
                     <h3>LLMOとは何か？</h3>
-                    <p>LLMO（Large Language Model Optimization）は、ChatGPT、Gemini、Claudeなどの大規模言語モデル（LLM）にコンテンツを最適化する技術です。従来のSEOがGoogleやBingなどの検索エンジンを対象としていたのに対し、LLMOはAIが情報を理解しやすくするための最適化です。</p>
-                    
-                    <p>AIチャットボットの利用増加に伴い、これらのAIがあなたのサイトから情報を取得し、ユーザーに提供する機会が増加しています。Google検索でもAI Overview（AI概要）が検索結果上部に表示され、情報源となるサイトへのリンクも掲載されます。</p>
+                    <p>LLMO（Large Language Model
+                        Optimization）は、ChatGPT、Gemini、Claudeなどの大規模言語モデル（LLM）にコンテンツを最適化する技術です。従来のSEOがGoogleやBingなどの検索エンジンを対象としていたのに対し、LLMOはAIが情報を理解しやすくするための最適化です。
+                    </p>
+
+                    <p>AIチャットボットの利用増加に伴い、これらのAIがあなたのサイトから情報を取得し、ユーザーに提供する機会が増加しています。Google検索でもAI
+                        Overview（AI概要）が検索結果上部に表示され、情報源となるサイトへのリンクも掲載されます。</p>
                 </div>
                 <div class="column">
                     <h3>なぜ今LLMOが重要なのか？</h3>
                     <p>ユーザーの情報検索行動が変化しています。かつては検索エンジンで複数のサイトを閲覧して情報を収集していましたが、今はAIが複数のソースから情報を集約して回答を生成します。</p>
-                    
-                    <p>この変化により、「検索結果で上位表示される」だけでなく、「AIの回答に自社サイトが情報源として引用される」ことが重要になっています。AIに認識されないサイトは、ユーザーの目に触れる機会すら失われる可能性があります。</p>
+                    <p>この変化により、「検索結果で上位表示される」だけでなく、「AIの回答に自社サイトが情報源として引用される」ことが重要になっています。AIに認識されないサイトは、ユーザーの目に触れる機会すら失われる可能性があります。
+                    </p>
                 </div>
             </div>
-            
+
             <div class="highlight-box">
                 <p class="highlight-title">SEOとLLMOは対立ではなく共存</p>
-                <p>LLMOの台頭は「SEOはもう不要」という意味ではありません。むしろ、良質なSEO対策はLLMOの基盤となります。AIは検索上位のコンテンツを重視する傾向があり、SEOとLLMOは相互補完的な関係にあります。今後も両方の最適化が重要になります。</p>
+                <p>LLMOの台頭は「SEOはもう不要」という意味ではありません。むしろ、良質なSEO対策はLLMOの基盤となります。AIは検索上位のコンテンツを重視する傾向があり、SEOとLLMOは相互補完的な関係にあります。今後も両方の最適化が重要になります。
+                </p>
             </div>
         </div>
     </section>
@@ -706,100 +890,175 @@
     <section id="service" class="service-section">
         <div class="container">
             <h2 class="section-title">LLMO対策を徹底したWeb構築サービス</h2>
-            <p class="section-description">株式会社EFFECTでは、AI検索時代に最適化されたWebサイト構築サービスを提供しています。サイト構造から画像設定、文章作成まで、LLMO対策を徹底した3つのプランをご用意しました。</p>
-            
+            <p class="section-description">
+                株式会社EFFECTでは、AI検索時代に最適化されたWebサイト構築サービスを提供しています。サイト構造から画像設定、文章作成まで、LLMO対策を徹底した3つのプランをご用意しました。</p>
+
             <div class="service-cards">
                 <div class="service-card">
-                    <div class="card-icon">
-                        <img src="/api/placeholder/50/50" alt="既存サイトとNotionの連結">
+                    <div class="card-header">
+                        <div class="card-icon">
+                            <img src="images/llmo-workspace-setup.webp" alt="既存サイトの包括的LLMO最適化">
+                        </div>
+                        <h3>既存サイトへLLMO対策</h3>
                     </div>
-                    <h3>既存サイト + Notionブログ連結</h3>
-                    <p>現在お持ちのサイトと新設するNotionブログを同一ドメインでシームレスに連携します。既存サイトにも可能な範囲でLLMO対策を実施し、サイト全体の最適化を図ります。</p>
-                    <ul class="feature-list">
-                        <li>既存サイトの資産を活かしながらLLMO対策を実現</li>
-                        <li>ドメインパワーを一元化し、情報の関連性を強化</li>
-                        <li>段階的な移行が可能で、リスクを最小限に抑制</li>
-                    </ul>
-                    <a href="#contact" class="cta-button">詳細を問い合わせる</a>
+                    <div class="card-content">
+                        <p>現在お持ちのサイトの固定ページにLLMO対策を実施します。既に既存サイトでブログコンテンツもお持ちの場合はこちらになります。ブログページの対策は雛形を準備させていただき、実際の編集はお客様で行っていただきます。
+                        </p>
+                        <ul class="feature-list">
+                            <li>既存資産を活かしながらLLMO対策を実現</li>
+                            <li>従来通りのWEBワークフローで対策可能</li>
+                            <li>ECサイトも対応可能</li>
+                        </ul>
+                    </div>
+                    <div class="card-footer">
+                        <a href="#contact" class="cta-button">詳細を問い合わせる</a>
+                    </div>
                 </div>
-                
+
                 <div class="service-card">
-                    <div class="card-icon">
-                        <img src="/api/placeholder/50/50" alt="カバーページとNotionブログ">
+                    <div class="card-header">
+                        <div class="card-icon">
+                            <img src="images/existing-website-notion-blog-integration.webp" alt="既存サイトとNotionの連結">
+                        </div>
+                        <h3>既存サイト + Notionブログ連結</h3>
                     </div>
-                    <h3>カバーページ + Notionブログ</h3>
-                    <p>ビジュアル重視のカバーページとNotionブログを組み合わせた、バランスの取れたサイト構築プランです。商品やサービスごとにLP展開することで、強力なLLMO対策となります。</p>
-                    <ul class="feature-list">
-                        <li>視覚的魅力と情報の充実を両立</li>
-                        <li>サービスごとの最適化が容易</li>
-                        <li>ブランドイメージとAI対応の両方に配慮</li>
-                    </ul>
-                    <a href="#contact" class="cta-button">詳細を問い合わせる</a>
+                    <div class="card-content">
+                        <p>現在お持ちのサイトと新設するNotionブログを同一ドメインでシームレスに連携します。既存サイトにも可能な範囲でLLMO対策を実施し、サイト全体の最適化を図ります。</p>
+                        <ul class="feature-list">
+                            <li>既存資産を活かしながらLLMO対策を実現</li>
+                            <li>ドメインパワーを一元化し情報連携を強化</li>
+                            <li>段階的な移行でリスク軽減が可能</li>
+                        </ul>
+                    </div>
+                    <div class="card-footer">
+                        <a href="#contact" class="cta-button">詳細を問い合わせる</a>
+                    </div>
                 </div>
-                
+
                 <div class="service-card">
-                    <div class="card-icon">
-                        <img src="/api/placeholder/50/50" alt="Notionブログ">
+                    <div class="card-header">
+                        <div class="card-icon">
+                            <img src="images/coverpage-notionblog.webp" alt="カバーページとNotionブログ">
+                        </div>
+                        <h3>カバーページ + Notionブログ</h3>
                     </div>
-                    <h3>Notionブログ</h3>
-                    <p>Notionだけでサイト全体を構築する最もシンプルなプランです。全ページをNotionで編集できるため、手軽さとコスト面で優れています。商品・サービスごとのLP展開も容易に実現できます。</p>
-                    <ul class="feature-list">
-                        <li>最も手軽で低コストな導入が可能</li>
-                        <li>Notionの直感的な編集環境でコンテンツ管理が簡単</li>
-                        <li>LLMOに最適化された構造を最初から構築</li>
-                    </ul>
-                    <a href="#contact" class="cta-button">詳細を問い合わせる</a>
+                    <div class="card-content">
+                        <p>ビジュアル重視のカバーページとNotionブログを組み合わせた、バランスの取れたサイト構築プランです。商品やサービスごとにLP展開することで、強力なLLMO対策となります。</p>
+                        <ul class="feature-list">
+                            <li>視覚的魅力と情報の充実を両立</li>
+                            <li>サービスごとの最適化が容易</li>
+                            <li>ブランドイメージとAI対応の両方に配慮</li>
+                        </ul>
+                    </div>
+                    <div class="card-footer">
+                        <a href="#contact" class="cta-button">詳細を問い合わせる</a>
+                    </div>
+                </div>
+
+                <div class="service-card">
+                    <div class="card-header">
+                        <div class="card-icon">
+                            <img src="images/notionblog-image.webp" alt="Notionブログ">
+                        </div>
+                        <h3>Notionブログのみでサイトを構成</h3>
+                    </div>
+                    <div class="card-content">
+                        <p>Notionだけでサイト全体を構築する最もシンプルなプランです。Notionで編集できるため、手軽さとコスト面で優れています。商品・サービスごとのLP展開も容易に実現できます。
+                        </p>
+                        <ul class="feature-list">
+                            <li>最も手軽で低コストな導入が可能</li>
+                            <li>Notionの直感的な編集環境でコンテンツ管理が簡単</li>
+                            <li>LLMOに最適化された構造を最初から構築</li>
+                        </ul>
+                    </div>
+                    <div class="card-footer">
+                        <a href="#contact" class="cta-button">詳細を問い合わせる</a>
+                    </div>
+                </div>
+
+                <div class="service-card">
+                    <div class="card-header">
+                        <div class="card-icon">
+                            <img src="images/llmo-consulting-team.webp" alt="総合的なLLMO対策コンサルティング">
+                        </div>
+                        <h3>LLMO対策フルコンサル</h3>
+                    </div>
+                    <div class="card-content">
+                        <p>お客様のLLMO対策を完全コンサル致します。WEBページの内外部のLLMO対策、アクセス解析、運用指導を行い、半年以上をかけてじっくりと対策を講じていきます。</p>
+                        <ul class="feature-list">
+                            <li>メタタグから文章構造まで、包括的なテコ入れを実施</li>
+                            <li>お客様のサイト以外のコンテンツも有効活用（SNS、YouTube、Amazon Kindle、Notionブログなど）</li>
+                            <li>リスキリング補助金を使ったお申し込みも可能</li>
+                        </ul>
+                    </div>
+                    <div class="card-footer">
+                        <a href="#contact" class="cta-button">詳細を問い合わせる</a>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- LLMOと他のAI対策の違いを説明するセクションを追加 -->
     <section id="llmo-comparison" class="llmo-section">
         <div class="container">
-            <h2 class="section-title">LLMOと他のAI対策の違い</h2>
-            
+            <h2 class="section-title">AI時代の最適化戦略：用語の整理と関係性</h2>
+
             <div class="comparison-container">
                 <div class="comparison-image">
-                    <img src="/api/placeholder/500/400" alt="LLMO、GEO、AIO、AEOの比較図">
+                    <img src="images/optimization-strategies-llmo-seo-aeo-comparison.svg"
+                        alt="LLMO(大規模言語モデル最適化)、SEO(検索エンジン最適化)、AEO(Answer Engine Optimization)、AIO(AI最適化)、GEO(Generative Engine Optimization)の関係性と違いを示す概念図。各最適化戦略の特徴、対象プラットフォーム、手法を比較説明。"
+                        style="max-width: 100%; width: 100%;">
                 </div>
-                
+
                 <div class="comparison-text">
-                    <h3>AI検索時代に必要なのはLLMO対策</h3>
-                    <p>LLMO（Large Language Model Optimization）は、単なるキーワード対策ではなく、<strong>文脈理解とコンテンツの質</strong>に焦点を当てた最適化手法です。AIが情報をどのように処理し理解するかに基づいた、次世代のWeb最適化アプローチです。</p>
-                    
+                    <h3>AI検索時代の最適化戦略を理解する</h3>
+                    <p>AI技術の発展により、ウェブコンテンツの最適化手法も進化しています。これらの用語の関係性を理解することで、効果的な対策を講じることができます。</p>
+
                     <div class="llmo-features">
                         <div class="feature-item">
-                            <h4>LLMO (Large Language Model Optimization)</h4>
-                            <p>大規模言語モデルがコンテンツを正確に理解し、適切に引用・参照できるよう最適化。文脈理解と情報の構造化を重視します。</p>
+                            <h4>LLMO対策 (Large Language Model Optimization)</h4>
+                            <p>大規模言語モデル（LLM）がコンテンツを正確に理解し、適切に引用・参照できるよう最適化する戦略です。GoogleのAI
+                                Overview、ChatGPT、Bard、Claude、Perplexityなどのサービスで自社コンテンツが引用されることを目指します。具体的には、E-E-A-T要素の強化、情報の構造化、文脈理解の促進などが含まれます。
+                            </p>
                         </div>
-                        
+
                         <div class="feature-item">
-                            <h4>GEO (Generative Engine Optimization)</h4>
-                            <p>LLMだけでなく、画像生成や音声生成など様々な生成AIエンジン全般に対する最適化。より広範なAI対応を目指します。</p>
+                            <h4>SEO対策 (Search Engine Optimization)</h4>
+                            <p>従来型の検索エンジン最適化で、Google、Bingなどの検索結果ページでの表示順位向上を目指します。キーワード最適化、バックリンク構築、技術的最適化などが中心です。AI時代においても重要な基盤ですが、単体では不十分になりつつあります。LLMOと併用することで、両方のチャネルからの流入を確保できます。
+                            </p>
                         </div>
-                        
+
                         <div class="feature-item">
-                            <h4>AIO (AI Optimization)</h4>
-                            <p>AI全般の最適化を指し、様々なAI技術に適用されるより広範な概念です。目的はアルゴリズムとシステム全体の効率向上にあります。</p>
+                            <h4>AEO対策 (Answer Engine Optimization)</h4>
+                            <p>回答エンジン最適化とも呼ばれ、GoogleのFeatured
+                                Snippetやナレッジパネルなど、直接的な回答を提供する機能に最適化する手法です。「FAQを活用した質問と回答の明確な提示」や「構造化データの実装」などが含まれます。LLMOの一部と考えることもできますが、より限定的な概念です。
+                            </p>
                         </div>
-                        
+
                         <div class="feature-item">
-                            <h4>AEO (Answer Engine Optimization)</h4>
-                            <p>回答エンジンの最適化に特化した手法で、ユーザーの質問に対する直接的な回答生成の改善を目指します。</p>
+                            <h4>AIO対策 (AI Optimization)</h4>
+                            <p>AI全般の最適化を指す広義の概念で、様々なAI技術（検索、レコメンデーション、チャットボットなど）に対応した最適化戦略全般を指します。LLMOはAIOの一部と考えられますが、より具体的にLLMに特化しています。
+                            </p>
+                        </div>
+
+                        <div class="feature-item">
+                            <h4>GEO対策 (Generative Engine Optimization)</h4>
+                            <p>生成AIエンジン全般に対する最適化で、テキスト生成だけでなく、画像生成（DALL-E、Midjourney）、音声生成、動画生成などの生成AIにも対応した最適化手法です。LLMOよりも広範な概念ですが、まだ体系化されていない新しい分野です。
+                            </p>
                         </div>
                     </div>
-                    
+
                     <div class="notion-llmo">
-                        <h3>NotionとLLMOの高い親和性</h3>
-                        <p>Notionは優れたテキストエディタとしての機能に加え、情報の構造化と文脈の明確な提示に優れています。これはまさにLLMOが重視する要素であり、両者の親和性は非常に高いと言えます。</p>
+                        <h3>Notionを活用した総合的なAI対策戦略</h3>
+                        <p>Notionの特性は、これらのAI対策手法と高い親和性を持っています。特にLLMO対策において、Notionは以下の点で優れた基盤となります：</p>
                         <ul>
-                            <li>階層構造による文脈の明確化</li>
-                            <li>データベース機能による情報の構造化</li>
-                            <li>リッチテキスト形式でのコンテンツ作成</li>
-                            <li>Webコンテンツとしての最適化が容易</li>
+                            <li><strong>階層構造による文脈の明確化</strong>：AIが文脈を理解しやすいコンテンツ構造</li>
+                            <li><strong>データベース機能による情報の構造化</strong>：体系的な情報管理と関連付け</li>
+                            <li><strong>スキーママークアップ自動生成</strong>：AIがコンテンツの意味を理解するための重要な要素</li>
+                            <li><strong>リッチテキスト形式でのコンテンツ作成</strong>：見出し、リスト、表などAIが理解しやすい要素</li>
+                            <li><strong>E-E-A-T要素の統合</strong>：著者情報、引用、参考文献などの透明性要素を容易に実装</li>
                         </ul>
-                        <p>NotionをベースにしたWebサイトは、AI検索エンジンに「理解されやすい」構造を自然に持ち合わせているため、LLMO対策の基盤として最適です。</p>
+                        <p>NotionをベースにしたWebサイトでは、これらのAI対策が自然に統合され、AI検索エンジンに「理解されやすい」構造を持つため、総合的なAI対策の基盤として最適です。</p>
                     </div>
                 </div>
             </div>
@@ -809,39 +1068,52 @@
     <section class="section" style="background-color: var(--light-bg);">
         <div class="container">
             <h2 class="section-title">Notion×LLMOの強力な相乗効果</h2>
-            <p class="section-subtitle">NotionでLLMO対策を実施する5つのメリット</p>
-            
+            <p class="section-subtitle">NotionでLLMO対策を実施する9つのメリット</p>
             <div class="features">
+                <div class="feature-card">
+                    <div class="feature-icon">🤖</div>
+                    <h3 class="feature-title">AIが理解しやすいコンテンツ作成</h3>
+                    <p>Notionの編集環境を活用して、見出し構造が明確で、段落が適切に区切られたコンテンツを作成できます。具体的なデータや引用を含め、情報の正確性と信頼性を高めることで、AIに評価されるコンテンツを効率的に構築できます。
+                    </p>
+                </div>
                 <div class="feature-card">
                     <div class="feature-icon">📋</div>
                     <h3 class="feature-title">構造化されたコンテンツ管理</h3>
                     <p>Notionはデータベースとドキュメントが融合した構造により、情報を階層的に整理できます。この構造化されたコンテンツ管理はAIが情報を理解しやすく、LLMOに最適です。</p>
                 </div>
-                
-                <div class="feature-card">
-                    <div class="feature-icon">⚡</div>
-                    <h3 class="feature-title">超高速なWebサイト表示</h3>
-                    <p>NotionのWebサイト変換サービスは最適化されたコードを生成し、ページ読み込み時間を大幅に短縮。LLMO対策でも重要なCore Web Vitalsのスコア向上に貢献します。</p>
-                </div>
-                
                 <div class="feature-card">
                     <div class="feature-icon">🔄</div>
                     <h3 class="feature-title">リアルタイム更新の容易さ</h3>
-                    <p>Notionでコンテンツを更新すると、Webサイトにリアルタイムに反映されます。情報の鮮度（Content freshness）を重視するLLMOにおいて、情報の鮮度を維持しやすい環境を提供します。</p>
+                    <p>Notionでコンテンツを更新すると、Webサイトにリアルタイムに反映されます。情報の鮮度（Content
+                        freshness）を重視するLLMOにおいて、情報の鮮度を維持しやすい環境を提供します。</p>
                 </div>
-                
                 <div class="feature-card">
-                    <div class="feature-icon">📱</div>
-                    <h3 class="feature-title">マルチデバイス対応の柔軟性</h3>
-                    <p>NotionのWebサイトは自動的にレスポンシブデザインに対応。モバイルフレンドリーなサイト構造はLLMOでも評価される重要な要素です。</p>
+                    <div class="feature-icon">🔗</div>
+                    <h3 class="feature-title">内部リンク構造の最適化</h3>
+                    <p>Notionの内部リンク機能で関連コンテンツ間の相互リンクを簡単に構築できます。これによりAIがサイト全体のコンテキストと関連性を理解しやすくなり、データベースビューを活用すればリンク管理も容易になります。
+                    </p>
                 </div>
-                
                 <div class="feature-card">
                     <div class="feature-icon">🧩</div>
                     <h3 class="feature-title">メタデータとスキーマの充実</h3>
                     <p>Notionから生成されるWebサイトは自動的に適切なメタデータとスキーママークアップが実装され、AIがコンテンツの意味を理解しやすくなります。</p>
                 </div>
-                
+                <div class="feature-card">
+                    <div class="feature-icon">🏗️</div>
+                    <h3 class="feature-title">構造化データの拡充</h3>
+                    <p>NotionのWebサイト変換時に、FAQ、HowTo、Article、Productなどの構造化データを自動生成できるよう設定できます。データベース機能を活用することで、これらの構造化データを効率的に管理し、AI検索での表示機会を拡大できます。
+                    </p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📱</div>
+                    <h3 class="feature-title">マルチデバイス対応の柔軟性</h3>
+                    <p>NotionのWebサイトは自動的にレスポンシブデザインに対応。モバイルフレンドリーなサイト構造はLLMOでも評価される重要な要素です。</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3 class="feature-title">超高速なWebサイト表示</h3>
+                    <p>NotionのWebサイト変換サービスは最適化されたコードを生成し、ページ読み込み時間を大幅に短縮。LLMO対策でも重要なCore Web Vitalsのスコア向上に貢献します。</p>
+                </div>
                 <div class="feature-card">
                     <div class="feature-icon">📊</div>
                     <h3 class="feature-title">データ分析との連携性</h3>
@@ -853,9 +1125,79 @@
 
     <section class="section">
         <div class="container">
+            <h2 class="section-title">LLMs.txtファイルの具体的な実装例</h2>
+            <p class="section-subtitle">AIクローラーに対するガイダンスを明示的に提供する方法</p>
+
+            <div
+                style="background: #f5f5f5; border-radius: 8px; padding: 30px; margin: 40px 0; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); overflow-x: auto;">
+                <pre
+                    style="font-family: monospace; margin: 0; line-height: 1.5; white-space: pre-wrap; font-size: 0.9rem;">
+    # LLMs.txt for notion.effect.moe
+    Version: 1.0
+    Last-Updated: 2025-05-08
+    
+    ## Site Information
+    Name: EFFECT - Notion×LLMO対策サービス
+    Description: AI検索時代に最適化されたNotionブログの構築方法と実践テクニックを提供するサイト
+    Language: ja-JP
+    Topic: LLMO, LLMO対策, SEO対策, AEO対策, GEO対策, Notion, AIマーケティング
+    
+    ## Content Structure
+    Main-Content-Selector: article.main-content
+    Navigation-Selector: nav.main-menu
+    Footer-Selector: footer.site-footer
+    Skip-Selectors: .cta-buttons, .footer-links
+    
+    ## Important Definitions
+    Term: LLMO
+    Definition: Large Language Model Optimization（大規模言語モデル最適化）の略。AIアシスタントや検索エンジンが使用する大規模言語モデル（LLM）がコンテンツを認識し、引用し、推奨するよう最適化する戦略。
+    
+    Term: SEO
+    Definition: Search Engine Optimization（検索エンジン最適化）の略。GoogleやBingなどの検索エンジンの結果ページでのウェブサイトの表示順位を高めるための技術や手法。
+    
+    Term: AEO
+    Definition: Answer Engine Optimization（回答エンジン最適化）の略。回答エンジンの最適化に特化した手法で、ユーザーの質問に対する直接的な回答生成の改善を目指す。
+    
+    Term: AIO
+    Definition: AI Optimization（AI最適化）の略。AI全般の最適化を指し、様々なAI技術に適用されるより広範な概念。
+    
+    Term: GEO
+    Definition: Generative Engine Optimization（生成エンジン最適化）の略。LLMだけでなく、画像生成や音声生成など様々な生成AIエンジン全般に対する最適化。
+    
+    ## Important Pages
+    Homepage: https://notion.effect.moe/
+    About: https://notion.effect.moe/about/
+    Services: https://notion.effect.moe/services/
+    LLMO-Guide: https://notion.effect.moe/llmo-guide/
+    Contact: https://notion.effect.moe/contact/
+    Pricing: https://notion.effect.moe/pricing/
+    
+    ## Author Information
+    Name: 朱 剛明（シュ コウメイ）
+    Expertise: Notion専門家、LLMO研究者
+    Published-Works: グッバイSEO、ハローLLMO！〜AI検索時代のWebマーケティング (2024)
+    
+    ## Data Usage Guidelines
+    Training-Allowed: true
+    Reproduction-Allowed: false
+    Attribution-Required: true
+    Citation-Format: {title} by {author}, {date}, {url}
+                </pre>
+            </div>
+
+            <div class="highlight-box">
+                <p class="highlight-title">LLMs.txtファイルの重要性</p>
+                <p>LLMs.txtは、robots.txtがクローラーに指示を与えるのと同様に、AIクローラーにサイトの構造や内容に関する情報を提供します。これにより、AIがコンテンツをより正確に理解し、適切に引用することが可能になります。まだ標準化されていない新しい取り組みですが、早期に導入することで先行者利益を得ることができます。
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
             <h2 class="section-title">SEOからLLMOへの進化</h2>
             <p class="section-subtitle">何が変わるのか？対策の違いを解説</p>
-            
+
             <div class="comparison">
                 <div class="comparison-card">
                     <h3 class="comparison-title">従来のSEO対策</h3>
@@ -880,7 +1222,7 @@
                         <p>クローラビリティの向上</p>
                     </div>
                 </div>
-                
+
                 <div class="comparison-card">
                     <h3 class="comparison-title">LLMO対策の新要素</h3>
                     <div class="comparison-item">
@@ -905,11 +1247,12 @@
                     </div>
                 </div>
             </div>
-            
+
             <div class="diagram-container">
                 <h3 class="diagram-title">SEOとLLMOの対策比較フロー</h3>
                 <div class="diagram">
-                    <img src="/api/placeholder/800/400" alt="SEOとLLMOの対策比較フロー" />
+                    <img src="images/SEOとLLMO対策比較フロー.svg"
+                        aalt="SEOとLLMO対策の比較フローチャート：従来の検索エンジン最適化とAI検索向け最適化の主要プロセスと評価指標の違いを図解したもの" />
                 </div>
             </div>
         </div>
@@ -917,63 +1260,111 @@
 
     <section class="section" style="background-color: var(--light-bg);">
         <div class="container">
-            <h2 class="section-title">Notion×LLMOの実践ステップ</h2>
-            <p class="section-subtitle">効果的なLLMO対策をNotionで実装する方法</p>
-            
-            <div class="steps">
-                <div class="step">
-                    <div class="step-content">
-                        <span class="step-number">1</span>
-                        <h3 class="step-title">LLMs.txtファイルの作成と実装</h3>
-                        <p>LLMs.txtはAIがWebサイトを理解するための「ガイド」です。Notionサイトでは、特定のページをLLMs.txt用に設定し、サイト構造や主要コンテンツの概要を記述します。これによりAIがサイトの文脈を効率的に理解できるようになります。</p>
+            <h2 class="section-title">LLMO対策の具体的な効果</h2>
+            <p class="section-subtitle">データで見るAI検索時代の成功事例</p>
+
+            <div
+                style="margin: 40px 0; background: white; border-radius: 8px; padding: 30px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
+                <h3 style="color: var(--primary-color); margin-bottom: 20px; text-align: center;">2024-2025年
+                    AI検索由来のトラフィック増加率</h3>
+
+                <div style="display: flex; flex-wrap: wrap; justify-content: space-between; margin-bottom: 30px;">
+                    <div style="flex: 1; min-width: 250px; text-align: center; padding: 15px;">
+                        <div
+                            style="font-size: 3rem; font-weight: bold; color: var(--primary-color); margin-bottom: 10px;">
+                            342%</div>
+                        <p style="font-size: 1.1rem;">Perplexity.aiからの<br>流入増加率</p>
                     </div>
-                    <div class="step-image">
-                        <img src="/api/placeholder/500/300" alt="LLMs.txtファイルの例" />
+
+                    <div style="flex: 1; min-width: 250px; text-align: center; padding: 15px;">
+                        <div
+                            style="font-size: 3rem; font-weight: bold; color: var(--primary-color); margin-bottom: 10px;">
+                            218%</div>
+                        <p style="font-size: 1.1rem;">Google AI Overview<br>表示回数増加</p>
                     </div>
-                </div>
-                
-                <div class="step">
-                    <div class="step-content">
-                        <span class="step-number">2</span>
-                        <h3 class="step-title">構造化データの拡充</h3>
-                        <p>NotionのWebサイト変換時に、FAQ、HowTo、Article、Productなどの構造化データを自動的に生成できるよう設定します。Notionのデータベース機能を活用することで、これらの構造化データを効率的に管理できます。</p>
-                    </div>
-                    <div class="step-image">
-                        <img src="/api/placeholder/500/300" alt="Notionでの構造化データ設定" />
-                    </div>
-                </div>
-                
-                <div class="step">
-                    <div class="step-content">
-                        <span class="step-number">3</span>
-                        <h3 class="step-title">AIが理解しやすいコンテンツ作成</h3>
-                        <p>Notionの編集環境を活用して、見出し構造が明確で、段落が適切に区切られたコンテンツを作成します。また、具体的なデータや引用を含め、情報の正確性と信頼性を高めることで、AIに評価されるコンテンツを効率的に作成できます。</p>
-                    </div>
-                    <div class="step-image">
-                        <img src="/api/placeholder/500/300" alt="Notionでのコンテンツ作成" />
+
+                    <div style="flex: 1; min-width: 250px; text-align: center; padding: 15px;">
+                        <div
+                            style="font-size: 3rem; font-weight: bold; color: var(--primary-color); margin-bottom: 10px;">
+                            178%</div>
+                        <p style="font-size: 1.1rem;">Bing AI/Copilot<br>からの流入増加率</p>
                     </div>
                 </div>
-                
-                <div class="step">
-                    <div class="step-content">
-                        <span class="step-number">4</span>
-                        <h3 class="step-title">内部リンク構造の最適化</h3>
-                        <p>Notionの内部リンク機能を活用して、関連コンテンツ間の相互リンクを構築します。これにより、AIがサイト全体のコンテキストと関連性を理解しやすくなります。Notionのデータベースビューを活用すれば、リンク管理も容易です。</p>
-                    </div>
-                    <div class="step-image">
-                        <img src="/api/placeholder/500/300" alt="Notionでの内部リンク構造" />
-                    </div>
+
+                <p style="text-align: center; font-style: italic; font-size: 0.9rem; color: var(--gray);">
+                    ※2023年比、株式会社EFFECT顧客サイト平均値（n=12）</p>
+            </div>
+
+            <div style="margin: 40px 0; display: flex; flex-wrap: wrap; gap: 20px;">
+                <div
+                    style="flex: 1; min-width: 300px; background: white; border-radius: 8px; padding: 25px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
+                    <h3 style="color: var(--primary-color); margin-bottom: 15px;">業種別LLMO効果比較</h3>
+                    <table style="width: 100%; border-collapse: collapse;">
+                        <thead>
+                            <tr>
+                                <th style="border-bottom: 2px solid #eee; padding: 10px; text-align: left;">業種</th>
+                                <th style="border-bottom: 2px solid #eee; padding: 10px; text-align: center;">AI引用率</th>
+                                <th style="border-bottom: 2px solid #eee; padding: 10px; text-align: center;">コンバージョン増加
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td style="border-bottom: 1px solid #eee; padding: 10px;">Eコマース</td>
+                                <td style="border-bottom: 1px solid #eee; padding: 10px; text-align: center;">27.5%</td>
+                                <td style="border-bottom: 1px solid #eee; padding: 10px; text-align: center;">31.2%</td>
+                            </tr>
+                            <tr>
+                                <td style="border-bottom: 1px solid #eee; padding: 10px;">メディア・出版</td>
+                                <td style="border-bottom: 1px solid #eee; padding: 10px; text-align: center;">42.8%</td>
+                                <td style="border-bottom: 1px solid #eee; padding: 10px; text-align: center;">23.7%</td>
+                            </tr>
+                            <tr>
+                                <td style="border-bottom: 1px solid #eee; padding: 10px;">B2B企業</td>
+                                <td style="border-bottom: 1px solid #eee; padding: 10px; text-align: center;">19.6%</td>
+                                <td style="border-bottom: 1px solid #eee; padding: 10px; text-align: center;">35.9%</td>
+                            </tr>
+                            <tr>
+                                <td style="border-bottom: 1px solid #eee; padding: 10px;">地域ビジネス</td>
+                                <td style="border-bottom: 1px solid #eee; padding: 10px; text-align: center;">23.1%</td>
+                                <td style="border-bottom: 1px solid #eee; padding: 10px; text-align: center;">29.3%</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <p style="margin-top: 15px; font-size: 0.9rem; color: var(--gray);">
+                        ※AI引用率：AIアシスタントの回答で自社コンテンツが引用される割合</p>
                 </div>
-                
-                <div class="step">
-                    <div class="step-content">
-                        <span class="step-number">5</span>
-                        <h3 class="step-title">LLMO効果の測定と改善</h3>
-                        <p>AI経由のトラフィックをGoogle Analyticsで計測し、Notionのデータベースに効果測定結果を記録します。これにより、どのコンテンツがAIに評価されているかを可視化し、継続的な改善サイクルを実現できます。</p>
-                    </div>
-                    <div class="step-image">
-                        <img src="/api/placeholder/500/300" alt="LLMO効果測定ダッシュボード" />
-                    </div>
+
+                <div
+                    style="flex: 1; min-width: 300px; background: white; border-radius: 8px; padding: 25px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
+                    <h3 style="color: var(--primary-color); margin-bottom: 15px;">LLMO対策の主要KPI</h3>
+                    <ul style="list-style-type: none; padding: 0;">
+                        <li
+                            style="display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid #eee;">
+                            <span>AIリファラルトラフィック比率</span>
+                            <strong>15-30%</strong>
+                        </li>
+                        <li
+                            style="display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid #eee;">
+                            <span>AI経由コンバージョン率</span>
+                            <strong>通常の110-130%</strong>
+                        </li>
+                        <li
+                            style="display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid #eee;">
+                            <span>コンテンツの構造化実装率</span>
+                            <strong>80-100%</strong>
+                        </li>
+                        <li
+                            style="display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid #eee;">
+                            <span>AI引用率</span>
+                            <strong>15-40%</strong>
+                        </li>
+                        <li style="display: flex; justify-content: space-between; padding: 10px 0;">
+                            <span>E-E-A-Tスコア</span>
+                            <strong>85-95/100</strong>
+                        </li>
+                    </ul>
+                    <p style="margin-top: 15px; font-size: 0.9rem; color: var(--gray);">※2025年推奨目標値、業種により異なる</p>
                 </div>
             </div>
         </div>
@@ -983,28 +1374,26 @@
         <div class="container">
             <h2 class="section-title">導入事例：Notion×LLMOの成果</h2>
             <p class="section-subtitle">実際の導入企業がどのような成果を出しているのか</p>
-            
+
             <div class="testimonial-cards">
                 <div class="testimonial-card">
-                    <p class="testimonial-text">「NotionでLLMO対策を実施してから、AIチャットボットからの流入が3倍に増加しました。特にPerplexityからの流入が目立ちます。コンテンツ更新の手軽さも大きなメリットです。」</p>
+                    <p class="testimonial-text">
+                        「NotionでLLMO対策を実施してから、AIチャットボットからの流入が3倍に増加しました。特にPerplexityからの流入が目立ちます。コンテンツ更新の手軽さも大きなメリットです。」
+                    </p>
                     <p class="testimonial-author">マーケティング企業 A社 マーケティング部長</p>
                 </div>
-                
+
                 <div class="testimonial-card">
-                    <p class="testimonial-text">「これまでSEO対策に苦戦していましたが、Notion×LLMOの導入でコンテンツ作成から公開までのフローが効率化。GoogleのAI Overviewへの掲載頻度が増え、ブランド認知が向上しました。」</p>
+                    <p class="testimonial-text">「これまでSEO対策に苦戦していましたが、Notion×LLMOの導入でコンテンツ作成から公開までのフローが効率化。GoogleのAI
+                        Overviewへの掲載頻度が増え、ブランド認知が向上しました。」</p>
                     <p class="testimonial-author">EC事業者 B社 コンテンツマネージャー</p>
                 </div>
-                
+
                 <div class="testimonial-card">
-                    <p class="testimonial-text">「専門的な医療情報を提供するサイトとして、信頼性と正確性が最重要です。Notion×LLMOの導入でコンテンツの構造化が進み、AIが情報を正確に理解して引用してくれるようになりました。」</p>
+                    <p class="testimonial-text">
+                        「専門的な医療情報を提供するサイトとして、信頼性と正確性が最重要です。Notion×LLMOの導入でコンテンツの構造化が進み、AIが情報を正確に理解して引用してくれるようになりました。」
+                    </p>
                     <p class="testimonial-author">医療情報サイト C社 編集長</p>
-                </div>
-            </div>
-            
-            <div class="diagram-container">
-                <h3 class="diagram-title">AI経由トラフィック増加の実例</h3>
-                <div class="diagram">
-                    <img src="/api/placeholder/800/400" alt="AI経由トラフィック増加グラフ" />
                 </div>
             </div>
         </div>
@@ -1014,39 +1403,43 @@
         <div class="container">
             <h2 class="section-title">よくある質問</h2>
             <p class="section-subtitle">Notion×LLMOに関する疑問にお答えします</p>
-            
+
             <div class="faq-item">
                 <div class="faq-question">NotionでLLMO対策を始めるために必要なものは何ですか？</div>
                 <div class="faq-answer">
-                    <p>基本的にはNotionアカウントと、NotionページをWebサイト化するサービス（Super、Fruition、Potion）などが必要です。技術的な知識がなくても、テンプレートを活用することで簡単に始められます。</p>
+                    <p>基本的にはNotionアカウントと、NotionページをWebサイト化するサービス（Super、Fruition、Potion）などが必要です。技術的な知識がなくても、テンプレートを活用することで簡単に始められます。
+                    </p>
                 </div>
             </div>
-            
+
             <div class="faq-item">
                 <div class="faq-question">従来のWordPressサイトと比べてどのようなメリットがありますか？</div>
                 <div class="faq-answer">
                     <p>WordPressと比較して、コンテンツ更新の容易さ、構造化データの自動生成、ページ表示速度の向上などのメリットがあります。特にコンテンツ作成者にとって直感的な編集環境は大きな利点です。</p>
                 </div>
             </div>
-            
+
             <div class="faq-item">
                 <div class="faq-question">SEO対策とLLMO対策を両立できますか？</div>
                 <div class="faq-answer">
-                    <p>はい、両立可能です。むしろ良質なSEO対策はLLMOの基盤となります。Notionを活用することで、両方の対策を効率的に実施できます。特に構造化データの実装や内部リンク戦略は両方に効果的です。</p>
+                    <p>はい、両立可能です。むしろ良質なSEO対策はLLMOの基盤となります。Notionを活用することで、両方の対策を効率的に実施できます。特に構造化データの実装や内部リンク戦略は両方に効果的です。
+                    </p>
                 </div>
             </div>
-            
+
             <div class="faq-item">
                 <div class="faq-question">LLMO対策の効果はどのように測定できますか？</div>
                 <div class="faq-answer">
-                    <p>Google Analytics 4でリファラーを分析することで、AIチャットボット（Perplexity、Bing Chat、Bardなど）からの流入を追跡できます。また、AIの回答での言及頻度を定期的にモニタリングすることも効果的です。</p>
+                    <p>Google Analytics 4でリファラーを分析することで、AIチャットボット（Perplexity、Bing
+                        Chat、Bardなど）からの流入を追跡できます。また、AIの回答での言及頻度を定期的にモニタリングすることも効果的です。</p>
                 </div>
             </div>
-            
+
             <div class="faq-item">
                 <div class="faq-question">既存のコンテンツをNotionに移行する最適な方法は？</div>
                 <div class="faq-answer">
-                    <p>NotionにはWordPressやHTMLからのインポート機能があります。また、段階的に重要ページから移行することも可能です。移行時にはLLMO視点でのコンテンツ再構築も検討すると効果的です。</p>
+                    <p>NotionにはWordPressやHTMLからのインポート機能があります。また、段階的に重要ページから移行することも可能です。移行時にはLLMO視点でのコンテンツ再構築も検討すると効果的です。
+                    </p>
                 </div>
             </div>
         </div>
@@ -1057,24 +1450,24 @@
         <div class="container">
             <h2 class="section-title">お問い合わせ</h2>
             <p class="section-description">LLMO対策したWebサイト構築について、ご質問やご相談はお気軽にお問い合わせください。</p>
-            
+
             <div class="contact-form">
                 <form action="#" method="POST">
                     <div class="form-group">
                         <label for="name">お名前</label>
                         <input type="text" id="name" name="name" required>
                     </div>
-                    
+
                     <div class="form-group">
                         <label for="email">メールアドレス</label>
                         <input type="email" id="email" name="email" required>
                     </div>
-                    
+
                     <div class="form-group">
                         <label for="company">会社名</label>
                         <input type="text" id="company" name="company">
                     </div>
-                    
+
                     <div class="form-group">
                         <label for="service">ご興味のあるサービス</label>
                         <select id="service" name="service">
@@ -1085,12 +1478,12 @@
                             <option value="other">その他・相談したい</option>
                         </select>
                     </div>
-                    
+
                     <div class="form-group">
                         <label for="message">お問い合わせ内容</label>
                         <textarea id="message" name="message" rows="5" required></textarea>
                     </div>
-                    
+
                     <button type="submit" class="submit-button">送信する</button>
                 </form>
             </div>
@@ -1114,6 +1507,9 @@
             <div class="footer-links">
                 <a href="#" class="footer-link">会社概要</a>
                 <a href="#" class="footer-link">サービス</a>
+                <a href="https://www.amazon.co.jp/dp/B0F7QQF392" class="footer-link">LLMO書籍</a>
+                <a href="#" class="footer-link">LLMO対策ガイド</a>
+                <a href="#" class="footer-link">SEO対策からLLMO対策へ</a>
                 <a href="#" class="footer-link">お問い合わせ</a>
                 <a href="#" class="footer-link">プライバシーポリシー</a>
                 <a href="#" class="footer-link">特定商取引法に基づく表記</a>
@@ -1121,5 +1517,174 @@
             <p class="copyright">© 2025 EFFECT Co. Ltd. All Rights Reserved.</p>
         </div>
     </footer>
+
+    <!-- WebPage構造化データ -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "Notion×LLMOで実現するAI時代のコンテンツ最適化",
+      "description": "SEOからLLMOへ。AI検索時代に最適化されたNotionブログの構築方法と実践テクニックを解説します。",
+      "url": "https://notion.effect.moe/",
+      "datePublished": "2025-05-01",
+      "dateModified": "2025-05-08",
+      "publisher": {
+        "@type": "Organization",
+        "name": "株式会社EFFECT",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://notion.effect.moe/images/logo.png",
+          "width": "600",
+          "height": "60"
+        }
+      },
+      "author": {
+        "@type": "Person",
+        "name": "朱 剛明（シュ コウメイ）",
+        "description": "2018年よりNotionに傾倒し、NotionをCMSとしての利用を模索。Notion本体をヘッドレスCMSとして構築し、NotionAiをサイトエディターとして活用するエキスパート。",
+        "url": "https://notion.effect.moe/about/"
+      },
+      "mainEntity": {
+        "@type": "Service",
+        "name": "Notion×LLMO対策サービス",
+        "offers": {
+          "@type": "Offer",
+          "price": "300000",
+          "priceCurrency": "JPY",
+          "availability": "https://schema.org/InStock"
+        },
+        "description": "AI検索時代に最適化されたWebサイト構築サービス。サイト構造から画像設定、文章作成まで、LLMO対策を徹底したプランを提供します。"
+      },
+      "about": [
+        {
+          "@type": "Thing",
+          "name": "LLMO",
+          "description": "Large Language Model Optimization（大規模言語モデル最適化）の略で、AIアシスタントや検索エンジンが使用する大規模言語モデル（LLM）がコンテンツを認識し、引用し、推奨するよう最適化する戦略です。"
+        },
+        {
+          "@type": "Thing",
+          "name": "SEO",
+          "description": "Search Engine Optimization（検索エンジン最適化）の略で、GoogleやBingなどの検索エンジンの結果ページでのウェブサイトの表示順位を高めるための技術や手法です。"
+        },
+        {
+          "@type": "Thing",
+          "name": "AEO",
+          "description": "Answer Engine Optimization（回答エンジン最適化）の略で、回答エンジンの最適化に特化した手法で、ユーザーの質問に対する直接的な回答生成の改善を目指します。"
+        },
+        {
+          "@type": "Thing",
+          "name": "AIO",
+          "description": "AI Optimization（AI最適化）の略で、AI全般の最適化を指し、様々なAI技術に適用されるより広範な概念です。"
+        },
+        {
+          "@type": "Thing",
+          "name": "GEO",
+          "description": "Generative Engine Optimization（生成エンジン最適化）の略で、LLMだけでなく、画像生成や音声生成など様々な生成AIエンジン全般に対する最適化を指します。"
+        }
+      ]
+    }
+    </script>
+
+    <!-- FAQ構造化データ -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "NotionでLLMO対策を始めるために必要なものは何ですか？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "基本的にはNotionアカウントと、NotionページをWebサイト化するサービス（Super、Fruition、Potion）などが必要です。技術的な知識がなくても、テンプレートを活用することで簡単に始められます。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "従来のWordPressサイトと比べてどのようなメリットがありますか？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "WordPressと比較して、コンテンツ更新の容易さ、構造化データの自動生成、ページ表示速度の向上などのメリットがあります。特にコンテンツ作成者にとって直感的な編集環境は大きな利点です。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "SEO対策とLLMO対策を両立できますか？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "はい、両立可能です。むしろ良質なSEO対策はLLMOの基盤となります。Notionを活用することで、両方の対策を効率的に実施できます。特に構造化データの実装や内部リンク戦略は両方に効果的です。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "LLMO対策の効果はどのように測定できますか？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Google Analytics 4でリファラーを分析することで、AIチャットボット（Perplexity、Bing Chat、Bardなど）からの流入を追跡できます。また、AIの回答での言及頻度を定期的にモニタリングすることも効果的です。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "既存のコンテンツをNotionに移行する最適な方法は？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "NotionにはWordPressやHTMLからのインポート機能があります。また、段階的に重要ページから移行することも可能です。移行時にはLLMO視点でのコンテンツ再構築も検討すると効果的です。"
+          }
+        }
+      ]
+    }
+    </script>
+
+    <!-- サービス構造化データ -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "name": "Notion×LLMO対策サービス",
+      "serviceType": "ウェブサイト最適化サービス",
+      "description": "AI検索時代に最適化されたWebサイト構築サービス。サイト構造から画像設定、文章作成まで、LLMO対策を徹底したプランを提供します。",
+      "provider": {
+        "@type": "Organization",
+        "name": "株式会社EFFECT",
+        "url": "https://notion.effect.moe/"
+      },
+      "offers": {
+        "@type": "Offer",
+        "price": "300000",
+        "priceCurrency": "JPY"
+      },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "LLMO対策プラン",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "既存サイト + Notionブログ連結",
+              "description": "現在お持ちのサイトと新設するNotionブログを同一ドメインでシームレスに連携します。既存サイトにも可能な範囲でLLMO対策を実施し、サイト全体の最適化を図ります。"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "カバーページ + Notionブログ",
+              "description": "ビジュアル重視のカバーページとNotionブログを組み合わせた、バランスの取れたサイト構築プランです。商品やサービスごとにLP展開することで、強力なLLMO対策となります。"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Notionブログ",
+              "description": "Notionだけでサイト全体を構築する最もシンプルなプランです。全ページをNotionで編集できるため、手軽さとコスト面で優れています。商品・サービスごとのLP展開も容易に実現できます。"
+            }
+          }
+        ]
+      }
+    }
+    </script>
 </body>
+
 </html>
