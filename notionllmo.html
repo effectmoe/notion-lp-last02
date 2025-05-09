@@ -170,20 +170,15 @@
 
         .comparison {
             display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
+            flex-direction: column;
             gap: 40px;
             margin-top: 40px;
         }
 
         .comparison-card {
             flex: 1;
-            min-width: 300px;
-            max-width: 500px;
-            background-color: var(--white);
-            border-radius: var(--border-radius);
-            padding: 30px;
-            box-shadow: var(--box-shadow);
+            min-width: 100%;
+            max-width: 100%;
         }
 
         .comparison-title {
@@ -450,14 +445,17 @@
 
         .two-column {
             display: flex;
-            flex-wrap: wrap;
+            flex-direction: column;
+            /* 縦並びに変更 */
             gap: 30px;
             margin: 40px 0;
         }
 
         .column {
             flex: 1;
-            min-width: 300px;
+            min-width: 100%;
+            /* 幅を100%に設定 */
+            width: 100%;
         }
 
         .highlight-box {
@@ -617,7 +615,8 @@
 
         .comparison-container {
             display: flex;
-            flex-wrap: wrap;
+            flex-direction: column;
+            /* 縦並びに変更 */
             align-items: center;
             gap: 40px;
             margin-top: 40px;
@@ -625,8 +624,9 @@
 
         .comparison-image {
             flex: 1;
-            min-width: 300px;
-            max-width: 500px;
+            min-width: 100%;
+            /* 幅を100%に設定 */
+            max-width: 100%;
         }
 
         .comparison-image img {
@@ -637,7 +637,7 @@
 
         .comparison-text {
             flex: 1;
-            min-width: 300px;
+            min-width: 100%;
         }
 
         .comparison-text h3 {
@@ -771,6 +771,19 @@
                 padding: 10px;
             }
         }
+
+        /* レスポンシブ対応のメディアクエリ追加 */
+        @media (min-width: 992px) {
+
+            /* PCサイズでも1カラム表示を維持 */
+            .two-column {
+                flex-direction: column;
+            }
+
+            .column {
+                min-width: 100%;
+            }
+        }
     </style>
 </head>
 
@@ -815,7 +828,6 @@
                 <div class="column">
                     <h3>なぜ今LLMOが重要なのか？</h3>
                     <p>ユーザーの情報検索行動が変化しています。かつては検索エンジンで複数のサイトを閲覧して情報を収集していましたが、今はAIが複数のソースから情報を集約して回答を生成します。</p>
-
                     <p>この変化により、「検索結果で上位表示される」だけでなく、「AIの回答に自社サイトが情報源として引用される」ことが重要になっています。AIに認識されないサイトは、ユーザーの目に触れる機会すら失われる可能性があります。
                     </p>
                 </div>
