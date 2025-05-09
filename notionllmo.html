@@ -465,6 +465,7 @@
         }
 
         .service-card {
+            /* 既存のプロパティを維持 */
             flex: 1;
             min-width: 300px;
             max-width: 380px;
@@ -473,11 +474,12 @@
             padding: 30px;
             box-shadow: var(--box-shadow);
             transition: var(--transition);
-
-            /* 重要: カードを縦方向のflexコンテナにする */
             display: flex;
             flex-direction: column;
-            height: 100%;
+
+            /* height: 100%; を以下に変更 */
+            height: 650px;
+            /* 必要に応じて調整 */
         }
 
         .service-card:hover {
