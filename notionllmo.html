@@ -473,11 +473,20 @@
             padding: 30px;
             box-shadow: var(--box-shadow);
             transition: var(--transition);
+
+            /* 重要: カードを縦方向のflexコンテナにする */
+            display: flex;
+            flex-direction: column;
+            height: 100%;
         }
 
         .service-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .card-header {
+            margin-bottom: 20px;
         }
 
         .card-icon {
@@ -511,6 +520,13 @@
             text-align: center;
         }
 
+        .card-content {
+            /* 重要: コンテンツを拡張して空間を埋める */
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
         .service-card p {
             margin-bottom: 20px;
             color: var(--text-color);
@@ -533,6 +549,11 @@
             left: 0;
             color: var(--accent-color);
             font-weight: bold;
+        }
+
+        .card-footer {
+            /* 重要: フッターをカードの下部に固定 */
+            margin-top: auto;
         }
 
         .cta-button {
