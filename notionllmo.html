@@ -462,10 +462,14 @@
             justify-content: center;
             gap: 30px;
             margin-top: 40px;
+            /* 追加するプロパティ */
+            align-items: stretch;
+            /* カードの高さを揃える */
+            width: 100%;
+            /* コンテナ幅を確保 */
         }
 
         .service-card {
-            /* 既存のプロパティを維持 */
             flex: 1;
             min-width: 300px;
             max-width: 380px;
@@ -477,9 +481,15 @@
             display: flex;
             flex-direction: column;
 
-            /* height: 100%; を以下に変更 */
-            height: 650px;
-            /* 必要に応じて調整 */
+            /* 修正点：固定高さを使わない */
+            height: auto;
+            /* 固定値ではなく自動調整 */
+            min-height: 550px;
+            /* 最小高さを設定（調整可能） */
+
+            /* カード内のコンテンツ配置を調整 */
+            justify-content: flex-start;
+            /* コンテンツを上から配置 */
         }
 
         .service-card:hover {
@@ -554,8 +564,10 @@
         }
 
         .card-footer {
-            /* 重要: フッターをカードの下部に固定 */
             margin-top: auto;
+            /* フッターを下部に押し出す */
+            width: 100%;
+            /* 幅を親に合わせる */
         }
 
         .cta-button {
