@@ -433,6 +433,14 @@
             /* アスペクト比を維持 */
             display: block;
             /* インライン要素のデフォルト余白を削除 */
+            margin: 0 auto;
+        }
+
+        .diagram-caption {
+            text-align: center;
+            font-size: 0.9rem;
+            color: var(--gray);
+            margin-top: 10px;
         }
 
         .two-column {
@@ -736,6 +744,28 @@
         .submit-button:hover {
             background-color: var(--secondary-color);
         }
+
+        @media (max-width: 768px) {
+            .diagram-container {
+                padding: 15px;
+            }
+
+            .diagram-title {
+                font-size: 1.2rem;
+                /* モバイルで小さくする */
+            }
+
+            /* 画像下のキャプションを調整 */
+            .diagram-container p {
+                font-size: 0.8rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .diagram-container {
+                padding: 10px;
+            }
+        }
     </style>
 </head>
 
@@ -761,9 +791,9 @@
                 <h3 class="diagram-title">AI検索とLLMOの概念図</h3>
                 <div class="diagram">
                     <img src="images/ai-search-llmo-concept-diagram.svg"
-                        alt="AIアシスタントによる検索結果生成とLLMO(大規模言語モデル最適化)の関係を示す概念図" width="800" height="600">
+                        alt="AIアシスタントによる検索結果生成とLLMO(大規模言語モデル最適化)の関係を示す概念図">
                 </div>
-                <p style="text-align: center; font-size: 0.9rem; color: var(--gray); margin-top: 10px;">
+                <p class="diagram-caption">
                     図1：AI検索では、ユーザーの質問に対してAIが複数のウェブサイトから情報を集約して回答を生成します</p>
             </div>
 
