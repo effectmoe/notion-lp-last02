@@ -405,11 +405,15 @@
         }
 
         .diagram-container {
-            background-color: var(--white);
-            border-radius: var(--border-radius);
-            box-shadow: var(--box-shadow);
-            padding: 20px;
-            margin: 20px 0;
+            background-color: transparent;
+            /* 背景色を透明に */
+            border-radius: 0;
+            /* 角丸を削除 */
+            box-shadow: none;
+            /* 影を削除 */
+            padding: 0 20px;
+            /* 上下のパディングを削除、左右のみ保持 */
+            margin: 30px 0;
         }
 
         .diagram-title {
@@ -441,6 +445,7 @@
             font-size: 0.9rem;
             color: var(--gray);
             margin-top: 10px;
+            padding: 0;
         }
 
         .two-column {
