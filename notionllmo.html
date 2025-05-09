@@ -623,14 +623,29 @@
         }
 
         .comparison-image {
-            flex: 1;
-            min-width: 100%;
-            /* 幅を100%に設定 */
+            margin: 0 auto;
+            /* 中央配置 */
             max-width: 100%;
+            /* コンテナ幅に合わせる */
+            display: flex;
+            /* フレックスボックス化 */
+            justify-content: center;
+            /* 水平方向の中央揃え */
+            align-items: center;
+            /* 垂直方向の中央揃え */
         }
 
         .comparison-image img {
             width: 100%;
+            /* 画像を最大幅で表示 */
+            max-width: 100%;
+            /* 親要素からはみ出さないように */
+            height: auto;
+            /* アスペクト比を維持 */
+            object-fit: contain;
+            /* 画像が収まるようにする */
+            margin: 0;
+            /* 余白をなくす */
         }
 
         .comparison-text {
@@ -801,6 +816,19 @@
                 padding: 15px;
             }
         }
+
+        /* モバイル環境では余計な余白を削減 */
+        @media (max-width: 768px) {
+            .comparison-container {
+                gap: 20px;
+                /* 余白を小さくする */
+            }
+
+            .section-title {
+                margin-bottom: 30px;
+                /* タイトルの下余白を調整 */
+            }
+        }
     </style>
 </head>
 
@@ -938,7 +966,7 @@
                 <div class="comparison-image">
                     <img src="images/optimization-strategies-llmo-seo-aeo-comparison.svg"
                         alt="LLMO(大規模言語モデル最適化)、SEO(検索エンジン最適化)、AEO(Answer Engine Optimization)、AIO(AI最適化)、GEO(Generative Engine Optimization)の関係性と違いを示す概念図。各最適化戦略の特徴、対象プラットフォーム、手法を比較説明。"
-                        width="900" height="600">
+                        style="max-width: 100%; width: 100%;">
                 </div>
 
                 <div class="comparison-text">
