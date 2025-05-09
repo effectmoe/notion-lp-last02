@@ -631,8 +631,6 @@
 
         .comparison-image img {
             width: 100%;
-            border-radius: var(--border-radius);
-            box-shadow: var(--box-shadow);
         }
 
         .comparison-text {
@@ -782,6 +780,25 @@
 
             .column {
                 min-width: 100%;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .section-title {
+                font-size: 1.8rem;
+            }
+
+            .section-subtitle {
+                font-size: 1.1rem;
+            }
+
+            .feature-title,
+            .comparison-title {
+                font-size: 1.2rem;
+            }
+
+            .container {
+                padding: 15px;
             }
         }
     </style>
