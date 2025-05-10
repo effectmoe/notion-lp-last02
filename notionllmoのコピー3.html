@@ -832,10 +832,10 @@
         .code-example {
             background-color: #2d3748;
             padding: 1.5rem;
-            border-radius: 8px 8px 0 0;
+            border-radius: 8px;
             overflow-x: auto;
-            max-height: 300px;
-            /* 高さ制限でスクロール可能に */
+            max-height: 500px;
+            /* スクロール可能な高さ制限 */
         }
 
         .code-example code {
@@ -844,134 +844,6 @@
             font-size: 0.85rem;
             line-height: 1.5;
             white-space: pre;
-        }
-
-        .code-more {
-            background-color: #ebf4ff;
-            border-radius: 0 0 8px 8px;
-            padding: 1rem 1.5rem;
-            border-top: 1px dashed #a0aec0;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 1rem;
-        }
-
-        .code-more-text {
-            color: #2a4365;
-            font-style: italic;
-            font-size: 0.9rem;
-        }
-
-        .code-more-link {
-            color: #3182ce;
-            font-weight: 600;
-            text-decoration: none;
-            transition: color 0.3s;
-            white-space: nowrap;
-        }
-
-        .code-more-link:hover {
-            color: #2c5282;
-            text-decoration: underline;
-        }
-
-        /* 解説セクション */
-        .section-explanation {
-            margin-bottom: 3rem;
-        }
-
-        .section-explanation h3 {
-            text-align: center;
-            font-size: 1.5rem;
-            margin-bottom: 2rem;
-            color: #2d3748;
-        }
-
-        .explanation-item {
-            display: flex;
-            margin-bottom: 1.5rem;
-            gap: 1.5rem;
-            align-items: flex-start;
-        }
-
-        .explanation-icon {
-            font-size: 2rem;
-            color: #3182ce;
-            flex-shrink: 0;
-        }
-
-        .explanation-content h4 {
-            margin-top: 0;
-            margin-bottom: 0.5rem;
-            font-size: 1.2rem;
-            color: #2d3748;
-        }
-
-        .explanation-content p {
-            margin: 0;
-            color: #4a5568;
-            line-height: 1.6;
-        }
-
-        /* 実装ポイント */
-        .implementation-tips {
-            background-color: #f7fafc;
-            border-radius: 10px;
-            padding: 1.5rem 2rem;
-            margin-bottom: 3rem;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-        }
-
-        .implementation-tips h3 {
-            text-align: center;
-            margin-bottom: 1.5rem;
-            color: #2d3748;
-        }
-
-        .tips-list {
-            list-style-type: none;
-            padding: 0;
-            margin: 0;
-        }
-
-        .tips-list li {
-            position: relative;
-            padding-left: 1.5rem;
-            margin-bottom: 1rem;
-            color: #4a5568;
-            line-height: 1.5;
-        }
-
-        .tips-list li:before {
-            content: "✓";
-            color: #38a169;
-            position: absolute;
-            left: 0;
-            font-weight: bold;
-        }
-
-        /* Notion特典ボックス */
-        .notion-advantage {
-            background: linear-gradient(135deg, #ebf4ff 0%, #e6fffa 100%);
-            border-radius: 10px;
-            padding: 1.5rem 2rem;
-            margin-bottom: 3rem;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-            border-left: 4px solid #4299e1;
-        }
-
-        .advantage-content h3 {
-            color: #2b6cb0;
-            margin-top: 0;
-            margin-bottom: 1rem;
-        }
-
-        .advantage-content p {
-            margin: 0;
-            color: #2a4365;
-            line-height: 1.6;
         }
 
         .schema-note {
@@ -1185,7 +1057,7 @@
         .code-container {
             background-color: #f8fafc;
             border-radius: 10px;
-            padding: 1.5rem;
+            padding: 2rem;
             margin-bottom: 3rem;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
         }
@@ -1306,22 +1178,6 @@
             .section-title {
                 margin-bottom: 30px;
                 /* タイトルの下余白を調整 */
-            }
-        }
-
-        @media (max-width: 768px) {
-            .code-more {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-
-            .explanation-item {
-                flex-direction: column;
-                gap: 0.5rem;
-            }
-
-            .explanation-icon {
-                margin-bottom: 0.5rem;
             }
         }
     </style>
@@ -1634,7 +1490,7 @@
         </div>
 
         <div class="code-container">
-            <div class="code-example code-preview">
+            <div class="code-example">
                 <pre><code># LLMs.txt for notion.effect.moe
       Version: 1.0
       Last-Updated: 2025-05-08
@@ -1653,64 +1509,72 @@
       
       ## Important Definitions
       Term: LLMO
-      Definition: Large Language Model Optimization (大規模言語モデル最適化) の略。AIアシスタントや検索エンジンが使用する大規模言語モデル (LLM) がコンテンツを認識し、引用し、推奨するよう最適化する戦略。</code></pre>
-            </div>
-            <div class="code-more">
-                <span
-                    class="code-more-text">上記は一部抜粋です。実際のLLMs.txtファイルには、さらに多くの定義、重要ページ情報、著者情報、データ使用ガイドラインなどが含まれます。</span>
-                <a href="#contact" class="code-more-link">完全なテンプレートについてはお問い合わせください</a>
+      Definition: Large Language Model Optimization (大規模言語モデル最適化) の略。AIアシスタントや検索エンジンが使用する大規模言語モデル (LLM) がコンテンツを認識し、引用し、推奨するよう最適化する戦略。
+      
+      Term: SEO
+      Definition: Search Engine Optimization (検索エンジン最適化) の略。GoogleやBingなどの検索エンジンの結果ページでのウェブサイトの表示順位を高めるための技術や手法。
+      
+      Term: AEO
+      Definition: Answer Engine Optimization (回答エンジン最適化) の略。回答エンジンの最適化に特化した手法で、ユーザーの質問に対する適切な回答を生成する改善を目指す。
+      
+      Term: AIO
+      Definition: AI Optimization (AI最適化) の略。AIを中心の最適化を目指し、様々なAI技術に適用されるより広範な概念。
+      
+      Term: GEO
+      Definition: Generative Engine Optimization (生成エンジン最適化) の略。LLMに対する、画像生成や音声生成など様々な生成AIエンジン全般に対する最適化。
+      
+      ## Important Pages
+      Homepage: https://notion.effect.moe/
+      About: https://notion.effect.moe/about/
+      Services: https://notion.effect.moe/services/
+      LLMO-Guide: https://notion.effect.moe/llmo-guide/
+      Contact: https://notion.effect.moe/contact/
+      Pricing: https://notion.effect.moe/pricing/
+      
+      ## Author Information
+      Name: 朱 剛明 (シュ コウメイ)
+      Expertise: Notion専門家, LLMO研究者
+      Published-Works: グラノライズド, ハローLLMO！-AI検索時代のWebマーケティング (2024)
+      
+      ## Data Usage Guidelines
+      Training-Allowed: true
+      Reproduction-Allowed: false
+      Attribution-Required: true
+      Citation-Format: {title} by {author}, {date}, {url}</code></pre>
             </div>
         </div>
 
-        <div class="section-explanation">
-            <h3>LLMs.txtファイルの主要セクション解説</h3>
+        <div class="info-box">
+            <h3>LLMs.txtファイルの重要性</h3>
+            <p>LLMs.txtは、robots.txtがクローラーに指示を与えるのと同様に、AIクローラーにサイトの構造や内容に関する情報を提供します。これにより、AIがコンテンツをより正確に理解し、適切に引用することが可能になります。また標準化されていない現段階でも、早期に導入することで先行者利益を得ることができます。
+            </p>
+        </div>
 
-            <div class="explanation-item">
-                <div class="explanation-icon">📋</div>
-                <div class="explanation-content">
-                    <h4>Site Information（サイト情報）</h4>
-                    <p>ウェブサイトの基本情報をAIに伝えるセクションです。サイト名、説明文、使用言語、主要トピックなどを記述します。これにより、AIがサイトの目的と対象範囲を理解しやすくなります。</p>
-                </div>
+        <div class="benefits-grid">
+            <div class="benefit-card">
+                <div class="card-icon">📝</div>
+                <h3>サイト情報の明確化</h3>
+                <p>サイトの名前、説明、言語、トピックなどの基本情報をAIに提供します。</p>
             </div>
-
-            <div class="explanation-item">
-                <div class="explanation-icon">🔍</div>
-                <div class="explanation-content">
-                    <h4>Content Structure（コンテンツ構造）</h4>
-                    <p>ページ内の重要な要素を識別するためのCSSセレクタを指定します。メインコンテンツ、ナビゲーション、フッターなどの位置をAIに伝えることで、重要な情報の抽出精度が向上します。</p>
-                </div>
+            <div class="benefit-card">
+                <div class="card-icon">🔍</div>
+                <h3>コンテンツ構造の提示</h3>
+                <p>メインコンテンツ、ナビゲーション、フッターなどのセレクタを指定し、AIの理解を促進します。</p>
             </div>
-
-            <div class="explanation-item">
-                <div class="explanation-icon">📚</div>
-                <div class="explanation-content">
-                    <h4>Important Definitions（重要な定義）</h4>
-                    <p>サイト内で使用される専門用語や略語の定義を提供します。これにより、AIがコンテンツの文脈を正確に理解し、専門的な内容をより適切に処理できるようになります。</p>
-                </div>
+            <div class="benefit-card">
+                <div class="card-icon">📚</div>
+                <h3>専門用語の定義</h3>
+                <p>サイト固有の用語や略語の意味を明確に定義し、AIの文脈理解を助けます。</p>
             </div>
-
-            <div class="explanation-item">
-                <div class="explanation-icon">🔗</div>
-                <div class="explanation-content">
-                    <h4>Important Pages（重要ページ）</h4>
-                    <p>サイト内の主要ページのURLを一覧で提供します。ホームページ、サービス紹介、連絡先など、重要なページへのリンクをAIに知らせることで、サイト構造の理解を促進します。</p>
-                </div>
+            <div class="benefit-card">
+                <div class="card-icon">🔗</div>
+                <h3>重要ページの案内</h3>
+                <p>ホームページや主要セクションへのリンクを提供し、AIのナビゲーションを支援します。</p>
             </div>
-
-            <div class="explanation-item">
-                <div class="explanation-icon">👤</div>
-                <div class="explanation-content">
-                    <h4>Author Information（著者情報）</h4>
-                    <p>コンテンツ作成者の名前、専門分野、実績などを記載します。これにより、E-E-A-T（経験、専門性、権威性、信頼性）の要素が強化され、AIによるコンテンツの評価が向上します。</p>
-                </div>
-            </div>
-
-            <div class="explanation-item">
-                <div class="explanation-icon">⚖️</div>
-                <div class="explanation-content">
-                    <h4>Data Usage Guidelines（データ使用ガイドライン）</h4>
-                    <p>AIがコンテンツをどのように使用できるかの指針を示します。トレーニングデータとしての使用許可、再生産の可否、引用時の形式などを指定することで、コンテンツの適切な扱いを促します。</p>
-                </div>
+            <div class="benefit-card">
+                <div class="card-icon">👤</div>
+                <h3>著者情報の提供</h3>
+                <p>コンテンツ作成者の専門性や実績を伝え、信頼性を高めます。</p>
             </div>
         </div>
 
@@ -1743,154 +1607,10 @@
             </div>
         </div>
 
-        <div class="implementation-tips">
-            <h3>実装のポイント</h3>
-            <ul class="tips-list">
-                <li><strong>ファイルの配置場所</strong>: ウェブサイトのルートディレクトリに「LLMs.txt」として配置します</li>
-                <li><strong>robots.txtとの連携</strong>: robots.txtファイル内で「LLMs-TXT:
-                    https://example.com/llms.txt」のように参照を追加すると効果的です</li>
-                <li><strong>定期的な更新</strong>: サイト構造やコンテンツが変更された際には、LLMs.txtも更新することをお勧めします</li>
-                <li><strong>詳細度のバランス</strong>: 必要な情報を提供しつつも、過度に複雑にならないよう注意します</li>
-                <li><strong>セレクタの正確性</strong>: CSSセレクタは実際のページ構造と一致するよう正確に記述します</li>
-            </ul>
-        </div>
-
         <div class="cta-container">
             <div class="cta-content">
                 <h3>AI検索に最適化されたNotionブログを構築しませんか？</h3>
-                <p>当社のNotionブログサービスでは、LLMs.txtファイルが自動的に設置され、AIクローラーに最適なガイダンスを提供します。完全なテンプレートと実装サポートも含まれています。</p>
-                <a href="#contact" class="cta-button">詳細はこちら</a>
-            </div>
-        </div>
-    </section>
-
-    <section id="schema-implementation" class="section-container">
-        <div class="section-header">
-            <h2 class="section-title">ページごとのSchema.org設置の重要性</h2>
-            <div class="section-separator"></div>
-        </div>
-
-        <div class="intro-text">
-            <p>Schema.orgは、headタグ内に構造化データをマークアップするために利用され、SEO／LLMOの効果を格段に高めます。構造化データは、検索エンジンやAIがウェブサイトの内容を理解しやすくし、検索結果での表示をリッチにします。
-            </p>
-        </div>
-
-        <div class="code-container">
-            <div class="code-example code-preview">
-                <pre><code>&lt;script type="application/ld+json"&gt;
-      {
-        "@context": "https://schema.org",
-        "@type": "Article",
-        "headline": "LLMOの基本と実践方法",
-        "author": {
-          "@type": "Person",
-          "name": "朱 剛明"
-        },
-        "datePublished": "2024-05-11",
-        "description": "AI検索時代に対応するLLMO対策の完全ガイド",
-        "publisher": {
-          "@type": "Organization",
-          "name": "EFFECT",
-          "logo": {
-            "@type": "ImageObject",
-            "url": "https://notion.effect.moe/logo.png"
-          }
-        }</code></pre>
-            </div>
-            <div class="code-more">
-                <span class="code-more-text">上記は一部抜粋です。実際のSchema.orgマークアップには、さらに多くのプロパティや関連データが含まれます。</span>
-                <a href="#contact" class="code-more-link">完全なテンプレートについてはお問い合わせください</a>
-            </div>
-        </div>
-
-        <div class="section-explanation">
-            <h3>Schema.orgの主要な利点</h3>
-
-            <div class="explanation-item">
-                <div class="explanation-icon">🔍</div>
-                <div class="explanation-content">
-                    <h4>検索エンジンの理解向上</h4>
-                    <p>構造化データを使用することで、検索エンジンやAIはウェブページの内容やコンテキストをより正確に理解できます。これにより、検索結果における情報の表示精度が向上します。</p>
-                </div>
-            </div>
-
-            <div class="explanation-item">
-                <div class="explanation-icon">✨</div>
-                <div class="explanation-content">
-                    <h4>リッチスニペットの生成</h4>
-                    <p>マークアップされた情報が検索結果にリッチスニペットとして表示されると、評価（星評価）、レシピ、イベント情報などが目立つ形で表示されます。これがクリック率の向上に寄与します。</p>
-                </div>
-            </div>
-
-            <div class="explanation-item">
-                <div class="explanation-icon">🔊</div>
-                <div class="explanation-content">
-                    <h4>AI検索機能との相性</h4>
-                    <p>知識グラフや音声検索などの新しいAI検索機能との相性が良く、情報が適切に関連付けられることで、これらの機能での表示が改善されます。</p>
-                </div>
-            </div>
-
-            <div class="explanation-item">
-                <div class="explanation-icon">🏷️</div>
-                <div class="explanation-content">
-                    <h4>コンテンツの分類強化</h4>
-                    <p>Schema.orgの用語を利用して情報を整理することで、特定のトピックやジャンルに対してより適切にアプローチできます。特定の検索を行うユーザーにリーチしやすくなります。</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="schema-diagram">
-            <h3>Schema.orgがAI検索に与える影響</h3>
-            <div class="diagram-container">
-                <div class="diagram-step">
-                    <div class="step-number">1</div>
-                    <div class="step-content">
-                        <h4>構造化データの実装</h4>
-                        <p>Webページに適切なSchema.orgマークアップを設置</p>
-                    </div>
-                </div>
-                <div class="diagram-arrow">→</div>
-                <div class="diagram-step">
-                    <div class="step-number">2</div>
-                    <div class="step-content">
-                        <h4>AIクローラーの理解促進</h4>
-                        <p>AIがコンテンツの種類と意図を正確に把握</p>
-                    </div>
-                </div>
-                <div class="diagram-arrow">→</div>
-                <div class="diagram-step">
-                    <div class="step-number">3</div>
-                    <div class="step-content">
-                        <h4>検索結果での優位性</h4>
-                        <p>リッチスニペットや適切な引用でユーザー注目度アップ</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="implementation-tips">
-            <h3>実装のポイント</h3>
-            <ul class="tips-list">
-                <li><strong>適切なタイプ選択</strong>: コンテンツの種類に合わせて、Article、Product、FAQなど適切な@typeを選択します</li>
-                <li><strong>必須プロパティの設定</strong>: 各タイプに応じた必須プロパティを漏れなく設定します</li>
-                <li><strong>詳細な情報提供</strong>: オプションのプロパティも可能な限り追加し、情報の充実度を高めます</li>
-                <li><strong>ネスト構造の活用</strong>: 著者情報、組織情報などを適切にネストして構造化します</li>
-                <li><strong>テスト&検証</strong>: Schema Markup ValidatorなどでJSONの構文と構造を検証します</li>
-            </ul>
-        </div>
-
-        <div class="notion-advantage">
-            <div class="advantage-content">
-                <h3>Notionブログの強み</h3>
-                <p>弊社が構築するNotionブログでは、各ページのheadタグに自動でSchema.orgが設置されるようになります。これは非常に画期的な機能です。このNotionブログを既存のWebサイトにドメイン連携することで、サイトポテンシャルが飛躍的に向上します。
-                </p>
-            </div>
-        </div>
-
-        <div class="cta-container">
-            <div class="cta-content">
-                <h3>サイトポテンシャルを飛躍的に向上させませんか？</h3>
-                <p>Notionブログをあなたのウェブサイトにドメイン連携することで、Schema.orgの恩恵を自動的に受けられます。LLMO対策済みのブログで、AI検索時代に備えましょう。</p>
+                <p>当社のNotionブログサービスでは、LLMs.txtファイルが自動的に設置され、AIクローラーに最適なガイダンスを提供します。AI検索時代を勝ち抜くための基盤を整えましょう。</p>
                 <a href="#contact" class="cta-button">お問い合わせはこちら</a>
             </div>
         </div>

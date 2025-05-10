@@ -763,6 +763,24 @@
             background-color: var(--secondary-color);
         }
 
+        .card-label {
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            background-color: #ff6b6b;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            font-weight: bold;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            z-index: 1;
+        }
+
+        .card-header {
+            position: relative;
+        }
+
         @media (max-width: 768px) {
             .diagram-container {
                 padding: 15px;
@@ -899,6 +917,7 @@
                         <div class="card-icon">
                             <img src="images/llmo-workspace-setup.webp" alt="既存サイトの包括的LLMO最適化">
                         </div>
+                        <span class="card-label">Notionに関わらずLLMO対策</span>
                         <h3>既存サイトへLLMO対策</h3>
                     </div>
                     <div class="card-content">
@@ -920,6 +939,7 @@
                         <div class="card-icon">
                             <img src="images/existing-website-notion-blog-integration.webp" alt="既存サイトとNotionの連結">
                         </div>
+                        <span class="card-label">人気NO.1</span>
                         <h3>既存サイト + Notionブログ連結</h3>
                     </div>
                     <div class="card-content">
@@ -940,6 +960,7 @@
                         <div class="card-icon">
                             <img src="images/coverpage-notionblog.webp" alt="カバーページとNotionブログ">
                         </div>
+                        <span class="card-label">新規サイト立ち上げにオススメ</span>
                         <h3>カバーページ + Notionブログ</h3>
                     </div>
                     <div class="card-content">
@@ -960,6 +981,7 @@
                         <div class="card-icon">
                             <img src="images/notionblog-image.webp" alt="Notionブログ">
                         </div>
+                        <span class="card-label">お手軽</span>
                         <h3>Notionブログのみでサイトを構成</h3>
                     </div>
                     <div class="card-content">
@@ -981,6 +1003,7 @@
                         <div class="card-icon">
                             <img src="images/llmo-consulting-team.webp" alt="総合的なLLMO対策コンサルティング">
                         </div>
+                        <span class="card-label">最強</span>
                         <h3>LLMO対策フルコンサル</h3>
                     </div>
                     <div class="card-content">
