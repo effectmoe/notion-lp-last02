@@ -593,45 +593,20 @@
         }
 
         .cta-button {
-            /* 表示形式 */
-            display: inline-block;
-            /* block から inline-block に変更 */
-
-            /* サイズと余白 */
-            padding: 0.75rem 2rem;
-            /* より詳細なパディング値を採用 */
-            margin-top: 20px;
-            /* 新しく追加された余白 */
-
-            /* 色とデザイン */
-            background-color: white;
-            /* 二つ目の定義を採用 */
-            color: #4c51bf;
-            /* 二つ目の定義を採用 */
-
-            /* 形状 */
-            border-radius: 50px;
-            /* より具体的な値を採用 */
-
-            /* テキスト */
+            display: block;
+            padding: 12px 20px;
+            background-color: var(--primary-color);
+            color: var(--white);
             text-align: center;
-            /* 保持 */
             text-decoration: none;
-            /* 保持 */
-            font-weight: 600;
-            /* 600 に統一 */
-
-            /* エフェクト */
-            transition: all 0.3s ease;
-            /* より具体的な値を採用 */
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            /* 新しく追加された効果 */
+            border-radius: var(--border-radius);
+            font-weight: bold;
+            transition: var(--transition);
+            margin-top: 20px;
         }
 
         .cta-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
-            background-color: #f8fafc;
+            background-color: var(--secondary-color);
         }
 
         /* LLMO比較セクション用のスタイル */
@@ -1067,7 +1042,7 @@
             background: white;
             border-radius: 8px;
             overflow: hidden;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); 
             margin-bottom: 50px;
         }
 
@@ -1238,6 +1213,18 @@
                 margin: 0 auto 2rem;
                 font-size: 1.1rem;
                 opacity: 0.9;
+            }
+
+            .cta-button {
+                display: inline-block;
+                background-color: white;
+                color: #4c51bf;
+                padding: 0.75rem 2rem;
+                border-radius: 50px;
+                font-weight: 600;
+                text-decoration: none;
+                transition: all 0.3s ease;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             }
 
             .cta-button:hover {
