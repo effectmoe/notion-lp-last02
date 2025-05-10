@@ -1036,19 +1036,10 @@
 
         .comparison-table {
             width: 100%;
-            border-collapse: collapse;
-            border-spacing: 0;
-            background: white;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-        }
-
-        .comparison-table th,
-        .comparison-table td {
-            padding: 12px 15px;
-            text-align: left;
-            border-bottom: 1px solid #e2e8f0;
+            overflow-x: auto;
+            /* 横スクロールを有効にする */
+            display: block;
+            /* ブロック要素として表示 */
         }
 
         .comparison-table table {
@@ -1079,28 +1070,9 @@
         }
 
         .highlight {
-            background-color: #e8f4fc;
-        }
-
-        .comparison-table th,
-        .comparison-table td {
-            padding: 12px 15px;
-            text-align: left;
-            border-bottom: 1px solid #eee;
-        }
-
-        .comparison-table th {
-            background-color: #4a90e2;
-            color: white;
-            font-weight: bold;
-        }
-
-        .comparison-table .highlight {
             background-color: #ebf8ff;
-        }
-
-        .comparison-table tr:last-child td {
-            border-bottom: none;
+            font-weight: 600;
+            color: #2b6cb0;
         }
 
         .schema-diagram {
@@ -1346,32 +1318,6 @@
             margin-top: 15px;
         }
 
-        /* シンプルレスポンシブ表のスタイル */
-        .responsive-comparison {
-            margin: 20px 0;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-        }
-
-        .table-wrapper {
-            overflow-x: auto;
-            -webkit-overflow-scrolling: touch;
-        }
-
-        .table-caption {
-            text-align: center;
-            font-weight: 600;
-            margin-top: 12px;
-            color: #333;
-        }
-
-        /* 比較項目の行の背景色を薄いグレーに設定 */
-        .comparison-table td[data-label="比較項目"] {
-            background-color: #f5f5f5;
-            /* 薄いグレー */
-            font-weight: 600;
-            /* やや太字に */
-        }
-
         @media (max-width: 768px) {
             .diagram-container {
                 padding: 15px;
@@ -1469,93 +1415,6 @@
                 /* パディングを小さくする */
                 font-size: 14px;
                 /* フォントサイズを小さくする */
-            }
-        }
-
-        @media screen and (max-width: 600px) {
-            .comparison-table {
-                border: 0;
-            }
-
-            .comparison-table thead {
-                border: none;
-                clip: rect(0 0 0 0);
-                height: 1px;
-                margin: -1px;
-                overflow: hidden;
-                padding: 0;
-                position: absolute;
-                width: 1px;
-            }
-
-            .comparison-table tr {
-                display: block;
-                margin-bottom: 20px;
-                border-radius: 8px;
-                box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-            }
-
-            .comparison-table td {
-                display: block;
-                font-size: 14px;
-                text-align: right;
-                position: relative;
-                padding-left: 50%;
-                border-bottom: 1px solid #eee;
-            }
-
-            .comparison-table td:last-child {
-                border-bottom: 0;
-            }
-
-            .comparison-table td::before {
-                content: attr(data-label);
-                position: absolute;
-                left: 15px;
-                width: 45%;
-                padding-right: 10px;
-                white-space: nowrap;
-                text-align: left;
-                font-weight: bold;
-            }
-
-            .comparison-table tr:nth-of-type(even) {
-                background-color: #f8f8f8;
-            }
-        }
-
-        @media screen and (max-width: 768px) {
-            .comparison-table {
-                border: 0;
-            }
-
-            .comparison-table thead {
-                display: none;
-            }
-
-            .comparison-table tr {
-                margin-bottom: 1rem;
-                display: block;
-                border: 1px solid #e2e8f0;
-            }
-
-            .comparison-table td {
-                display: block;
-                text-align: right;
-                font-size: 0.9rem;
-                border-bottom: 1px solid #e2e8f0;
-                border-left: 0;
-                border-right: 0;
-            }
-
-            .comparison-table td:last-child {
-                border-bottom: 0;
-            }
-
-            .comparison-table td::before {
-                content: attr(data-label);
-                float: left;
-                font-weight: bold;
             }
         }
     </style>
@@ -1957,6 +1816,7 @@
                             <p>サイト構造と重要情報をAIクローラーに明示的に伝達</p>
                         </div>
                     </div>
+                    <div class="diagram-arrow">→</div>
                     <div class="diagram-step">
                         <div class="step-number">2</div>
                         <div class="step-content">
@@ -1964,6 +1824,7 @@
                             <p>コンテンツの文脈や専門用語をAIが正確に把握</p>
                         </div>
                     </div>
+                    <div class="diagram-arrow">→</div>
                     <div class="diagram-step">
                         <div class="step-number">3</div>
                         <div class="step-content">
@@ -2034,45 +1895,38 @@
                     style="display: block; margin-bottom: 8px; font-size: 14px; line-height: 1.5;">上記は一部抜粋です。実際のSchema.orgマークアップには、さらに多くのプロパティや関連データが含まれます。</span>
             </div>
 
-            <div class="implementation-tips">
-                <h3>実装のポイント</h3>
-                <ul class="tips-list">
-                    <li><strong>適切なタイプ選択</strong>: コンテンツの種類に合わせて、Article、Product、FAQなど適切な@typeを選択します</li>
-                    <li><strong>必須プロパティの設定</strong>: 各タイプに応じた必須プロパティを漏れなく設定します</li>
-                    <li><strong>詳細な情報提供</strong>: オプションのプロパティも可能な限り追加し、情報の充実度を高めます</li>
-                    <li><strong>ネスト構造の活用</strong>: 著者情報、組織情報などを適切にネストして構造化します</li>
-                    <li><strong>テスト&検証</strong>: Schema Markup ValidatorなどでJSONの構文と構造を検証します</li>
-                </ul>
-            </div>
-
             <div class="section-explanation">
                 <h3>Schema.orgの主要な利点</h3>
 
-                <div class="benefits-grid">
-                    <div class="benefit-card">
-                        <div class="card-icon">🔍</div>
-                        <h3>検索エンジンの理解向上</h3>
-                        <p>AIがウェブページの内容やコンテキストをより正確に理解できるようになり、情報が適切に処理されます。</p>
+                <div class="explanation-item">
+                    <div class="explanation-icon">🔍</div>
+                    <div class="explanation-content">
+                        <h4>検索エンジンの理解向上</h4>
+                        <p>構造化データを使用することで、検索エンジンやAIはウェブページの内容やコンテキストをより正確に理解できます。これにより、検索結果における情報の表示精度が向上します。</p>
                     </div>
-                    <div class="benefit-card">
-                        <div class="card-icon">✨</div>
-                        <h3>リッチスニペットの生成</h3>
-                        <p>星評価、レシピ、イベント情報などが検索結果で目立つ形で表示され、クリック率向上に寄与します。</p>
+                </div>
+
+                <div class="explanation-item">
+                    <div class="explanation-icon">✨</div>
+                    <div class="explanation-content">
+                        <h4>リッチスニペットの生成</h4>
+                        <p>マークアップされた情報が検索結果にリッチスニペットとして表示されると、評価（星評価）、レシピ、イベント情報などが目立つ形で表示されます。これがクリック率の向上に寄与します。</p>
                     </div>
-                    <div class="benefit-card">
-                        <div class="card-icon">🔊</div>
-                        <h3>AI検索機能との相性</h3>
-                        <p>知識グラフや音声検索などの新しいAI検索機能との相性が良く、様々な検索インターフェースでの表示が改善されます。</p>
+                </div>
+
+                <div class="explanation-item">
+                    <div class="explanation-icon">🔊</div>
+                    <div class="explanation-content">
+                        <h4>AI検索機能との相性</h4>
+                        <p>知識グラフや音声検索などの新しいAI検索機能との相性が良く、情報が適切に関連付けられることで、これらの機能での表示が改善されます。</p>
                     </div>
-                    <div class="benefit-card">
-                        <div class="card-icon">🏷️</div>
-                        <h3>コンテンツの分類強化</h3>
-                        <p>情報を適切に分類・整理することで、特定のトピックに関心を持つユーザーにリーチしやすくなります。</p>
-                    </div>
-                    <div class="benefit-card">
-                        <div class="card-icon">🔄</div>
-                        <h3>データの共有と再利用</h3>
-                        <p>構造化データにより、他のウェブサイトやアプリケーションでの情報の再利用が容易になります。</p>
+                </div>
+
+                <div class="explanation-item">
+                    <div class="explanation-icon">🏷️</div>
+                    <div class="explanation-content">
+                        <h4>コンテンツの分類強化</h4>
+                        <p>Schema.orgの用語を利用して情報を整理することで、特定のトピックやジャンルに対してより適切にアプローチできます。特定の検索を行うユーザーにリーチしやすくなります。</p>
                     </div>
                 </div>
             </div>
@@ -2087,6 +1941,7 @@
                             <p>Webページに適切なSchema.orgマークアップを設置</p>
                         </div>
                     </div>
+                    <div class="diagram-arrow">→</div>
                     <div class="diagram-step">
                         <div class="step-number">2</div>
                         <div class="step-content">
@@ -2094,6 +1949,7 @@
                             <p>AIがコンテンツの種類と意図を正確に把握</p>
                         </div>
                     </div>
+                    <div class="diagram-arrow">→</div>
                     <div class="diagram-step">
                         <div class="step-number">3</div>
                         <div class="step-content">
@@ -2104,36 +1960,15 @@
                 </div>
             </div>
 
-            <div class="responsive-comparison">
-                <h3>従来のWebサイトとNotionブログ（弊社仕様）の比較</h3>
-                <div class="table-wrapper">
-                    <table class="comparison-table">
-                        <thead>
-                            <tr>
-                                <th>比較項目</th>
-                                <th>従来のWebサイト</th>
-                                <th>Notionブログ</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td data-label="比較項目">Schema.org実装</td>
-                                <td data-label="従来のWebサイト">手動設定が必要</td>
-                                <td data-label="Notionブログ" class="highlight">自動設置</td>
-                            </tr>
-                            <tr>
-                                <td data-label="比較項目">メンテナンス</td>
-                                <td data-label="従来のWebサイト">技術知識が必要</td>
-                                <td data-label="Notionブログ" class="highlight">簡単に更新可能</td>
-                            </tr>
-                            <tr>
-                                <td data-label="比較項目">LLMO対応</td>
-                                <td data-label="従来のWebサイト">追加作業が必要</td>
-                                <td data-label="Notionブログ" class="highlight">標準対応</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
+            <div class="implementation-tips">
+                <h3>実装のポイント</h3>
+                <ul class="tips-list">
+                    <li><strong>適切なタイプ選択</strong>: コンテンツの種類に合わせて、Article、Product、FAQなど適切な@typeを選択します</li>
+                    <li><strong>必須プロパティの設定</strong>: 各タイプに応じた必須プロパティを漏れなく設定します</li>
+                    <li><strong>詳細な情報提供</strong>: オプションのプロパティも可能な限り追加し、情報の充実度を高めます</li>
+                    <li><strong>ネスト構造の活用</strong>: 著者情報、組織情報などを適切にネストして構造化します</li>
+                    <li><strong>テスト&検証</strong>: Schema Markup ValidatorなどでJSONの構文と構造を検証します</li>
+                </ul>
             </div>
 
             <div class="notion-advantage">
@@ -2151,6 +1986,136 @@
                     <a href="#contact" class="cta-button">お問い合わせはこちら</a>
                 </div>
             </div>
+    </section>
+
+    <section id="schema-importance" class="section-container">
+        <div class="section-header">
+            <h2 class="section-title">ページごとのSchema.org設置の重要性</h2>
+            <div class="section-separator"></div>
+        </div>
+
+        <div class="intro-text">
+            <p>Schema.orgは、headタグ内に構造化データをマークアップするために利用され、SEO／LLMOの効果を格段に高めます。構造化データは、検索エンジンやAIがウェブサイトの内容を理解しやすくし、検索結果での表示をリッチにします。
+            </p>
+        </div>
+
+        <div class="schema-illustration">
+            <div class="code-example">
+                <pre><code>&lt;script type="application/ld+json"&gt;
+      {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "LLMOの基本と実践方法",
+        "author": {
+          "@type": "Person",
+          "name": "朱 剛明"
+        },
+        "datePublished": "2024-05-11",
+        "description": "AI検索時代に対応するLLMO対策の完全ガイド"
+      }
+      &lt;/script&gt;</code></pre>
+            </div>
+            <div class="schema-note">
+                <p><strong>Notionブログの強み:</strong> 各ページのheadタグに自動でSchema.orgが設置されます</p>
+            </div>
+        </div>
+
+        <div class="benefits-grid">
+            <div class="benefit-card">
+                <div class="card-icon">🔍</div>
+                <h3>検索エンジンの理解向上</h3>
+                <p>AIがウェブページの内容やコンテキストをより正確に理解できるようになり、情報が適切に処理されます。</p>
+            </div>
+            <div class="benefit-card">
+                <div class="card-icon">✨</div>
+                <h3>リッチスニペットの生成</h3>
+                <p>星評価、レシピ、イベント情報などが検索結果で目立つ形で表示され、クリック率向上に寄与します。</p>
+            </div>
+            <div class="benefit-card">
+                <div class="card-icon">🔊</div>
+                <h3>AI検索機能との相性</h3>
+                <p>知識グラフや音声検索などの新しいAI検索機能との相性が良く、様々な検索インターフェースでの表示が改善されます。</p>
+            </div>
+            <div class="benefit-card">
+                <div class="card-icon">🏷️</div>
+                <h3>コンテンツの分類強化</h3>
+                <p>情報を適切に分類・整理することで、特定のトピックに関心を持つユーザーにリーチしやすくなります。</p>
+            </div>
+            <div class="benefit-card">
+                <div class="card-icon">🔄</div>
+                <h3>データの共有と再利用</h3>
+                <p>構造化データにより、他のウェブサイトやアプリケーションでの情報の再利用が容易になります。</p>
+            </div>
+        </div>
+
+        <div class="responsive-comparison">
+            <h3>従来のWebサイトとNotionブログ（弊社仕様）の比較</h3>
+            <div class="table-wrapper">
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>比較項目</th>
+                            <th>従来のWebサイト</th>
+                            <th>Notionブログ</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td data-label="比較項目">Schema.org実装</td>
+                            <td data-label="従来のWebサイト">手動設定が必要</td>
+                            <td data-label="Notionブログ" class="highlight">自動設置</td>
+                        </tr>
+                        <tr>
+                            <td data-label="比較項目">メンテナンス</td>
+                            <td data-label="従来のWebサイト">技術知識が必要</td>
+                            <td data-label="Notionブログ" class="highlight">簡単に更新可能</td>
+                        </tr>
+                        <tr>
+                            <td data-label="比較項目">LLMO対応</td>
+                            <td data-label="従来のWebサイト">追加作業が必要</td>
+                            <td data-label="Notionブログ" class="highlight">標準対応</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="schema-diagram">
+            <h3>Schema.orgがAI検索に与える影響</h3>
+            <div class="diagram-container">
+                <div class="diagram-step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h4>構造化データの実装</h4>
+                        <p>Webページに適切なSchema.orgマークアップを設置</p>
+                    </div>
+                </div>
+                <div class="diagram-arrow">→</div>
+                <div class="diagram-step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h4>AIクローラーの理解促進</h4>
+                        <p>AIがコンテンツの種類と意図を正確に把握</p>
+                    </div>
+                </div>
+                <div class="diagram-arrow">→</div>
+                <div class="diagram-step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h4>検索結果での優位性</h4>
+                        <p>リッチスニペットや適切な引用でユーザー注目度アップ</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="cta-container">
+            <div class="cta-content">
+                <h3>サイトポテンシャルを飛躍的に向上させませんか？</h3>
+                <p>NotionブログをあなたのWebサイトにドメイン連携することで、Schema.orgの恩恵を自動的に受けられます。LLMO対策済みのブログで、AI検索時代に備えましょう。</p>
+                <a href="#contact" class="cta-button">お問い合わせはこちら</a>
+            </div>
+        </div>
     </section>
 
     <section class="section">
