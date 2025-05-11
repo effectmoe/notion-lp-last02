@@ -283,6 +283,25 @@ body {
     background-color: #4db6aca7;
 }
 
+.red-btn {
+    background-color: #f05959d1;
+    color: #fff;
+}
+
+.red-btn:hover {
+    background-color: #f0b159a8;
+}
+
+.lightblue-btn {
+    background-color: #63a7e2cf;
+    color: #fff;
+}
+
+.lightblue-btn:hover {
+    background-color: #f0b159a8;
+}
+
+
 .orange-btn {
     background-color: #F0B259;
     color: #fff;
