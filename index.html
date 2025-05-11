@@ -429,7 +429,8 @@
             </nav>
 
             <!-- Hamburger Menu Button -->
-            <button class="hamburger" id="hamburger-btn" aria-expanded="false" aria-controls="mobile-menu" aria-label="メニューを開く" onclick="document.getElementById('mobile-menu').classList.toggle('active')">
+            <button class="hamburger" id="hamburger-btn" aria-expanded="false" aria-controls="mobile-menu"
+                aria-label="メニューを開く" onclick="document.getElementById('mobile-menu').classList.toggle('active')">
                 <span></span>
                 <span></span>
                 <span></span>
@@ -450,9 +451,9 @@
 
     <nav class="breadcrumb-nav">
         <!-- <div class="container"> -->
-            <ol class="breadcrumb">
-                <li class="breadcrumb-item active">ホーム</li>
-            </ol>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item active">ホーム</li>
+        </ol>
         <!-- </div> -->
     </nav>
 
@@ -476,7 +477,8 @@
                     <div class="hero-text">
                         <div class="notion-logo">
                             <div class="logo-container">
-                                <img src="images/notion-logo.webp" alt="Notion ロゴ - 業務効率化・DX推進ツール" class="notion-img" width="200" height="40">
+                                <img src="images/notion-logo.webp" alt="Notion ロゴ - 業務効率化・DX推進ツール" class="notion-img"
+                                    width="200" height="40">
                             </div>
                         </div>
                         <h1>Notionで実現する<br><span>DXと業務効率化システム</span></h1>
@@ -1016,6 +1018,64 @@
             </div>
         </section>
 
+        <!-- 代替コンタクト情報（接続エラーの場合に表示） -->
+        <!-- 修正したフォーム -->
+        <div class="custom-form-wrapper">
+            <form id="contact-form" action="https://formsubmit.co/info@effect.moe" method="POST">
+                <!-- FormSubmit設定 -->
+                <input type="hidden" name="_subject" value="Effect.moe ウェブサイトからのお問い合わせ">
+                <input type="hidden" name="_captcha" value="false">
+                <input type="hidden" name="_template" value="table">
+                <input type="hidden" name="_next" value="https://effect.moe/thanks">
+
+                <div class="form-group">
+                    <label for="name">お名前 <span class="required">*</span></label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">メールアドレス <span class="required">*</span></label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="company">会社名</label>
+                    <input type="text" id="company" name="company">
+                </div>
+
+                <div class="form-group">
+                    <label for="subject">件名 <span class="required">*</span></label>
+                    <input type="text" id="subject" name="subject" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="message">お問い合わせ内容 <span class="required">*</span></label>
+                    <textarea id="message" name="message" rows="6" required></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label class="checkbox-container">
+                        <input type="checkbox" id="privacy-policy" name="privacy-policy" required>
+                        <span class="checkmark"></span>
+                        <span class="checkbox-text"><a href="#" target="_blank">プライバシーポリシー</a>に同意します</span>
+                    </label>
+                </div>
+
+                <div class="form-submit">
+                    <button type="submit" class="submit-button">送信する</button>
+                </div>
+
+                <!-- FormSubmitの迷惑メール防止用の隠しフィールド -->
+                <input type="text" name="_honey" style="display:none">
+            </form>
+        </div>
+
+        <!-- 直接連絡の代替手段 -->
+        <div class="contact-alternative">
+            <p>フォームが機能しない場合は、<a href="mailto:info@effect.moe">info@effect.moe</a> まで直接メールでお問い合わせください。</p>
+        </div>
+        </div>
+
         <!-- <section class="contact" id="contact">
             <div class="container">
                 <h2 class="section-title">Notionを活用したDX・業務効率化のご相談</h2>
@@ -1160,7 +1220,7 @@
     </style>
 
     <script src="script.js" defer></script>
-    
+
     <!-- 問い合わせフォーム処理（直接的な実装） -->
     <script>
         // フォーム処理を単純化
@@ -1169,72 +1229,72 @@
             var submitBtn = document.querySelector('.submit-btn');
             var successMsg = document.getElementById('form-success');
             var errorMsg = document.getElementById('form-error');
-            
+
             if (!form || !submitBtn) return;
-            
+
             // フォーム送信をインターセプト
-            form.onsubmit = function(e) {
+            form.onsubmit = function (e) {
                 e.preventDefault();
-                
+
                 // 送信前の状態を保存
                 var originalText = submitBtn.innerText;
-                
+
                 // ボタンの状態を変更
                 submitBtn.innerText = '送信中...';
                 submitBtn.disabled = true;
-                
+
                 // エラーメッセージを初期化
                 errorMsg.style.display = 'none';
                 successMsg.style.display = 'none';
-                
+
                 // 必須項目の確認
                 var name = document.getElementById('name').value.trim();
                 var email = document.getElementById('email').value.trim();
                 var message = document.getElementById('message').value.trim();
-                
+
                 if (!name || !email || !message) {
                     // バリデーションエラー
                     errorMsg.innerText = '必須項目を入力してください';
                     errorMsg.style.display = 'block';
-                    
+
                     // ボタンを元に戻す
                     submitBtn.innerText = originalText;
                     submitBtn.disabled = false;
                     return;
                 }
-                
+
                 // 擬似送信処理（実際のAPIエンドポイントに置き換え可能）
-                setTimeout(function() {
+                setTimeout(function () {
                     // 成功メッセージ表示
                     successMsg.style.display = 'block';
-                    
+
                     // フォームリセット
                     form.reset();
-                    
+
                     // ボタンを元に戻す
                     submitBtn.innerText = originalText;
                     submitBtn.disabled = false;
-                    
+
                     // 3秒後にメッセージを非表示
-                    setTimeout(function() {
+                    setTimeout(function () {
                         successMsg.style.display = 'none';
                     }, 3000);
                 }, 1000);
             };
         }
-        
+
         // ページ読み込み時に実行
         document.addEventListener('DOMContentLoaded', initForm);
     </script>
-    
+
     <!-- バックアップハンバーガーメニュー用スクリプト -->
     <script>
-        window.addEventListener('load', function() {
+        window.addEventListener('load', function () {
             const hamburgerBtn = document.getElementById('hamburger-btn');
             const mobileMenu = document.getElementById('mobile-menu');
-            
+
             if (hamburgerBtn && mobileMenu) {
-                hamburgerBtn.addEventListener('click', function() {
+                hamburgerBtn.addEventListener('click', function () {
                     mobileMenu.classList.toggle('active');
                     const isActive = mobileMenu.classList.contains('active');
                     hamburgerBtn.setAttribute('aria-expanded', isActive ? 'true' : 'false');
