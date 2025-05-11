@@ -63,5 +63,8 @@ Crawl-delay: 10
 # サイトマップの場所
 Sitemap: https://notion.effect.moe/sitemap.xml
 
+# LLMs.txtの場所
+LLMs: https://notion.effect.moe/llms.txt
+
 # ホスト設定
 Host: notion.effect.moe
