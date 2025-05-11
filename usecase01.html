@@ -1,0 +1,904 @@
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>既存サイト+Notionブログ連結 | LLMO対策を徹底したWeb構築サービス</title>
+    <style>
+        /* 全体のスタイル */
+        :root {
+            --primary-color: #222222;
+            --secondary-color: #333333;
+            --accent-color: #666666;
+            --light-color: #f5f5f5;
+            --dark-color: #111111;
+            --success-color: #505050;
+            --warning-color: #909090;
+            --danger-color: #707070;
+            --gray-color: #888888;
+            --gray-light: #f8f8f8;
+            --box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', Meiryo, sans-serif;
+            line-height: 1.6;
+            color: var(--dark-color);
+            background-color: #fff;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* ヘッダーセクション */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 60px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            line-height: 1.3;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin-bottom: 30px;
+        }
+
+        .hero-bg {
+            position: absolute;
+            right: -5%;
+            top: -10%;
+            width: 70%;
+            height: 140%;
+            background: url('https://notion.effect.moe/images/hero-bg.svg') no-repeat;
+            background-size: contain;
+            opacity: 0.1;
+            z-index: 1;
+        }
+
+        .logo-container {
+            margin-bottom: 30px;
+            display: flex;
+            align-items: center;
+        }
+
+        .studio-logo {
+            height: 60px;
+            max-width: 200px;
+        }
+
+        /* フィーチャーセクション */
+        .section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title h2 {
+            font-size: 2.2rem;
+            color: var(--secondary-color);
+            margin-bottom: 15px;
+        }
+
+        .section-title p {
+            font-size: 1.1rem;
+            color: var(--gray-color);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* ユースケース部分 */
+        .usecase {
+            background-color: var(--light-color);
+            border-radius: 10px;
+            padding: 40px;
+            margin-bottom: 60px;
+            box-shadow: var(--box-shadow);
+        }
+
+        .usecase-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+
+        .usecase-icon {
+            background-color: var(--primary-color);
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-right: 20px;
+            flex-shrink: 0;
+        }
+
+        .usecase-title {
+            flex-grow: 1;
+        }
+
+        .usecase-title h3 {
+            font-size: 1.5rem;
+            color: var(--secondary-color);
+            margin-bottom: 5px;
+        }
+
+        .usecase-title p {
+            color: var(--gray-color);
+        }
+
+        /* ソリューション部分 */
+        .solution {
+            margin-bottom: 50px;
+        }
+
+        .solution h4 {
+            font-size: 1.3rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+
+        .solution h4::before {
+            content: "";
+            display: inline-block;
+            width: 8px;
+            height: 24px;
+            background-color: var(--primary-color);
+            margin-right: 15px;
+            border-radius: 4px;
+        }
+
+        .solution p {
+            margin-bottom: 20px;
+        }
+
+        .solution-highlight {
+            margin: 30px 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        .solution-box {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            padding: 5px;
+            border-radius: 10px;
+            width: 100%;
+            max-width: 900px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .solution-box::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0) 70%);
+        }
+
+        .solution-content {
+            background-color: white;
+            padding: 25px;
+            border-radius: 6px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .solution-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+        }
+
+        .solution-content h3::before {
+            content: "→";
+            margin-right: 15px;
+            font-weight: bold;
+            color: var(--primary-color);
+            font-size: 1.8rem;
+        }
+
+        .solution-content p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        /* 図解部分 */
+        .diagram {
+            background-color: white;
+            border-radius: 8px;
+            padding: 30px;
+            margin: 30px 0;
+            box-shadow: var(--box-shadow);
+        }
+
+        .diagram-title {
+            font-size: 1.2rem;
+            color: var(--secondary-color);
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .diagram-content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+
+        .diagram-img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        /* ステップ部分 */
+        .steps {
+            margin: 40px 0;
+        }
+
+        .step {
+            display: flex;
+            margin-bottom: 30px;
+            position: relative;
+        }
+
+        .step:not(:last-child)::after {
+            content: "";
+            position: absolute;
+            top: 60px;
+            left: 25px;
+            height: calc(100% - 50px);
+            width: 2px;
+            background-color: var(--accent-color);
+            z-index: 1;
+        }
+
+        .step-number {
+            background-color: var(--primary-color);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin-right: 20px;
+            flex-shrink: 0;
+            z-index: 2;
+        }
+
+        .step-content {
+            flex-grow: 1;
+        }
+
+        .step-content h5 {
+            font-size: 1.2rem;
+            color: var(--secondary-color);
+            margin-bottom: 10px;
+        }
+
+        /* 利点部分 */
+        .benefits {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+
+        .benefit-card {
+            background-color: white;
+            border-radius: 8px;
+            padding: 30px;
+            box-shadow: var(--box-shadow);
+            transition: transform 0.3s ease;
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .benefit-icon {
+            background-color: var(--light-color);
+            color: var(--primary-color);
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+
+        .benefit-card h4 {
+            font-size: 1.2rem;
+            color: var(--secondary-color);
+            margin-bottom: 15px;
+        }
+
+        /* CTAセクション */
+        .cta {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 60px 0;
+            text-align: center;
+            border-radius: 10px;
+            margin: 60px 0 20px;
+        }
+
+        .cta h3 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .cta p {
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto 30px;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: white;
+            color: var(--primary-color);
+            padding: 12px 24px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: var(--box-shadow);
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 7px 14px rgba(0, 0, 0, 0.1), 0 3px 6px rgba(0, 0, 0, 0.08);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            border: 2px solid white;
+            color: white;
+            margin-left: 15px;
+        }
+
+        /* LLMO特化スタイル */
+        .llmo-box {
+            border: 2px dashed var(--accent-color);
+            background-color: rgba(96, 165, 250, 0.1);
+            border-radius: 8px;
+            padding: 20px;
+            margin: 30px 0;
+        }
+
+        .llmo-box h4 {
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+
+        .llmo-box h4::before {
+            content: "🔍";
+            margin-right: 10px;
+        }
+
+        .llmo-checklist {
+            list-style-type: none;
+            margin: 20px 0;
+        }
+
+        .llmo-checklist li {
+            padding-left: 30px;
+            position: relative;
+            margin-bottom: 10px;
+        }
+
+        .llmo-checklist li::before {
+            content: "✓";
+            color: var(--success-color);
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+
+        /* コード表示部分 */
+        .code-block {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            overflow-x: auto;
+        }
+
+        .code-block pre {
+            font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+            line-height: 1.4;
+            margin: 0;
+        }
+
+        /* 比較表 */
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 30px 0;
+            box-shadow: var(--box-shadow);
+        }
+
+        .comparison-table th,
+        .comparison-table td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .comparison-table th {
+            background-color: var(--secondary-color);
+            color: white;
+        }
+
+        .comparison-table tr:nth-child(even) {
+            background-color: var(--gray-light);
+        }
+
+        .comparison-table tr:hover {
+            background-color: #e2e8f0;
+        }
+
+        .check-icon {
+            color: var(--success-color);
+            font-weight: bold;
+        }
+
+        .x-icon {
+            color: var(--danger-color);
+            font-weight: bold;
+        }
+
+        .featured-case {
+            margin: 30px 0;
+            text-align: center;
+            padding: 20px;
+            background-color: var(--light-color);
+            border-radius: 8px;
+        }
+
+        .featured-case h3 {
+            font-size: 1.4rem;
+            color: var(--secondary-color);
+            margin: 0;
+        }
+
+        .case-study-container {
+            display: flex;
+            justify-content: center;
+            margin: 40px 0;
+            width: 100%;
+        }
+
+        .case-study-box {
+            background-color: #f8f8f8;
+            border-left: 5px solid #222222;
+            border-radius: 8px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+            padding: 25px 30px;
+            max-width: 800px;
+            width: 100%;
+            transition: transform 0.3s ease;
+        }
+
+        .case-study-box:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12);
+        }
+
+        .case-study-title {
+            font-size: 1.4rem;
+            color: #222222;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+
+        .case-study-title::before {
+            content: "✓";
+            color: #222222;
+            font-weight: bold;
+            margin-right: 8px;
+            font-size: 1.2rem;
+        }
+
+        .case-study-box p {
+            font-weight: 500;
+            margin-bottom: 15px;
+        }
+
+        .case-study-box .llmo-checklist li {
+            padding: 8px 0;
+            border-bottom: 1px dashed rgba(0, 0, 0, 0.1);
+        }
+
+        .case-study-box .llmo-checklist li:last-child {
+            border-bottom: none;
+        }
+
+        /* レスポンシブ対応 */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .section {
+                padding: 60px 0;
+            }
+
+            .section-title h2 {
+                font-size: 1.8rem;
+            }
+
+            .usecase {
+                padding: 30px;
+            }
+
+            .usecase-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .usecase-icon {
+                margin-bottom: 15px;
+            }
+
+            .benefits {
+                grid-template-columns: 1fr;
+            }
+
+            .btn {
+                display: block;
+                margin: 10px auto;
+                max-width: 80%;
+            }
+
+            .btn-secondary {
+                margin-left: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- ヘッダーセクション -->
+    <section class="hero">
+        <div class="container hero-content">
+            <div class="logo-container"><a href="https://studio.design/ja" target="_blank"><img
+                        src="https://notion.effect.moe/images/studio-logo.png" alt="Studio Logo"
+                        class="studio-logo"></a></div>
+            <h1>既存サイト+Notionブログ連結<br>LLMO対策を徹底したWeb構築サービス</h1>
+            <p>AI検索時代に対応するLLMO対策で、既存サイトを最適化し、Notionの柔軟性を活用したコンテンツハブを構築。あなたのビジネスをAI検索の最前線に。</p>
+        </div>
+        <div class="hero-bg"></div>
+    </section>
+    <div class="container">
+        <!-- ユースケース部分 -->
+        <section class="section">
+            <div class="section-title">
+                <h2>あなたの既存サイトをLLMO対応に進化させる</h2>
+                <p><a href="https://studio.design/ja"
+                        target="_blank">Studio</a>で構築した既存サイトとNotionの強力な連携で、AIアシスタントに引用されるコンテンツを実現</p>
+            </div>
+            <div class="featured-case">
+                <h3>Studioで制作されたビジュアル高品質なWebサイトをお持ちの企業様の事例</h3>
+            </div>
+            <!-- 導入事例 -->
+            <div class="case-study-container">
+                <div class="case-study-box">
+                    <h4 class="case-study-title">導入事例</h4>
+                    <p>A社（製造業）の場合：</p>
+                    <ul class="llmo-checklist">
+                        <li>Studioによる既存サイトにLLMO対策を実施</li>
+                        <li>Notionブログシステムを連携し、週2回のコンテンツ更新を実現</li>
+                        <li>実施から3ヶ月でAI検索からの流入が前年比350%に増加</li>
+                        <li>営業部門がNotionを活用して専門コンテンツを容易に発信可能に</li>
+                        <li>問い合わせ数が月平均40%増加、特に質の高い見込み客からの問い合わせが増加</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="usecase">
+                <div class="usecase-header">
+                    <div class="usecase-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor" width="32" height="32">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                        </svg></div>
+                    <div class="usecase-title">
+                        <h3>Studio構築サイトを活かしたLLMO最適化</h3>
+                        <p>デザイン性と機能性を損なわず、AI検索最適化を実現</p>
+                    </div>
+                </div>
+                <div class="solution">
+                    <h4>現状の課題</h4>
+                    <p>Studioで制作された高品質なWebサイトをお持ちのあなたのビジネスは、優れたデザインと基本的な機能を備えていますが、AI検索時代の新たな課題に直面しています：</p>
+                    <ul class="llmo-checklist">
+                        <li>Google SGE、Perplexity、Bing AIなどのAI検索で表示・引用されにくい</li>
+                        <li>Schema.orgやLLMs.txtなどの必須構造化データが配置できない</li>
+                        <li>その他の細やかなLLMO対策が実装できない</li>
+                        <li>AI検索エンジンからの流入が少なく、ビジネス機会を逃している</li>
+                    </ul>
+                </div>
+                <div class="diagram">
+                    <div class="diagram-title">従来のWebサイトとAI検索最適化済みサイトの違い</div>
+                    <div class="diagram-content">
+                        <table class="comparison-table">
+                            <thead>
+                                <tr>
+                                    <th>要素</th>
+                                    <th>従来のWebサイト</th>
+                                    <th>LLMO対策済みサイト</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>AI検索での引用率</td>
+                                    <td><span class="x-icon">✗</span>低い</td>
+                                    <td><span class="check-icon">✓</span>高い</td>
+                                </tr>
+                                <tr>
+                                    <td>構造化データ</td>
+                                    <td><span class="x-icon">✗</span>基本的なものだけ</td>
+                                    <td><span class="check-icon">✓</span>包括的に実装</td>
+                                </tr>
+                                <tr>
+                                    <td>LLMs.txt対応</td>
+                                    <td><span class="x-icon">✗</span>未対応</td>
+                                    <td><span class="check-icon">✓</span>完全対応</td>
+                                </tr>
+                                <tr>
+                                    <td>コンテンツ更新の容易さ</td>
+                                    <td><span class="x-icon">✗</span>技術者依存</td>
+                                    <td><span class="check-icon">✓</span>Notionで簡単更新</td>
+                                </tr>
+                                <tr>
+                                    <td>E-E-A-T要素の強化</td>
+                                    <td><span class="x-icon">✗</span>限定的</td>
+                                    <td><span class="check-icon">✓</span>体系的に強化</td>
+                                </tr>
+                                <tr>
+                                    <td>AIネイティブコンテンツ</td>
+                                    <td><span class="x-icon">✗</span>未対応</td>
+                                    <td><span class="check-icon">✓</span>完全対応</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="solution">
+                    <h4>EFFECTのソリューション</h4>
+                    <div class="solution-highlight">
+                        <div class="solution-box">
+                            <div class="solution-content">
+                                <h3>既存サイト+Notionブログ連結サービスを提案</h3>
+                                <p>Studioのメリット（ビジュアル、ノーコード）はそのままに、統一ドメインでNotionブログをサテライト連携。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="diagram">
+                    <div class="diagram-title">既存サイト+Notionブログ連結の仕組み</div>
+                    <div class="diagram-content"><img src="https://notion.effect.moe/images/notion-llmo-diagram.png"
+                            alt="既存サイトとNotionブログの連結図" class="diagram-img"></div>
+                </div>
+                <div class="steps">
+                    <div class="step">
+                        <div class="step-number">1</div>
+                        <div class="step-content">
+                            <h5>既存サイトの分析とLLMO診断</h5>
+                            <p>現在のサイト構造、コンテンツ、メタデータを詳細に分析し、AI検索エンジンに最適化するための改善点を特定します。</p>
+                            <div class="llmo-box">
+                                <h4>LLMOポイント</h4>
+                                <p>AIアシスタントがどのようにサイトを理解し、引用するかという観点から、メタデータ、構造化データ、コンテンツの質と構造を徹底評価します。</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">2</div>
+                        <div class="step-content">
+                            <h5>既存サイトへのLLMO対策実装</h5>
+                            <p>デザインや機能性を損なうことなく、AI検索最適化のための技術的要素を実装します。</p>
+                            <ul class="llmo-checklist">
+                                <li>Schema.org構造化データの包括的実装</li>
+                                <li>LLMs.txtファイルの設定とAIクローラー指示最適化</li>
+                                <li>HTML構造の最適化（見出し階層、ALT属性など）</li>
+                                <li>メタデータ強化（タイトル、ディスクリプション、OGP）</li>
+                                <li>E-E-A-T要素（経験、専門性、権威性、信頼性）の強化</li>
+                            </ul>
+                            <div class="code-block">
+                                <pre><code> // Schema.org構造化データの例（JSON-LD形式）
+                                                &lt;script type="application/ld+json"&gt;
+                                                {
+                                                  "@context": "https://schema.org",
+                                                  "@type": "WebSite",
+                                                  "name": "あなたの会社名",
+                                                  "url": "https://example.com/",
+                                                  "potentialAction": {
+                                                    "@type": "SearchAction",
+                                                    "target": "https://example.com/search?q={search_term_string}",
+                                                    "query-input": "required name=search_term_string"
+                                                  },
+                                                  // ...その他のプロパティ
+                                                  "author": {
+                                                    "@type": "Organization",
+                                                    "name": "あなたの会社名",
+                                                    // ...詳細は省略
+                                                  }
+                                                }
+                                                &lt;/script&gt;
+</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">3</div>
+                        <div class="step-content">
+                            <h5>NotionブログシステムのLLMO最適化設定</h5>
+                            <p>Notionをヘッドレスコンテンツ管理システム（CMS）として設定し、AIに最適化されたブログ機能を既存サイトに統合します。</p>
+                            <div class="llmo-box">
+                                <h4>LLMOポイント</h4>
+                                <p>Notionデータベースを最適化し、AIアシスタントが理解しやすい構造化されたブログコンテンツを自動生成します。これにより、E-E-A-T要素を強化し、AI検索での引用率を高めます。
+                                </p>
+                            </div>
+                            <div class="code-block">
+                                <pre><code> // NotionブログページのLLMO対応コードサンプル
+                                                &lt;article itemscope itemtype="https://schema.org/BlogPosting"&gt;
+                                                &lt;header&gt;
+                                                  &lt;h1 itemprop="headline"&gt;{{notionData.title}}&lt;/h1&gt;
+                                                  &lt;div class="meta"&gt;
+                                                    &lt;time datetime="{{notionData.date}}" itemprop="datePublished"&gt;
+                                                      {{formatDate(notionData.date)}}
+                                                    &lt;/time&gt;
+                                                    &lt;span itemprop="author" itemscope itemtype="https://schema.org/Person"&gt;
+                                                      &lt;span itemprop="name"&gt;{{notionData.author}}&lt;/span&gt;
+                                                    &lt;/span&gt;
+                                                  &lt;/div&gt;
+                                                &lt;/header&gt;
+                                              
+                                                &lt;div itemprop="articleBody"&gt;{{notionData.content}}&lt;/div&gt;
+                                              
+                                                &lt;!-- FAQ部分 --&gt;
+                                                &lt;section&gt;
+                                                  &lt;h2&gt;よくある質問&lt;/h2&gt;
+                                                  &lt;div itemscope itemtype="https://schema.org/FAQPage"&gt;
+                                                    {{#each notionData.faqs}}
+                                                      &lt;!-- FAQ項目 省略 --&gt;
+                                                    {{/each}}
+                                                  &lt;/div&gt;
+                                                &lt;/section&gt;
+                                              &lt;/article&gt;
+</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">4</div>
+                        <div class="step-content">
+                            <h5>既存サイトとNotionブログの統合</h5>
+                            <p>デザイン的に一貫性のある形で、Notionで管理されるブログコンテンツを既存サイトに統合します。SEO値を損なわず、ユーザー体験を向上させます。</p>
+                            <ul class="llmo-checklist">
+                                <li>サイトデザインに合わせたNotionコンテンツのスタイリング</li>
+                                <li>Notionからのコンテンツ自動同期システム構築</li>
+                                <li>Studio制作のデザインとの一貫性確保</li>
+                                <li>パフォーマンス最適化（画像圧縮、遅延読み込みなど）</li>
+                                <li>モバイル対応の確保</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">5</div>
+                        <div class="step-content">
+                            <h5>AIネイティブコンテンツ戦略の策定と実装</h5>
+                            <p>AIアシスタントに頻繁に引用されるための、AIネイティブコンテンツ戦略を策定し、Notionを活用して実装します。</p>
+                            <div class="llmo-box">
+                                <h4>LLMOポイント</h4>
+                                <p>E-E-A-T要素を強化し、AIが好むコンテンツフォーマット（明確な構造、明示的な定義、段階的説明、FAQ形式など）を活用することで、AI検索での引用率を大幅に向上させます。
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">6</div>
+                        <div class="step-content">
+                            <h5>社内チーム向けNotionブログ管理トレーニング</h5>
+                            <p>あなたの社内チームがNotionを使って効果的にブログコンテンツを作成・管理し、LLMOの原則に従って最適化できるようにトレーニングを提供します。</p>
+                            <ul class="llmo-checklist">
+                                <li>Notionインターフェースとワークフローのトレーニング</li>
+                                <li>LLMO対策コンテンツ作成のベストプラクティス</li>
+                                <li>マニュアルとリファレンスガイドの提供</li>
+                                <li>継続的なサポートとコンサルティング</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="solution">
+                    <h4>期待される効果</h4>
+                    <p>「既存サイト+Notionブログ連結」サービスによってもたらされる具体的なメリットは以下の通りです：</p>
+                </div>
+                <div class="benefits">
+                    <div class="benefit-card">
+                        <div class="benefit-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none"
+                                viewBox="0 0 24 24" stroke="currentColor" width="24" height="24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+                            </svg></div>
+                        <h4>AI検索可視性の向上</h4>
+                        <p>Google SGE、Bing AI、Perplexityなどでの引用率が向上し、AI検索からの流入が増加します。既存のSEO対策と相乗効果を発揮します。</p>
+                    </div>
+                    <div class="benefit-card">
+                        <div class="benefit-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none"
+                                viewBox="0 0 24 24" stroke="currentColor" width="24" height="24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+                            </svg></div>
+                        <h4>コンテンツ更新の効率化</h4>
+                        <p>技術者に依存せず、マーケティングチームが直接Notionでコンテンツを作成・更新できるようになり、迅速な情報発信が可能になります。</p>
+                    </div>
+                    <div class="benefit-card">
+                        <div class="benefit-icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none"
+                                viewBox="0 0 24 24" stroke="currentColor" width="24" height="24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg></div>
+                        <h4>競争優位性の獲得</h4>
+                        <p>ほとんどの競合がまだLLMO対策を実施していない今、早期に導入することで業界内での差別化要因となり、新時代の検索で先行します。</p>
+                    </div>
+                </div>
+                <!-- CTA部分 -->
+                <div class="cta">
+                    <h3>貴社の既存サイトをAI検索時代に対応させませんか？</h3>
+                    <p><a href="https://studio.design/ja"
+                            target="_blank">Studio</a>で構築した素晴らしいデザインと機能性はそのままに、NotionとLLMO対策でAI検索時代を勝ち抜くウェブプレゼンスを構築します。
+                    </p><a href="https://notion.effect.moe/contact" class="btn">無料相談を予約する</a><a
+                        href="https://notion.effect.moe/llmo-case-studies" class="btn btn-secondary">導入事例をもっと見る</a>
+                </div>
+            </div>
+        </section>
+    </div>
+</body>
+
+</html>
