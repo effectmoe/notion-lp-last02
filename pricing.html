@@ -53,55 +53,109 @@
     <!-- 構造化データ JSON-LD -->
     <!-- サービス情報 -->
     <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Service",
-      "name": "Notion Effect DXソリューション",
-      "description": "Notionを活用したDX・タスク管理・プロジェクト管理システムの構築サービス。AIとガントチャートを活用した業務管理で企業の効率化を実現するノーコードソリューション。",
-      "provider": {
-        "@type": "Organization",
-        "name": "EFFECT Co. Ltd.",
-        "url": "https://notion.effect.moe/"
-      },
-      "offers": {
-        "@type": "AggregateOffer",
-        "priceCurrency": "JPY",
-        "lowPrice": "50000",
-        "highPrice": "500000",
-        "offerCount": "3",
-        "offers": [
-          {
-            "@type": "Offer",
-            "name": "ベーシックプラン",
-            "price": "50000",
-            "priceCurrency": "JPY",
-            "description": "基本的な業務管理システムの構築"
+        {
+          "@context": "https://schema.org",
+          "@type": "Service",
+          "name": "Notion Effect DXソリューション",
+          "description": "Notionを活用したDX・タスク管理・プロジェクト管理システムの構築サービス。AIとガントチャートを活用した業務管理で企業の効率化を実現するノーコードソリューション。LLMO対策にも対応し、AI検索時代のビジネス最適化をサポートします。",
+          "provider": {
+            "@type": "Organization",
+            "name": "EFFECT Co. Ltd.",
+            "url": "https://notion.effect.moe/",
+            "logo": "https://notion.effect.moe/images/logo.png",
+            "sameAs": [
+              "https://twitter.com/effectmoe",
+              "https://www.facebook.com/effectmoe"
+            ]
           },
-          {
-            "@type": "Offer",
-            "name": "スタンダードプラン",
-            "price": "150000",
+          "offers": {
+            "@type": "AggregateOffer",
             "priceCurrency": "JPY",
-            "description": "カスタマイズされたタスク管理・プロジェクト管理システムの構築"
+            "lowPrice": "50000",
+            "highPrice": "500000",
+            "offerCount": "3",
+            "offers": [
+              {
+                "@type": "Offer",
+                "name": "ベーシックプラン",
+                "price": "50000",
+                "priceCurrency": "JPY",
+                "description": "基本的な業務管理システムの構築。Notionワークスペースの最適化とタスク管理の基本設定を含みます。",
+                "availability": "https://schema.org/InStock",
+                "priceValidUntil": "2025-12-31"
+              },
+              {
+                "@type": "Offer",
+                "name": "スタンダードプラン",
+                "price": "150000",
+                "priceCurrency": "JPY",
+                "description": "カスタマイズされたタスク管理・プロジェクト管理システムの構築。LLMO対策の基本実装とAI活用の初期設定を含みます。",
+                "availability": "https://schema.org/InStock",
+                "priceValidUntil": "2025-12-31"
+              },
+              {
+                "@type": "Offer",
+                "name": "プレミアムプラン",
+                "price": "500000",
+                "priceCurrency": "JPY",
+                "description": "フルカスタマイズのDXソリューション構築とAPIベースの自動化。高度なLLMO対策と包括的なAI検索最適化戦略を含みます。",
+                "availability": "https://schema.org/InStock",
+                "priceValidUntil": "2025-12-31"
+              }
+            ]
           },
-          {
-            "@type": "Offer",
-            "name": "プレミアムプラン",
-            "price": "500000",
-            "priceCurrency": "JPY",
-            "description": "フルカスタマイズのDXソリューション構築とAPIベースの自動化"
+          "areaServed": {
+            "@type": "Country",
+            "name": "日本",
+            "alternateName": "JP"
+          },
+          "serviceType": ["DXシステム開発", "LLMO対策", "Notion活用コンサルティング"],
+          "category": ["業務効率化", "タスク管理", "プロジェクト管理", "AI活用", "LLMO対策"],
+          "audience": {
+            "@type": "Audience",
+            "audienceType": "企業・ビジネスオーナー・マーケティング担当者"
+          },
+          "serviceOutput": "AIに最適化されたWebサイトとNotion活用環境",
+          "hasOfferCatalog": {
+            "@type": "OfferCatalog",
+            "name": "Notion Effect DXソリューションプラン",
+            "itemListElement": [
+              {
+                "@type": "OfferCatalog",
+                "name": "基本サービス",
+                "itemListElement": [
+                  {
+                    "@type": "Service",
+                    "name": "Notionワークスペース設計"
+                  },
+                  {
+                    "@type": "Service",
+                    "name": "タスク管理システム構築"
+                  }
+                ]
+              },
+              {
+                "@type": "OfferCatalog",
+                "name": "LLMO対策サービス",
+                "itemListElement": [
+                  {
+                    "@type": "Service",
+                    "name": "Schema.org実装"
+                  },
+                  {
+                    "@type": "Service",
+                    "name": "LLMs.txt設定"
+                  }
+                ]
+              }
+            ]
+          },
+          "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://notion.effect.moe/pricing.html"
           }
-        ]
-      },
-      "areaServed": "JP",
-      "serviceType": "DXシステム開発",
-      "category": ["業務効率化", "タスク管理", "プロジェクト管理", "AI活用"],
-      "mainEntityOfPage": {
-        "@type": "WebPage",
-        "@id": "https://notion.effect.moe/pricing.html"
-      }
-    }
-    </script>
+        }
+        </script>
 
     <!-- パンくずリスト -->
     <script type="application/ld+json">
@@ -127,37 +181,83 @@
 
     <!-- FAQ情報 -->
     <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      "mainEntity": [
         {
-          "@type": "Question",
-          "name": "導入後のサポートは含まれていますか？",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "はい、すべてのプランに初期設定後1ヶ月間のサポートが含まれています。その後も継続的なサポートプランをご用意しています。"
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "カスタマイズの範囲はどこまで可能ですか？",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Notionの基本機能を活用した様々なカスタマイズが可能です。特にプレミアムプランではAPI連携による外部システムとの統合や自動化も対応可能です。"
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "導入にあたって必要なものはありますか？",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Notionのアカウント（無料または有料）が必要です。また、具体的な業務フローやご要望をお伺いするためのヒアリングにご協力いただく必要があります。"
-          }
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "導入後のサポートは含まれていますか？",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "はい、すべてのプランに初期設定後1ヶ月間のサポートが含まれています。その後も継続的なサポートプランをご用意しています。"
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "カスタマイズの範囲はどこまで可能ですか？",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Notionの基本機能を活用した様々なカスタマイズが可能です。特にプレミアムプランではAPI連携による外部システムとの統合や自動化も対応可能です。"
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "導入にあたって必要なものはありますか？",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Notionのアカウント（無料または有料）が必要です。また、具体的な業務フローやご要望をお伺いするためのヒアリングにご協力いただく必要があります。"
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "LLMO対策とは何ですか？また、どのようなメリットがありますか？",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "LLMO（Large Language Model Optimization）は、ChatGPTやGoogle SGEなどのAI検索エンジンに最適化するための施策です。これにより、AIアシスタントがあなたのビジネスを正確に理解し、潜在顧客に適切に紹介できるようになります。結果として、AI時代の新しい集客経路を確立できます。"
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "NotionとLLMO対策はどのように関連していますか？",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "NotionはCMSとしての活用も可能で、そこからAI最適化されたウェブサイトを構築できます。当社のサービスでは、NotionによるコンテンツマネジメントとLLMO対策を統合的に提供し、効率的なコンテンツ運用と高いAI可視性を両立させます。"
+              }
+            }
+          ]
         }
-      ]
-    }
-    </script>
+        </script>
+
+    <!-- Organization情報 -->
+    <script type="application/ld+json">
+            {
+              "@context": "https://schema.org",
+              "@type": "Organization",
+              "name": "EFFECT Co. Ltd.",
+              "alternateName": "株式会社EFFECT",
+              "url": "https://notion.effect.moe/",
+              "logo": "https://notion.effect.moe/images/logo.png",
+              "description": "Notion活用とLLMO対策に特化したデジタルコンサルティング企業。AI検索時代のビジネス最適化を支援します。",
+              "foundingDate": "2020-01-01",
+              "address": {
+                "@type": "PostalAddress",
+                "addressLocality": "福岡",
+                "addressRegion": "福岡県",
+                "addressCountry": "JP"
+              },
+              "contactPoint": {
+                "@type": "ContactPoint",
+                "contactType": "customer service",
+                "email": "info@effect.moe",
+                "availableLanguage": ["日本語", "English"]
+              },
+              "sameAs": [
+                "https://twitter.com/effectmoe",
+                "https://www.facebook.com/effectmoe"
+              ]
+            }
+            </script>
 
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="pricing.css">
@@ -291,7 +391,8 @@
                 <a href="pricing.html">料金プラン</a>
                 <a href="pricing.html#pricing-faq">よくある質問</a>
                 <a href="company.html">企業情報</a>
-                <a href="https://effectmoe.notion.site/1f0b802cb0c68074bea8d2b5e000c54a?pvs=105" class="contact-btn" target="_blank" rel="noopener noreferrer">お問い合わせ</a>
+                <a href="https://effectmoe.notion.site/1f0b802cb0c68074bea8d2b5e000c54a?pvs=105" class="contact-btn"
+                    target="_blank" rel="noopener noreferrer">お問い合わせ</a>
             </nav>
 
             <!-- Hamburger Menu Button -->
@@ -308,16 +409,17 @@
             <a href="pricing.html">料金プラン</a>
             <a href="pricing.html#pricing-faq">よくある質問</a>
             <a href="company.html">企業情報</a>
-            <a href="https://effectmoe.notion.site/1f0b802cb0c68074bea8d2b5e000c54a?pvs=105" class="contact-btn" target="_blank" rel="noopener noreferrer">お問い合わせ</a>
+            <a href="https://effectmoe.notion.site/1f0b802cb0c68074bea8d2b5e000c54a?pvs=105" class="contact-btn"
+                target="_blank" rel="noopener noreferrer">お問い合わせ</a>
         </nav>
     </header>
 
     <nav class="breadcrumb-nav">
         <!-- <div class="container"> -->
-            <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="index.html">ホーム</a></li>
-                <li class="breadcrumb-item active">料金プラン</li>
-            </ol>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="index.html">ホーム</a></li>
+            <li class="breadcrumb-item active">料金プラン</li>
+        </ol>
         <!-- </div> -->
     </nav>
 
@@ -422,7 +524,9 @@
                                 </div>
                             </div>
                             <div class="pricing-card-footer">
-                                <a href="https://effectmoe.notion.site/1f0b802cb0c68074bea8d2b5e000c54a?pvs=105" target="_blank" rel="noopener noreferrer" class="btn primary-btn pricing-btn">お問い合わせ</a>
+                                <a href="https://effectmoe.notion.site/1f0b802cb0c68074bea8d2b5e000c54a?pvs=105"
+                                    target="_blank" rel="noopener noreferrer"
+                                    class="btn primary-btn pricing-btn">お問い合わせ</a>
                             </div>
                         </div>
 
@@ -442,7 +546,9 @@
                                 </div>
                             </div>
                             <div class="pricing-card-footer">
-                                <a href="https://effectmoe.notion.site/1f0b802cb0c68074bea8d2b5e000c54a?pvs=105" target="_blank" rel="noopener noreferrer" class="btn primary-btn pricing-btn">お問い合わせ</a>
+                                <a href="https://effectmoe.notion.site/1f0b802cb0c68074bea8d2b5e000c54a?pvs=105"
+                                    target="_blank" rel="noopener noreferrer"
+                                    class="btn primary-btn pricing-btn">お問い合わせ</a>
                             </div>
                         </div>
 
@@ -691,7 +797,8 @@
                     <h2>Notionで業務効率化を実現！</h2>
                     <p>タスク管理、プロジェクト管理、顧客管理など、あなたのビジネス課題に最適なノーコードソリューションをご提案します。
                     </p>
-                    <a href="https://www.jicoo.com/t/effect/e/effect" class="cta-btn"  target="_blank" rel="noopener noreferrer">
+                    <a href="https://www.jicoo.com/t/effect/e/effect" class="cta-btn" target="_blank"
+                        rel="noopener noreferrer">
                         <span>ZOOM無料相談を予約</span>
                     </a>
                 </div>
@@ -705,7 +812,8 @@
                     <p class="section-desc">
                         DX（デジタルトランスフォーメーション）に関するご質問やご相談は、お気軽にお問い合わせください。
                     </p>
-                    <a href="https://effectmoe.notion.site/1f0b802cb0c68074bea8d2b5e000c54a?pvs=105" class="cta-button" target="_blank" rel="noopener noreferrer">
+                    <a href="https://effectmoe.notion.site/1f0b802cb0c68074bea8d2b5e000c54a?pvs=105" class="cta-button"
+                        target="_blank" rel="noopener noreferrer">
                         <span>お問い合わせフォームへ</span>
                     </a>
                 </div>
