@@ -38,6 +38,22 @@
     </image:image>
   </url>
   
+  <!-- LLMO情報 - 新規追加 -->
+  <url>
+    <loc>https://notion.effect.moe/llmo.html</loc>
+    <lastmod>2025-05-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <!-- NotionとLLMOの連携 - 新規追加 -->
+  <url>
+    <loc>https://notion.effect.moe/notionllmo.html</loc>
+    <lastmod>2025-05-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
   <!-- 機能説明ページ -->
   <url>
     <loc>https://notion.effect.moe/all-in-one/</loc>
