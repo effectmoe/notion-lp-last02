@@ -32,6 +32,12 @@
     <!-- 更新情報 -->
     <meta name="revised" content="2025-05-08">
     <link rel="canonical" href="https://notion.effect.moe/">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
     <style>
         :root {
             --primary-color: #2e75b5;
@@ -60,12 +66,7 @@
             background-color: var(--white);
         }
 
-        header {
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-            color: var(--white);
-            padding: 80px 20px;
-            text-align: center;
-        }
+
 
         h1 {
             font-size: 2.5rem;
@@ -108,6 +109,16 @@
         .btn-outline {
             background-color: transparent;
             border: 2px solid var(--white);
+        }
+
+        .header-below {
+            max-width: 100%;
+            margin: 0 auto;
+            padding: 20px;
+            background: linear-gradient(135deg, var(--primary-color), #2a4a7f);
+            color: var(--white);
+            padding: 80px 20px;
+            text-align: center;
         }
 
         .container {
@@ -1294,7 +1305,7 @@
                 margin-bottom: 1rem;
             }
 
-            .cta-content p {
+            .cta-content-llmo p {
                 max-width: 700px;
                 margin: 0 auto 2rem;
                 font-size: 1.1rem;
@@ -1664,12 +1675,80 @@
 </head>
 
 <body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-THGD6GDC" height="0" width="0"
+            style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    <header class="header">
+        <div class="header-container">
+            <a href="index.html" class="logo">EFFECT<br>Co. Ltd.</a>
+
+            <!-- Desktop Menu -->
+            <nav class="nav-menu" aria-label="メインナビゲーション">
+                <ul>
+                    <li><a href="index.html">ホーム</a></li>
+                    <li><a href="pricing.html">料金プラン</a></li>
+                    <li><a href="pricing.html#pricing-faq">よくある質問</a></li>
+                    <li><a href="company.html" aria-current="page">企業情報</a></li>
+                    <li><a href="index.html#contact" class="contact-btn">お問い合わせ</a></li>
+                </ul>
+            </nav>
+
+            <!-- Hamburger Menu Button -->
+            <button class="hamburger" id="hamburger-btn" aria-expanded="false" aria-controls="mobile-menu"
+                aria-label="メニューを開く" onclick="document.getElementById('mobile-menu').classList.toggle('active')">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+
+        <!-- Mobile Menu -->
+        <nav class="mobile-menu" id="mobile-menu" aria-hidden="true" aria-label="モバイルナビゲーション">
+            <ul>
+                <li><a href="index.html">ホーム</a></li>
+                <li><a href="pricing.html">料金プラン</a></li>
+                <li><a href="pricing.html#pricing-faq">よくある質問</a></li>
+                <li><a href="company.html" aria-current="page">企業情報</a></li>
+                <li><a href="index.html#contact" class="contact-btn">お問い合わせ</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <nav class="breadcrumb-nav">
+        <!-- <div class="container"> -->
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="index.html">ホーム</a></li>
+            <li class="breadcrumb-item active">企業情報</li>
+        </ol>
+        <!-- </div> -->
+    </nav>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "name": "ホーム",
+        "item": "https://notion.effect.moe/index.html"
+      },{
+        "@type": "ListItem",
+        "position": 2,
+        "name": "企業情報",
+        "item": "https://notion.effect.moe/company.html"
+      }]
+    }
+    </script>
+
     <header>
-        <div class="container">
+        <div class="header-below">
             <h1>Notion×LLMOで実現する<br>AI時代のコンテンツ最適化</h1>
             <p class="subtitle">検索は"キーワード"から"文脈理解"の時代へ。<br>AIに発見される自社サイト構築の実践ガイド</p>
             <div class="cta-buttons">
-                <a href="https://www.amazon.co.jp/dp/B0F7QQF392" class="btn"  target="_blank" rel="noopener noreferrer">LLMO書籍を詳しく見る</a>
+                <a href="https://www.amazon.co.jp/dp/B0F7QQF392" class="btn" target="_blank"
+                    rel="noopener noreferrer">LLMO書籍を詳しく見る</a>
                 <a href="https://notion.effect.moe/pricing.html" class="btn btn-outline">料金プランを確認する</a>
             </div>
         </div>
@@ -1743,7 +1822,9 @@
                         </ul>
                     </div>
                     <div class="card-footer">
-                        <a href="https://effectmoe.notion.site/1f0b802cb0c68074bea8d2b5e000c54a?pvs=105" class="cta-button" target="_blank" rel="noopener noreferrer" class="cta-button">詳細を問い合わせる</a>
+                        <a href="https://effectmoe.notion.site/1f0b802cb0c68074bea8d2b5e000c54a?pvs=105"
+                            class="cta-button" target="_blank" rel="noopener noreferrer"
+                            class="cta-button">詳細を問い合わせる</a>
                     </div>
                 </div>
 
@@ -1764,7 +1845,9 @@
                         </ul>
                     </div>
                     <div class="card-footer">
-                        <a href="https://effectmoe.notion.site/1f0b802cb0c68074bea8d2b5e000c54a?pvs=105" class="cta-button" target="_blank" rel="noopener noreferrer" class="cta-button">詳細を問い合わせる</a>
+                        <a href="https://effectmoe.notion.site/1f0b802cb0c68074bea8d2b5e000c54a?pvs=105"
+                            class="cta-button" target="_blank" rel="noopener noreferrer"
+                            class="cta-button">詳細を問い合わせる</a>
                     </div>
                 </div>
 
@@ -1785,7 +1868,9 @@
                         </ul>
                     </div>
                     <div class="card-footer">
-                        <a href="https://effectmoe.notion.site/1f0b802cb0c68074bea8d2b5e000c54a?pvs=105" class="cta-button" target="_blank" rel="noopener noreferrer" class="cta-button">詳細を問い合わせる</a>
+                        <a href="https://effectmoe.notion.site/1f0b802cb0c68074bea8d2b5e000c54a?pvs=105"
+                            class="cta-button" target="_blank" rel="noopener noreferrer"
+                            class="cta-button">詳細を問い合わせる</a>
                     </div>
                 </div>
 
@@ -1807,7 +1892,9 @@
                         </ul>
                     </div>
                     <div class="card-footer">
-                        <a href="https://effectmoe.notion.site/1f0b802cb0c68074bea8d2b5e000c54a?pvs=105" class="cta-button" target="_blank" rel="noopener noreferrer" class="cta-button">詳細を問い合わせる</a>
+                        <a href="https://effectmoe.notion.site/1f0b802cb0c68074bea8d2b5e000c54a?pvs=105"
+                            class="cta-button" target="_blank" rel="noopener noreferrer"
+                            class="cta-button">詳細を問い合わせる</a>
                     </div>
                 </div>
 
@@ -1828,7 +1915,9 @@
                         </ul>
                     </div>
                     <div class="card-footer">
-                        <a href="https://effectmoe.notion.site/1f0b802cb0c68074bea8d2b5e000c54a?pvs=105" class="cta-button" target="_blank" rel="noopener noreferrer" class="cta-button">詳細を問い合わせる</a>
+                        <a href="https://effectmoe.notion.site/1f0b802cb0c68074bea8d2b5e000c54a?pvs=105"
+                            class="cta-button" target="_blank" rel="noopener noreferrer"
+                            class="cta-button">詳細を問い合わせる</a>
                     </div>
                 </div>
             </div>
@@ -2089,10 +2178,11 @@
             </div>
 
             <div class="cta-container">
-                <div class="cta-content">
+                <div class="cta-content-llmo">
                     <h3>AI検索に最適化されたNotionブログを構築しませんか？</h3>
                     <p>当社のNotionブログサービスでは、LLMs.txtファイルが自動的に設置され、AIクローラーに最適なガイダンスを提供します。完全なテンプレートと実装サポートも含まれています。</p>
-                    <a href="https://effectmoe.notion.site/1f0b802cb0c68074bea8d2b5e000c54a?pvs=105" class="cta-button2" target="_blank" rel="noopener noreferrer" class="cta-button">詳細はこちら</a>
+                    <a href="https://effectmoe.notion.site/1f0b802cb0c68074bea8d2b5e000c54a?pvs=105" class="cta-button2"
+                        target="_blank" rel="noopener noreferrer" class="cta-button">詳細はこちら</a>
                 </div>
             </div>
     </section>
@@ -2247,10 +2337,11 @@
             </div>
 
             <div class="cta-container">
-                <div class="cta-content">
+                <div class="cta-content-llmo">
                     <h3>サイトポテンシャルを飛躍的に向上させませんか？</h3>
                     <p>Notionブログをあなたのウェブサイトにドメイン連携することで、Schema.orgの恩恵を自動的に受けられます。LLMO対策済みのブログで、AI検索時代に備えましょう。</p>
-                    <a href="https://effectmoe.notion.site/1f0b802cb0c68074bea8d2b5e000c54a?pvs=105" class="cta-button2" target="_blank" rel="noopener noreferrer" class="cta-button">お問い合わせはこちら</a>
+                    <a href="https://effectmoe.notion.site/1f0b802cb0c68074bea8d2b5e000c54a?pvs=105" class="cta-button2"
+                        target="_blank" rel="noopener noreferrer" class="cta-button">お問い合わせはこちら</a>
                 </div>
             </div>
     </section>
@@ -2259,62 +2350,51 @@
         <div class="container">
             <h2 class="section-title">SEOからLLMOへの進化</h2>
             <p class="section-subtitle">何が変わるのか？対策の違いを解説</p>
-
-            <div class="comparison">
-                <div class="comparison-card">
-                    <h3 class="comparison-title">従来のSEO対策</h3>
-                    <div class="comparison-item">
-                        <span class="comparison-icon">✓</span>
-                        <p>キーワード最適化と密度の調整</p>
-                    </div>
-                    <div class="comparison-item">
-                        <span class="comparison-icon">✓</span>
-                        <p>バックリンク構築とリンクジュース</p>
-                    </div>
-                    <div class="comparison-item">
-                        <span class="comparison-icon">✓</span>
-                        <p>メタタグ（タイトル・ディスクリプション）の最適化</p>
-                    </div>
-                    <div class="comparison-item">
-                        <span class="comparison-icon">✓</span>
-                        <p>ページ表示速度の改善</p>
-                    </div>
-                    <div class="comparison-item">
-                        <span class="comparison-icon">✓</span>
-                        <p>クローラビリティの向上</p>
-                    </div>
-                </div>
-
-                <div class="comparison-card">
-                    <h3 class="comparison-title">LLMO対策の新要素</h3>
-                    <div class="comparison-item">
-                        <span class="comparison-icon">★</span>
-                        <p>LLMs.txtファイルの実装</p>
-                    </div>
-                    <div class="comparison-item">
-                        <span class="comparison-icon">★</span>
-                        <p>トピックとブランドの関連付け強化</p>
-                    </div>
-                    <div class="comparison-item">
-                        <span class="comparison-icon">★</span>
-                        <p>構造化データのより詳細な実装</p>
-                    </div>
-                    <div class="comparison-item">
-                        <span class="comparison-icon">★</span>
-                        <p>文脈理解を促進する明確な文章構造</p>
-                    </div>
-                    <div class="comparison-item">
-                        <span class="comparison-icon">★</span>
-                        <p>データの具体性と引用の信頼性向上</p>
-                    </div>
-                </div>
+    
+            <div class="comparison-table-container">
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th class="feature-column">対策項目</th>
+                            <th class="traditional-column">従来のSEO対策</th>
+                            <th class="notion-column">LLMO対策の新要素</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>キーワード戦略</td>
+                            <td>キーワード最適化と密度の調整</td>
+                            <td>トピックとブランドの関連付け強化</td>
+                        </tr>
+                        <tr>
+                            <td>リンク戦略</td>
+                            <td>バックリンク構築とリンクジュース</td>
+                            <td>文脈理解を促進する明確な文章構造</td>
+                        </tr>
+                        <tr>
+                            <td>メタデータ</td>
+                            <td>メタタグ（タイトル・ディスクリプション）の最適化</td>
+                            <td>構造化データのより詳細な実装</td>
+                        </tr>
+                        <tr>
+                            <td>ページ最適化</td>
+                            <td>ページ表示速度の改善</td>
+                            <td>LLMs.txtファイルの実装</td>
+                        </tr>
+                        <tr>
+                            <td>ユーザー体験</td>
+                            <td>クローラビリティの向上</td>
+                            <td>データの具体性と引用の信頼性向上</td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
-
+    
             <div class="diagram-container">
                 <h3 class="diagram-title">SEOとLLMOの対策比較フロー</h3>
                 <div class="diagram">
                     <img src="images/SEOとLLMO対策比較フロー.svg"
-                        aalt="SEOとLLMO対策の比較フローチャート：従来の検索エンジン最適化とAI検索向け最適化の主要プロセスと評価指標の違いを図解したもの" />
+                        alt="SEOとLLMO対策の比較フローチャート：従来の検索エンジン最適化とAI検索向け最適化の主要プロセスと評価指標の違いを図解したもの" />
                 </div>
             </div>
         </div>
@@ -2520,7 +2600,8 @@
             <h2 class="cta-title">AI検索時代の新たな一歩を踏み出しませんか？</h2>
             <p class="cta-text">Notion×LLMOで、あなたのコンテンツをAIに認識される価値ある情報源に変えましょう。SEOからLLMOへの移行は、単なるトレンドではなく、情報検索の未来です。</p>
             <div class="cta-buttons">
-                <a href="https://www.amazon.co.jp/dp/B0F7QQF392" class="btn"  target="_blank" rel="noopener noreferrer">LLMO書籍を詳しく見る</a>
+                <a href="https://www.amazon.co.jp/dp/B0F7QQF392" class="btn" target="_blank"
+                    rel="noopener noreferrer">LLMO書籍を詳しく見る</a>
                 <a href="https://notion.effect.moe/pricing.html" class="btn btn-outline">料金プランを確認する</a>
             </div>
         </div>
@@ -2535,7 +2616,8 @@
                 <a href="https://www.amazon.co.jp/dp/B0F7QQF392" class="footer-link">LLMO書籍</a>
                 <a href="#" class="footer-link">LLMO対策ガイド</a>
                 <a href="#" class="footer-link">SEO対策からLLMO対策へ</a>
-                <a href="https://effectmoe.notion.site/1f0b802cb0c68074bea8d2b5e000c54a?pvs=105" class="footer-link"  target="_blank" rel="noopener noreferrer">お問い合わせ</a>
+                <a href="https://effectmoe.notion.site/1f0b802cb0c68074bea8d2b5e000c54a?pvs=105" class="footer-link"
+                    target="_blank" rel="noopener noreferrer">お問い合わせ</a>
                 <a href="#" class="footer-link">プライバシーポリシー</a>
                 <a href="#" class="footer-link">特定商取引法に基づく表記</a>
             </div>
