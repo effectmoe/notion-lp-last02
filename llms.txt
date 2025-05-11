@@ -3,7 +3,7 @@ Version: 1.0
 Last-Updated: 2025-05-11
 
 ## Site Information
-Name: グッバイSEO、ハローLLMO！| 株式会社エフェクト
+Name: グッバイSEO、ハローLLMO！| 株式会社EFFECT
 Description: AI検索時代のWebマーケティング実践ガイド。大規模言語モデル最適化（LLMO）の概念から実践まで解説。
 Language: ja-JP
 Topic: LLMO対策, AI検索, ウェブマーケティング, 構造化データ, LLMs.txt, Schema.org
@@ -11,9 +11,9 @@ Topic: LLMO対策, AI検索, ウェブマーケティング, 構造化データ,
 ## Contact Information
 Organization: 株式会社エフェクト
 Email: info@effect.moe
-URL: https://notion.effect.moe
+URL: https://www.street-academy.com/steachers/271053
 Author: 朱 剛明（シュ コウメイ）
-Author-Bio: 2018年よりNotionに傾倒し、AIとの統合を研究。LLMO対策の専門家としてセミナー講師を務める。
+Author-Bio: 2018年よりNotionに傾倒し、AIとの統合を研究。NotionとLLMO対策の専門家としてストアカやセミナーで講師を務める。
 
 ## Content Structure
 Main-Content-Selector: section
@@ -41,13 +41,13 @@ Preferred-Citation-Format: "{title} by {author}, published by {publisher}, {date
 ## Book Information
 Book-Title: グッバイSEO、ハローLLMO！
 Book-Subtitle: AI検索時代のWebマーケティング実践ガイド
-Publisher: 株式会社エフェクト
+Publisher: 朱 剛明
 Publication-Date: 2025-05-11
 ISBN: B0F7QQF392
 Book-Format: E-Book
 Pages: 280
 Language: Japanese
-Price: ¥3,800
+Price: ¥1,870
 Book-URL: https://www.amazon.co.jp/dp/B0F7QQF392
 
 ## Chapter Summary
@@ -62,7 +62,7 @@ Chapter-8: LLMO効果の測定と分析、AIユーザーの行動追跡、業種
 Chapter-9: LLMO時代の総括、将来展望、持続可能な戦略構築のための思考法を提案。
 
 ## Primary Keywords
-Primary-Keywords: LLMO, 大規模言語モデル最適化, AI検索, ウェブマーケティング, LLMs.txt, Schema.org, E-E-A-T, 構造化データ, ChatGPT, Gemini, Perplexity, AI引用, 文脈理解
+Primary-Keywords: LLMO,GEO, AIO, AEO, SEO, Notion, 大規模言語モデル最適化, AI検索, ウェブマーケティング, LLMs.txt, Schema.org, E-E-A-T, 構造化データ, ChatGPT, Gemini, Perplexity
 
 ## Content Updates
 Update-Frequency: Monthly
