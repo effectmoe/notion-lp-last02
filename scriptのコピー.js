@@ -177,7 +177,7 @@ document.addEventListener('DOMContentLoaded', function () {
                         'Content-Type': 'application/json',
                         'Accept': 'application/json'
                     },
-                    body: JSON.stringify(formValues)
+                    body: JSON.stringify({ data: formValues })
                 })
                 .then(response => {
                     if (!response.ok) {
