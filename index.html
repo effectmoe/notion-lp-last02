@@ -830,6 +830,73 @@
                     }
 
                 }
+
+                /* Notionリンクセクションのスタイル */
+                .notion-link-section {
+                    width: 100%;
+                    max-width: 800px;
+                    margin: 60px auto;
+                    padding: 0 20px;
+                    text-align: center;
+                }
+
+                .notion-link-section h2 {
+                    font-size: 28px;
+                    font-weight: 700;
+                    margin-bottom: 15px;
+                    color: #333;
+                }
+
+                .notion-link-section p {
+                    font-size: 16px;
+                    line-height: 1.6;
+                    margin-bottom: 30px;
+                    color: #666;
+                }
+
+                /* Notionボタンスタイル */
+                .notion-button {
+                    display: inline-block;
+                    background-color: #000;
+                    color: white;
+                    padding: 16px 32px;
+                    border-radius: 8px;
+                    text-decoration: none;
+                    font-weight: 600;
+                    font-size: 18px;
+                    transition: all 0.3s ease;
+                    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+                }
+
+                .notion-button:hover {
+                    background-color: #333;
+                    transform: translateY(-3px);
+                    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+                }
+
+                .note {
+                    margin-top: 15px;
+                    font-size: 14px;
+                    color: #888;
+                }
+
+                /* モバイル対応 */
+                @media (max-width: 768px) {
+                    .notion-link-section {
+                        margin: 40px auto;
+                    }
+
+                    .notion-link-section h2 {
+                        font-size: 24px;
+                    }
+
+                    .notion-button {
+                        padding: 14px 28px;
+                        font-size: 16px;
+                        width: 100%;
+                        max-width: 300px;
+                    }
+                }
             </style>
         </section>
 
@@ -1018,64 +1085,13 @@
             </div>
         </section>
 
-        <!-- Notionへの直接リンク -->
-        <div class="notion-direct-link">
-            <h3>Notionフォームに直接アクセス</h3>
-            <p>以下のボタンをクリックして、Notionフォームから直接お問い合わせいただけます。</p>
+        <!-- Notionフォームへの直接リンク -->
+        <div class="notion-link-section">
+            <h2>お問い合わせはこちら</h2>
+            <p>確認後担当者より折り返し連絡させていただきます</p>
             <a href="https://effectmoe.notion.site/1f0b802cb0c68074bea8d2b5e000c54a" target="_blank"
-                class="notion-button">
-                <span class="notion-icon">📝</span> Notionフォームを開く
-            </a>
-            <p class="notion-note">※ 新しいタブでNotionフォームが開きます</p>
+                class="notion-button">Notionフォームを開く</a>
         </div>
-        </div>
-
-        <!-- <section class="contact" id="contact">
-            <div class="container">
-                <h2 class="section-title">Notionを活用したDX・業務効率化のご相談</h2>
-                <p class="section-desc">
-                    NotionによるDX、タスク管理、プロジェクト管理システムの構築についてのご質問は、お気軽にお問い合わせください。AIやガントチャートを活用した企業向けシステム開発のプロフェッショナルがサポートします。
-                </p>
-        
-                <div class="contact-content">
-                    <div class="contact-form">
-                        <form id="inquiry-form" aria-labelledby="contact-form-title" novalidate>
-                            <div class="form-group">
-                                <label for="name">お名前 <span class="required" aria-label="必須">*</span></label>
-                                <input type="text" id="name" name="name" required aria-required="true" pattern=".{1,100}" autocomplete="name">
-                                <div class="error-message" id="name-error" aria-live="polite"></div>
-                            </div>
-                            <div class="form-group">
-                                <label for="email">メールアドレス <span class="required" aria-label="必須">*</span></label>
-                                <input type="email" id="email" name="email" required aria-required="true" autocomplete="email" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$">
-                                <div class="error-message" id="email-error" aria-live="polite"></div>
-                            </div>
-                            <div class="form-group">
-                                <label for="company">会社名</label>
-                                <input type="text" id="company" name="company" autocomplete="organization">
-                            </div>
-                            <div class="form-group">
-                                <label for="phone">電話番号</label>
-                                <input type="tel" id="phone" name="phone" autocomplete="tel" pattern="[0-9\\-+\\s()]*">
-                                <div class="error-message" id="phone-error" aria-live="polite"></div>
-                            </div>
-                            <div class="form-group">
-                                <label for="message">お問い合わせ内容 <span class="required" aria-label="必須">*</span></label>
-                                <textarea id="message" name="message" rows="5" required aria-required="true" minlength="10" maxlength="1000"></textarea>
-                                <div class="error-message" id="message-error" aria-live="polite"></div>
-                            </div>
-                            <button type="submit" class="submit-btn">お問い合わせを送信</button>
-                            <div id="form-success" style="display: none; color: green; margin-top: 15px;">
-                                お問い合わせを受け付けました。担当者より折り返しご連絡いたします。
-                            </div>
-                            <div id="form-error" style="display: none; color: red; margin-top: 15px;">
-                                送信中にエラーが発生しました。しばらく経ってから再度お試しください。
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </section> -->
     </main>
 
     <footer>
