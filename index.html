@@ -1018,61 +1018,15 @@
             </div>
         </section>
 
-        <!-- 代替コンタクト情報（接続エラーの場合に表示） -->
-        <!-- 修正したフォーム -->
-        <div class="custom-form-wrapper">
-            <form id="contact-form" action="https://formsubmit.co/info@effect.moe" method="POST">
-                <!-- FormSubmit設定 -->
-                <input type="hidden" name="_subject" value="Effect.moe ウェブサイトからのお問い合わせ">
-                <input type="hidden" name="_captcha" value="false">
-                <input type="hidden" name="_template" value="table">
-                <input type="hidden" name="_next" value="https://effect.moe/thanks">
-
-                <div class="form-group">
-                    <label for="name">お名前 <span class="required">*</span></label>
-                    <input type="text" id="name" name="name" required>
-                </div>
-
-                <div class="form-group">
-                    <label for="email">メールアドレス <span class="required">*</span></label>
-                    <input type="email" id="email" name="email" required>
-                </div>
-
-                <div class="form-group">
-                    <label for="company">会社名</label>
-                    <input type="text" id="company" name="company">
-                </div>
-
-                <div class="form-group">
-                    <label for="subject">件名 <span class="required">*</span></label>
-                    <input type="text" id="subject" name="subject" required>
-                </div>
-
-                <div class="form-group">
-                    <label for="message">お問い合わせ内容 <span class="required">*</span></label>
-                    <textarea id="message" name="message" rows="6" required></textarea>
-                </div>
-
-                <div class="form-group">
-                    <label class="checkbox-container">
-                        <input type="checkbox" id="privacy-policy" name="privacy-policy" required>
-                        <span class="checkmark"></span>
-                        <span class="checkbox-text"><a href="#" target="_blank">プライバシーポリシー</a>に同意します</span>
-                    </label>
-                </div>
-
-                <div class="form-submit">
-                    <button type="submit" class="submit-button">送信する</button>
-                </div>
-
-                <!-- FormSubmitの迷惑メール防止用の隠しフィールド -->
-                <input type="text" name="_honey" style="display:none">
-            </form>
-        </div>
-
-        <!-- 直接連絡の代替手段 -->
-        <div class="contact-alternative">
-            <p>フォームが機能しない場合は、<a href="mailto:info@effect.moe">info@effect.moe</a> まで直接メールでお問い合わせください。</p>
+        <!-- Notionへの直接リンク -->
+        <div class="notion-direct-link">
+            <h3>Notionフォームに直接アクセス</h3>
+            <p>以下のボタンをクリックして、Notionフォームから直接お問い合わせいただけます。</p>
+            <a href="https://effectmoe.notion.site/1f0b802cb0c68074bea8d2b5e000c54a" target="_blank"
+                class="notion-button">
+                <span class="notion-icon">📝</span> Notionフォームを開く
+            </a>
+            <p class="notion-note">※ 新しいタブでNotionフォームが開きます</p>
         </div>
         </div>
 
