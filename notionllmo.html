@@ -374,242 +374,308 @@
             opacity: 0.8;
         }
 
-        /* レスポンシブ対応 */
+        /* Notionリンクセクションのスタイル */
+        .notion-link-section {
+            width: 100%;
+            max-width: 800px;
+            margin: 60px auto;
+            padding: 0 20px;
+            text-align: center;
+        }
+
+        .notion-link-section h2 {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        .notion-link-section p {
+            font-size: 16px;
+            line-height: 1.6;
+            margin-bottom: 30px;
+            color: #666;
+        }
+
+        /* Notionボタンスタイル */
+        .notion-button {
+            display: inline-block;
+            background-color: #000;
+            color: white;
+            padding: 16px 32px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .notion-button:hover {
+            background-color: #333;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .note {
+            margin-top: 15px;
+            font-size: 14px;
+            color: #888;
+        }
+
+        /* モバイル対応 */
         @media (max-width: 768px) {
-            h1 {
-                font-size: 2rem;
+            .notion-link-section {
+                margin: 40px auto;
             }
 
-            .section {
-                padding: 60px 0;
+            .notion-link-section h2 {
+                font-size: 24px;
             }
 
-            .step,
-            .step:nth-child(even) {
+            .notion-button {
+                padding: 14px 28px;
+                font-size: 16px;
+                width: 100%;
+                max-width: 300px;
+            }
+
+            /* レスポンシブ対応 */
+            @media (max-width: 768px) {
+                h1 {
+                    font-size: 2rem;
+                }
+
+                .section {
+                    padding: 60px 0;
+                }
+
+                .step,
+                .step:nth-child(even) {
+                    flex-direction: column;
+                }
+
+                .step-image {
+                    margin-top: 20px;
+                    order: 2;
+                }
+
+                .step-content {
+                    order: 1;
+                }
+            }
+
+            .diagram-container {
+                background-color: transparent;
+                /* 背景色を透明に */
+                border-radius: 0;
+                /* 角丸を削除 */
+                box-shadow: none;
+                /* 影を削除 */
+                padding: 0 20px;
+                /* 上下のパディングを削除、左右のみ保持 */
+                margin: 30px 0;
+            }
+
+            .diagram-title {
+                text-align: center;
+                margin-bottom: 20px;
+                color: var(--primary-color);
+            }
+
+            .diagram {
+                width: 100%;
+                max-width: 100%;
+                /* コンテンツを最大幅に合わせる */
+                margin: 0;
+                /* 余分なマージンを削除 */
+            }
+
+            .diagram img {
+                width: 100%;
+                /* 画像を親要素に合わせる */
+                height: auto;
+                /* アスペクト比を維持 */
+                display: block;
+                /* インライン要素のデフォルト余白を削除 */
+                margin: 0 auto;
+            }
+
+            .diagram-caption {
+                text-align: center;
+                font-size: 0.9rem;
+                color: var(--gray);
+                margin-top: 10px;
+                padding-bottom: 30px;
+            }
+
+            .two-column {
+                display: flex;
+                flex-direction: column;
+                /* 縦並びに変更 */
+                gap: 30px;
+                margin: 40px 0;
+            }
+
+            .column {
+                flex: 1;
+                min-width: 100%;
+                /* 幅を100%に設定 */
+                width: 100%;
+            }
+
+            .highlight-box {
+                background-color: rgba(46, 117, 181, 0.1);
+                border-left: 4px solid var(--primary-color);
+                padding: 20px;
+                border-radius: 0 var(--border-radius) var(--border-radius) 0;
+                margin: 30px 0;
+            }
+
+            .highlight-title {
+                color: var(--primary-color);
+                font-weight: bold;
+                margin-bottom: 10px;
+            }
+
+            /* LLMO対策サービスセクション用のスタイル */
+            .service-section {
+                padding: 80px 0;
+                background-color: var(--light-bg);
+            }
+
+            .service-cards {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 30px;
+                margin-top: 40px;
+                /* 追加するプロパティ */
+                align-items: stretch;
+                /* カードの高さを揃える */
+                width: 100%;
+                /* コンテナ幅を確保 */
+            }
+
+            .service-card {
+                flex: 1;
+                min-width: 300px;
+                max-width: 380px;
+                background-color: var(--white);
+                border-radius: var(--border-radius);
+                padding: 30px;
+                box-shadow: var(--box-shadow);
+                transition: var(--transition);
+                display: flex;
+                flex-direction: column;
+
+                /* 修正点：固定高さを使わない */
+                height: auto;
+                /* 固定値ではなく自動調整 */
+                min-height: 550px;
+                /* 最小高さを設定（調整可能） */
+
+                /* カード内のコンテンツ配置を調整 */
+                justify-content: flex-start;
+                /* コンテンツを上から配置 */
+            }
+
+            .service-card:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+            }
+
+            .card-header {
+                margin-bottom: 20px;
+            }
+
+            .card-icon {
+                width: 100%;
+                height: 180px;
+                object-fit: cover;
+                margin: 0 auto 20px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                background-color: rgba(46, 117, 181, 0.1);
+                border-radius: 16px;
+                /* 適度な角丸 */
+                overflow: hidden;
+                /* 画像がはみ出さないように */
+            }
+
+            .card-icon img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                /* 画像全体が見えるように */
+                border-radius: 0;
+                /* 画像自体の角丸は不要 */
+            }
+
+            .service-card h3 {
+                font-size: 1.5rem;
+                color: var(--primary-color);
+                margin-bottom: 15px;
+                text-align: center;
+            }
+
+            .card-content {
+                /* 重要: コンテンツを拡張して空間を埋める */
+                flex: 1;
+                display: flex;
                 flex-direction: column;
             }
 
-            .step-image {
+            .service-card p {
+                margin-bottom: 20px;
+                color: var(--text-color);
+            }
+
+            .feature-list {
+                list-style-type: none;
+                margin-bottom: 25px;
+            }
+
+            .feature-list li {
+                position: relative;
+                padding-left: 25px;
+                margin-bottom: 10px;
+            }
+
+            .feature-list li:before {
+                content: "✓";
+                position: absolute;
+                left: 0;
+                color: var(--accent-color);
+                font-weight: bold;
+            }
+
+            .card-footer {
+                margin-top: auto;
+                /* フッターを下部に押し出す */
+                width: 100%;
+                /* 幅を親に合わせる */
+            }
+
+            .cta-button {
+                display: block;
+                padding: 12px 20px;
+                background-color: var(--primary-color);
+                color: var(--white);
+                text-align: center;
+                text-decoration: none;
+                border-radius: var(--border-radius);
+                font-weight: bold;
+                transition: var(--transition);
                 margin-top: 20px;
-                order: 2;
             }
 
-            .step-content {
-                order: 1;
+            .cta-button:hover {
+                background-color: var(--secondary-color);
             }
-        }
 
-        .diagram-container {
-            background-color: transparent;
-            /* 背景色を透明に */
-            border-radius: 0;
-            /* 角丸を削除 */
-            box-shadow: none;
-            /* 影を削除 */
-            padding: 0 20px;
-            /* 上下のパディングを削除、左右のみ保持 */
-            margin: 30px 0;
-        }
-
-        .diagram-title {
-            text-align: center;
-            margin-bottom: 20px;
-            color: var(--primary-color);
-        }
-
-        .diagram {
-            width: 100%;
-            max-width: 100%;
-            /* コンテンツを最大幅に合わせる */
-            margin: 0;
-            /* 余分なマージンを削除 */
-        }
-
-        .diagram img {
-            width: 100%;
-            /* 画像を親要素に合わせる */
-            height: auto;
-            /* アスペクト比を維持 */
-            display: block;
-            /* インライン要素のデフォルト余白を削除 */
-            margin: 0 auto;
-        }
-
-        .diagram-caption {
-            text-align: center;
-            font-size: 0.9rem;
-            color: var(--gray);
-            margin-top: 10px;
-            padding-bottom: 30px;
-        }
-
-        .two-column {
-            display: flex;
-            flex-direction: column;
-            /* 縦並びに変更 */
-            gap: 30px;
-            margin: 40px 0;
-        }
-
-        .column {
-            flex: 1;
-            min-width: 100%;
-            /* 幅を100%に設定 */
-            width: 100%;
-        }
-
-        .highlight-box {
-            background-color: rgba(46, 117, 181, 0.1);
-            border-left: 4px solid var(--primary-color);
-            padding: 20px;
-            border-radius: 0 var(--border-radius) var(--border-radius) 0;
-            margin: 30px 0;
-        }
-
-        .highlight-title {
-            color: var(--primary-color);
-            font-weight: bold;
-            margin-bottom: 10px;
-        }
-
-        /* LLMO対策サービスセクション用のスタイル */
-        .service-section {
-            padding: 80px 0;
-            background-color: var(--light-bg);
-        }
-
-        .service-cards {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 30px;
-            margin-top: 40px;
-            /* 追加するプロパティ */
-            align-items: stretch;
-            /* カードの高さを揃える */
-            width: 100%;
-            /* コンテナ幅を確保 */
-        }
-
-        .service-card {
-            flex: 1;
-            min-width: 300px;
-            max-width: 380px;
-            background-color: var(--white);
-            border-radius: var(--border-radius);
-            padding: 30px;
-            box-shadow: var(--box-shadow);
-            transition: var(--transition);
-            display: flex;
-            flex-direction: column;
-
-            /* 修正点：固定高さを使わない */
-            height: auto;
-            /* 固定値ではなく自動調整 */
-            min-height: 550px;
-            /* 最小高さを設定（調整可能） */
-
-            /* カード内のコンテンツ配置を調整 */
-            justify-content: flex-start;
-            /* コンテンツを上から配置 */
-        }
-
-        .service-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
-        }
-
-        .card-header {
-            margin-bottom: 20px;
-        }
-
-        .card-icon {
-            width: 100%;
-            height: 180px;
-            object-fit: cover;
-            margin: 0 auto 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background-color: rgba(46, 117, 181, 0.1);
-            border-radius: 16px;
-            /* 適度な角丸 */
-            overflow: hidden;
-            /* 画像がはみ出さないように */
-        }
-
-        .card-icon img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            /* 画像全体が見えるように */
-            border-radius: 0;
-            /* 画像自体の角丸は不要 */
-        }
-
-        .service-card h3 {
-            font-size: 1.5rem;
-            color: var(--primary-color);
-            margin-bottom: 15px;
-            text-align: center;
-        }
-
-        .card-content {
-            /* 重要: コンテンツを拡張して空間を埋める */
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .service-card p {
-            margin-bottom: 20px;
-            color: var(--text-color);
-        }
-
-        .feature-list {
-            list-style-type: none;
-            margin-bottom: 25px;
-        }
-
-        .feature-list li {
-            position: relative;
-            padding-left: 25px;
-            margin-bottom: 10px;
-        }
-
-        .feature-list li:before {
-            content: "✓";
-            position: absolute;
-            left: 0;
-            color: var(--accent-color);
-            font-weight: bold;
-        }
-
-        .card-footer {
-            margin-top: auto;
-            /* フッターを下部に押し出す */
-            width: 100%;
-            /* 幅を親に合わせる */
-        }
-
-        .cta-button {
-            display: block;
-            padding: 12px 20px;
-            background-color: var(--primary-color);
-            color: var(--white);
-            text-align: center;
-            text-decoration: none;
-            border-radius: var(--border-radius);
-            font-weight: bold;
-            transition: var(--transition);
-            margin-top: 20px;
-        }
-
-        .cta-button:hover {
-            background-color: var(--secondary-color);
-        }
-
-        .cta-button2 {
+            .cta-button2 {
                 display: inline-block;
                 background-color: white;
                 color: #4c51bf;
@@ -627,523 +693,523 @@
                 box-shadow: 0 7px 14px rgba(0, 0, 0, 0.15);
             }
 
-        /* LLMO比較セクション用のスタイル */
-        .llmo-section {
-            padding: 80px 0;
-        }
-
-        .comparison-container {
-            display: flex;
-            flex-direction: column;
-            /* 縦並びに変更 */
-            align-items: center;
-            gap: 40px;
-            margin-top: 40px;
-        }
-
-        .comparison-image {
-            margin: 0 auto;
-            /* 中央配置 */
-            max-width: 100%;
-            /* コンテナ幅に合わせる */
-            display: flex;
-            /* フレックスボックス化 */
-            justify-content: center;
-            /* 水平方向の中央揃え */
-            align-items: center;
-            /* 垂直方向の中央揃え */
-        }
-
-        .comparison-image img {
-            width: 100%;
-            /* 画像を最大幅で表示 */
-            max-width: 100%;
-            /* 親要素からはみ出さないように */
-            height: auto;
-            /* アスペクト比を維持 */
-            object-fit: contain;
-            /* 画像が収まるようにする */
-            margin: 0;
-            /* 余白をなくす */
-        }
-
-        .comparison-text {
-            flex: 1;
-            min-width: 100%;
-        }
-
-        .comparison-text h3 {
-            font-size: 1.7rem;
-            color: var(--primary-color);
-            margin-bottom: 20px;
-        }
-
-        .llmo-features {
-            margin-top: 30px;
-        }
-
-        .feature-item {
-            margin-bottom: 20px;
-            padding-bottom: 15px;
-            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-        }
-
-        .feature-item:last-child {
-            border-bottom: none;
-        }
-
-        .feature-item h4 {
-            font-size: 1.2rem;
-            color: var(--primary-color);
-            margin-bottom: 10px;
-        }
-
-        .notion-llmo {
-            margin-top: 40px;
-            padding: 25px;
-            background-color: rgba(46, 117, 181, 0.05);
-            border-radius: var(--border-radius);
-        }
-
-        .notion-llmo h3 {
-            font-size: 1.4rem;
-            margin-bottom: 15px;
-        }
-
-        .notion-llmo ul {
-            padding-left: 20px;
-            margin: 15px 0;
-        }
-
-        .notion-llmo li {
-            margin-bottom: 8px;
-        }
-
-        /* お問い合わせフォーム用のスタイル */
-        .contact-section {
-            padding: 80px 0;
-            background-color: var(--white);
-        }
-
-        .contact-form {
-            max-width: 700px;
-            margin: 40px auto 0;
-            background-color: var(--light-bg);
-            padding: 40px;
-            border-radius: var(--border-radius);
-            box-shadow: var(--box-shadow);
-        }
-
-        .form-group {
-            margin-bottom: 25px;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: bold;
-            color: var(--primary-color);
-        }
-
-        .form-group input,
-        .form-group textarea,
-        .form-group select {
-            width: 100%;
-            padding: 12px;
-            border: 1px solid #ddd;
-            border-radius: var(--border-radius);
-            font-size: 1rem;
-            transition: var(--transition);
-        }
-
-        .form-group input:focus,
-        .form-group textarea:focus,
-        .form-group select:focus {
-            border-color: var(--primary-color);
-            outline: none;
-            box-shadow: 0 0 0 2px rgba(46, 117, 181, 0.2);
-        }
-
-        .submit-button {
-            display: block;
-            width: 100%;
-            padding: 15px;
-            background-color: var(--primary-color);
-            color: var(--white);
-            border: none;
-            border-radius: var(--border-radius);
-            font-size: 1.1rem;
-            font-weight: bold;
-            cursor: pointer;
-            transition: var(--transition);
-        }
-
-        .submit-button:hover {
-            background-color: var(--secondary-color);
-        }
-
-        .card-label {
-            position: absolute;
-            top: -10px;
-            right: -10px;
-            background-color: #ff6b6b;
-            color: white;
-            padding: 5px 10px;
-            border-radius: 4px;
-            font-size: 0.85rem;
-            font-weight: bold;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            z-index: 1;
-        }
-
-        .card-header {
-            position: relative;
-        }
-
-        /* Schema.org セクションのスタイル - 修正版 */
-        .section-container {
-            max-width: 1200px;
-            margin: 4rem auto;
-            padding: 0 2rem;
-            font-family: 'Inter', sans-serif;
-        }
-
-        .section-header {
-            margin-bottom: 2.5rem;
-            text-align: center;
-        }
-
-        .section-title {
-            font-size: 2.2rem;
-            font-weight: 700;
-            color: #333;
-            margin-bottom: 0.5rem;
-        }
-
-        .section-separator {
-            width: 80px;
-            height: 4px;
-            background: linear-gradient(90deg, #3490dc, #6574cd);
-            margin: 1rem auto;
-            border-radius: 2px;
-        }
-
-        .intro-text {
-            font-size: 1.2rem;
-            line-height: 1.6;
-            color: #555;
-            max-width: 800px;
-            margin: 0 auto 3rem;
-            text-align: center;
-        }
-
-        .schema-illustration {
-            background-color: #f8fafc;
-            border-radius: 10px;
-            padding: 2rem;
-            margin-bottom: 3rem;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-            display: flex;
-            flex-direction: column;
-            gap: 1.5rem;
-        }
-
-        .code-example {
-            background-color: #2d3748;
-            padding: 1.5rem;
-            border-radius: 8px 8px 0 0;
-            overflow-x: auto;
-            max-height: 300px;
-            /* 高さ制限でスクロール可能に */
-        }
-
-        .code-example code {
-            color: #e2e8f0;
-            font-family: 'Fira Code', monospace;
-            font-size: 0.85rem;
-            line-height: 1.5;
-            white-space: pre;
-        }
-
-        .code-more {
-            background-color: #ebf4ff;
-            border-radius: 0 0 8px 8px;
-            padding: 1rem 1.5rem;
-            border-top: 1px dashed #a0aec0;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 1rem;
-        }
-
-        .code-more-text {
-            color: #2a4365;
-            font-style: italic;
-            font-size: 0.9rem;
-        }
-
-        .code-more-link {
-            color: #3182ce;
-            font-weight: 600;
-            text-decoration: none;
-            transition: color 0.3s;
-            white-space: nowrap;
-        }
-
-        .code-more-link:hover {
-            color: #2c5282;
-            text-decoration: underline;
-        }
-
-        /* 解説セクション */
-        .section-explanation {
-            margin-bottom: 3rem;
-        }
-
-        .section-explanation h3 {
-            text-align: center;
-            font-size: 1.5rem;
-            margin-bottom: 2rem;
-            color: #2d3748;
-        }
-
-        .explanation-item {
-            display: flex;
-            margin-bottom: 1.5rem;
-            gap: 1.5rem;
-            align-items: flex-start;
-        }
-
-        .explanation-icon {
-            font-size: 2rem;
-            color: #3182ce;
-            flex-shrink: 0;
-        }
-
-        .explanation-content h4 {
-            margin-top: 0;
-            margin-bottom: 0.5rem;
-            font-size: 1.2rem;
-            color: #2d3748;
-        }
-
-        .explanation-content p {
-            margin: 0;
-            color: #4a5568;
-            line-height: 1.6;
-        }
-
-        /* 実装ポイント */
-        .implementation-tips {
-            background-color: #f7fafc;
-            border-radius: 10px;
-            padding: 1.5rem 2rem;
-            margin-bottom: 3rem;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-        }
-
-        .implementation-tips h3 {
-            text-align: center;
-            margin-bottom: 1.5rem;
-            color: #2d3748;
-        }
-
-        .tips-list {
-            list-style-type: none;
-            padding: 0;
-            margin: 0;
-        }
-
-        .tips-list li {
-            position: relative;
-            padding-left: 1.5rem;
-            margin-bottom: 1rem;
-            color: #4a5568;
-            line-height: 1.5;
-        }
-
-        .tips-list li:before {
-            content: "✓";
-            color: #38a169;
-            position: absolute;
-            left: 0;
-            font-weight: bold;
-        }
-
-        /* Notion特典ボックス */
-        .notion-advantage {
-            background: linear-gradient(135deg, #ebf4ff 0%, #e6fffa 100%);
-            border-radius: 10px;
-            padding: 1.5rem 2rem;
-            margin-bottom: 3rem;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-            border-left: 4px solid #4299e1;
-        }
-
-        .advantage-content h3 {
-            color: #2b6cb0;
-            margin-top: 0;
-            margin-bottom: 1rem;
-        }
-
-        .advantage-content p {
-            margin: 0;
-            color: #2a4365;
-            line-height: 1.6;
-        }
-
-        .schema-note {
-            background-color: #ebf4ff;
-            border-left: 4px solid #3490dc;
-            padding: 1rem;
-            border-radius: 0 4px 4px 0;
-        }
-
-        .schema-note p {
-            margin: 0;
-            color: #2a4365;
-        }
-
-        .benefits-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 2rem;
-            margin-bottom: 3rem;
-        }
-
-        .benefit-card {
-            background-color: white;
-            border-radius: 10px;
-            padding: 1.5rem;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .benefit-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-        }
-
-        .card-icon {
-            font-size: 2rem;
-            margin-bottom: 1rem;
-        }
-
-        .benefit-card h3 {
-            font-size: 1.2rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-            color: #2d3748;
-        }
-
-        .benefit-card p {
-            color: #4a5568;
-            line-height: 1.5;
-        }
-
-        .comparison-container {
-            margin-bottom: 3rem;
-        }
-
-        .comparison-container h3 {
-            text-align: center;
-            margin-bottom: 1.5rem;
-            font-size: 1.5rem;
-            color: #2d3748;
-        }
-
-        .comparison-table {
-            width: 100%;
-            border-collapse: collapse;
-            border-spacing: 0;
-            background: white;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); 
-            margin-bottom: 50px;
-        }
-
-        .comparison-table th,
-        .comparison-table td {
-            padding: 12px 15px;
-            text-align: left;
-            border-bottom: 1px solid #e2e8f0;
-        }
-
-        .comparison-table table {
-            min-width: 300px;
-            /* 最小幅を設定 */
-            width: 100%;
-            border-collapse: collapse;
-        }
-
-        .comp-row {
-            display: flex;
-        }
-
-        .comp-header {
-            background-color: #4299e1;
-            color: white;
-            font-weight: 600;
-        }
-
-        .comp-cell {
-            padding: 1rem 1.5rem;
-            flex: 1;
-            border-bottom: 1px solid #e2e8f0;
-        }
-
-        .comp-row:last-child .comp-cell {
-            border-bottom: none;
-        }
-
-        .highlight {
-            background-color: #e8f4fc;
-        }
-
-        .comparison-table th,
-        .comparison-table td {
-            padding: 12px 15px;
-            text-align: left;
-            border-bottom: 1px solid #eee;
-        }
-
-        .comparison-table th {
-            background-color: #4a90e2;
-            color: white;
-            font-weight: bold;
-        }
-
-        .comparison-table .highlight {
-            background-color: #ebf8ff;
-        }
-
-        .comparison-table tr:last-child td {
-            border-bottom: none;
-        }
-
-        .schema-diagram {
-            margin-bottom: 3rem;
-        }
-
-        .schema-diagram h3 {
-            text-align: center;
-            margin-bottom: 1.5rem;
-            font-size: 1.5rem;
-            color: #2d3748;
-        }
-
-        .diagram-container {
-            display: flex;
-            align-items: stretch;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 1rem;
-        }
-
-
-        .cta-container {
+            /* LLMO比較セクション用のスタイル */
+            .llmo-section {
+                padding: 80px 0;
+            }
+
+            .comparison-container {
+                display: flex;
+                flex-direction: column;
+                /* 縦並びに変更 */
+                align-items: center;
+                gap: 40px;
+                margin-top: 40px;
+            }
+
+            .comparison-image {
+                margin: 0 auto;
+                /* 中央配置 */
+                max-width: 100%;
+                /* コンテナ幅に合わせる */
+                display: flex;
+                /* フレックスボックス化 */
+                justify-content: center;
+                /* 水平方向の中央揃え */
+                align-items: center;
+                /* 垂直方向の中央揃え */
+            }
+
+            .comparison-image img {
+                width: 100%;
+                /* 画像を最大幅で表示 */
+                max-width: 100%;
+                /* 親要素からはみ出さないように */
+                height: auto;
+                /* アスペクト比を維持 */
+                object-fit: contain;
+                /* 画像が収まるようにする */
+                margin: 0;
+                /* 余白をなくす */
+            }
+
+            .comparison-text {
+                flex: 1;
+                min-width: 100%;
+            }
+
+            .comparison-text h3 {
+                font-size: 1.7rem;
+                color: var(--primary-color);
+                margin-bottom: 20px;
+            }
+
+            .llmo-features {
+                margin-top: 30px;
+            }
+
+            .feature-item {
+                margin-bottom: 20px;
+                padding-bottom: 15px;
+                border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            }
+
+            .feature-item:last-child {
+                border-bottom: none;
+            }
+
+            .feature-item h4 {
+                font-size: 1.2rem;
+                color: var(--primary-color);
+                margin-bottom: 10px;
+            }
+
+            .notion-llmo {
+                margin-top: 40px;
+                padding: 25px;
+                background-color: rgba(46, 117, 181, 0.05);
+                border-radius: var(--border-radius);
+            }
+
+            .notion-llmo h3 {
+                font-size: 1.4rem;
+                margin-bottom: 15px;
+            }
+
+            .notion-llmo ul {
+                padding-left: 20px;
+                margin: 15px 0;
+            }
+
+            .notion-llmo li {
+                margin-bottom: 8px;
+            }
+
+            /* お問い合わせフォーム用のスタイル */
+            .contact-section {
+                padding: 80px 0;
+                background-color: var(--white);
+            }
+
+            .contact-form {
+                max-width: 700px;
+                margin: 40px auto 0;
+                background-color: var(--light-bg);
+                padding: 40px;
+                border-radius: var(--border-radius);
+                box-shadow: var(--box-shadow);
+            }
+
+            .form-group {
+                margin-bottom: 25px;
+            }
+
+            .form-group label {
+                display: block;
+                margin-bottom: 8px;
+                font-weight: bold;
+                color: var(--primary-color);
+            }
+
+            .form-group input,
+            .form-group textarea,
+            .form-group select {
+                width: 100%;
+                padding: 12px;
+                border: 1px solid #ddd;
+                border-radius: var(--border-radius);
+                font-size: 1rem;
+                transition: var(--transition);
+            }
+
+            .form-group input:focus,
+            .form-group textarea:focus,
+            .form-group select:focus {
+                border-color: var(--primary-color);
+                outline: none;
+                box-shadow: 0 0 0 2px rgba(46, 117, 181, 0.2);
+            }
+
+            .submit-button {
+                display: block;
+                width: 100%;
+                padding: 15px;
+                background-color: var(--primary-color);
+                color: var(--white);
+                border: none;
+                border-radius: var(--border-radius);
+                font-size: 1.1rem;
+                font-weight: bold;
+                cursor: pointer;
+                transition: var(--transition);
+            }
+
+            .submit-button:hover {
+                background-color: var(--secondary-color);
+            }
+
+            .card-label {
+                position: absolute;
+                top: -10px;
+                right: -10px;
+                background-color: #ff6b6b;
+                color: white;
+                padding: 5px 10px;
+                border-radius: 4px;
+                font-size: 0.85rem;
+                font-weight: bold;
+                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+                z-index: 1;
+            }
+
+            .card-header {
+                position: relative;
+            }
+
+            /* Schema.org セクションのスタイル - 修正版 */
+            .section-container {
+                max-width: 1200px;
+                margin: 4rem auto;
+                padding: 0 2rem;
+                font-family: 'Inter', sans-serif;
+            }
+
+            .section-header {
+                margin-bottom: 2.5rem;
+                text-align: center;
+            }
+
+            .section-title {
+                font-size: 2.2rem;
+                font-weight: 700;
+                color: #333;
+                margin-bottom: 0.5rem;
+            }
+
+            .section-separator {
+                width: 80px;
+                height: 4px;
+                background: linear-gradient(90deg, #3490dc, #6574cd);
+                margin: 1rem auto;
+                border-radius: 2px;
+            }
+
+            .intro-text {
+                font-size: 1.2rem;
+                line-height: 1.6;
+                color: #555;
+                max-width: 800px;
+                margin: 0 auto 3rem;
+                text-align: center;
+            }
+
+            .schema-illustration {
+                background-color: #f8fafc;
+                border-radius: 10px;
+                padding: 2rem;
+                margin-bottom: 3rem;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+                display: flex;
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+
+            .code-example {
+                background-color: #2d3748;
+                padding: 1.5rem;
+                border-radius: 8px 8px 0 0;
+                overflow-x: auto;
+                max-height: 300px;
+                /* 高さ制限でスクロール可能に */
+            }
+
+            .code-example code {
+                color: #e2e8f0;
+                font-family: 'Fira Code', monospace;
+                font-size: 0.85rem;
+                line-height: 1.5;
+                white-space: pre;
+            }
+
+            .code-more {
+                background-color: #ebf4ff;
+                border-radius: 0 0 8px 8px;
+                padding: 1rem 1.5rem;
+                border-top: 1px dashed #a0aec0;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                flex-wrap: wrap;
+                gap: 1rem;
+            }
+
+            .code-more-text {
+                color: #2a4365;
+                font-style: italic;
+                font-size: 0.9rem;
+            }
+
+            .code-more-link {
+                color: #3182ce;
+                font-weight: 600;
+                text-decoration: none;
+                transition: color 0.3s;
+                white-space: nowrap;
+            }
+
+            .code-more-link:hover {
+                color: #2c5282;
+                text-decoration: underline;
+            }
+
+            /* 解説セクション */
+            .section-explanation {
+                margin-bottom: 3rem;
+            }
+
+            .section-explanation h3 {
+                text-align: center;
+                font-size: 1.5rem;
+                margin-bottom: 2rem;
+                color: #2d3748;
+            }
+
+            .explanation-item {
+                display: flex;
+                margin-bottom: 1.5rem;
+                gap: 1.5rem;
+                align-items: flex-start;
+            }
+
+            .explanation-icon {
+                font-size: 2rem;
+                color: #3182ce;
+                flex-shrink: 0;
+            }
+
+            .explanation-content h4 {
+                margin-top: 0;
+                margin-bottom: 0.5rem;
+                font-size: 1.2rem;
+                color: #2d3748;
+            }
+
+            .explanation-content p {
+                margin: 0;
+                color: #4a5568;
+                line-height: 1.6;
+            }
+
+            /* 実装ポイント */
+            .implementation-tips {
+                background-color: #f7fafc;
+                border-radius: 10px;
+                padding: 1.5rem 2rem;
+                margin-bottom: 3rem;
+                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            }
+
+            .implementation-tips h3 {
+                text-align: center;
+                margin-bottom: 1.5rem;
+                color: #2d3748;
+            }
+
+            .tips-list {
+                list-style-type: none;
+                padding: 0;
+                margin: 0;
+            }
+
+            .tips-list li {
+                position: relative;
+                padding-left: 1.5rem;
+                margin-bottom: 1rem;
+                color: #4a5568;
+                line-height: 1.5;
+            }
+
+            .tips-list li:before {
+                content: "✓";
+                color: #38a169;
+                position: absolute;
+                left: 0;
+                font-weight: bold;
+            }
+
+            /* Notion特典ボックス */
+            .notion-advantage {
+                background: linear-gradient(135deg, #ebf4ff 0%, #e6fffa 100%);
+                border-radius: 10px;
+                padding: 1.5rem 2rem;
+                margin-bottom: 3rem;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+                border-left: 4px solid #4299e1;
+            }
+
+            .advantage-content h3 {
+                color: #2b6cb0;
+                margin-top: 0;
+                margin-bottom: 1rem;
+            }
+
+            .advantage-content p {
+                margin: 0;
+                color: #2a4365;
+                line-height: 1.6;
+            }
+
+            .schema-note {
+                background-color: #ebf4ff;
+                border-left: 4px solid #3490dc;
+                padding: 1rem;
+                border-radius: 0 4px 4px 0;
+            }
+
+            .schema-note p {
+                margin: 0;
+                color: #2a4365;
+            }
+
+            .benefits-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+                gap: 2rem;
+                margin-bottom: 3rem;
+            }
+
+            .benefit-card {
+                background-color: white;
+                border-radius: 10px;
+                padding: 1.5rem;
+                box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+                transition: transform 0.3s ease, box-shadow 0.3s ease;
+            }
+
+            .benefit-card:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            }
+
+            .card-icon {
+                font-size: 2rem;
+                margin-bottom: 1rem;
+            }
+
+            .benefit-card h3 {
+                font-size: 1.2rem;
+                font-weight: 600;
+                margin-bottom: 1rem;
+                color: #2d3748;
+            }
+
+            .benefit-card p {
+                color: #4a5568;
+                line-height: 1.5;
+            }
+
+            .comparison-container {
+                margin-bottom: 3rem;
+            }
+
+            .comparison-container h3 {
+                text-align: center;
+                margin-bottom: 1.5rem;
+                font-size: 1.5rem;
+                color: #2d3748;
+            }
+
+            .comparison-table {
+                width: 100%;
+                border-collapse: collapse;
+                border-spacing: 0;
+                background: white;
+                border-radius: 8px;
+                overflow: hidden;
+                box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+                margin-bottom: 50px;
+            }
+
+            .comparison-table th,
+            .comparison-table td {
+                padding: 12px 15px;
+                text-align: left;
+                border-bottom: 1px solid #e2e8f0;
+            }
+
+            .comparison-table table {
+                min-width: 300px;
+                /* 最小幅を設定 */
+                width: 100%;
+                border-collapse: collapse;
+            }
+
+            .comp-row {
+                display: flex;
+            }
+
+            .comp-header {
+                background-color: #4299e1;
+                color: white;
+                font-weight: 600;
+            }
+
+            .comp-cell {
+                padding: 1rem 1.5rem;
+                flex: 1;
+                border-bottom: 1px solid #e2e8f0;
+            }
+
+            .comp-row:last-child .comp-cell {
+                border-bottom: none;
+            }
+
+            .highlight {
+                background-color: #e8f4fc;
+            }
+
+            .comparison-table th,
+            .comparison-table td {
+                padding: 12px 15px;
+                text-align: left;
+                border-bottom: 1px solid #eee;
+            }
+
+            .comparison-table th {
+                background-color: #4a90e2;
+                color: white;
+                font-weight: bold;
+            }
+
+            .comparison-table .highlight {
+                background-color: #ebf8ff;
+            }
+
+            .comparison-table tr:last-child td {
+                border-bottom: none;
+            }
+
+            .schema-diagram {
+                margin-bottom: 3rem;
+            }
+
+            .schema-diagram h3 {
+                text-align: center;
+                margin-bottom: 1.5rem;
+                font-size: 1.5rem;
+                color: #2d3748;
+            }
+
+            .diagram-container {
+                display: flex;
+                align-items: stretch;
+                justify-content: space-between;
+                flex-wrap: wrap;
+                gap: 1rem;
+            }
+
+
+            .cta-container {
                 background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
                 border-radius: 10px;
                 padding: 3rem 2rem;
@@ -1151,448 +1217,450 @@
                 color: white;
             }
 
-        /* ここから修正したコード */
-        .diagram-step {
-            background-color: white;
-            border-radius: 10px;
-            padding: 1.5rem;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-            flex: 1;
-            min-width: 200px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            word-break: break-word;
-            /* 長い単語を折り返す */
-            overflow-wrap: break-word;
-            /* モダンブラウザでの単語の折り返し */
-            overflow: hidden;
-            /* はみ出しを防止 */
-
-            .diagram-step:hover {
-                transform: translateY(-5px);
-                box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
-            }
-
-            .step-number {
-                background-color: #4299e1;
-                color: white;
-                width: 40px;
-                height: 40px;
-                border-radius: 50%;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                font-weight: bold;
-                font-size: 1.2rem;
-                margin-bottom: 1rem;
-            }
-
-            .step-content {
-                width: 100%;
-            }
-
-            .step-content h4 {
-                margin-top: 0;
-                font-size: 1rem;
-                color: #2d3748;
-                margin-bottom: 0.8rem;
-            }
-
-            .step-content p {
-                margin: 0;
-                color: #4a5568;
-                font-size: 0.9rem;
-                /* フォントサイズを少し小さく */
-                line-height: 1.4;
-                /* 行間を少し詰める */
-                max-width: 100%;
-                /* 最大幅を制限 */
-            }
-
-            /* ここまで修正したコード */
-
-            .diagram-arrow {
-                color: #a0aec0;
-                font-size: 1.5rem;
-                font-weight: bold;
-                display: flex;
-                align-items: center;
-            }
-
-            .cta-content h3 {
-                font-size: 1.8rem;
-                margin-bottom: 1rem;
-            }
-
-            .cta-content p {
-                max-width: 700px;
-                margin: 0 auto 2rem;
-                font-size: 1.1rem;
-                opacity: 0.9;
-            }
-
-            /* コードブロック用追加スタイル */
-            .code-container {
-                background-color: #f8fafc;
+            /* ここから修正したコード */
+            .diagram-step {
+                background-color: white;
                 border-radius: 10px;
                 padding: 1.5rem;
-                margin-bottom: 3rem;
                 box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-            }
-
-            .info-box {
-                background-color: #ebf8ff;
-                border-left: 4px solid #3490dc;
-                padding: 1.5rem;
-                border-radius: 0 4px 4px 0;
-                margin-bottom: 3rem;
-            }
-
-            .info-box h3 {
-                color: #2b6cb0;
-                margin-top: 0;
-                margin-bottom: 1rem;
-            }
-
-            .info-box p {
-                margin: 0;
-                color: #2a4365;
-                line-height: 1.6;
-            }
-
-            .schema-impact-card {
-                width: 100%;
-                max-width: 450px;
-                /* 最大幅を設定 */
-                margin: 0 auto 20px;
-                /* 中央揃えと下マージン */
-                padding: 15px;
-                box-sizing: border-box;
-                /* パディングを幅に含める */
-            }
-
-            .schema-impact-content {
-                font-size: clamp(14px, 3vw, 16px);
-                /* レスポンシブなフォントサイズ */
-                line-height: 1.5;
+                flex: 1;
+                min-width: 200px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
                 text-align: center;
-            }
+                transition: transform 0.3s ease, box-shadow 0.3s ease;
+                word-break: break-word;
+                /* 長い単語を折り返す */
+                overflow-wrap: break-word;
+                /* モダンブラウザでの単語の折り返し */
+                overflow: hidden;
+                /* はみ出しを防止 */
 
-            /* レスポンシブ対応 */
-            @media (max-width: 768px) {
-                .benefits-grid {
-                    grid-template-columns: 1fr;
+                .diagram-step:hover {
+                    transform: translateY(-5px);
+                    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
                 }
 
-                .diagram-container {
-                    flex-direction: column;
-                    padding: 15px;
-                }
-
-                .diagram-step {
-                    min-width: auto;
-                    width: 100%;
-                    max-width: 100%;
-                    /* 幅を制限 */
-                    box-sizing: border-box;
-                    /* ボックスサイズの計算方法を調整 */
-                }
-
-                .diagram-arrow {
-                    transform: rotate(90deg);
-                    margin: 0.5rem 0;
-                }
-
-                .comp-row {
-                    flex-direction: column;
-                }
-
-                .comp-cell {
-                    border-bottom: 1px solid #e2e8f0;
-                }
-
-                .section-title {
-                    font-size: 1.8rem;
-                }
-
-                .intro-text {
-                    font-size: 1rem;
-                }
-            }
-
-            .schema-importance-section {
-                width: 100%;
-                padding: 15px;
-                box-sizing: border-box;
-            }
-
-            .schema-code-block {
-                width: 100%;
-                overflow-x: auto;
-                /* コードがはみ出る場合にスクロール可能に */
-                font-size: clamp(12px, 2.5vw, 14px);
-                /* レスポンシブなフォントサイズ */
-            }
-
-            .schema-explanation {
-                font-size: clamp(14px, 3vw, 16px);
-                line-height: 1.5;
-                margin-top: 15px;
-            }
-
-            .llms-effect-card {
-                width: 100%;
-                max-width: 450px;
-                margin: 0 auto 20px;
-                padding: 15px;
-                box-sizing: border-box;
-            }
-
-            .llms-effect-content {
-                font-size: clamp(14px, 3vw, 16px);
-                line-height: 1.5;
-                text-align: center;
-            }
-
-            .llms-implementation-section {
-                width: 100%;
-                padding: 15px;
-                box-sizing: border-box;
-            }
-
-            .llms-code-block {
-                width: 100%;
-                overflow-x: auto;
-                font-size: clamp(12px, 2.5vw, 14px);
-            }
-
-            .llms-explanation {
-                font-size: clamp(14px, 3vw, 16px);
-                line-height: 1.5;
-                margin-top: 15px;
-            }
-
-            /* シンプルレスポンシブ表のスタイル */
-            .responsive-comparison {
-                margin: 20px 0;
-                font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-            }
-
-            .table-wrapper {
-                overflow-x: auto;
-                -webkit-overflow-scrolling: touch;
-            }
-
-            .table-caption {
-                text-align: center;
-                font-weight: 600;
-                margin-top: 12px;
-                color: #333;
-            }
-
-            /* 比較項目の行の背景色を薄いグレーに設定 */
-            .comparison-table td[data-label="比較項目"] {
-                background-color: #f5f5f5;
-                /* 薄いグレー */
-                font-weight: 600;
-                /* やや太字に */
-            }
-
-            @media (max-width: 768px) {
-                .diagram-container {
-                    flex-direction: column;
-                    padding: 15px;
-                }
-
-                .diagram-title {
+                .step-number {
+                    background-color: #4299e1;
+                    color: white;
+                    width: 40px;
+                    height: 40px;
+                    border-radius: 50%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    font-weight: bold;
                     font-size: 1.2rem;
-                    /* モバイルで小さくする */
+                    margin-bottom: 1rem;
                 }
 
-                /* 画像下のキャプションを調整 */
-                .diagram-container p {
-                    font-size: 0.8rem;
+                .step-content {
+                    width: 100%;
+                }
+
+                .step-content h4 {
+                    margin-top: 0;
+                    font-size: 1rem;
+                    color: #2d3748;
+                    margin-bottom: 0.8rem;
                 }
 
                 .step-content p {
-                    font-size: 0.85rem;
-                    /* モバイルでの本文サイズをさらに調整 */
-                }
-            }
-
-            @media (max-width: 480px) {
-                .diagram-container {
-                    padding: 10px;
-                }
-            }
-
-            /* レスポンシブ対応のメディアクエリ追加 */
-            @media (min-width: 992px) {
-
-                /* PCサイズでも1カラム表示を維持 */
-                .two-column {
-                    flex-direction: column;
-                }
-
-                .column {
-                    min-width: 100%;
-                }
-            }
-
-            @media (max-width: 768px) {
-                .section-title {
-                    font-size: 1.8rem;
-                }
-
-                .section-subtitle {
-                    font-size: 1.1rem;
-                }
-
-                .feature-title,
-                .comparison-title {
-                    font-size: 1.2rem;
-                }
-
-                .container {
-                    padding: 15px;
-                }
-            }
-
-            /* モバイル環境では余計な余白を削減 */
-            @media (max-width: 768px) {
-                .comparison-container {
-                    gap: 20px;
-                    /* 余白を小さくする */
-                }
-
-                .section-title {
-                    margin-bottom: 30px;
-                    /* タイトルの下余白を調整 */
-                }
-            }
-
-            @media (max-width: 768px) {
-                .code-more {
-                    flex-direction: column;
-                    align-items: flex-start;
-                }
-
-                .explanation-item {
-                    flex-direction: column;
-                    gap: 0.5rem;
-                }
-
-                .explanation-icon {
-                    margin-bottom: 0.5rem;
-                }
-            }
-
-            @media (max-width: 600px) {
-                .schema-impact-card {
-                    padding: 10px;
-                }
-            }
-
-            @media (max-width: 600px) {
-
-                .comparison-table th,
-                .comparison-table td {
-                    padding: 8px 5px;
-                    /* パディングを小さくする */
-                    font-size: 14px;
-                    /* フォントサイズを小さくする */
-                }
-            }
-
-            @media screen and (max-width: 600px) {
-                .comparison-table {
-                    border: 0;
-                }
-
-                .comparison-table thead {
-                    border: none;
-                    clip: rect(0 0 0 0);
-                    height: 1px;
-                    margin: -1px;
-                    overflow: hidden;
-                    padding: 0;
-                    position: absolute;
-                    width: 1px;
-                }
-
-                .comparison-table tr {
-                    display: block;
-                    margin-bottom: 20px;
-                    border-radius: 8px;
-                    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-                }
-
-                .comparison-table td {
-                    display: block;
-                    font-size: 14px;
-                    text-align: right;
-                    position: relative;
-                    padding-left: 50%;
-                    border-bottom: 1px solid #eee;
-                }
-
-                .comparison-table td:last-child {
-                    border-bottom: 0;
-                }
-
-                .comparison-table td::before {
-                    content: attr(data-label);
-                    position: absolute;
-                    left: 15px;
-                    width: 45%;
-                    padding-right: 10px;
-                    white-space: nowrap;
-                    text-align: left;
-                    font-weight: bold;
-                }
-
-                .comparison-table tr:nth-of-type(even) {
-                    background-color: #f8f8f8;
-                }
-            }
-
-            @media screen and (max-width: 768px) {
-                .comparison-table {
-                    border: 0;
-                }
-
-                .comparison-table thead {
-                    display: none;
-                }
-
-                .comparison-table tr {
-                    margin-bottom: 1rem;
-                    display: block;
-                    border: 1px solid #e2e8f0;
-                }
-
-                .comparison-table td {
-                    display: block;
-                    text-align: right;
+                    margin: 0;
+                    color: #4a5568;
                     font-size: 0.9rem;
-                    border-bottom: 1px solid #e2e8f0;
-                    border-left: 0;
-                    border-right: 0;
+                    /* フォントサイズを少し小さく */
+                    line-height: 1.4;
+                    /* 行間を少し詰める */
+                    max-width: 100%;
+                    /* 最大幅を制限 */
                 }
 
-                .comparison-table td:last-child {
-                    border-bottom: 0;
-                }
+                /* ここまで修正したコード */
 
-                .comparison-table td::before {
-                    content: attr(data-label);
-                    float: left;
+                .diagram-arrow {
+                    color: #a0aec0;
+                    font-size: 1.5rem;
                     font-weight: bold;
+                    display: flex;
+                    align-items: center;
                 }
-            }
+
+                .cta-content h3 {
+                    font-size: 1.8rem;
+                    margin-bottom: 1rem;
+                }
+
+                .cta-content p {
+                    max-width: 700px;
+                    margin: 0 auto 2rem;
+                    font-size: 1.1rem;
+                    opacity: 0.9;
+                }
+
+                /* コードブロック用追加スタイル */
+                .code-container {
+                    background-color: #f8fafc;
+                    border-radius: 10px;
+                    padding: 1.5rem;
+                    margin-bottom: 3rem;
+                    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+                }
+
+                .info-box {
+                    background-color: #ebf8ff;
+                    border-left: 4px solid #3490dc;
+                    padding: 1.5rem;
+                    border-radius: 0 4px 4px 0;
+                    margin-bottom: 3rem;
+                }
+
+                .info-box h3 {
+                    color: #2b6cb0;
+                    margin-top: 0;
+                    margin-bottom: 1rem;
+                }
+
+                .info-box p {
+                    margin: 0;
+                    color: #2a4365;
+                    line-height: 1.6;
+                }
+
+                .schema-impact-card {
+                    width: 100%;
+                    max-width: 450px;
+                    /* 最大幅を設定 */
+                    margin: 0 auto 20px;
+                    /* 中央揃えと下マージン */
+                    padding: 15px;
+                    box-sizing: border-box;
+                    /* パディングを幅に含める */
+                }
+
+                .schema-impact-content {
+                    font-size: clamp(14px, 3vw, 16px);
+                    /* レスポンシブなフォントサイズ */
+                    line-height: 1.5;
+                    text-align: center;
+                }
+
+
+
+                /* レスポンシブ対応 */
+                @media (max-width: 768px) {
+                    .benefits-grid {
+                        grid-template-columns: 1fr;
+                    }
+
+                    .diagram-container {
+                        flex-direction: column;
+                        padding: 15px;
+                    }
+
+                    .diagram-step {
+                        min-width: auto;
+                        width: 100%;
+                        max-width: 100%;
+                        /* 幅を制限 */
+                        box-sizing: border-box;
+                        /* ボックスサイズの計算方法を調整 */
+                    }
+
+                    .diagram-arrow {
+                        transform: rotate(90deg);
+                        margin: 0.5rem 0;
+                    }
+
+                    .comp-row {
+                        flex-direction: column;
+                    }
+
+                    .comp-cell {
+                        border-bottom: 1px solid #e2e8f0;
+                    }
+
+                    .section-title {
+                        font-size: 1.8rem;
+                    }
+
+                    .intro-text {
+                        font-size: 1rem;
+                    }
+                }
+
+                .schema-importance-section {
+                    width: 100%;
+                    padding: 15px;
+                    box-sizing: border-box;
+                }
+
+                .schema-code-block {
+                    width: 100%;
+                    overflow-x: auto;
+                    /* コードがはみ出る場合にスクロール可能に */
+                    font-size: clamp(12px, 2.5vw, 14px);
+                    /* レスポンシブなフォントサイズ */
+                }
+
+                .schema-explanation {
+                    font-size: clamp(14px, 3vw, 16px);
+                    line-height: 1.5;
+                    margin-top: 15px;
+                }
+
+                .llms-effect-card {
+                    width: 100%;
+                    max-width: 450px;
+                    margin: 0 auto 20px;
+                    padding: 15px;
+                    box-sizing: border-box;
+                }
+
+                .llms-effect-content {
+                    font-size: clamp(14px, 3vw, 16px);
+                    line-height: 1.5;
+                    text-align: center;
+                }
+
+                .llms-implementation-section {
+                    width: 100%;
+                    padding: 15px;
+                    box-sizing: border-box;
+                }
+
+                .llms-code-block {
+                    width: 100%;
+                    overflow-x: auto;
+                    font-size: clamp(12px, 2.5vw, 14px);
+                }
+
+                .llms-explanation {
+                    font-size: clamp(14px, 3vw, 16px);
+                    line-height: 1.5;
+                    margin-top: 15px;
+                }
+
+                /* シンプルレスポンシブ表のスタイル */
+                .responsive-comparison {
+                    margin: 20px 0;
+                    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+                }
+
+                .table-wrapper {
+                    overflow-x: auto;
+                    -webkit-overflow-scrolling: touch;
+                }
+
+                .table-caption {
+                    text-align: center;
+                    font-weight: 600;
+                    margin-top: 12px;
+                    color: #333;
+                }
+
+                /* 比較項目の行の背景色を薄いグレーに設定 */
+                .comparison-table td[data-label="比較項目"] {
+                    background-color: #f5f5f5;
+                    /* 薄いグレー */
+                    font-weight: 600;
+                    /* やや太字に */
+                }
+
+                @media (max-width: 768px) {
+                    .diagram-container {
+                        flex-direction: column;
+                        padding: 15px;
+                    }
+
+                    .diagram-title {
+                        font-size: 1.2rem;
+                        /* モバイルで小さくする */
+                    }
+
+                    /* 画像下のキャプションを調整 */
+                    .diagram-container p {
+                        font-size: 0.8rem;
+                    }
+
+                    .step-content p {
+                        font-size: 0.85rem;
+                        /* モバイルでの本文サイズをさらに調整 */
+                    }
+                }
+
+                @media (max-width: 480px) {
+                    .diagram-container {
+                        padding: 10px;
+                    }
+                }
+
+                /* レスポンシブ対応のメディアクエリ追加 */
+                @media (min-width: 992px) {
+
+                    /* PCサイズでも1カラム表示を維持 */
+                    .two-column {
+                        flex-direction: column;
+                    }
+
+                    .column {
+                        min-width: 100%;
+                    }
+                }
+
+                @media (max-width: 768px) {
+                    .section-title {
+                        font-size: 1.8rem;
+                    }
+
+                    .section-subtitle {
+                        font-size: 1.1rem;
+                    }
+
+                    .feature-title,
+                    .comparison-title {
+                        font-size: 1.2rem;
+                    }
+
+                    .container {
+                        padding: 15px;
+                    }
+                }
+
+                /* モバイル環境では余計な余白を削減 */
+                @media (max-width: 768px) {
+                    .comparison-container {
+                        gap: 20px;
+                        /* 余白を小さくする */
+                    }
+
+                    .section-title {
+                        margin-bottom: 30px;
+                        /* タイトルの下余白を調整 */
+                    }
+                }
+
+                @media (max-width: 768px) {
+                    .code-more {
+                        flex-direction: column;
+                        align-items: flex-start;
+                    }
+
+                    .explanation-item {
+                        flex-direction: column;
+                        gap: 0.5rem;
+                    }
+
+                    .explanation-icon {
+                        margin-bottom: 0.5rem;
+                    }
+                }
+
+                @media (max-width: 600px) {
+                    .schema-impact-card {
+                        padding: 10px;
+                    }
+                }
+
+                @media (max-width: 600px) {
+
+                    .comparison-table th,
+                    .comparison-table td {
+                        padding: 8px 5px;
+                        /* パディングを小さくする */
+                        font-size: 14px;
+                        /* フォントサイズを小さくする */
+                    }
+                }
+
+                @media screen and (max-width: 600px) {
+                    .comparison-table {
+                        border: 0;
+                    }
+
+                    .comparison-table thead {
+                        border: none;
+                        clip: rect(0 0 0 0);
+                        height: 1px;
+                        margin: -1px;
+                        overflow: hidden;
+                        padding: 0;
+                        position: absolute;
+                        width: 1px;
+                    }
+
+                    .comparison-table tr {
+                        display: block;
+                        margin-bottom: 20px;
+                        border-radius: 8px;
+                        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+                    }
+
+                    .comparison-table td {
+                        display: block;
+                        font-size: 14px;
+                        text-align: right;
+                        position: relative;
+                        padding-left: 50%;
+                        border-bottom: 1px solid #eee;
+                    }
+
+                    .comparison-table td:last-child {
+                        border-bottom: 0;
+                    }
+
+                    .comparison-table td::before {
+                        content: attr(data-label);
+                        position: absolute;
+                        left: 15px;
+                        width: 45%;
+                        padding-right: 10px;
+                        white-space: nowrap;
+                        text-align: left;
+                        font-weight: bold;
+                    }
+
+                    .comparison-table tr:nth-of-type(even) {
+                        background-color: #f8f8f8;
+                    }
+                }
+
+                @media screen and (max-width: 768px) {
+                    .comparison-table {
+                        border: 0;
+                    }
+
+                    .comparison-table thead {
+                        display: none;
+                    }
+
+                    .comparison-table tr {
+                        margin-bottom: 1rem;
+                        display: block;
+                        border: 1px solid #e2e8f0;
+                    }
+
+                    .comparison-table td {
+                        display: block;
+                        text-align: right;
+                        font-size: 0.9rem;
+                        border-bottom: 1px solid #e2e8f0;
+                        border-left: 0;
+                        border-right: 0;
+                    }
+
+                    .comparison-table td:last-child {
+                        border-bottom: 0;
+                    }
+
+                    .comparison-table td::before {
+                        content: attr(data-label);
+                        float: left;
+                        font-weight: bold;
+                    }
+                }
     </style>
 </head>
 
@@ -1676,7 +1744,9 @@
                         </ul>
                     </div>
                     <div class="card-footer">
-                        <a href="#contact" class="cta-button">詳細を問い合わせる</a>
+                        <a href="https://effectmoe.notion.site/1f0b802cb0c68074bea8d2b5e000c54a?pvs=105"
+                            class="cta-button" target="_blank" rel="noopener noreferrer" class="cta-button"
+                            target="_blank" rel="noopener noreferrer" class="cta-button">詳細を問い合わせる</a>
                     </div>
                 </div>
 
@@ -1697,7 +1767,9 @@
                         </ul>
                     </div>
                     <div class="card-footer">
-                        <a href="#contact" class="cta-button">詳細を問い合わせる</a>
+                        <a href="https://effectmoe.notion.site/1f0b802cb0c68074bea8d2b5e000c54a?pvs=105"
+                            class="cta-button" target="_blank" rel="noopener noreferrer"
+                            class="cta-button">詳細を問い合わせる</a>
                     </div>
                 </div>
 
@@ -1718,7 +1790,9 @@
                         </ul>
                     </div>
                     <div class="card-footer">
-                        <a href="#contact" class="cta-button">詳細を問い合わせる</a>
+                        <a href="https://effectmoe.notion.site/1f0b802cb0c68074bea8d2b5e000c54a?pvs=105"
+                            class="cta-button" target="_blank" rel="noopener noreferrer"
+                            class="cta-button">詳細を問い合わせる</a>
                     </div>
                 </div>
 
@@ -1761,7 +1835,9 @@
                         </ul>
                     </div>
                     <div class="card-footer">
-                        <a href="#contact" class="cta-button">詳細を問い合わせる</a>
+                        <a href="https://effectmoe.notion.site/1f0b802cb0c68074bea8d2b5e000c54a?pvs=105"
+                            class="cta-button" target="_blank" rel="noopener noreferrer"
+                            class="cta-button">詳細を問い合わせる</a>
                     </div>
                 </div>
             </div>
@@ -2025,7 +2101,8 @@
                 <div class="cta-content">
                     <h3>AI検索に最適化されたNotionブログを構築しませんか？</h3>
                     <p>当社のNotionブログサービスでは、LLMs.txtファイルが自動的に設置され、AIクローラーに最適なガイダンスを提供します。完全なテンプレートと実装サポートも含まれています。</p>
-                    <a href="#contact" class="cta-button2">詳細はこちら</a>
+                    <a href="https://effectmoe.notion.site/1f0b802cb0c68074bea8d2b5e000c54a?pvs=105" class="cta-button"
+                        target="_blank" rel="noopener noreferrer" class="cta-button2">詳細はこちら</a>
                 </div>
             </div>
     </section>
@@ -2183,7 +2260,8 @@
                 <div class="cta-content">
                     <h3>サイトポテンシャルを飛躍的に向上させませんか？</h3>
                     <p>Notionブログをあなたのウェブサイトにドメイン連携することで、Schema.orgの恩恵を自動的に受けられます。LLMO対策済みのブログで、AI検索時代に備えましょう。</p>
-                    <a href="#contact" class="cta-button2">お問い合わせはこちら</a>
+                    <a href="https://effectmoe.notion.site/1f0b802cb0c68074bea8d2b5e000c54a?pvs=105" class="cta-button"
+                        target="_blank" rel="noopener noreferrer" class="cta-button2">お問い合わせはこちら</a>
                 </div>
             </div>
     </section>
@@ -2440,50 +2518,15 @@
         </div>
     </section>
 
-    <!-- お問い合わせセクションを追加 -->
-    <section id="contact" class="contact-section">
-        <div class="container">
-            <h2 class="section-title">お問い合わせ</h2>
-            <p class="section-description">LLMO対策したWebサイト構築について、ご質問やご相談はお気軽にお問い合わせください。</p>
 
-            <div class="contact-form">
-                <form action="#" method="POST">
-                    <div class="form-group">
-                        <label for="name">お名前</label>
-                        <input type="text" id="name" name="name" required>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="email">メールアドレス</label>
-                        <input type="email" id="email" name="email" required>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="company">会社名</label>
-                        <input type="text" id="company" name="company">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="service">ご興味のあるサービス</label>
-                        <select id="service" name="service">
-                            <option value="">選択してください</option>
-                            <option value="hybrid">既存サイト + Notionブログ連結</option>
-                            <option value="cover">カバーページ + Notionブログ</option>
-                            <option value="notion">Notionブログ</option>
-                            <option value="other">その他・相談したい</option>
-                        </select>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="message">お問い合わせ内容</label>
-                        <textarea id="message" name="message" rows="5" required></textarea>
-                    </div>
-
-                    <button type="submit" class="submit-button">送信する</button>
-                </form>
-            </div>
-        </div>
-    </section>
+    <!-- Notionフォームへの直接リンク -->
+    <div class="notion-link-section">
+        <h2>お問い合わせはこちら</h2>
+        <p>確認後担当者より折り返し連絡させていただきます</p>
+        <a href="https://effectmoe.notion.site/1f0b802cb0c68074bea8d2b5e000c54a" target="_blank"
+            class="notion-button">Notionフォームを開く</a>
+    </div>
+    </main>
 
     <section class="cta-section">
         <div class="container">
