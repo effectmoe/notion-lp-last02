@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,84 +12,84 @@
             box-sizing: border-box;
             font-family: 'Segoe UI', 'Helvetica Neue', sans-serif;
         }
-        
+
         body {
             background-color: #f7f6f3;
             color: #37352f;
             line-height: 1.6;
         }
-        
+
         header {
             background-color: #2f3437;
             color: white;
             padding: 1.2rem 0;
             text-align: center;
         }
-        
+
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 2rem;
         }
-        
+
         h1 {
             font-size: 2rem;
             font-weight: 700;
             margin-bottom: 0.8rem;
         }
-        
+
         h2 {
             font-size: 1.8rem;
             margin: 2rem 0 1rem;
             padding-bottom: 0.5rem;
             border-bottom: 2px solid #ebeaea;
         }
-        
+
         p {
             margin-bottom: 1rem;
             font-size: 1.1rem;
         }
-        
+
         .hero {
             text-align: center;
             margin-bottom: 3rem;
         }
-        
+
         .hero p {
             font-size: 1.3rem;
             max-width: 800px;
             margin: 1rem auto;
         }
-        
+
         .features {
             display: flex;
             flex-wrap: wrap;
             justify-content: space-between;
             margin: 3rem 0;
         }
-        
+
         .feature {
             flex-basis: 48%;
             background: white;
             border-radius: 8px;
             padding: 1.5rem;
             margin-bottom: 2rem;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
             transition: transform 0.3s ease;
         }
-        
+
         .feature:hover {
             transform: translateY(-5px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
         }
-        
+
         .feature h3 {
             font-size: 1.5rem;
             margin-bottom: 1rem;
             display: flex;
             align-items: center;
         }
-        
+
         .feature-icon {
             width: 40px;
             height: 40px;
@@ -99,32 +100,32 @@
             background: #f7f6f3;
             border-radius: 8px;
         }
-        
+
         .diagram {
             background: white;
             border-radius: 8px;
             padding: 2rem;
             margin: 3rem 0;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
             text-align: center;
         }
-        
+
         .diagram h2 {
             text-align: left;
         }
-        
+
         .diagram-img {
             max-width: 100%;
             height: auto;
             margin: 2rem 0;
         }
-        
+
         .benefit {
             display: flex;
             align-items: flex-start;
             margin-bottom: 1.5rem;
         }
-        
+
         .benefit-icon {
             flex-shrink: 0;
             width: 30px;
@@ -136,14 +137,14 @@
             align-items: center;
             justify-content: center;
         }
-        
+
         .workflow {
             display: flex;
             justify-content: space-between;
             margin: 2rem 0;
             position: relative;
         }
-        
+
         .workflow-step {
             flex-basis: 22%;
             background: white;
@@ -152,13 +153,13 @@
             text-align: center;
             position: relative;
             z-index: 1;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
         }
-        
+
         .workflow-step h4 {
             margin: 1rem 0;
         }
-        
+
         .workflow-arrow {
             position: absolute;
             top: 50%;
@@ -168,7 +169,7 @@
             background: #ebeaea;
             z-index: 0;
         }
-        
+
         .cta {
             background: #2f3437;
             color: white;
@@ -177,12 +178,12 @@
             border-radius: 8px;
             margin: 3rem 0;
         }
-        
+
         .cta h2 {
             border-bottom: none;
             color: white;
         }
-        
+
         .cta-button {
             display: inline-block;
             background: #fff;
@@ -194,18 +195,18 @@
             margin-top: 1.5rem;
             transition: background 0.3s ease;
         }
-        
+
         .cta-button:hover {
             background: #f7f6f3;
         }
-        
+
         footer {
             background: #ebeaea;
             padding: 2rem;
             text-align: center;
             margin-top: 3rem;
         }
-        
+
         /* API連携用のコードブロックスタイル */
         .code-block {
             background: #f1f1f1;
@@ -217,7 +218,7 @@
             overflow-x: auto;
             position: relative;
         }
-        
+
         .code-header {
             background: #e1e1e1;
             padding: 0.5rem 1rem;
@@ -227,66 +228,67 @@
             font-weight: bold;
             margin: -1.5rem -1.5rem 1rem -1.5rem;
         }
-        
+
         .comment {
             color: #6a9955;
         }
-        
+
         /* 使用例スタイル */
         .use-case {
             background: white;
             border-radius: 8px;
             padding: 1.5rem;
             margin-bottom: 2rem;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
         }
-        
+
         .use-case h3 {
             font-size: 1.5rem;
             margin-bottom: 1rem;
             border-bottom: 1px solid #ebeaea;
             padding-bottom: 0.5rem;
         }
-        
+
         /* SVG スタイル */
         .svg-container {
             max-width: 100%;
             height: auto;
         }
-        
+
         .api-diagram {
             max-width: 800px;
             margin: 0 auto;
         }
-        
+
         /* タブレット */
         @media (max-width: 992px) {
             .workflow {
                 flex-wrap: wrap;
             }
-            
+
             .workflow-step {
                 flex-basis: 45%;
                 margin-bottom: 1.5rem;
             }
         }
-        
+
         /* レスポンシブ対応 */
         @media (max-width: 768px) {
             .feature {
                 flex-basis: 100%;
             }
-            
+
             .workflow-step {
                 flex-basis: 100%;
             }
-            
+
             .workflow-arrow {
                 display: none;
             }
         }
     </style>
 </head>
+
 <body>
     <header>
         <div class="container">
@@ -294,7 +296,7 @@
             <p>既存システムやサードパーティサービスとシームレスに連携し、データフローを最適化</p>
         </div>
     </header>
-    
+
     <nav class="breadcrumb-nav">
         <div class="breadcrumb-container">
             <ol class="breadcrumb">
@@ -303,13 +305,14 @@
             </ol>
         </div>
     </nav>
-    
+
     <main class="container">
         <section class="hero">
             <h2>APIを活用した強力なシステム連携プラットフォーム</h2>
-            <p>Notionの独自開発APIコネクタを使用することで、社内の基幹システムやさまざまなクラウドサービスとデータをシームレスに連携できます。情報の二重入力を排除し、ビジネスプロセスを自動化することで、チームの生産性向上とヒューマンエラーの削減を実現します。</p>
+            <p>Notionの独自開発APIコネクタを使用することで、社内の基幹システムやさまざまなクラウドサービスとデータをシームレスに連携できます。情報の二重入力を排除し、ビジネスプロセスを自動化することで、チームの生産性向上とヒューマンエラーの削減を実現します。
+            </p>
         </section>
-        
+
         <section class="diagram">
             <h2>APIによるデータ連携の仕組み</h2>
             <div class="svg-container">
@@ -318,144 +321,157 @@
                     <rect x="300" y="200" width="200" height="100" rx="15" fill="#2f3437" />
                     <text x="400" y="240" font-size="20" fill="white" text-anchor="middle">Notion</text>
                     <text x="400" y="270" font-size="14" fill="white" text-anchor="middle">API コネクタ</text>
-                    
+
                     <!-- Notion APIレイヤー -->
-                    <rect x="250" y="160" width="300" height="180" rx="20" fill="none" stroke="#4a6beb" stroke-width="2" stroke-dasharray="5,5" />
+                    <rect x="250" y="160" width="300" height="180" rx="20" fill="none" stroke="#4a6beb" stroke-width="2"
+                        stroke-dasharray="5,5" />
                     <text x="400" y="175" font-size="12" fill="#4a6beb" text-anchor="middle">Notion API レイヤー</text>
-                    
+
                     <!-- 接続システムグループ -->
                     <!-- 社内システム -->
-                    <rect x="50" y="100" width="150" height="300" rx="10" fill="#f5f5f5" stroke="#ddd" stroke-width="1" />
+                    <rect x="50" y="100" width="150" height="300" rx="10" fill="#f5f5f5" stroke="#ddd"
+                        stroke-width="1" />
                     <text x="125" y="125" font-size="16" fill="#333" text-anchor="middle">社内システム</text>
-                    
+
                     <!-- 基幹システム -->
                     <rect x="70" y="150" width="110" height="60" rx="5" fill="#fff" stroke="#ddd" stroke-width="1" />
                     <text x="125" y="185" font-size="12" fill="#333" text-anchor="middle">基幹システム</text>
-                    
+
                     <!-- 販売管理 -->
                     <rect x="70" y="230" width="110" height="60" rx="5" fill="#fff" stroke="#ddd" stroke-width="1" />
                     <text x="125" y="265" font-size="12" fill="#333" text-anchor="middle">販売管理システム</text>
-                    
+
                     <!-- 顧客管理 -->
                     <rect x="70" y="310" width="110" height="60" rx="5" fill="#fff" stroke="#ddd" stroke-width="1" />
                     <text x="125" y="345" font-size="12" fill="#333" text-anchor="middle">顧客管理システム</text>
-                    
+
                     <!-- サードパーティ -->
-                    <rect x="600" y="100" width="150" height="300" rx="10" fill="#f5f5f5" stroke="#ddd" stroke-width="1" />
+                    <rect x="600" y="100" width="150" height="300" rx="10" fill="#f5f5f5" stroke="#ddd"
+                        stroke-width="1" />
                     <text x="675" y="125" font-size="16" fill="#333" text-anchor="middle">サードパーティ</text>
-                    
+
                     <!-- CRM -->
                     <rect x="620" y="150" width="110" height="60" rx="5" fill="#fff" stroke="#ddd" stroke-width="1" />
                     <text x="675" y="185" font-size="12" fill="#333" text-anchor="middle">CRM (Salesforce等)</text>
-                    
+
                     <!-- マーケティング -->
                     <rect x="620" y="230" width="110" height="60" rx="5" fill="#fff" stroke="#ddd" stroke-width="1" />
                     <text x="675" y="265" font-size="12" fill="#333" text-anchor="middle">マーケティングツール</text>
-                    
+
                     <!-- 会計 -->
                     <rect x="620" y="310" width="110" height="60" rx="5" fill="#fff" stroke="#ddd" stroke-width="1" />
                     <text x="675" y="345" font-size="12" fill="#333" text-anchor="middle">会計ソフト</text>
-                    
+
                     <!-- 接続線と矢印 -->
                     <!-- 社内システムからNotion -->
                     <path d="M180 180 C230 180, 240 230, 250 250" fill="none" stroke="#4CAF50" stroke-width="2" />
                     <polygon points="250,250 240,240 245,255" fill="#4CAF50" />
-                    
+
                     <!-- 販売管理からNotion -->
                     <path d="M180 260 C230 260, 240 240, 250 250" fill="none" stroke="#4CAF50" stroke-width="2" />
                     <polygon points="250,250 240,245 240,255" fill="#4CAF50" />
-                    
+
                     <!-- 顧客管理からNotion -->
                     <path d="M180 340 C230 340, 240 270, 250 250" fill="none" stroke="#4CAF50" stroke-width="2" />
                     <polygon points="250,250 240,252 245,245" fill="#4CAF50" />
-                    
+
                     <!-- NotionからCRM -->
                     <path d="M550 250 C560 250, 570 180, 620 180" fill="none" stroke="#FF5722" stroke-width="2" />
                     <polygon points="620,180 610,175 610,185" fill="#FF5722" />
-                    
+
                     <!-- Notionからマーケティング -->
                     <path d="M550 250 C560 250, 580 260, 620 260" fill="none" stroke="#FF5722" stroke-width="2" />
                     <polygon points="620,260 610,255 610,265" fill="#FF5722" />
-                    
+
                     <!-- Notionから会計 -->
                     <path d="M550 250 C560 250, 570 340, 620 340" fill="none" stroke="#FF5722" stroke-width="2" />
                     <polygon points="620,340 610,335 610,345" fill="#FF5722" />
-                    
+
                     <!-- データフロー説明 -->
-                    <rect x="200" y="420" width="400" height="40" rx="5" fill="#f9f9f9" stroke="#ddd" stroke-width="1" />
+                    <rect x="200" y="420" width="400" height="40" rx="5" fill="#f9f9f9" stroke="#ddd"
+                        stroke-width="1" />
                     <text x="250" y="445" font-size="12" fill="#4CAF50">⟶ データ入力</text>
                     <text x="400" y="445" font-size="12" fill="#FF5722">⟶ データ出力</text>
                     <text x="550" y="445" font-size="12" fill="#4a6beb">--- API層</text>
-                    
+
                     <!-- API コネクタの説明 -->
-                    <rect x="300" y="80" width="200" height="60" rx="10" fill="#fffde7" stroke="#ffd54f" stroke-width="1" />
+                    <rect x="300" y="80" width="200" height="60" rx="10" fill="#fffde7" stroke="#ffd54f"
+                        stroke-width="1" />
                     <text x="400" y="105" font-size="14" fill="#333" text-anchor="middle">独自開発APIコネクタ</text>
                     <text x="400" y="125" font-size="12" fill="#666" text-anchor="middle">双方向データ同期・変換</text>
-                    
+
                     <!-- 矢印 -->
                     <line x1="400" y1="140" x2="400" y2="160" stroke="#333" stroke-width="1" stroke-dasharray="2,2" />
                     <polygon points="400,160 395,150 405,150" fill="#333" />
                 </svg>
             </div>
-            <p>Notionの独自開発APIコネクタは、社内システムやサードパーティサービスとの間で双方向のデータフローを実現します。これにより、データの自動同期や変換が可能になり、手動での入力作業を大幅に削減できます。</p>
+            <p>Notionの独自開発APIコネクタは、社内システムやサードパーティサービスとの間で双方向のデータフローを実現します。これにより、データの自動同期や変換が可能になり、手動での入力作業を大幅に削減できます。
+            </p>
         </section>
-        
+
         <section class="features">
             <div class="feature">
                 <h3>
                     <div class="feature-icon">🔄</div>
                     双方向データ同期
                 </h3>
-                <p>Notionと外部システム間でリアルタイムにデータを同期。一方のシステムでの変更が自動的に他方に反映されるため、常に最新の情報を維持できます。例えば、CRMで顧客情報が更新されると、Notion内の関連プロジェクトやタスクにも自動的に反映されます。データの不整合やバージョン管理の問題を解消し、チーム全体で一貫した情報を共有できます。</p>
+                <p>Notionと外部システム間でリアルタイムにデータを同期。一方のシステムでの変更が自動的に他方に反映されるため、常に最新の情報を維持できます。例えば、CRMで顧客情報が更新されると、Notion内の関連プロジェクトやタスクにも自動的に反映されます。データの不整合やバージョン管理の問題を解消し、チーム全体で一貫した情報を共有できます。
+                </p>
             </div>
-            
+
             <div class="feature">
                 <h3>
                     <div class="feature-icon">🔌</div>
                     柔軟なコネクタ設計
                 </h3>
-                <p>独自開発のAPIコネクタは、さまざまなシステムやデータ形式に対応できるよう柔軟に設計されています。RESTful API、GraphQL、SOAP、Webhookなど、多様な接続方式をサポートし、ほぼすべての主要システムと連携可能です。社内の古いレガシーシステムから最新のクラウドサービスまで、幅広いシステムとシームレスに接続できます。</p>
+                <p>独自開発のAPIコネクタは、さまざまなシステムやデータ形式に対応できるよう柔軟に設計されています。RESTful
+                    API、GraphQL、SOAP、Webhookなど、多様な接続方式をサポートし、ほぼすべての主要システムと連携可能です。社内の古いレガシーシステムから最新のクラウドサービスまで、幅広いシステムとシームレスに接続できます。
+                </p>
             </div>
-            
+
             <div class="feature">
                 <h3>
                     <div class="feature-icon">⚙️</div>
                     高度なデータ変換
                 </h3>
-                <p>異なるシステム間でのデータ形式の違いを自動的に変換・調整するインテリジェントなマッピング機能を搭載。フィールド名の違い、データ型の相違、構造の差異などを吸収し、スムーズなデータ連携を実現します。複雑なデータ変換ルールも視覚的なインターフェースで簡単に設定でき、プログラミングスキルがなくても高度なデータ連携が可能です。</p>
+                <p>異なるシステム間でのデータ形式の違いを自動的に変換・調整するインテリジェントなマッピング機能を搭載。フィールド名の違い、データ型の相違、構造の差異などを吸収し、スムーズなデータ連携を実現します。複雑なデータ変換ルールも視覚的なインターフェースで簡単に設定でき、プログラミングスキルがなくても高度なデータ連携が可能です。
+                </p>
             </div>
-            
+
             <div class="feature">
                 <h3>
                     <div class="feature-icon">⏱️</div>
                     リアルタイムと定期同期
                 </h3>
-                <p>データ連携の頻度やタイミングを柔軟に設定可能。リアルタイム同期による即時反映はもちろん、指定した時間間隔での定期同期、特定のイベントをトリガーとした条件付き同期など、ビジネスニーズに合わせた最適な同期方法を選択できます。システム負荷とデータの鮮度のバランスを考慮した効率的な連携を実現します。</p>
+                <p>データ連携の頻度やタイミングを柔軟に設定可能。リアルタイム同期による即時反映はもちろん、指定した時間間隔での定期同期、特定のイベントをトリガーとした条件付き同期など、ビジネスニーズに合わせた最適な同期方法を選択できます。システム負荷とデータの鮮度のバランスを考慮した効率的な連携を実現します。
+                </p>
             </div>
-            
+
             <div class="feature">
                 <h3>
                     <div class="feature-icon">🔐</div>
                     安全なデータ連携
                 </h3>
-                <p>エンタープライズグレードのセキュリティ対策を施したデータ連携を実現。データの暗号化、認証と認可の厳格な管理、詳細なアクセス権限設定などにより、機密情報や個人情報を適切に保護します。監査ログの自動記録により、誰がいつどのデータにアクセスしたかを追跡可能で、コンプライアンス要件も満たせます。</p>
+                <p>エンタープライズグレードのセキュリティ対策を施したデータ連携を実現。データの暗号化、認証と認可の厳格な管理、詳細なアクセス権限設定などにより、機密情報や個人情報を適切に保護します。監査ログの自動記録により、誰がいつどのデータにアクセスしたかを追跡可能で、コンプライアンス要件も満たせます。
+                </p>
             </div>
-            
+
             <div class="feature">
                 <h3>
                     <div class="feature-icon">📊</div>
                     データ品質管理
                 </h3>
-                <p>データ連携時に品質チェックを自動実行し、不正確なデータや重複、欠損値などを検出・修正。カスタマイズ可能なバリデーションルールを設定して、システム間で転送されるデータの整合性と信頼性を確保します。データ品質の問題を早期に発見し、ビジネス判断の正確性を高めるとともに、データクレンジングの手間を削減できます。</p>
+                <p>データ連携時に品質チェックを自動実行し、不正確なデータや重複、欠損値などを検出・修正。カスタマイズ可能なバリデーションルールを設定して、システム間で転送されるデータの整合性と信頼性を確保します。データ品質の問題を早期に発見し、ビジネス判断の正確性を高めるとともに、データクレンジングの手間を削減できます。
+                </p>
             </div>
         </section>
-        
+
         <section>
             <h2>API連携の実装方法</h2>
-            
+
             <div class="code-block">
                 <div class="code-header">Notion API連携例 - JavaScriptでの実装</div>
-<pre>// Notion APIを使用して既存システムからデータを取得し同期する例
+                <pre>// Notion APIを使用して既存システムからデータを取得し同期する例
 const { Client } = require('@notionhq/client');
 
 // Notionクライアントの初期化
@@ -505,70 +521,114 @@ setInterval(syncData, 60 * 60 * 1000);
 // 初回実行
 syncData();</pre>
             </div>
-            
-            <p>Notion APIは開発者向けのRESTful APIとして提供されており、あらゆるプログラミング言語から利用可能です。上記は基本的な実装例ですが、実際のプロジェクトではより洗練された連携方法を採用できます。Notionの管理画面からノーコードで設定できるインターフェースも用意されているため、開発リソースを使わずに連携を実現することも可能です。</p>
+
+            <p>Notion APIは開発者向けのRESTful
+                APIとして提供されており、あらゆるプログラミング言語から利用可能です。上記は基本的な実装例ですが、実際のプロジェクトではより洗練された連携方法を採用できます。Notionの管理画面からノーコードで設定できるインターフェースも用意されているため、開発リソースを使わずに連携を実現することも可能です。
+            </p>
         </section>
-        
+
         <section>
             <h2>APIデータ連携の活用例</h2>
-            
+
             <div class="use-case">
                 <h3>販売管理システムとの連携</h3>
-                <p>基幹システムで管理している受注データを自動的にNotionに取り込み、プロジェクト管理や納期管理に活用できます。営業担当者はNotionの使いやすいインターフェースで案件の進捗を管理し、その情報は自動的に基幹システムに反映されます。二重入力の手間が省け、データの不整合も解消されます。</p>
-                <p>例えば、新規受注が基幹システムに登録されると、Notionには自動的に新しいプロジェクトページが作成され、担当者へのタスク割り当ても自動化できます。納期や金額の変更も双方のシステムで同期されるため、常に最新情報で業務を進められます。</p>
+                <p>基幹システムで管理している受注データを自動的にNotionに取り込み、プロジェクト管理や納期管理に活用できます。営業担当者はNotionの使いやすいインターフェースで案件の進捗を管理し、その情報は自動的に基幹システムに反映されます。二重入力の手間が省け、データの不整合も解消されます。
+                </p>
+                <p>例えば、新規受注が基幹システムに登録されると、Notionには自動的に新しいプロジェクトページが作成され、担当者へのタスク割り当ても自動化できます。納期や金額の変更も双方のシステムで同期されるため、常に最新情報で業務を進められます。
+                </p>
             </div>
-            
+
             <div class="use-case">
                 <h3>CRMとの双方向連携</h3>
-                <p>SalesforceなどのCRMシステムとNotionを連携させることで、顧客情報やリード管理を効率化できます。CRMに登録された顧客データはNotionのデータベースに自動反映され、営業活動の記録やフォローアップタスクの管理がスムーズになります。</p>
-                <p>Notionで作成した提案資料や会議録は、関連する顧客レコードに自動的にリンクされ、CRMからもアクセス可能になります。見込み顧客のステータス変更や重要な更新があれば、チームに自動通知が送られ、迅速な対応が可能になります。営業チームは使い慣れたNotionで情報を入力するだけで、CRMのデータも同時に更新されるため、入力の負担が大幅に軽減されます。</p>
+                <p>SalesforceなどのCRMシステムとNotionを連携させることで、顧客情報やリード管理を効率化できます。CRMに登録された顧客データはNotionのデータベースに自動反映され、営業活動の記録やフォローアップタスクの管理がスムーズになります。
+                </p>
+                <p>Notionで作成した提案資料や会議録は、関連する顧客レコードに自動的にリンクされ、CRMからもアクセス可能になります。見込み顧客のステータス変更や重要な更新があれば、チームに自動通知が送られ、迅速な対応が可能になります。営業チームは使い慣れたNotionで情報を入力するだけで、CRMのデータも同時に更新されるため、入力の負担が大幅に軽減されます。
+                </p>
             </div>
-            
+
             <div class="use-case">
                 <h3>マーケティングツールとの連携</h3>
-                <p>MailchimpやHubSpotなどのマーケティングツールとNotionを連携させることで、マーケティング活動の計画と実行を一元管理できます。キャンペーンの企画をNotionで立案し、必要なコンテンツを作成した後、APIを通じてマーケティングツールにデータを送信して配信を自動化します。</p>
-                <p>キャンペーンの実績データ（開封率、クリック率、コンバージョン率など）はリアルタイムでNotionに取り込まれ、視覚的なダッシュボードで効果を確認できます。これにより、マーケティングチームは戦略立案とデータ分析をシームレスに行え、素早いPDCAサイクルを回すことが可能になります。Notionのデータベース機能を活用して、過去のキャンペーン結果を分析し、より効果的な施策の立案にも役立てられます。</p>
+                <p>MailchimpやHubSpotなどのマーケティングツールとNotionを連携させることで、マーケティング活動の計画と実行を一元管理できます。キャンペーンの企画をNotionで立案し、必要なコンテンツを作成した後、APIを通じてマーケティングツールにデータを送信して配信を自動化します。
+                </p>
+                <p>キャンペーンの実績データ（開封率、クリック率、コンバージョン率など）はリアルタイムでNotionに取り込まれ、視覚的なダッシュボードで効果を確認できます。これにより、マーケティングチームは戦略立案とデータ分析をシームレスに行え、素早いPDCAサイクルを回すことが可能になります。Notionのデータベース機能を活用して、過去のキャンペーン結果を分析し、より効果的な施策の立案にも役立てられます。
+                </p>
             </div>
         </section>
-        
+
         <section>
             <h2>API連携によるワークフロー自動化</h2>
-            
+
             <div class="workflow">
                 <div class="workflow-arrow"></div>
-                
+
                 <div class="workflow-step">
                     <div class="feature-icon">📊</div>
                     <h4>データ取得</h4>
                     <p>外部システムからデータを自動取得</p>
                 </div>
-                
+
                 <div class="workflow-step">
                     <div class="feature-icon">🔄</div>
                     <h4>データ変換</h4>
                     <p>Notion形式に自動変換・マッピング</p>
                 </div>
-                
+
                 <div class="workflow-step">
                     <div class="feature-icon">📋</div>
                     <h4>タスク生成</h4>
                     <p>データに基づき自動的にタスク作成</p>
                 </div>
-                
+
                 <div class="workflow-step">
                     <div class="feature-icon">📤</div>
                     <h4>結果の同期</h4>
                     <p>更新内容を外部システムに反映</p>
                 </div>
             </div>
-            
-            <p>APIを活用した自動化ワークフローにより、データの取得から処理、タスク生成、結果の同期までの一連のプロセスを自動化できます。これにより、手作業による転記ミスの削減、処理時間の短縮、リアルタイムでの情報共有が実現し、チーム全体の生産性が向上します。条件分岐や承認フローなど、複雑なビジネスロジックも実装可能で、組織固有の業務プロセスに合わせたカスタマイズが可能です。</p>
+
+            <p>APIを活用した自動化ワークフローにより、データの取得から処理、タスク生成、結果の同期までの一連のプロセスを自動化できます。これにより、手作業による転記ミスの削減、処理時間の短縮、リアルタイムでの情報共有が実現し、チーム全体の生産性が向上します。条件分岐や承認フローなど、複雑なビジネスロジックも実装可能で、組織固有の業務プロセスに合わせたカスタマイズが可能です。
+            </p>
         </section>
-        
-        <section>
-            <h2>APIデータ連携のビジネスメリット</h2>
-            
-            <div class="benefit">
-                <div class="benefit-icon">⏱️</div>
-                <div>
-                    <h3>作業時間の大幅
+
+        <footer>
+            <div class="footer-container">
+                <div class="footer-nav">
+                    <div class="footer-section">
+                        <h4>Notion機能紹介</h4>
+                        <ul>
+                            <li><a href="../all-in-one/">オールインワン情報管理</a></li>
+                            <li><a href="../internal-tools/">既存ツールとの連携</a></li>
+                            <li><a href="../api-integration/">API連携と自動化</a></li>
+                            <li><a href="../workflow-automation/">業務フロー自動化</a></li>
+                            <li><a href="../multiview-database/">多角的データ分析</a></li>
+                            <li><a href="../security-access/">セキュアなアクセス管理</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-section">
+                        <h4>サービス情報</h4>
+                        <ul>
+                            <li><a href="../pricing.html">Notionシステム構築料金</a></li>
+                            <li><a href="../pricing.html#custom-plan">カスタムプラン</a></li>
+                            <li><a href="../pricing.html#pricing-faq">よくある質問</a></li>
+                            <li><a href="../company.html">会社概要</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-section">
+                        <h4>活用事例</h4>
+                        <ul>
+                            <li><a href="../index.html#testimonials">お客様の声</a></li>
+                            <li><a href="../pricing.html#case-studies">導入事例</a></li>
+                            <li><a href="../index.html#why-notion">なぜNotionが選ばれるのか</a></li>
+                            <li><a href="../index.html#contact">お問い合わせ</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <p>© 2025 EFFECT Co. Ltd.
+                </div>
+            </div>
+        </footer>
+    </main>
+</body>
+
+</html>

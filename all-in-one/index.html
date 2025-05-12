@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,13 +15,13 @@
             box-sizing: border-box;
             font-family: 'Noto Sans JP', 'Segoe UI', 'Helvetica Neue', sans-serif;
         }
-        
+
         body {
             background-color: #f7f6f3;
             color: #37352f;
             line-height: 1.6;
         }
-        
+
         /* ヘッダーとナビゲーション */
         header {
             background-color: #2f3437;
@@ -28,7 +29,7 @@
             padding: 1.2rem 0;
             text-align: center;
         }
-        
+
         .sub-nav {
             display: flex;
             justify-content: space-between;
@@ -39,7 +40,7 @@
             margin-right: auto;
             padding: 0 1rem;
         }
-        
+
         .home-link {
             color: white;
             text-decoration: none;
@@ -49,16 +50,16 @@
             background-color: rgba(255, 255, 255, 0.1);
             transition: background-color 0.3s;
         }
-        
+
         .home-link:hover {
             background-color: rgba(255, 255, 255, 0.2);
         }
-        
+
         .sub-menu {
             display: flex;
             gap: 15px;
         }
-        
+
         .sub-link {
             color: white;
             text-decoration: none;
@@ -66,91 +67,91 @@
             opacity: 0.8;
             transition: opacity 0.3s;
         }
-        
+
         .sub-link:hover {
             opacity: 1;
         }
-        
+
         /* パンくずリスト */
         .breadcrumb-nav {
             background-color: #fff;
             padding: 10px 0;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
         }
-        
+
         .breadcrumb {
             list-style: none;
             display: flex;
             font-size: 0.9rem;
         }
-        
+
         .breadcrumb-item {
             display: flex;
             align-items: center;
         }
-        
-        .breadcrumb-item + .breadcrumb-item::before {
+
+        .breadcrumb-item+.breadcrumb-item::before {
             content: "/";
             margin: 0 10px;
             color: #777;
         }
-        
+
         .breadcrumb-item a {
             color: #333;
             text-decoration: none;
         }
-        
+
         .breadcrumb-item.active {
             color: #666;
         }
-        
+
         /* メインコンテンツ */
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 2rem;
         }
-        
+
         .content-with-sidebar {
             display: flex;
             gap: 30px;
             margin-top: 2rem;
         }
-        
+
         .sidebar {
             flex: 0 0 250px;
         }
-        
+
         .main-content {
             flex: 1;
         }
-        
+
         /* サイドバーナビゲーション */
         .sidebar-nav {
             background: white;
             border-radius: 8px;
             padding: 20px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
             position: sticky;
             top: 20px;
         }
-        
+
         .sidebar-nav h3 {
             font-size: 1.1rem;
             margin-bottom: 15px;
             padding-bottom: 10px;
             border-bottom: 1px solid #eee;
         }
-        
+
         .sidebar-nav ul {
             list-style: none;
             margin-bottom: 25px;
         }
-        
+
         .sidebar-nav li {
             margin-bottom: 10px;
         }
-        
+
         .sidebar-nav a {
             color: #555;
             text-decoration: none;
@@ -159,75 +160,75 @@
             border-radius: 4px;
             transition: background-color 0.3s;
         }
-        
+
         .sidebar-nav a:hover {
             background-color: #f5f5f5;
         }
-        
+
         .sidebar-nav a.active {
             background-color: #f0f0f0;
             font-weight: 500;
             color: #333;
         }
-        
+
         h1 {
             font-size: 2rem;
             font-weight: 700;
             margin-bottom: 0.8rem;
         }
-        
+
         h2 {
             font-size: 1.8rem;
             margin: 2rem 0 1rem;
             padding-bottom: 0.5rem;
             border-bottom: 2px solid #ebeaea;
         }
-        
+
         p {
             margin-bottom: 1rem;
             font-size: 1.1rem;
         }
-        
+
         .hero {
             text-align: center;
             margin-bottom: 3rem;
         }
-        
+
         .hero p {
             font-size: 1.3rem;
             max-width: 800px;
             margin: 1rem auto;
         }
-        
+
         .features {
             display: flex;
             flex-wrap: wrap;
             justify-content: space-between;
             margin: 3rem 0;
         }
-        
+
         .feature {
             flex-basis: 48%;
             background: white;
             border-radius: 8px;
             padding: 1.5rem;
             margin-bottom: 2rem;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
             transition: transform 0.3s ease;
         }
-        
+
         .feature:hover {
             transform: translateY(-5px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
         }
-        
+
         .feature h3 {
             font-size: 1.5rem;
             margin-bottom: 1rem;
             display: flex;
             align-items: center;
         }
-        
+
         .feature-icon {
             width: 40px;
             height: 40px;
@@ -238,32 +239,32 @@
             background: #f7f6f3;
             border-radius: 8px;
         }
-        
+
         .diagram {
             background: white;
             border-radius: 8px;
             padding: 2rem;
             margin: 3rem 0;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
             text-align: center;
         }
-        
+
         .diagram h2 {
             text-align: left;
         }
-        
+
         .diagram-img {
             max-width: 100%;
             height: auto;
             margin: 2rem 0;
         }
-        
+
         .benefit {
             display: flex;
             align-items: flex-start;
             margin-bottom: 1.5rem;
         }
-        
+
         .benefit-icon {
             flex-shrink: 0;
             width: 30px;
@@ -275,14 +276,14 @@
             align-items: center;
             justify-content: center;
         }
-        
+
         .workflow {
             display: flex;
             justify-content: space-between;
             margin: 2rem 0;
             position: relative;
         }
-        
+
         .workflow-step {
             flex-basis: 22%;
             background: white;
@@ -291,13 +292,13 @@
             text-align: center;
             position: relative;
             z-index: 1;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
         }
-        
+
         .workflow-step h4 {
             margin: 1rem 0;
         }
-        
+
         .workflow-arrow {
             position: absolute;
             top: 50%;
@@ -307,7 +308,7 @@
             background: #ebeaea;
             z-index: 0;
         }
-        
+
         /* 関連コンテンツ */
         .related-content {
             background: #f5f5f5;
@@ -315,21 +316,21 @@
             padding: 15px 20px;
             margin: 25px 0;
         }
-        
+
         .related-content h4 {
             font-size: 1rem;
             margin-bottom: 10px;
             color: #555;
         }
-        
+
         .related-content ul {
             list-style: none;
         }
-        
+
         .related-content li {
             margin-bottom: 8px;
         }
-        
+
         .related-content a {
             color: #2f3437;
             text-decoration: none;
@@ -338,11 +339,11 @@
             border-bottom: 1px solid transparent;
             transition: border-color 0.3s;
         }
-        
+
         .related-content a:hover {
             border-color: #2f3437;
         }
-        
+
         /* CTA */
         .cta {
             background: #2f3437;
@@ -352,19 +353,19 @@
             border-radius: 8px;
             margin: 3rem 0;
         }
-        
+
         .cta h2 {
             border-bottom: none;
             color: white;
         }
-        
+
         .cta-buttons {
             display: flex;
             justify-content: center;
             gap: 20px;
             margin-top: 25px;
         }
-        
+
         .cta-button {
             display: inline-block;
             padding: 1rem 2rem;
@@ -373,30 +374,30 @@
             font-weight: bold;
             transition: background 0.3s ease;
         }
-        
+
         .cta-button.primary {
             background: #fff;
             color: #2f3437;
         }
-        
+
         .cta-button.primary:hover {
             background: #f0f0f0;
         }
-        
+
         .cta-button.secondary {
             background: rgba(255, 255, 255, 0.2);
             color: white;
         }
-        
+
         .cta-button.secondary:hover {
             background: rgba(255, 255, 255, 0.3);
         }
-        
+
         .related-features {
             margin-top: 30px;
             font-size: 0.9rem;
         }
-        
+
         .related-links {
             display: flex;
             flex-wrap: wrap;
@@ -404,7 +405,7 @@
             gap: 15px;
             margin-top: 10px;
         }
-        
+
         .related-link {
             color: rgba(255, 255, 255, 0.8);
             text-decoration: none;
@@ -413,91 +414,91 @@
             background: rgba(255, 255, 255, 0.1);
             transition: background 0.3s, color 0.3s;
         }
-        
+
         .related-link:hover {
             background: rgba(255, 255, 255, 0.2);
             color: white;
         }
-        
+
         /* 関連記事 */
         .related-articles {
             margin: 4rem 0;
         }
-        
+
         .related-articles h2 {
             text-align: center;
             margin-bottom: 2rem;
         }
-        
+
         .related-articles-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
             gap: 25px;
         }
-        
+
         .related-article {
             background: white;
             border-radius: 8px;
             overflow: hidden;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
             text-decoration: none;
             color: inherit;
             transition: transform 0.3s, box-shadow 0.3s;
         }
-        
+
         .related-article:hover {
             transform: translateY(-5px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
         }
-        
+
         .article-image {
             height: 180px;
             background: #eee;
             overflow: hidden;
         }
-        
+
         .article-image img {
             width: 100%;
             height: 100%;
             object-fit: cover;
             transition: transform 0.5s;
         }
-        
+
         .related-article:hover .article-image img {
             transform: scale(1.05);
         }
-        
+
         .related-article h3 {
             padding: 20px 20px 10px;
             font-size: 1.2rem;
             color: #333;
         }
-        
+
         .related-article p {
             padding: 0 20px 20px;
             font-size: 0.9rem;
             color: #666;
         }
-        
+
         footer {
             background: #ebeaea;
             padding: 2rem;
             text-align: center;
             margin-top: 3rem;
         }
-        
+
         .footer-container {
             max-width: 1200px;
             margin: 0 auto;
         }
-        
+
         .footer-nav {
             display: flex;
             justify-content: space-between;
             flex-wrap: wrap;
             margin-bottom: 30px;
         }
-        
+
         .footer-section {
             flex: 1;
             min-width: 200px;
@@ -505,101 +506,101 @@
             text-align: left;
             padding: 0 15px;
         }
-        
+
         .footer-section h4 {
             font-size: 1.1rem;
             margin-bottom: 15px;
             color: #333;
         }
-        
+
         .footer-section ul {
             list-style: none;
         }
-        
+
         .footer-section li {
             margin-bottom: 8px;
         }
-        
+
         .footer-section a {
             color: #555;
             text-decoration: none;
             font-size: 0.9rem;
             transition: color 0.3s;
         }
-        
+
         .footer-section a:hover {
             color: #000;
         }
-        
+
         .footer-bottom {
             padding-top: 20px;
             border-top: 1px solid #ddd;
             font-size: 0.9rem;
             color: #666;
         }
-        
+
         .footer-bottom a {
             color: #555;
             text-decoration: none;
             transition: color 0.3s;
         }
-        
+
         .footer-bottom a:hover {
             color: #000;
         }
-        
+
         /* SVG スタイル */
         .svg-container {
             max-width: 100%;
             height: auto;
         }
-        
+
         .all-in-one-diagram {
             max-width: 800px;
             margin: 0 auto;
         }
-        
+
         /* レスポンシブ対応 */
         @media (max-width: 768px) {
             .feature {
                 flex-basis: 100%;
             }
-            
+
             .workflow {
                 flex-direction: column;
             }
-            
+
             .workflow-step {
                 flex-basis: 100%;
                 margin-bottom: 1.5rem;
             }
-            
+
             .workflow-arrow {
                 display: none;
             }
-            
+
             .content-with-sidebar {
                 flex-direction: column;
             }
-            
+
             .sidebar {
                 order: 2;
             }
-            
+
             .main-content {
                 order: 1;
             }
-            
+
             .sub-nav {
                 flex-direction: column;
                 gap: 15px;
             }
-            
+
             .sub-menu {
                 flex-wrap: wrap;
                 justify-content: center;
             }
-            
+
             .cta-buttons {
                 flex-direction: column;
                 gap: 15px;
@@ -607,6 +608,7 @@
         }
     </style>
 </head>
+
 <body>
     <header>
         <div class="container">
@@ -625,7 +627,7 @@
             <p>業務に必要なすべての情報を一箇所で管理・共有できる統合ワークスペース</p>
         </div>
     </header>
-    
+
     <nav class="breadcrumb-nav">
         <div class="breadcrumb-container">
             <ol class="breadcrumb">
@@ -634,7 +636,7 @@
             </ol>
         </div>
     </nav>
-    
+
     <div class="container content-with-sidebar">
         <aside class="sidebar">
             <div class="sidebar-nav">
@@ -647,7 +649,7 @@
                     <li><a href="../multiview-database/">多角的データ分析</a></li>
                     <li><a href="../security-access/">セキュアなアクセス管理</a></li>
                 </ul>
-                
+
                 <h3>関連リソース</h3>
                 <ul>
                     <li><a href="../pricing.html#notion-plans">Notionシステム構築プラン</a></li>
@@ -656,13 +658,14 @@
                 </ul>
             </div>
         </aside>
-        
+
         <main class="main-content">
             <section class="hero">
                 <h2>情報分散の問題を解決する統合型ワークスペース</h2>
-                <p>タスク管理、会議録、プロジェクト計画、顧客管理など、業務に必要なあらゆる情報をひとつのプラットフォームで統合的に管理できます。複数のツールを行き来する必要がなく、チームの情報共有とコラボレーションの効率が大幅に向上します。</p>
+                <p>タスク管理、会議録、プロジェクト計画、顧客管理など、業務に必要なあらゆる情報をひとつのプラットフォームで統合的に管理できます。複数のツールを行き来する必要がなく、チームの情報共有とコラボレーションの効率が大幅に向上します。
+                </p>
             </section>
-            
+
             <section class="diagram">
                 <h2 id="diagram">Notionのオールインワン情報管理の仕組み</h2>
                 <div class="svg-container">
@@ -670,38 +673,44 @@
                         <!-- 中央のNotionプラットフォーム -->
                         <rect x="300" y="200" width="200" height="100" rx="15" fill="#2f3437" />
                         <text x="400" y="255" font-size="24" fill="white" text-anchor="middle">Notion</text>
-                        
+
                         <!-- 周りの機能 -->
                         <!-- タスク管理 -->
-                        <rect x="100" y="50" width="150" height="80" rx="10" fill="#ffffff" stroke="#ebeaea" stroke-width="2" />
+                        <rect x="100" y="50" width="150" height="80" rx="10" fill="#ffffff" stroke="#ebeaea"
+                            stroke-width="2" />
                         <text x="175" y="90" font-size="18" fill="#37352f" text-anchor="middle">タスク管理</text>
                         <text x="175" y="115" font-size="12" fill="#37352f" text-anchor="middle">期限・進捗・担当者</text>
-                        
+
                         <!-- 会議録 -->
-                        <rect x="550" y="50" width="150" height="80" rx="10" fill="#ffffff" stroke="#ebeaea" stroke-width="2" />
+                        <rect x="550" y="50" width="150" height="80" rx="10" fill="#ffffff" stroke="#ebeaea"
+                            stroke-width="2" />
                         <text x="625" y="90" font-size="18" fill="#37352f" text-anchor="middle">会議録</text>
                         <text x="625" y="115" font-size="12" fill="#37352f" text-anchor="middle">議事録・決定事項</text>
-                        
+
                         <!-- プロジェクト計画 -->
-                        <rect x="550" y="370" width="150" height="80" rx="10" fill="#ffffff" stroke="#ebeaea" stroke-width="2" />
+                        <rect x="550" y="370" width="150" height="80" rx="10" fill="#ffffff" stroke="#ebeaea"
+                            stroke-width="2" />
                         <text x="625" y="410" font-size="18" fill="#37352f" text-anchor="middle">プロジェクト計画</text>
                         <text x="625" y="435" font-size="12" fill="#37352f" text-anchor="middle">ロードマップ・工程表</text>
-                        
+
                         <!-- 顧客CRM -->
-                        <rect x="100" y="370" width="150" height="80" rx="10" fill="#ffffff" stroke="#ebeaea" stroke-width="2" />
+                        <rect x="100" y="370" width="150" height="80" rx="10" fill="#ffffff" stroke="#ebeaea"
+                            stroke-width="2" />
                         <text x="175" y="410" font-size="18" fill="#37352f" text-anchor="middle">顧客CRM</text>
                         <text x="175" y="435" font-size="12" fill="#37352f" text-anchor="middle">顧客情報・対応履歴</text>
-                        
+
                         <!-- 知識ベース -->
-                        <rect x="100" y="200" width="150" height="80" rx="10" fill="#ffffff" stroke="#ebeaea" stroke-width="2" />
+                        <rect x="100" y="200" width="150" height="80" rx="10" fill="#ffffff" stroke="#ebeaea"
+                            stroke-width="2" />
                         <text x="175" y="240" font-size="18" fill="#37352f" text-anchor="middle">知識ベース</text>
                         <text x="175" y="265" font-size="12" fill="#37352f" text-anchor="middle">マニュアル・FAQ</text>
-                        
+
                         <!-- 文書管理 -->
-                        <rect x="550" y="200" width="150" height="80" rx="10" fill="#ffffff" stroke="#ebeaea" stroke-width="2" />
+                        <rect x="550" y="200" width="150" height="80" rx="10" fill="#ffffff" stroke="#ebeaea"
+                            stroke-width="2" />
                         <text x="625" y="240" font-size="18" fill="#37352f" text-anchor="middle">文書管理</text>
                         <text x="625" y="265" font-size="12" fill="#37352f" text-anchor="middle">資料・企画書・提案書</text>
-                        
+
                         <!-- 接続線 -->
                         <line x1="250" y1="90" x2="300" y2="200" stroke="#ebeaea" stroke-width="2" />
                         <line x1="550" y1="90" x2="500" y2="200" stroke="#ebeaea" stroke-width="2" />
@@ -709,12 +718,12 @@
                         <line x1="550" y1="240" x2="500" y2="250" stroke="#ebeaea" stroke-width="2" />
                         <line x1="250" y1="410" x2="300" y2="300" stroke="#ebeaea" stroke-width="2" />
                         <line x1="550" y1="410" x2="500" y2="300" stroke="#ebeaea" stroke-width="2" />
-                        
+
                         <!-- ユーザーアイコン -->
                         <circle cx="400" cy="50" r="25" fill="#ebeaea" />
                         <text x="400" y="55" font-size="16" fill="#37352f" text-anchor="middle">User</text>
                         <line x1="400" y1="75" x2="400" y2="200" stroke="#ebeaea" stroke-width="2" />
-                        
+
                         <!-- チームアイコン -->
                         <circle cx="400" cy="450" r="25" fill="#ebeaea" />
                         <text x="400" y="455" font-size="16" fill="#37352f" text-anchor="middle">Team</text>
@@ -722,7 +731,7 @@
                     </svg>
                 </div>
                 <p>Notionでは複数の業務機能を一元管理でき、ユーザーとチームが効率的に情報を共有・活用できます。それぞれの情報は独立して存在しながらも、相互に連携し参照することが可能です。</p>
-                
+
                 <div class="related-content">
                     <h4>関連する機能と事例：</h4>
                     <ul>
@@ -732,16 +741,17 @@
                     </ul>
                 </div>
             </section>
-            
+
             <section class="features">
                 <div class="feature">
                     <h3>
                         <div class="feature-icon">📋</div>
                         タスク管理の統合
                     </h3>
-                    <p>チームやプロジェクトのタスクをカンバンボードやリスト形式で管理。担当者、期限、優先度、進捗状況を明確に把握できます。他の文書やプロジェクト計画と直接リンクすることで、文脈を失うことなく作業を進められます。</p>
+                    <p>チームやプロジェクトのタスクをカンバンボードやリスト形式で管理。担当者、期限、優先度、進捗状況を明確に把握できます。他の文書やプロジェクト計画と直接リンクすることで、文脈を失うことなく作業を進められます。
+                    </p>
                 </div>
-                
+
                 <div class="feature">
                     <h3>
                         <div class="feature-icon">📝</div>
@@ -749,14 +759,15 @@
                     </h3>
                     <p>会議の議事録、決定事項、アクションアイテムをすべて記録し、関連するプロジェクトやタスクと紐づけられます。過去の会議内容を簡単に検索でき、決定事項の追跡や進捗確認がスムーズに行えます。</p>
                 </div>
-                
+
                 <div class="feature">
                     <h3 id="task-management">
                         <div class="feature-icon">📊</div>
                         プロジェクト計画の可視化
                     </h3>
-                    <p>ガントチャートやタイムラインでプロジェクトの進捗を可視化。マイルストーン、依存関係、リソース配分など、計画の全体像を把握できます。リアルタイムで更新され、チーム全体で最新状況を共有できます。</p>
-                    
+                    <p>ガントチャートやタイムラインでプロジェクトの進捗を可視化。マイルストーン、依存関係、リソース配分など、計画の全体像を把握できます。リアルタイムで更新され、チーム全体で最新状況を共有できます。
+                    </p>
+
                     <div class="related-content">
                         <h4>関連する機能と事例：</h4>
                         <ul>
@@ -766,14 +777,15 @@
                         </ul>
                     </div>
                 </div>
-                
+
                 <div class="feature">
                     <h3 id="customer-management">
                         <div class="feature-icon">👥</div>
                         顧客CRMとの連携
                     </h3>
-                    <p>顧客情報、コミュニケーション履歴、提案内容などを体系的に管理。商談状況や案件の進捗状況をデータベースで一覧化し、チーム全体で最新の顧客情報を共有できます。各種文書や会議録と連携することで、顧客対応の質が向上します。</p>
-                    
+                    <p>顧客情報、コミュニケーション履歴、提案内容などを体系的に管理。商談状況や案件の進捗状況をデータベースで一覧化し、チーム全体で最新の顧客情報を共有できます。各種文書や会議録と連携することで、顧客対応の質が向上します。
+                    </p>
+
                     <div class="related-content">
                         <h4>関連する機能と事例：</h4>
                         <ul>
@@ -783,57 +795,60 @@
                         </ul>
                     </div>
                 </div>
-                
+
                 <div class="feature">
                     <h3>
                         <div class="feature-icon">🔍</div>
                         強力な検索機能
                     </h3>
-                    <p>キーワード、タグ、作成者など様々な条件での検索が可能。膨大な情報の中から必要な文書やデータをすぐに見つけ出せます。関連情報も同時に表示されるため、情報の関連性を失うことなく作業を進められます。</p>
+                    <p>キーワード、タグ、作成者など様々な条件での検索が可能。膨大な情報の中から必要な文書やデータをすぐに見つけ出せます。関連情報も同時に表示されるため、情報の関連性を失うことなく作業を進められます。
+                    </p>
                 </div>
-                
+
                 <div class="feature">
                     <h3>
                         <div class="feature-icon">🔄</div>
                         シームレスなコラボレーション
                     </h3>
-                    <p>リアルタイム編集、コメント機能、メンション通知により、チームメンバーとのコラボレーションがスムーズに。変更履歴も自動的に記録されるため、誰がいつどのような変更を行ったかが明確に分かります。</p>
+                    <p>リアルタイム編集、コメント機能、メンション通知により、チームメンバーとのコラボレーションがスムーズに。変更履歴も自動的に記録されるため、誰がいつどのような変更を行ったかが明確に分かります。
+                    </p>
                 </div>
             </section>
-            
+
             <section>
                 <h2 id="workflow">情報統合による業務改善の具体例</h2>
-                
+
                 <div class="workflow">
                     <div class="workflow-arrow"></div>
-                    
+
                     <div class="workflow-step">
                         <div class="feature-icon">🔄</div>
                         <h4>会議の実施</h4>
                         <p>会議録をNotionで直接記録</p>
                     </div>
-                    
+
                     <div class="workflow-step">
                         <div class="feature-icon">✅</div>
                         <h4>タスク作成</h4>
                         <p>会議録から直接タスクを作成</p>
                     </div>
-                    
+
                     <div class="workflow-step">
                         <div class="feature-icon">👤</div>
                         <h4>担当者割当</h4>
                         <p>関連文書へのリンク付きで担当者にアサイン</p>
                     </div>
-                    
+
                     <div class="workflow-step">
                         <div class="feature-icon">📈</div>
                         <h4>進捗管理</h4>
                         <p>プロジェクト全体の進捗に自動反映</p>
                     </div>
                 </div>
-                
-                <p>このように、情報が連携することで、会議での決定事項がすぐにタスクとなり、担当者に割り当てられ、プロジェクト計画に反映されるといった一連の流れがスムーズになります。情報の分断がなくなり、チーム全体の生産性が向上します。</p>
-                
+
+                <p>このように、情報が連携することで、会議での決定事項がすぐにタスクとなり、担当者に割り当てられ、プロジェクト計画に反映されるといった一連の流れがスムーズになります。情報の分断がなくなり、チーム全体の生産性が向上します。
+                </p>
+
                 <div class="related-content">
                     <h4>関連する機能と事例：</h4>
                     <ul>
@@ -843,18 +858,19 @@
                     </ul>
                 </div>
             </section>
-            
+
             <section>
                 <h2 id="benefits">オールインワン情報管理の主なメリット</h2>
-                
+
                 <div class="benefit">
                     <div class="benefit-icon">⏱️</div>
                     <div>
                         <h3>時間の節約</h3>
-                        <p>複数のツールを行き来する必要がなく、情報を探す時間を大幅に削減できます。会議録から直接タスクを作成したり、プロジェクト計画から関連文書にアクセスしたりと、スムーズな情報連携により作業効率が向上します。</p>
+                        <p>複数のツールを行き来する必要がなく、情報を探す時間を大幅に削減できます。会議録から直接タスクを作成したり、プロジェクト計画から関連文書にアクセスしたりと、スムーズな情報連携により作業効率が向上します。
+                        </p>
                     </div>
                 </div>
-                
+
                 <div class="benefit">
                     <div class="benefit-icon">🔄</div>
                     <div>
@@ -862,15 +878,16 @@
                         <p>すべての情報が一箇所で管理されるため、情報の不一致や重複が防げます。最新情報が常に共有され、チーム全員が同じ情報に基づいて判断・行動できるようになります。</p>
                     </div>
                 </div>
-                
+
                 <div class="benefit">
                     <div class="benefit-icon">🧠</div>
                     <div>
                         <h3>コンテキストの維持</h3>
-                        <p>関連する情報同士が紐づけられているため、情報の背景や経緯を含めた全体像を把握しやすくなります。タスクの理由、会議での議論内容、過去の決定事項など、文脈を失うことなく作業を進められます。</p>
+                        <p>関連する情報同士が紐づけられているため、情報の背景や経緯を含めた全体像を把握しやすくなります。タスクの理由、会議での議論内容、過去の決定事項など、文脈を失うことなく作業を進められます。
+                        </p>
                     </div>
                 </div>
-                
+
                 <div class="benefit">
                     <div class="benefit-icon">👥</div>
                     <div>
@@ -879,7 +896,7 @@
                     </div>
                 </div>
             </section>
-            
+
             <section class="related-articles">
                 <h2>関連するNotion活用情報</h2>
                 <div class="related-articles-grid">
@@ -906,7 +923,7 @@
                     </a>
                 </div>
             </section>
-            
+
             <section class="cta">
                 <h2>すべての業務情報を一箇所に統合しませんか？</h2>
                 <p>情報管理の煩雑さから解放され、本来の業務に集中できる環境を手に入れましょう。</p>
@@ -925,7 +942,7 @@
             </section>
         </main>
     </div>
-    
+
     <footer>
         <div class="footer-container">
             <div class="footer-nav">
@@ -960,9 +977,10 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>© 2025 EFFECT Co. Ltd. | <a href="#">プライバシーポリシー</a> | <a href="#">利用規約</a></p>
+                <p>© 2025 EFFECT Co. Ltd.
             </div>
         </div>
     </footer>
 </body>
+
 </html>
