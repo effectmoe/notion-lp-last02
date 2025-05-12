@@ -121,7 +121,7 @@
 
         .book-cover {
             flex: 0 0 40%;
-            max-width: 400px;
+            max-width: 500px;
             box-shadow: var(--box-shadow);
             border-radius: var(--border-radius);
             overflow: hidden;
@@ -277,7 +277,7 @@
         }
 
         .author-bio {
-            max-width: 700px;
+            /* max-width: 700px; */
             margin: 0 auto;
         }
 
@@ -436,6 +436,10 @@
             max-width: 100%;
             height: auto;
         }
+
+        .author-credentials {
+            margin-bottom: 1em; /* フォントサイズが16pxなら16px分の余白 */
+        }
     </style>
 
     <!-- 2. スキーママークアップの実装（書籍情報） -->
@@ -586,8 +590,8 @@
             <div class="header-content">
                 <h1 class="book-title">グッバイSEO、ハローLLMO！</h1>
                 <h2 class="book-subtitle">AI検索時代のWebマーケティング実践ガイド</h2>
-                <a href="https://www.amazon.co.jp/dp/B0F7QQF392" class="cta-button" role="button"
-                    aria-label="Amazonで本を購入する">今すぐ購入する</a>
+                <a href="https://www.amazon.co.jp/dp/B0F7QQF392"  target="_blank" class="cta-button" role="button"
+                    aria-label="Amazonで本を購入する">Amazon Kindleで購入する</a>
             </div>
         </div>
     </header>
@@ -754,11 +758,6 @@
                     <div class="chapter-content">
                         <h3 class="chapter-title">第7章: LLMO対策を行う際の推奨フレームワーク</h3>
                         <p>効果的なLLMO対策のための包括的なフレームワークと、22の実践的なチェックリストを提供します。</p>
-                        <div class="diagram">
-                            <img src="https://placehold.co/800x400/ffffff/4a6da7?text=LLMO対策フレームワーク図"
-                                alt="LLMO対策フレームワーク図">
-                            <p>図：LLMO対策のための包括的フレームワーク</p>
-                        </div>
                     </div>
                 </li>
 
@@ -792,40 +791,14 @@
                 </div>
                 <div class="author-details">
                     <h3 itemprop="name">朱 剛明（シュ コウメイ）</h3>
-                    <p class="author-credentials" itemprop="jobTitle">Notionエキスパート・AI戦略コンサルタント</p>
+                    <p class="author-credentials" itemprop="jobTitle">Notionエキスパート・LLMOコンサルタント</p>
                     <div itemprop="description">
                         <p class="author-bio">
                             2018年よりNotionに傾倒し、その後NotionをCMSとしての利用を模索。さらにNotionCMS＋AIに可能性を感じ、2024年よりストアカ講師として活動。AI検索ロジックについて調査を進め、LLMOという現時点ではまだ新興の技術をいち早く深掘りし、電子書籍として本書を出版。
                         </p>
                         <p class="author-experience">
-                            Notion本体をヘッドレスCMSとして構築し、NotionAiをサイトエディターとして活用する手法を開発。AIを使ったSNS運用と組み合わせることで、非エンジニアユーザーにとってLLMO対策の最適なフレームワークを構築。
+                            Notion本体をヘッドレスCMSとして構築し、NotionAiをサイトエディターとして活用する手法を開発。さらに、AIを使ったSNS運用と組み合わせることで、非エンジニアユーザーにとっての最高のLLMO対策になると提唱。
                         </p>
-                    </div>
-                    <div class="author-achievements">
-                        <h4>実績:</h4>
-                        <ul itemprop="award">
-                            <li>NotionとAIの統合に関する講演（2024年デジタルマーケティングカンファレンス）</li>
-                            <li>LLMO対策セミナー講師（2025年、全国10都市で実施）</li>
-                            <li>AI活用Webマーケティング戦略の構築支援（30社以上）</li>
-                        </ul>
-                    </div>
-                    <div class="author-credentials">
-                        <h4>専門分野:</h4>
-                        <ul itemprop="knowsAbout">
-                            <li>LLMO対策と大規模言語モデル最適化</li>
-                            <li>AI活用ウェブマーケティング</li>
-                            <li>Notionヘッドレスシステム構築</li>
-                            <li>コンテンツ最適化戦略</li>
-                            <li>AI検索エンジン対応Webサイト設計</li>
-                        </ul>
-                    </div>
-                    <div class="author-contact">
-                        <h4>連絡先・SNS:</h4>
-                        <ul>
-                            <li><a href="https://twitter.com/authorhandle" itemprop="sameAs">Twitter</a></li>
-                            <li><a href="https://www.linkedin.com/in/authorname" itemprop="sameAs">LinkedIn</a></li>
-                            <li>メール: <span itemprop="email">info@effect.moe</span></li>
-                        </ul>
                     </div>
                 </div>
             </div>
@@ -838,7 +811,7 @@
 
             <div class="testimonial-card">
                 <div class="testimonial-content">
-                    <p>「SEOの基礎から最新のLLMO対策まで、体系的に学ぶことができました。特にLLMs.txtの実装方法は非常に参考になり、すぐに自社サイトに導入しました。結果、AI検索からの流入が20%増加しています。」
+                    <p>「SEOの基礎から最新のLLMO対策まで、体系的に学ぶことができました。特にLLMs.txtとSchema.orgの実装方法は非常に参考になり、すぐに自社サイトに導入しました。結果、AI検索からの流入が少しずつ増加しています。」
                     </p>
                     <div class="testimonial-author">Webマーケティングディレクター K.S様</div>
                 </div>
