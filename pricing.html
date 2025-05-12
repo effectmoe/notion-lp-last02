@@ -280,6 +280,10 @@
             line-height: 1;
         }
 
+        .llmopage{
+            background-color: rgb(243, 156, 50)!important;
+        }
+
         @keyframes fadeIn {
             from {
                 opacity: 0;
@@ -392,7 +396,7 @@
                 <li><a href="pricing.html#pricing-faq">よくある質問</a></li>
                 <li><a href="company.html" aria-current="page">企業情報</a></li>
                 <li><a href="https://effectmoe.notion.site/1f0b802cb0c68074bea8d2b5e000c54a?pvs=105" class="contact-btn"
-                    target="_blank" rel="noopener noreferrer">お問い合わせ</a></li>
+                        target="_blank" rel="noopener noreferrer">お問い合わせ</a></li>
             </nav>
 
             <!-- Hamburger Menu Button -->
@@ -410,7 +414,7 @@
             <li><a href="pricing.html#pricing-faq">よくある質問</a></li>
             <li><a href="company.html" aria-current="page">企業情報</a></li>
             <li><a href="https://effectmoe.notion.site/1f0b802cb0c68074bea8d2b5e000c54a?pvs=105" class="contact-btn"
-                target="_blank" rel="noopener noreferrer">お問い合わせ</a></li>
+                    target="_blank" rel="noopener noreferrer">お問い合わせ</a></li>
         </nav>
     </header>
 
@@ -489,6 +493,7 @@
                     <button class="pricing-tab active" data-filter="all">すべてのプラン</button>
                     <button class="pricing-tab" data-filter="system">システム構築</button>
                     <button class="pricing-tab" data-filter="database">データベース化</button>
+                    <button class="pricing-tab" data-filter="llmo">LLMO対策</button>
                     <button class="pricing-tab" data-filter="app">アプリプラン</button>
                 </div>
 
@@ -552,7 +557,36 @@
                             </div>
                         </div>
 
-                        <!-- プラン3: 未来顧客管理アプリ -ConnectHub- -->
+                        <!-- プラン3: システム構築 -->
+                        <div class="pricing-card" data-category="llmo">
+                            <div class="pricing-card-header">
+                                <h3>AI検索時代に対応したWEBサイトへのLLMO対策</h3>
+                                <div class="pricing-price">
+                                    <span class="price">10万円〜</span>
+                                </div>
+                                <p class="pricing-description">既存サイトへLLMO対策を行い、さらにLLMOに特化したNotionサイトと連携して継続的なLLMO対策を行います。</p>
+                            </div>
+                            <div class="pricing-card-body">
+                                <div class="pricing-features">
+                                    <p class="feature-category">＜LLMOのための６つの商品をご用意しました＞</p>
+                                    <ul>
+                                        <li><i class="fas fa-check"></i>LLMOサイト診断</li>
+                                        <li><i class="fas fa-check"></i>既存サイトへLLMO対策</li>
+                                        <li><i class="fas fa-check"></i>既存サイト + Notionブログ連結</li>
+                                        <li><i class="fas fa-check"></i>カバーページ + Notionブログ</li>
+                                        <li><i class="fas fa-check"></i>Notionブログのみでサイトを構成</li>
+                                        <li><i class="fas fa-check"></i>LLMO対策フルコンサル</li>
+                                    </ul>
+                                    <p class="pricing-note">※サイトボリュームに応じて価格は変動致します</p>
+                                </div>
+                            </div>
+                            <div class="pricing-card-footer">
+                                <a href="notionllmo.html"
+                                    class="btn primary-btn pricing-btn llmopage">LLMO対策ページへ</a>
+                            </div>
+                        </div>
+
+                        <!-- プラン4: 未来顧客管理アプリ -ConnectHub- -->
                         <div class="pricing-card coming-soon" data-category="app">
                             <div class="pricing-card-header">
                                 <h3>AI搭載顧客管理アプリ<br>-ConnectHub-</h3>
@@ -575,7 +609,7 @@
                             </div> -->
                         </div>
 
-                        <!-- プラン4: 経営戦略アプリ -OwnStory- -->
+                        <!-- プラン5: 経営戦略アプリ -OwnStory- -->
                         <div class="pricing-card coming-soon" data-category="app">
                             <div class="pricing-card-header">
                                 <h3>Notionベース経営戦略支援アプリ<br>-OwnStory-</h3>
@@ -598,8 +632,8 @@
                             </div> -->
                         </div>
 
-                        <!-- プラン5: 事務代行アプリ -LittleManager- -->
-                        <div class="pricing-card coming-soon" data-category="app">
+                        <!-- プラン6: 事務代行アプリ -LittleManager- -->
+                        <!-- <div class="pricing-card coming-soon" data-category="app">
                             <div class="pricing-card-header">
                                 <h3>業務効率化・自動化アプリ<br>-LittleManager-</h3>
                                 <div class="pricing-status">
@@ -615,13 +649,13 @@
                                     </p>
                                 </div>
                             </div>
-                            <!-- <div class="pricing-card-footer">
+                            <div class="pricing-card-footer">
                                 <a href="#notify" class="btn secondary-btn pricing-btn">開発状況を確認する</a>
-                            </div> -->
-                        </div>
+                            </div>
+                        </div> -->
 
-                        <!-- プラン6: 会計管理アプリ -AI KAIKEI- -->
-                        <div class="pricing-card coming-soon" data-category="app">
+                        <!-- プラン7: 会計管理アプリ -AI KAIKEI- -->
+                        <!-- <div class="pricing-card coming-soon" data-category="app">
                             <div class="pricing-card-header">
                                 <h3>Notion連携会計管理アプリ<br>-AI KAIKEI-</h3>
                                 <div class="pricing-status">
@@ -637,10 +671,10 @@
                                     </p>
                                 </div>
                             </div>
-                            <!-- <div class="pricing-card-footer">
+                            <div class="pricing-card-footer">
                                 <a href="#notify" class="btn secondary-btn pricing-btn">開発状況を確認する</a>
-                            </div> -->
-                        </div>
+                            </div>
+                        </div> -->
 
                     </div>
                 </div>
