@@ -1142,6 +1142,10 @@
             margin-bottom: 50px;
         }
 
+        .comparison-table tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+
         .comparison-table th,
         .comparison-table td {
             padding: 12px 15px;
@@ -1482,6 +1486,7 @@
         .responsive-comparison {
             margin: 20px 0;
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            margin-bottom: 2rem;
         }
 
         .table-wrapper {
@@ -1662,37 +1667,41 @@
             }
         }
 
-        @media screen and (max-width: 768px) {
-            .comparison-table {
-                border: 0;
-            }
-
+        @media (max-width: 768px) {
             .comparison-table thead {
                 display: none;
             }
 
+            .comparison-table {
+                border: 0;
+            }
+
             .comparison-table tr {
-                margin-bottom: 1rem;
                 display: block;
-                border: 1px solid #e2e8f0;
+                margin-bottom: 1rem;
+                border: 1px solid #ddd;
             }
 
             .comparison-table td {
                 display: block;
                 text-align: right;
-                font-size: 0.9rem;
-                border-bottom: 1px solid #e2e8f0;
-                border-left: 0;
-                border-right: 0;
+                padding: 0.75rem;
+                border-bottom: 1px solid #eee;
+                border: none;
             }
 
             .comparison-table td:last-child {
-                border-bottom: 0;
+                border-bottom: none;
             }
 
             .comparison-table td::before {
                 content: attr(data-label);
-                float: left;
+                position: absolute;
+                left: 0.75rem;
+                width: 45%;
+                padding-right: 10px;
+                white-space: nowrap;
+                text-align: left;
                 font-weight: bold;
             }
         }
@@ -2501,43 +2510,45 @@
             <h2 class="section-title">SEOからLLMOへの進化</h2>
             <p class="section-subtitle">何が変わるのか？対策の違いを解説</p>
 
-            <div class="comparison-table-container">
-                <table class="comparison-table">
-                    <thead>
-                        <tr>
-                            <th class="feature-column">対策項目</th>
-                            <th class="traditional-column">従来のSEO対策</th>
-                            <th class="notion-column">LLMO対策の新要素</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>キーワード戦略</td>
-                            <td>キーワード最適化と密度の調整</td>
-                            <td>トピックとブランドの関連付け強化</td>
-                        </tr>
-                        <tr>
-                            <td>リンク戦略</td>
-                            <td>バックリンク構築とリンクジュース</td>
-                            <td>文脈理解を促進する明確な文章構造</td>
-                        </tr>
-                        <tr>
-                            <td>メタデータ</td>
-                            <td>メタタグ（タイトル・ディスクリプション）の最適化</td>
-                            <td>構造化データのより詳細な実装</td>
-                        </tr>
-                        <tr>
-                            <td>ページ最適化</td>
-                            <td>ページ表示速度の改善</td>
-                            <td>LLMs.txtファイルの実装</td>
-                        </tr>
-                        <tr>
-                            <td>ユーザー体験</td>
-                            <td>クローラビリティの向上</td>
-                            <td>データの具体性と引用の信頼性向上</td>
-                        </tr>
-                    </tbody>
-                </table>
+            <div class="responsive-comparison">
+                <div class="table-wrapper">
+                    <table class="comparison-table">
+                        <thead>
+                            <tr>
+                                <th>対策項目</th>
+                                <th>従来のSEO対策</th>
+                                <th>LLMO対策の新要素</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td data-label="対策項目">キーワード戦略</td>
+                                <td data-label="従来のSEO対策">キーワード最適化と密度の調整</td>
+                                <td data-label="LLMO対策の新要素">トピックとブランドの関連付け強化</td>
+                            </tr>
+                            <tr>
+                                <td data-label="対策項目">リンク戦略</td>
+                                <td data-label="従来のSEO対策">バックリンク構築とリンクジュース</td>
+                                <td data-label="LLMO対策の新要素">文脈理解を促進する明確な文章構造</td>
+                            </tr>
+                            <tr>
+                                <td data-label="対策項目">メタデータ</td>
+                                <td data-label="従来のSEO対策">メタタグ（タイトル・ディスクリプション）の最適化</td>
+                                <td data-label="LLMO対策の新要素">構造化データのより詳細な実装</td>
+                            </tr>
+                            <tr>
+                                <td data-label="対策項目">ページ最適化</td>
+                                <td data-label="従来のSEO対策">ページ表示速度の改善</td>
+                                <td data-label="LLMO対策の新要素">LLMs.txtファイルの実装</td>
+                            </tr>
+                            <tr>
+                                <td data-label="対策項目">ユーザー体験</td>
+                                <td data-label="従来のSEO対策">クローラビリティの向上</td>
+                                <td data-label="LLMO対策の新要素">データの具体性と引用の信頼性向上</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
 
             <div class="diagram-container">
