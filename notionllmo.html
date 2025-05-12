@@ -1560,7 +1560,7 @@
             }
 
             .container {
-                padding: 15px;
+                padding: 20px;
             }
         }
 
@@ -1694,6 +1694,95 @@
                 content: attr(data-label);
                 float: left;
                 font-weight: bold;
+            }
+        }
+
+        /* モバイル表示用のアコーディオンスタイル */
+        @media screen and (max-width: 768px) {
+
+            /* テーブル表示を非表示にして、代わりにアコーディオンを表示 */
+            .comparison-table-container {
+                display: none;
+            }
+
+            /* アコーディオンコンテナ - モバイルのみ表示 */
+            .mobile-accordion-container {
+                display: block;
+                width: 100%;
+                margin-bottom: 30px;
+            }
+
+            /* アコーディオン項目 */
+            .accordion-item {
+                margin-bottom: 10px;
+                border-radius: 8px;
+                overflow: hidden;
+                border: 1px solid #e2e8f0;
+            }
+
+            /* アコーディオンヘッダー */
+            .accordion-header {
+                background-color: #4a90e2;
+                color: white;
+                padding: 12px 15px;
+                font-weight: bold;
+                cursor: pointer;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+
+            /* 展開アイコン - 開いているときは表示しない */
+            .accordion-header::after {
+                content: '+';
+                font-size: 20px;
+                transition: transform 0.3s ease;
+            }
+
+            /* 開いているときのアイコン */
+            .accordion-header.active::after {
+                content: '-';
+            }
+
+            /* アコーディオンの内容 - デフォルトは非表示 */
+            .accordion-content {
+                display: none;
+                padding: 0;
+                background-color: white;
+            }
+
+            /* アコーディオンが開いているときの内容 */
+            .accordion-content.active {
+                display: block;
+            }
+
+            /* 内容の各項目 */
+            .accordion-item-content {
+                padding: 12px 15px;
+                border-bottom: 1px solid #e2e8f0;
+            }
+
+            .accordion-item-content:last-child {
+                border-bottom: none;
+            }
+
+            /* 項目のタイトル */
+            .content-title {
+                font-weight: bold;
+                margin-bottom: 5px;
+                color: #555;
+            }
+
+            /* 項目の説明 */
+            .content-description {
+                color: #333;
+            }
+        }
+
+        /* PCでは非表示 */
+        @media screen and (min-width: 769px) {
+            .mobile-accordion-container {
+                display: none;
             }
         }
     </style>
@@ -2624,7 +2713,8 @@
             <div class="faq-item">
                 <div class="faq-question">既存のコンテンツをNotionに移行する最適な方法は？</div>
                 <div class="faq-answer">
-                    <p>Save to Notionなどを利用して、ページ単位でコンテンツを一旦Notion落とし込み、段階的に重要ページから移行するのが理想的です。Notionユーザーならそんなに難しい作業ではありません。移行時にはLLMO視点でのコンテンツ再構築も検討すると効果的です。
+                    <p>Save to
+                        Notionなどを利用して、ページ単位でコンテンツを一旦Notion落とし込み、段階的に重要ページから移行するのが理想的です。Notionユーザーならそんなに難しい作業ではありません。移行時にはLLMO視点でのコンテンツ再構築も検討すると効果的です。
                     </p>
                 </div>
             </div>
@@ -2635,8 +2725,8 @@
     <div class="notion-link-section">
         <h2>お問い合わせはこちら</h2>
         <p>確認後担当者より折り返し連絡させていただきます</p>
-        <a href="https://effectmoe.notion.site/1f0b802cb0c68074bea8d2b5e000c54a" target="_blank" rel="noopener noreferrer"
-            class="notion-button">Notionフォームを開く</a>
+        <a href="https://effectmoe.notion.site/1f0b802cb0c68074bea8d2b5e000c54a" target="_blank"
+            rel="noopener noreferrer" class="notion-button">Notionフォームを開く</a>
     </div>
 
     <section class="cta-section">
@@ -2644,7 +2734,7 @@
             <h2 class="cta-title">AI検索時代の新たな一歩を踏み出しませんか？</h2>
             <p class="cta-text">Notion×LLMOで、あなたのコンテンツをAIに認識される価値ある情報源に変えましょう。SEOからLLMOへの移行は、単なるトレンドではなく、情報検索の未来です。</p>
             <div class="cta-buttons">
-                <a href="llmo.html"  target="_blank" class="btn">LLMO書籍を詳しく見る</a>
+                <a href="llmo.html" target="_blank" class="btn">LLMO書籍を詳しく見る</a>
                 <a href="pricing.html" class="btn btn-outline">料金プランを確認する</a>
             </div>
         </div>
@@ -2830,6 +2920,93 @@
         ]
       }
     }
+    </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // テーブルデータをアコーディオンに変換
+            const table = document.querySelector('.comparison-table');
+            if (!table) return;
+
+            // モバイルアコーディオン用のコンテナを作成
+            const accordionContainer = document.createElement('div');
+            accordionContainer.className = 'mobile-accordion-container';
+
+            // テーブルの行ごとにアコーディオンを作成
+            const rows = table.querySelectorAll('tbody tr');
+
+            rows.forEach(row => {
+                const cells = row.querySelectorAll('td');
+                if (cells.length < 3) return;
+
+                // アコーディオン項目を作成
+                const accordionItem = document.createElement('div');
+                accordionItem.className = 'accordion-item';
+
+                // ヘッダー（カテゴリ名）
+                const header = document.createElement('div');
+                header.className = 'accordion-header active'; // 最初から開いているように 'active' クラスを追加
+                header.textContent = cells[0].textContent.trim();
+                header.addEventListener('click', function () {
+                    this.classList.toggle('active');
+                    const content = this.nextElementSibling;
+                    content.classList.toggle('active');
+                });
+
+                // コンテンツ部分
+                const content = document.createElement('div');
+                content.className = 'accordion-content active'; // 最初から開いているように 'active' クラスを追加
+
+                // 従来のSEO対策
+                const traditionalContent = document.createElement('div');
+                traditionalContent.className = 'accordion-item-content';
+
+                const traditionalTitle = document.createElement('div');
+                traditionalTitle.className = 'content-title';
+                traditionalTitle.textContent = '従来のSEO対策:';
+
+                const traditionalDesc = document.createElement('div');
+                traditionalDesc.className = 'content-description';
+                traditionalDesc.textContent = cells[1].textContent.trim();
+
+                traditionalContent.appendChild(traditionalTitle);
+                traditionalContent.appendChild(traditionalDesc);
+
+                // LLMO対策の新要素
+                const llmoContent = document.createElement('div');
+                llmoContent.className = 'accordion-item-content';
+
+                const llmoTitle = document.createElement('div');
+                llmoTitle.className = 'content-title';
+                llmoTitle.textContent = 'LLMO対策の新要素:';
+
+                const llmoDesc = document.createElement('div');
+                llmoDesc.className = 'content-description';
+                llmoDesc.textContent = cells[2].textContent.trim();
+
+                llmoContent.appendChild(llmoTitle);
+                llmoContent.appendChild(llmoDesc);
+
+                // コンテンツに追加
+                content.appendChild(traditionalContent);
+                content.appendChild(llmoContent);
+
+                // アコーディオン項目に追加
+                accordionItem.appendChild(header);
+                accordionItem.appendChild(content);
+
+                // コンテナに追加
+                accordionContainer.appendChild(accordionItem);
+            });
+
+            // テーブルの後ろにアコーディオンを挿入
+            const tableContainer = document.querySelector('.comparison-table-container');
+            if (tableContainer) {
+                tableContainer.parentNode.insertBefore(accordionContainer, tableContainer.nextSibling);
+            }
+
+            // 最後の部分は削除（すべてのアコーディオンを最初から開くので必要なし）
+        });
     </script>
 </body>
 
