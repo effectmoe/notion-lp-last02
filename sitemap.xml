@@ -5,7 +5,7 @@
   <!-- メインページ -->
   <url>
     <loc>https://notion.effect.moe/</loc>
-    <lastmod>2025-03-27</lastmod>
+    <lastmod>2025-05-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <image:image>
@@ -44,10 +44,6 @@
     <lastmod>2025-05-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
-    <image:image>
-      <image:loc>https://notion.effect.moe/images/llmo-overview.png</image:loc>
-      <image:title>LLMOの概要と実装方法 - Notion Effect</image:title>
-    </image:image>
   </url>
   
   <!-- NotionとLLMOの連携 - 新規追加 -->
@@ -56,10 +52,14 @@
     <lastmod>2025-05-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
-    <image:image>
-      <image:loc>https://notion.effect.moe/images/notion-llmo-integration.png</image:loc>
-      <image:title>NotionとLLMOの連携方法 - Notion Effect</image:title>
-    </image:image>
+  </url>
+  
+  <!-- プライバシーポリシー - 新規追加 -->
+  <url>
+    <loc>https://notion.effect.moe/privacypolicy.html</loc>
+    <lastmod>2025-05-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   
   <!-- 機能説明ページ -->
