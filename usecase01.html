@@ -31,6 +31,11 @@
             line-height: 1.6;
             color: var(--dark-color);
             background-color: #fff;
+            overflow-x: hidden;
+            /* 横スクロールを防止 */
+            width: 100%;
+            max-width: 100vw;
+            /* ビューポート幅を超えないように制限 */
         }
 
         .container {
@@ -357,7 +362,7 @@
         .cta {
             background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
             color: white;
-            padding: 60px 0;
+            padding: 60px 20px;
             text-align: center;
             border-radius: 10px;
             margin: 60px 0 20px;
@@ -446,12 +451,39 @@
             border-radius: 8px;
             margin: 20px 0;
             overflow-x: auto;
+            max-width: 100%;
+            box-sizing: border-box;
+            /* パディングを幅に含める */
         }
 
         .code-block pre {
             font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
             line-height: 1.4;
             margin: 0;
+            white-space: pre-wrap;
+            /* 長いコードを折り返す */
+            word-break: break-all;
+            /* 必要に応じて単語の途中でも折り返す */
+        }
+
+        /* 以下を追加 - コードブロックの内部要素が幅を超えないようにする */
+        .code-block * {
+            max-width: 100%;
+        }
+
+        /* 画像が画面幅を超えないようにする */
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        /* コンテナ要素のサイズ調整 */
+        .container,
+        main,
+        article,
+        section {
+            max-width: 100%;
+            box-sizing: border-box;
         }
 
         /* 比較表 */
@@ -609,8 +641,7 @@
     <section class="hero">
         <div class="container hero-content">
             <div class="logo-container"><a href="https://studio.design/ja" target="_blank"><img
-                        src="images/studio-logo.webp" alt="Studio Logo"
-                        class="studio-logo"></a></div>
+                        src="images/studio-logo.webp" alt="Studio Logo" class="studio-logo"></a></div>
             <h1>既存サイト+Notionブログ連結<br>LLMO対策を徹底したWeb構築サービス</h1>
             <p>AI検索時代に対応するLLMO対策で、既存サイトを最適化し、Notionの柔軟性を活用したコンテンツハブを構築。あなたのビジネスをAI検索の最前線に。</p>
         </div>
@@ -621,8 +652,8 @@
         <section class="section">
             <div class="section-title">
                 <h2>あなたの既存サイトをLLMO対応に進化させる</h2>
-                <p><a href="https://studio.design/ja"
-                        target="_blank" rel="noopener">Studio</a>で構築した既存サイトとNotionの強力な連携で、AIアシスタントに引用されるコンテンツを実現</p>
+                <p><a href="https://studio.design/ja" target="_blank"
+                        rel="noopener">Studio</a>で構築した既存サイトとNotionの強力な連携で、AIアシスタントに引用されるコンテンツを実現</p>
             </div>
             <div class="featured-case">
                 <h3>Studioで制作されたビジュアル高品質なWebサイトをお持ちの企業様の事例</h3>
@@ -892,8 +923,8 @@
                 <div class="cta">
                     <h3>貴社の既存サイトをAI検索時代に対応させませんか？</h3>
                     <p>Studioで構築した素晴らしいデザインと機能性はそのままに、NotionとLLMO対策でAI検索時代を勝ち抜くウェブプレゼンスを構築します。
-                    </p><a href="https://effectmoe.notion.site/1f0b802cb0c68074bea8d2b5e000c54a" class="btn" target="_blank"
-                    rel="noopener noreferrer">無料相談を予約する</a>
+                    </p><a href="https://effectmoe.notion.site/1f0b802cb0c68074bea8d2b5e000c54a" class="btn"
+                        target="_blank" rel="noopener noreferrer">無料相談を予約する</a>
                 </div>
             </div>
         </section>
