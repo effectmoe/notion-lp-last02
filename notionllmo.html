@@ -1697,11 +1697,11 @@
             }
         }
 
-        /* モバイル表示用のアコーディオンスタイル */
+        /* モバイル表示用のアコーディオンスタイル - 更新版 */
         @media screen and (max-width: 768px) {
 
-            /* テーブル表示を非表示にして、代わりにアコーディオンを表示 */
-            .comparison-table-container {
+            /* テーブル関連のコンテナを非表示に */
+            .table-wrapper {
                 display: none;
             }
 
@@ -1710,6 +1710,14 @@
                 display: block;
                 width: 100%;
                 margin-bottom: 30px;
+            }
+
+            /* アコーディオンタイトル */
+            .accordion-title {
+                font-size: 1.2rem;
+                margin-bottom: 15px;
+                color: #333;
+                text-align: center;
             }
 
             /* アコーディオン項目 */
@@ -1732,19 +1740,19 @@
                 align-items: center;
             }
 
-            /* 展開アイコン - 開いているときは表示しない */
+            /* 展開アイコン */
             .accordion-header::after {
-                content: '+';
+                content: '-';
                 font-size: 20px;
                 transition: transform 0.3s ease;
             }
 
-            /* 開いているときのアイコン */
-            .accordion-header.active::after {
-                content: '-';
+            /* 閉じているときのアイコン */
+            .accordion-header:not(.active)::after {
+                content: '+';
             }
 
-            /* アコーディオンの内容 - デフォルトは非表示 */
+            /* アコーディオンの内容 */
             .accordion-content {
                 display: none;
                 padding: 0;
@@ -1776,6 +1784,15 @@
             /* 項目の説明 */
             .content-description {
                 color: #333;
+            }
+
+            /* ハイライト表示 */
+            .content-description.highlight {
+                background-color: #ebf8ff;
+                color: #2b6cb0;
+                font-weight: 500;
+                padding: 5px 8px;
+                border-radius: 4px;
             }
         }
 
@@ -2430,7 +2447,7 @@
             </div>
 
             <div class="responsive-comparison">
-                <h3>従来のWebサイトとNotionブログ（弊社仕様）の比較</h3>
+                <h3>従来のWebサイトと弊社Notionブログの比較</h3>
                 <div class="table-wrapper">
                     <table class="comparison-table">
                         <thead>
@@ -2924,88 +2941,137 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            // テーブルデータをアコーディオンに変換
-            const table = document.querySelector('.comparison-table');
-            if (!table) return;
+            // すべての比較テーブルを処理する関数
+            function processAllTables() {
+                // すべてのcomparison-tableクラスを持つテーブルを探す
+                const tables = document.querySelectorAll('.comparison-table');
 
-            // モバイルアコーディオン用のコンテナを作成
-            const accordionContainer = document.createElement('div');
-            accordionContainer.className = 'mobile-accordion-container';
+                tables.forEach(table => {
+                    // テーブルのコンテナを特定
+                    const tableWrapper = table.closest('.table-wrapper') || table.parentNode;
+                    const tableContainer = tableWrapper.parentNode;
 
-            // テーブルの行ごとにアコーディオンを作成
-            const rows = table.querySelectorAll('tbody tr');
+                    // テーブルのヘッダーを探す（存在する場合）
+                    let tableTitle = '';
+                    const h3 = tableContainer.querySelector('h3');
+                    if (h3) {
+                        tableTitle = h3.textContent;
+                    }
 
-            rows.forEach(row => {
-                const cells = row.querySelectorAll('td');
-                if (cells.length < 3) return;
+                    // モバイルアコーディオン用のコンテナを作成
+                    const accordionContainer = document.createElement('div');
+                    accordionContainer.className = 'mobile-accordion-container';
 
-                // アコーディオン項目を作成
-                const accordionItem = document.createElement('div');
-                accordionItem.className = 'accordion-item';
+                    // タイトルがある場合、アコーディオンにも追加
+                    if (tableTitle) {
+                        const titleElement = document.createElement('h3');
+                        titleElement.className = 'accordion-title';
+                        // titleElement.textContent = tableTitle;
+                        accordionContainer.appendChild(titleElement);
+                    }
 
-                // ヘッダー（カテゴリ名）
-                const header = document.createElement('div');
-                header.className = 'accordion-header active'; // 最初から開いているように 'active' クラスを追加
-                header.textContent = cells[0].textContent.trim();
-                header.addEventListener('click', function () {
-                    this.classList.toggle('active');
-                    const content = this.nextElementSibling;
-                    content.classList.toggle('active');
+                    // テーブルの行ごとにアコーディオンを作成
+                    const rows = table.querySelectorAll('tbody tr');
+
+                    rows.forEach(row => {
+                        const cells = row.querySelectorAll('td');
+                        if (cells.length < 3) return;
+
+                        // アコーディオン項目を作成
+                        const accordionItem = document.createElement('div');
+                        accordionItem.className = 'accordion-item';
+
+                        // ヘッダー（カテゴリ名）
+                        const header = document.createElement('div');
+                        header.className = 'accordion-header active';
+                        header.textContent = cells[0].textContent.trim();
+                        header.addEventListener('click', function () {
+                            this.classList.toggle('active');
+                            const content = this.nextElementSibling;
+                            content.classList.toggle('active');
+                        });
+
+                        // コンテンツ部分
+                        const content = document.createElement('div');
+                        content.className = 'accordion-content active';
+
+                        // 従来のWebサイト
+                        const traditionalContent = document.createElement('div');
+                        traditionalContent.className = 'accordion-item-content';
+
+                        const traditionalTitle = document.createElement('div');
+                        traditionalTitle.className = 'content-title';
+                        // 列の見出しを取得
+                        const thElements = table.querySelectorAll('thead th');
+                        traditionalTitle.textContent = thElements[1] ? thElements[1].textContent + ':' : '従来のWebサイト:';
+
+                        const traditionalDesc = document.createElement('div');
+                        traditionalDesc.className = 'content-description';
+                        traditionalDesc.textContent = cells[1].textContent.trim();
+
+                        traditionalContent.appendChild(traditionalTitle);
+                        traditionalContent.appendChild(traditionalDesc);
+
+                        // Notionブログ
+                        const notionContent = document.createElement('div');
+                        notionContent.className = 'accordion-item-content';
+
+                        const notionTitle = document.createElement('div');
+                        notionTitle.className = 'content-title';
+                        notionTitle.textContent = thElements[2] ? thElements[2].textContent + ':' : 'Notionブログ:';
+
+                        const notionDesc = document.createElement('div');
+                        notionDesc.className = 'content-description';
+                        notionDesc.textContent = cells[2].textContent.trim();
+
+                        // highlightクラスがある場合、それを反映
+                        if (cells[2].classList.contains('highlight')) {
+                            notionDesc.classList.add('highlight');
+                        }
+
+                        notionContent.appendChild(notionTitle);
+                        notionContent.appendChild(notionDesc);
+
+                        // コンテンツに追加
+                        content.appendChild(traditionalContent);
+                        content.appendChild(notionContent);
+
+                        // アコーディオン項目に追加
+                        accordionItem.appendChild(header);
+                        accordionItem.appendChild(content);
+
+                        // コンテナに追加
+                        accordionContainer.appendChild(accordionItem);
+                    });
+
+                    // テーブルの後ろにアコーディオンを挿入
+                    tableContainer.appendChild(accordionContainer);
                 });
-
-                // コンテンツ部分
-                const content = document.createElement('div');
-                content.className = 'accordion-content active'; // 最初から開いているように 'active' クラスを追加
-
-                // 従来のSEO対策
-                const traditionalContent = document.createElement('div');
-                traditionalContent.className = 'accordion-item-content';
-
-                const traditionalTitle = document.createElement('div');
-                traditionalTitle.className = 'content-title';
-                traditionalTitle.textContent = '従来のSEO対策:';
-
-                const traditionalDesc = document.createElement('div');
-                traditionalDesc.className = 'content-description';
-                traditionalDesc.textContent = cells[1].textContent.trim();
-
-                traditionalContent.appendChild(traditionalTitle);
-                traditionalContent.appendChild(traditionalDesc);
-
-                // LLMO対策の新要素
-                const llmoContent = document.createElement('div');
-                llmoContent.className = 'accordion-item-content';
-
-                const llmoTitle = document.createElement('div');
-                llmoTitle.className = 'content-title';
-                llmoTitle.textContent = 'LLMO対策の新要素:';
-
-                const llmoDesc = document.createElement('div');
-                llmoDesc.className = 'content-description';
-                llmoDesc.textContent = cells[2].textContent.trim();
-
-                llmoContent.appendChild(llmoTitle);
-                llmoContent.appendChild(llmoDesc);
-
-                // コンテンツに追加
-                content.appendChild(traditionalContent);
-                content.appendChild(llmoContent);
-
-                // アコーディオン項目に追加
-                accordionItem.appendChild(header);
-                accordionItem.appendChild(content);
-
-                // コンテナに追加
-                accordionContainer.appendChild(accordionItem);
-            });
-
-            // テーブルの後ろにアコーディオンを挿入
-            const tableContainer = document.querySelector('.comparison-table-container');
-            if (tableContainer) {
-                tableContainer.parentNode.insertBefore(accordionContainer, tableContainer.nextSibling);
             }
 
-            // 最後の部分は削除（すべてのアコーディオンを最初から開くので必要なし）
+            // 初期処理を実行
+            processAllTables();
+
+            // モバイル表示の場合のみ元のテーブルを非表示にする
+            function handleResponsiveDisplay() {
+                const isMobile = window.innerWidth <= 768;
+
+                // テーブルとそのラッパー
+                document.querySelectorAll('.table-wrapper').forEach(wrapper => {
+                    wrapper.style.display = isMobile ? 'none' : '';
+                });
+
+                // アコーディオン
+                document.querySelectorAll('.mobile-accordion-container').forEach(container => {
+                    container.style.display = isMobile ? 'block' : 'none';
+                });
+            }
+
+            // 初期実行
+            handleResponsiveDisplay();
+
+            // リサイズ時にも実行
+            window.addEventListener('resize', handleResponsiveDisplay);
         });
     </script>
 </body>
