@@ -334,6 +334,8 @@
             line-height: 1;
         }
 
+
+
         /* 関連機能セクションのスタイル */
         .related-features-section {
             background: #f7f6f3;
@@ -500,6 +502,125 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+        }
+
+        /* Notionボタンスタイル */
+        .notion-button {
+            display: inline-block;
+            background-color: #000;
+            color: white;
+            padding: 16px 32px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .notion-button:hover {
+            background-color: #333;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .integration-logos {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+            gap: 25px;
+            justify-content: center;
+            /* margin-top: 40px; */
+        }
+
+        .logo-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            padding: 15px;
+            border-radius: 8px;
+            background-color: white;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .logo-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+        }
+
+        .logo-item i {
+            font-size: 40px;
+            margin-bottom: 10px;
+        }
+
+        .logo-item span {
+            font-size: 10px;
+            color: #666;
+            /* font-weight: 500; */
+        }
+
+        @media (max-width: 768px) {
+            .integration-logos {
+                grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+                gap: 15px;
+            }
+
+            .logo-item {
+                padding: 10px 0 10px;
+            }
+
+            .logo-item i {
+                font-size: 30px;
+            }
+
+        }
+
+        /* Notionリンクセクションのスタイル */
+        .notion-link-section {
+            width: 100%;
+            max-width: 800px;
+            margin: 60px auto;
+            padding: 0 20px;
+            text-align: center;
+        }
+
+        .notion-link-section h2 {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        .notion-link-section p {
+            font-size: 16px;
+            line-height: 1.6;
+            margin-bottom: 30px;
+            color: #666;
+        }
+
+        .note {
+            margin-top: 15px;
+            font-size: 14px;
+            color: #888;
+        }
+
+        /* モバイル対応 */
+        @media (max-width: 768px) {
+            .notion-link-section {
+                margin: 40px auto;
+            }
+
+            .notion-link-section h2 {
+                font-size: 24px;
+            }
+
+            .notion-button {
+                padding: 14px 28px;
+                font-size: 16px;
+                width: 100%;
+                max-width: 300px;
+            }
         }
     </style>
 
@@ -971,126 +1092,7 @@
                     </div>
                 </div>
             </div>
-            <style>
-                .integration-logos {
-                    display: grid;
-                    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-                    gap: 25px;
-                    justify-content: center;
-                    /* margin-top: 40px; */
-                }
 
-                .logo-item {
-                    display: flex;
-                    flex-direction: column;
-                    align-items: center;
-                    text-align: center;
-                    padding: 15px;
-                    border-radius: 8px;
-                    background-color: white;
-                    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-                    transition: transform 0.3s, box-shadow 0.3s;
-                }
-
-                .logo-item:hover {
-                    transform: translateY(-5px);
-                    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
-                }
-
-                .logo-item i {
-                    font-size: 40px;
-                    margin-bottom: 10px;
-                }
-
-                .logo-item span {
-                    font-size: 10px;
-                    color: #666;
-                    /* font-weight: 500; */
-                }
-
-                @media (max-width: 768px) {
-                    .integration-logos {
-                        grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
-                        gap: 15px;
-                    }
-
-                    .logo-item {
-                        padding: 10px 0 10px;
-                    }
-
-                    .logo-item i {
-                        font-size: 30px;
-                    }
-
-                }
-
-                /* Notionリンクセクションのスタイル */
-                .notion-link-section {
-                    width: 100%;
-                    max-width: 800px;
-                    margin: 60px auto;
-                    padding: 0 20px;
-                    text-align: center;
-                }
-
-                .notion-link-section h2 {
-                    font-size: 28px;
-                    font-weight: 700;
-                    margin-bottom: 15px;
-                    color: #333;
-                }
-
-                .notion-link-section p {
-                    font-size: 16px;
-                    line-height: 1.6;
-                    margin-bottom: 30px;
-                    color: #666;
-                }
-
-                /* Notionボタンスタイル */
-                .notion-button {
-                    display: inline-block;
-                    background-color: #000;
-                    color: white;
-                    padding: 16px 32px;
-                    border-radius: 8px;
-                    text-decoration: none;
-                    font-weight: 600;
-                    font-size: 18px;
-                    transition: all 0.3s ease;
-                    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-                }
-
-                .notion-button:hover {
-                    background-color: #333;
-                    transform: translateY(-3px);
-                    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
-                }
-
-                .note {
-                    margin-top: 15px;
-                    font-size: 14px;
-                    color: #888;
-                }
-
-                /* モバイル対応 */
-                @media (max-width: 768px) {
-                    .notion-link-section {
-                        margin: 40px auto;
-                    }
-
-                    .notion-link-section h2 {
-                        font-size: 24px;
-                    }
-
-                    .notion-button {
-                        padding: 14px 28px;
-                        font-size: 16px;
-                        width: 100%;
-                        max-width: 300px;
-                    }
-                }
-            </style>
         </section>
 
         <section class="benefits" id="benefits">
@@ -1283,7 +1285,7 @@
             <h2>お問い合わせはこちら</h2>
             <p>確認後担当者より折り返し連絡させていただきます</p>
             <a href="https://effectmoe.notion.site/1f0b802cb0c68074bea8d2b5e000c54a" target="_blank"
-                rel="noopener noreferrer class=" notion-button">Notionフォームを開く</a>
+                rel="noopener noreferrer" class="notion-button">Notionフォームを開く</a>
         </div>
     </main>
 
