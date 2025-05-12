@@ -247,7 +247,7 @@
         .diagram {
             background-color: white;
             border-radius: 8px;
-            padding: 30px;
+            padding: 15px;
             margin: 30px 0;
             box-shadow: var(--box-shadow);
         }
@@ -255,7 +255,7 @@
         .diagram-title {
             font-size: 1.2rem;
             color: var(--secondary-color);
-            margin-bottom: 20px;
+            /* margin-bottom: 20px; */
             text-align: center;
         }
 
@@ -513,7 +513,7 @@
         .comparison-table th,
         .comparison-table td {
             padding: 15px;
-            text-align: left;
+            text-align: center;
             border-bottom: 1px solid #e2e8f0;
         }
 
@@ -647,6 +647,42 @@
 
             .btn-secondary {
                 margin-left: 0;
+            }
+        }
+
+        /* スマートフォン表示の図表改善のためのCSS */
+        @media screen and (max-width: 768px) {
+
+            /* 表示領域いっぱいに図表を表示 */
+            .table-container,
+            table,
+            .image-container,
+            img {
+                width: 100% !important;
+                max-width: 100% !important;
+                height: auto !important;
+                overflow-x: auto !important;
+            }
+
+            /* テーブルのスクロール対応 */
+            .table-container {
+                overflow-x: auto !important;
+                -webkit-overflow-scrolling: touch;
+            }
+
+            /* テーブルセルのパディング調整 */
+            table td,
+            table th {
+                padding: 8px 6px !important;
+                font-size: 14px !important;
+                white-space: normal !important;
+            }
+
+            /* 画像の周りの余白調整 */
+            .image-container,
+            img {
+                margin: 10px 0 !important;
+                padding: 0 !important;
             }
         }
     </style>
