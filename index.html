@@ -1453,22 +1453,32 @@
     </script> -->
 
     <!-- バックアップハンバーガーメニュー用スクリプト -->
-    <!-- <script>
-        window.addEventListener('load', function () {
-            const hamburgerBtn = document.getElementById('hamburger-btn');
+    <script>
+        function toggleMobileMenu() {
             const mobileMenu = document.getElementById('mobile-menu');
+            const hamburgerBtn = document.getElementById('hamburger-btn');
 
-            if (hamburgerBtn && mobileMenu) {
-                hamburgerBtn.addEventListener('click', function () {
-                    mobileMenu.classList.toggle('active');
-                    const isActive = mobileMenu.classList.contains('active');
-                    hamburgerBtn.setAttribute('aria-expanded', isActive ? 'true' : 'false');
-                    mobileMenu.setAttribute('aria-hidden', isActive ? 'false' : 'true');
-                    console.log('インデックスページのハンバーガーメニュークリック: 状態', isActive ? '表示' : '非表示');
-                });
+            // メニューのアクティブ状態を切り替え
+            mobileMenu.classList.toggle('active');
+
+            // メニューが開いているかどうかを確認
+            const isExpanded = mobileMenu.classList.contains('active');
+
+            // アクセシビリティ属性を更新
+            hamburgerBtn.setAttribute('aria-expanded', isExpanded);
+            mobileMenu.setAttribute('aria-hidden', !isExpanded);
+
+            // ボタンのラベルを更新
+            hamburgerBtn.setAttribute('aria-label', isExpanded ? 'メニューを閉じる' : 'メニューを開く');
+
+            // オプション：ハンバーガーボタン自体の見た目も変更
+            if (isExpanded) {
+                hamburgerBtn.classList.add('active');
+            } else {
+                hamburgerBtn.classList.remove('active');
             }
-        });
-    </script> -->
+        }
+    </script>
 </body>
 
 </html>
