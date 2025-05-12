@@ -1142,9 +1142,14 @@
             margin-bottom: 50px;
         }
 
-        .comparison-table tr:nth-child(even) {
-            background-color: #f8f9fa;
+        /* 対策項目の列（最初の列）の背景色を設定 */
+        .comparison-table tbody tr td:first-child {
+            background-color: #f5f5f5;
         }
+
+        /* .comparison-table tr:nth-child(even) {
+            background-color: #f8f9fa;
+        } */
 
         .comparison-table th,
         .comparison-table td {
