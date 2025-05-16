@@ -51,213 +51,354 @@
     <meta name="twitter:creator" content="@effect_moe">
 
     <!-- 構造化データ JSON-LD -->
-    <!-- サービス情報 -->
     <script type="application/ld+json">
         {
-          "@context": "https://schema.org",
-          "@type": "Service",
-          "name": "Notion Effect DXソリューション",
-          "description": "Notionを活用したDX・タスク管理・プロジェクト管理システムの構築サービス。AIとガントチャートを活用した業務管理で企業の効率化を実現するノーコードソリューション。LLMO対策にも対応し、AI検索時代のビジネス最適化をサポートします。",
-          "provider": {
-            "@type": "Organization",
-            "name": "EFFECT Co. Ltd.",
-            "url": "https://notion.effect.moe/",
-            "logo": "https://notion.effect.moe/images/logo.png",
-            "sameAs": [
-              "https://twitter.com/effectmoe",
-              "https://www.facebook.com/effectmoe"
-            ]
-          },
-          "offers": {
-            "@type": "AggregateOffer",
-            "priceCurrency": "JPY",
-            "lowPrice": "50000",
-            "highPrice": "500000",
-            "offerCount": "3",
-            "offers": [
+            "@context": "https://schema.org",
+            "@graph": [
               {
-                "@type": "Offer",
-                "name": "ベーシックプラン",
-                "price": "50000",
-                "priceCurrency": "JPY",
-                "description": "基本的な業務管理システムの構築。Notionワークスペースの最適化とタスク管理の基本設定を含みます。",
-                "availability": "https://schema.org/InStock",
-                "priceValidUntil": "2025-12-31"
+                "@type": "Service",
+                "@id": "https://notion.effect.moe/pricing.html#service",
+                "name": "Notion Effect DXソリューション",
+                "description": "Notionを活用したDX・タスク管理・プロジェクト管理システムの構築サービス。AIとガントチャートを活用した業務管理で企業の効率化を実現するノーコードソリューション。LLMO対策にも対応し、AI検索時代のビジネス最適化をサポートします。",
+                "provider": {
+                  "@type": "Organization",
+                  "@id": "https://notion.effect.moe/#organization"
+                },
+                "offers": {
+                  "@type": "AggregateOffer",
+                  "priceCurrency": "JPY",
+                  "lowPrice": "50000",
+                  "highPrice": "500000",
+                  "offerCount": "3",
+                  "offers": [
+                    {
+                      "@type": "Offer",
+                      "name": "ベーシックプラン",
+                      "price": "50000",
+                      "priceCurrency": "JPY",
+                      "description": "基本的な業務管理システムの構築。Notionワークスペースの最適化とタスク管理の基本設定を含みます。",
+                      "availability": "https://schema.org/InStock",
+                      "priceValidUntil": "2025-12-31"
+                    },
+                    {
+                      "@type": "Offer",
+                      "name": "スタンダードプラン",
+                      "price": "150000",
+                      "priceCurrency": "JPY",
+                      "description": "カスタマイズされたタスク管理・プロジェクト管理システムの構築。LLMO対策の基本実装とAI活用の初期設定を含みます。",
+                      "availability": "https://schema.org/InStock",
+                      "priceValidUntil": "2025-12-31"
+                    },
+                    {
+                      "@type": "Offer",
+                      "name": "プレミアムプラン",
+                      "price": "500000",
+                      "priceCurrency": "JPY",
+                      "description": "フルカスタマイズのDXソリューション構築とAPIベースの自動化。高度なLLMO対策と包括的なAI検索最適化戦略を含みます。",
+                      "availability": "https://schema.org/InStock",
+                      "priceValidUntil": "2025-12-31"
+                    }
+                  ]
+                },
+                "areaServed": {
+                  "@type": "Country",
+                  "name": "日本",
+                  "alternateName": "JP"
+                },
+                "serviceType": ["DXシステム開発", "LLMO対策", "Notion活用コンサルティング", "業務効率化", "タスク管理", "プロジェクト管理", "AIビジネス活用"],
+                "category": ["業務効率化", "タスク管理", "プロジェクト管理", "AI活用", "LLMO対策", "AEO対策", "ノーコード開発", "ビジネスプロセス改善", "リスキリング支援"],
+                "audience": {
+                  "@type": "Audience",
+                  "audienceType": "企業・ビジネスオーナー・マーケティング担当者"
+                },
+                "serviceOutput": "AIに最適化されたWebサイトとNotion活用環境",
+                "hasOfferCatalog": {
+                  "@type": "OfferCatalog",
+                  "name": "Notion Effect DXソリューションプラン",
+                  "itemListElement": [
+                    {
+                      "@type": "OfferCatalog",
+                      "name": "Notionシステム開発・構築",
+                      "itemListElement": [
+                        {
+                          "@type": "Service",
+                          "name": "Notionワークスペース設計"
+                        },
+                        {
+                          "@type": "Service",
+                          "name": "タスク管理システム構築"
+                        },
+                        {
+                          "@type": "Service",
+                          "name": "ガントチャート・カンバン方式プロジェクト管理"
+                        }
+                      ]
+                    },
+                    {
+                      "@type": "OfferCatalog",
+                      "name": "LLMO対策サービス",
+                      "itemListElement": [
+                        {
+                          "@type": "Service",
+                          "name": "Schema.org実装"
+                        },
+                        {
+                          "@type": "Service",
+                          "name": "LLMs.txt設定"
+                        },
+                        {
+                          "@type": "Service",
+                          "name": "AI検索最適化コンテンツ設計"
+                        }
+                      ]
+                    },
+                    {
+                      "@type": "OfferCatalog",
+                      "name": "AI連携サービス",
+                      "itemListElement": [
+                        {
+                          "@type": "Service",
+                          "name": "API連携システム開発"
+                        },
+                        {
+                          "@type": "Service",
+                          "name": "業務プロセス自動化"
+                        }
+                      ]
+                    },
+                    {
+                      "@type": "OfferCatalog",
+                      "name": "教育・サポート",
+                      "itemListElement": [
+                        {
+                          "@type": "Service",
+                          "name": "Notion活用講座"
+                        },
+                        {
+                          "@type": "Service",
+                          "name": "リスキリング支援"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                "mainEntityOfPage": {
+                  "@type": "WebPage",
+                  "@id": "https://notion.effect.moe/pricing.html"
+                }
               },
               {
-                "@type": "Offer",
-                "name": "スタンダードプラン",
-                "price": "150000",
-                "priceCurrency": "JPY",
-                "description": "カスタマイズされたタスク管理・プロジェクト管理システムの構築。LLMO対策の基本実装とAI活用の初期設定を含みます。",
-                "availability": "https://schema.org/InStock",
-                "priceValidUntil": "2025-12-31"
-              },
-              {
-                "@type": "Offer",
-                "name": "プレミアムプラン",
-                "price": "500000",
-                "priceCurrency": "JPY",
-                "description": "フルカスタマイズのDXソリューション構築とAPIベースの自動化。高度なLLMO対策と包括的なAI検索最適化戦略を含みます。",
-                "availability": "https://schema.org/InStock",
-                "priceValidUntil": "2025-12-31"
-              }
-            ]
-          },
-          "areaServed": {
-            "@type": "Country",
-            "name": "日本",
-            "alternateName": "JP"
-          },
-          "serviceType": ["DXシステム開発", "LLMO対策", "Notion活用コンサルティング"],
-          "category": ["業務効率化", "タスク管理", "プロジェクト管理", "AI活用", "LLMO対策"],
-          "audience": {
-            "@type": "Audience",
-            "audienceType": "企業・ビジネスオーナー・マーケティング担当者"
-          },
-          "serviceOutput": "AIに最適化されたWebサイトとNotion活用環境",
-          "hasOfferCatalog": {
-            "@type": "OfferCatalog",
-            "name": "Notion Effect DXソリューションプラン",
-            "itemListElement": [
-              {
-                "@type": "OfferCatalog",
-                "name": "基本サービス",
+                "@type": "BreadcrumbList",
+                "@id": "#breadcrumb",
                 "itemListElement": [
                   {
-                    "@type": "Service",
-                    "name": "Notionワークスペース設計"
+                    "@type": "ListItem",
+                    "position": 1,
+                    "name": "ホーム",
+                    "item": "https://notion.effect.moe/"
                   },
                   {
-                    "@type": "Service",
-                    "name": "タスク管理システム構築"
+                    "@type": "ListItem",
+                    "position": 2,
+                    "name": "料金プラン",
+                    "item": "https://notion.effect.moe/pricing.html"
                   }
                 ]
               },
               {
-                "@type": "OfferCatalog",
-                "name": "LLMO対策サービス",
-                "itemListElement": [
+                "@type": "FAQPage",
+                "mainEntity": [
                   {
-                    "@type": "Service",
-                    "name": "Schema.org実装"
+                    "@type": "Question",
+                    "name": "導入後のサポートは含まれていますか？",
+                    "acceptedAnswer": {
+                      "@type": "Answer",
+                      "text": "はい、すべてのプランに初期設定後1ヶ月間のサポートが含まれています。その後も継続的なサポートプランをご用意しています。"
+                    }
                   },
                   {
-                    "@type": "Service",
-                    "name": "LLMs.txt設定"
+                    "@type": "Question",
+                    "name": "カスタマイズの範囲はどこまで可能ですか？",
+                    "acceptedAnswer": {
+                      "@type": "Answer",
+                      "text": "Notionの基本機能を活用した様々なカスタマイズが可能です。特にプレミアムプランではAPI連携による外部システムとの統合や自動化も対応可能です。"
+                    }
+                  },
+                  {
+                    "@type": "Question",
+                    "name": "導入にあたって必要なものはありますか？",
+                    "acceptedAnswer": {
+                      "@type": "Answer",
+                      "text": "Notionのアカウント（無料または有料）が必要です。また、具体的な業務フローやご要望をお伺いするためのヒアリングにご協力いただく必要があります。"
+                    }
+                  },
+                  {
+                    "@type": "Question",
+                    "name": "LLMO対策とは何ですか？また、どのようなメリットがありますか？",
+                    "acceptedAnswer": {
+                      "@type": "Answer",
+                      "text": "LLMO（Large Language Model Optimization）は、ChatGPTやGoogle SGEなどのAI検索エンジンに最適化するための施策です。これにより、AIアシスタントがあなたのビジネスを正確に理解し、潜在顧客に適切に紹介できるようになります。結果として、AI時代の新しい集客経路を確立できます。"
+                    }
+                  },
+                  {
+                    "@type": "Question",
+                    "name": "NotionとLLMO対策はどのように関連していますか？",
+                    "acceptedAnswer": {
+                      "@type": "Answer",
+                      "text": "NotionはCMSとしての活用も可能で、そこからAI最適化されたウェブサイトを構築できます。当社のサービスでは、NotionによるコンテンツマネジメントとLLMO対策を統合的に提供し、効率的なコンテンツ運用と高いAI可視性を両立させます。"
+                    }
                   }
                 ]
+              },
+              {
+                "@type": "Organization",
+                "@id": "https://notion.effect.moe/#organization",
+                "name": "EFFECT Co. Ltd.",
+                "alternateName": "株式会社EFFECT",
+                "url": "https://notion.effect.moe/",
+                "description": "NotionとAIを活用したDX推進・業務効率化・プロジェクト管理システム開発の専門企業。Notionシステム構築、LLMO・AEO対策コンサルティング、Notion CMSを活用した次世代SEO対策型WEBマーケティングサービスを提供。企業のDXとタスク管理を効率化し、AIと連携したノーコードでのシステム開発を実現。",
+                "foundingDate": "2020-01-01",
+                "address": {
+                  "@type": "PostalAddress",
+                  "addressLocality": "福岡",
+                  "addressRegion": "福岡県",
+                  "postalCode": "810-0001",
+                  "addressCountry": "JP"
+                },
+                "contactPoint": {
+                  "@type": "ContactPoint",
+                  "contactType": "customer service",
+                  "email": "info@effect.moe",
+                  "availableLanguage": ["日本語", "English"]
+                },
+                "founder": {
+                  "@type": "Person",
+                  "@id": "https://notion.effect.moe/#founder"
+                },
+                "sameAs": [
+                  "https://www.amazon.co.jp/dp/B0F7QQF392"
+                ]
+              },
+              {
+                "@type": "Person",
+                "@id": "https://notion.effect.moe/#founder",
+                "name": "朱 剛明",
+                "alternateName": "シュ コウメイ",
+                "jobTitle": "Notion専門コンサルタント",
+                "description": "Notion専門コンサルタント、LLMO書籍著者、ストアカ認定講師。Notionシステム開発、AIビジネス活用、LLMO/AEO最適化、プロジェクト管理の専門家。",
+                "worksFor": {
+                  "@id": "https://notion.effect.moe/#organization"
+                },
+                "knowsAbout": [
+                  "Notionシステム開発",
+                  "AIビジネス活用",
+                  "LLMO/AEO最適化",
+                  "プロジェクト管理",
+                  "タスク管理",
+                  "ノーコード開発"
+                ],
+                "author": [
+                  {
+                    "@type": "Book",
+                    "name": "グッバイSEO、ハローLLMO！〜AI検索時代のWebマーケティング",
+                    "url": "https://www.amazon.co.jp/dp/B0F7QQF392",
+                    "datePublished": "2024"
+                  }
+                ],
+                "teaches": [
+                  {
+                    "@type": "Course",
+                    "name": "LLMO＆AEO講座",
+                    "description": "AI検索時代のWebマーケティング戦略を学ぶ講座"
+                  },
+                  {
+                    "@type": "Course",
+                    "name": "Notion活用講座",
+                    "description": "Notionを使った業務効率化とタスク管理を学ぶ講座"
+                  }
+                ],
+                "sameAs": [
+                  "https://www.amazon.co.jp/dp/B0F7QQF392"
+                ]
+              },
+              {
+                "@type": "WebPage",
+                "@id": "https://notion.effect.moe/pricing.html",
+                "url": "https://notion.effect.moe/pricing.html",
+                "name": "料金プラン | Notion Effect DXソリューション",
+                "description": "Notionを活用したDX・タスク管理システム構築サービスの料金プラン。LLMO対策も含めた包括的なデジタル変革をサポートします。",
+                "datePublished": "2024-01-15",
+                "dateModified": "2024-05-16",
+                "isPartOf": {
+                  "@type": "WebSite",
+                  "@id": "https://notion.effect.moe/#website"
+                },
+                "breadcrumb": {
+                  "@id": "#breadcrumb"
+                },
+                "mainEntity": {
+                  "@id": "https://notion.effect.moe/pricing.html#service"
+                },
+                "speakable": {
+                  "@type": "SpeakableSpecification",
+                  "cssSelector": [".main-content", ".service-description"]
+                },
+                "publisher": {
+                  "@id": "https://notion.effect.moe/#organization"
+                },
+                "inLanguage": "ja",
+                "lastReviewed": "2024-05-16",
+                "reviewedBy": {
+                  "@id": "https://notion.effect.moe/#founder"
+                }
+              },
+              {
+                "@type": "WebSite",
+                "@id": "https://notion.effect.moe/#website",
+                "url": "https://notion.effect.moe/",
+                "name": "Notion Effect",
+                "alternateName": "NotionとLLMOのスペシャリスト",
+                "description": "NotionとAIを活用したDX推進・業務効率化・プロジェクト管理システム開発の専門サイト。",
+                "datePublished": "2020-01-15",
+                "dateModified": "2024-05-16",
+                "publisher": {
+                  "@id": "https://notion.effect.moe/#organization"
+                },
+                "inLanguage": "ja"
+              },
+              {
+                "@type": "CreativeWork",
+                "@id": "https://notion.effect.moe/#content",
+                "name": "Notion Effect コンテンツ",
+                "creator": {
+                  "@id": "https://notion.effect.moe/#founder"
+                },
+                "provider": {
+                  "@id": "https://notion.effect.moe/#organization"
+                },
+                "about": [
+                  "Notion活用",
+                  "DXシステム開発",
+                  "業務効率化",
+                  "タスク管理",
+                  "プロジェクト管理",
+                  "LLMO",
+                  "AI連携",
+                  "ノーコード開発"
+                ],
+                "expires": "2026-05-16",
+                "educationalUse": ["Training", "Professional Development"],
+                "keywords": "Notion, LLMO, タスク管理, DX, プロジェクト管理, AI連携, ノーコード, AEO, 業務効率化",
+                "mainEntityOfPage": {
+                  "@id": "https://notion.effect.moe/#website"
+                },
+                "datePublished": "2020-01-15",
+                "dateModified": "2024-05-16",
+                "inLanguage": "ja"
               }
             ]
-          },
-          "mainEntityOfPage": {
-            "@type": "WebPage",
-            "@id": "https://notion.effect.moe/pricing.html"
           }
-        }
         </script>
-
-    <!-- パンくずリスト -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "BreadcrumbList",
-      "itemListElement": [
-        {
-          "@type": "ListItem",
-          "position": 1,
-          "name": "ホーム",
-          "item": "https://notion.effect.moe/"
-        },
-        {
-          "@type": "ListItem",
-          "position": 2,
-          "name": "料金プラン",
-          "item": "https://notion.effect.moe/pricing.html"
-        }
-      ]
-    }
-    </script>
-
-    <!-- FAQ情報 -->
-    <script type="application/ld+json">
-        {
-          "@context": "https://schema.org",
-          "@type": "FAQPage",
-          "mainEntity": [
-            {
-              "@type": "Question",
-              "name": "導入後のサポートは含まれていますか？",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "はい、すべてのプランに初期設定後1ヶ月間のサポートが含まれています。その後も継続的なサポートプランをご用意しています。"
-              }
-            },
-            {
-              "@type": "Question",
-              "name": "カスタマイズの範囲はどこまで可能ですか？",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Notionの基本機能を活用した様々なカスタマイズが可能です。特にプレミアムプランではAPI連携による外部システムとの統合や自動化も対応可能です。"
-              }
-            },
-            {
-              "@type": "Question",
-              "name": "導入にあたって必要なものはありますか？",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Notionのアカウント（無料または有料）が必要です。また、具体的な業務フローやご要望をお伺いするためのヒアリングにご協力いただく必要があります。"
-              }
-            },
-            {
-              "@type": "Question",
-              "name": "LLMO対策とは何ですか？また、どのようなメリットがありますか？",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "LLMO（Large Language Model Optimization）は、ChatGPTやGoogle SGEなどのAI検索エンジンに最適化するための施策です。これにより、AIアシスタントがあなたのビジネスを正確に理解し、潜在顧客に適切に紹介できるようになります。結果として、AI時代の新しい集客経路を確立できます。"
-              }
-            },
-            {
-              "@type": "Question",
-              "name": "NotionとLLMO対策はどのように関連していますか？",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "NotionはCMSとしての活用も可能で、そこからAI最適化されたウェブサイトを構築できます。当社のサービスでは、NotionによるコンテンツマネジメントとLLMO対策を統合的に提供し、効率的なコンテンツ運用と高いAI可視性を両立させます。"
-              }
-            }
-          ]
-        }
-        </script>
-
-    <!-- Organization情報 -->
-    <script type="application/ld+json">
-            {
-              "@context": "https://schema.org",
-              "@type": "Organization",
-              "name": "EFFECT Co. Ltd.",
-              "alternateName": "株式会社EFFECT",
-              "url": "https://notion.effect.moe/",
-              "logo": "https://notion.effect.moe/images/logo.png",
-              "description": "Notion活用とLLMO対策に特化したデジタルコンサルティング企業。AI検索時代のビジネス最適化を支援します。",
-              "foundingDate": "2020-01-01",
-              "address": {
-                "@type": "PostalAddress",
-                "addressLocality": "福岡",
-                "addressRegion": "福岡県",
-                "addressCountry": "JP"
-              },
-              "contactPoint": {
-                "@type": "ContactPoint",
-                "contactType": "customer service",
-                "email": "info@effect.moe",
-                "availableLanguage": ["日本語", "English"]
-              },
-              "sameAs": [
-                "https://twitter.com/effectmoe",
-                "https://www.facebook.com/effectmoe"
-              ]
-            }
-            </script>
 
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="pricing.css">
@@ -280,8 +421,8 @@
             line-height: 1;
         }
 
-        .llmopage{
-            background-color: rgb(243, 156, 50)!important;
+        .llmopage {
+            background-color: rgb(243, 156, 50) !important;
         }
 
         @keyframes fadeIn {
@@ -564,7 +705,8 @@
                                 <div class="pricing-price">
                                     <span class="price">10万円〜</span>
                                 </div>
-                                <p class="pricing-description">既存サイトへLLMO対策を行い、さらにLLMOに特化したNotionサイトと連携して継続的なLLMO対策を行います。</p>
+                                <p class="pricing-description">
+                                    既存サイトへLLMO対策を行い、さらにLLMOに特化したNotionサイトと連携して継続的なLLMO対策を行います。</p>
                             </div>
                             <div class="pricing-card-body">
                                 <div class="pricing-features">
@@ -581,8 +723,7 @@
                                 </div>
                             </div>
                             <div class="pricing-card-footer">
-                                <a href="notionllmo.html"
-                                    class="btn primary-btn pricing-btn llmopage">LLMO対策ページへ</a>
+                                <a href="notionllmo.html" class="btn primary-btn pricing-btn llmopage">LLMO対策ページへ</a>
                             </div>
                         </div>
 
