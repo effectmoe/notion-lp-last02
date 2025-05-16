@@ -228,7 +228,7 @@
 
         .step-content {
             flex: 1;
-            min-width: 300px;
+            min-width: 260px;
             padding: 20px;
         }
 
@@ -1016,7 +1016,7 @@
         .implementation-tips {
             background-color: #f7fafc;
             border-radius: 10px;
-            padding: 1.5rem 2rem;
+            padding: 1.5rem 1rem;
             margin-bottom: 3rem;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
         }
@@ -1141,6 +1141,15 @@
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
             margin-bottom: 50px;
         }
+
+        /* 対策項目の列（最初の列）の背景色を設定 */
+        .comparison-table tbody tr td:first-child {
+            background-color: #f5f5f5;
+        }
+
+        /* .comparison-table tr:nth-child(even) {
+            background-color: #f8f9fa;
+        } */
 
         .comparison-table th,
         .comparison-table td {
@@ -1316,7 +1325,7 @@
         .code-container {
             background-color: #f8fafc;
             border-radius: 10px;
-            padding: 1.5rem;
+            padding: 1rem;
             margin-bottom: 3rem;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
         }
@@ -1375,6 +1384,19 @@
             margin-bottom: 10px;
             box-sizing: border-box;
             transition: background-color 0.3s ease;
+        }
+
+        .llmo-council  {
+            display: block;
+            padding: 12px 20px;
+            background-color:#38be57;
+            color: var(--white);
+            text-align: center;
+            text-decoration: none;
+            border-radius: var(--border-radius);
+            font-weight: bold;
+            transition: var(--transition);
+            margin-top: 20px;
         }
 
         .usecase-button:hover {
@@ -1482,6 +1504,7 @@
         .responsive-comparison {
             margin: 20px 0;
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            margin-bottom: 2rem;
         }
 
         .table-wrapper {
@@ -1560,7 +1583,7 @@
             }
 
             .container {
-                padding: 15px;
+                padding: 20px;
             }
         }
 
@@ -1662,38 +1685,148 @@
             }
         }
 
-        @media screen and (max-width: 768px) {
-            .comparison-table {
-                border: 0;
-            }
-
+        @media (max-width: 768px) {
             .comparison-table thead {
                 display: none;
             }
 
+            .comparison-table {
+                border: 0;
+            }
+
             .comparison-table tr {
-                margin-bottom: 1rem;
                 display: block;
-                border: 1px solid #e2e8f0;
+                margin-bottom: 1rem;
+                border: 1px solid #ddd;
             }
 
             .comparison-table td {
                 display: block;
                 text-align: right;
-                font-size: 0.9rem;
-                border-bottom: 1px solid #e2e8f0;
-                border-left: 0;
-                border-right: 0;
+                padding: 0.75rem;
+                border-bottom: 1px solid #eee;
+                border: none;
             }
 
             .comparison-table td:last-child {
-                border-bottom: 0;
+                border-bottom: none;
             }
 
             .comparison-table td::before {
                 content: attr(data-label);
-                float: left;
+                position: absolute;
+                left: 0.75rem;
+                width: 45%;
+                padding-right: 10px;
+                white-space: nowrap;
+                text-align: left;
                 font-weight: bold;
+            }
+        }
+
+        /* モバイル表示用のアコーディオンスタイル - 更新版 */
+        @media screen and (max-width: 768px) {
+
+            /* テーブル関連のコンテナを非表示に */
+            .table-wrapper {
+                display: none;
+            }
+
+            /* アコーディオンコンテナ - モバイルのみ表示 */
+            .mobile-accordion-container {
+                display: block;
+                width: 100%;
+                margin-bottom: 30px;
+            }
+
+            /* アコーディオンタイトル */
+            .accordion-title {
+                font-size: 1.2rem;
+                margin-bottom: 15px;
+                color: #333;
+                text-align: center;
+            }
+
+            /* アコーディオン項目 */
+            .accordion-item {
+                margin-bottom: 10px;
+                border-radius: 8px;
+                overflow: hidden;
+                border: 1px solid #e2e8f0;
+            }
+
+            /* アコーディオンヘッダー */
+            .accordion-header {
+                background-color: #4a90e2;
+                color: white;
+                padding: 12px 15px;
+                font-weight: bold;
+                cursor: pointer;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+
+            /* 展開アイコン */
+            .accordion-header::after {
+                content: '-';
+                font-size: 20px;
+                transition: transform 0.3s ease;
+            }
+
+            /* 閉じているときのアイコン */
+            .accordion-header:not(.active)::after {
+                content: '+';
+            }
+
+            /* アコーディオンの内容 */
+            .accordion-content {
+                display: none;
+                padding: 0;
+                background-color: white;
+            }
+
+            /* アコーディオンが開いているときの内容 */
+            .accordion-content.active {
+                display: block;
+            }
+
+            /* 内容の各項目 */
+            .accordion-item-content {
+                padding: 12px 15px;
+                border-bottom: 1px solid #e2e8f0;
+            }
+
+            .accordion-item-content:last-child {
+                border-bottom: none;
+            }
+
+            /* 項目のタイトル */
+            .content-title {
+                font-weight: bold;
+                margin-bottom: 5px;
+                color: #555;
+            }
+
+            /* 項目の説明 */
+            .content-description {
+                color: #333;
+            }
+
+            /* ハイライト表示 */
+            .content-description.highlight {
+                background-color: #ebf8ff;
+                color: #2b6cb0;
+                font-weight: 500;
+                padding: 5px 8px;
+                border-radius: 4px;
+            }
+        }
+
+        /* PCでは非表示 */
+        @media screen and (min-width: 769px) {
+            .mobile-accordion-container {
+                display: none;
             }
         }
     </style>
@@ -1847,9 +1980,8 @@
                         </ul>
                     </div>
                     <div class="card-footer">
-                        <a href="https://effectmoe.notion.site/1f0b802cb0c68074bea8d2b5e000c54a?pvs=105"
-                            class="cta-button" target="_blank" rel="noopener noreferrer"
-                            class="cta-button">詳細を問い合わせる</a>
+                        <a href="https://www.street-academy.com/myclass/196061?sessiondetailid=17578648&trigger=browse-history_top"
+                            class="llmo-council" target="_blank" rel="noopener">LLMOサイト診断を受ける</a>
                     </div>
                 </div>
                 <div class="service-card">
@@ -2341,7 +2473,7 @@
             </div>
 
             <div class="responsive-comparison">
-                <h3>従来のWebサイトとNotionブログ（弊社仕様）の比較</h3>
+                <h3>従来のWebサイトと弊社Notionブログの比較</h3>
                 <div class="table-wrapper">
                     <table class="comparison-table">
                         <thead>
@@ -2395,43 +2527,45 @@
             <h2 class="section-title">SEOからLLMOへの進化</h2>
             <p class="section-subtitle">何が変わるのか？対策の違いを解説</p>
 
-            <div class="comparison-table-container">
-                <table class="comparison-table">
-                    <thead>
-                        <tr>
-                            <th class="feature-column">対策項目</th>
-                            <th class="traditional-column">従来のSEO対策</th>
-                            <th class="notion-column">LLMO対策の新要素</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>キーワード戦略</td>
-                            <td>キーワード最適化と密度の調整</td>
-                            <td>トピックとブランドの関連付け強化</td>
-                        </tr>
-                        <tr>
-                            <td>リンク戦略</td>
-                            <td>バックリンク構築とリンクジュース</td>
-                            <td>文脈理解を促進する明確な文章構造</td>
-                        </tr>
-                        <tr>
-                            <td>メタデータ</td>
-                            <td>メタタグ（タイトル・ディスクリプション）の最適化</td>
-                            <td>構造化データのより詳細な実装</td>
-                        </tr>
-                        <tr>
-                            <td>ページ最適化</td>
-                            <td>ページ表示速度の改善</td>
-                            <td>LLMs.txtファイルの実装</td>
-                        </tr>
-                        <tr>
-                            <td>ユーザー体験</td>
-                            <td>クローラビリティの向上</td>
-                            <td>データの具体性と引用の信頼性向上</td>
-                        </tr>
-                    </tbody>
-                </table>
+            <div class="responsive-comparison">
+                <div class="table-wrapper">
+                    <table class="comparison-table">
+                        <thead>
+                            <tr>
+                                <th>対策項目</th>
+                                <th>従来のSEO対策</th>
+                                <th>LLMO対策の新要素</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td data-label="対策項目">キーワード戦略</td>
+                                <td data-label="従来のSEO対策">キーワード最適化と密度の調整</td>
+                                <td data-label="LLMO対策の新要素">トピックとブランドの関連付け強化</td>
+                            </tr>
+                            <tr>
+                                <td data-label="対策項目">リンク戦略</td>
+                                <td data-label="従来のSEO対策">バックリンク構築とリンクジュース</td>
+                                <td data-label="LLMO対策の新要素">文脈理解を促進する明確な文章構造</td>
+                            </tr>
+                            <tr>
+                                <td data-label="対策項目">メタデータ</td>
+                                <td data-label="従来のSEO対策">メタタグ（タイトル・ディスクリプション）の最適化</td>
+                                <td data-label="LLMO対策の新要素">構造化データのより詳細な実装</td>
+                            </tr>
+                            <tr>
+                                <td data-label="対策項目">ページ最適化</td>
+                                <td data-label="従来のSEO対策">ページ表示速度の改善</td>
+                                <td data-label="LLMO対策の新要素">LLMs.txtファイルの実装</td>
+                            </tr>
+                            <tr>
+                                <td data-label="対策項目">ユーザー体験</td>
+                                <td data-label="従来のSEO対策">クローラビリティの向上</td>
+                                <td data-label="LLMO対策の新要素">データの具体性と引用の信頼性向上</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
 
             <div class="diagram-container">
@@ -2446,8 +2580,8 @@
 
     <section class="section" style="background-color: var(--light-bg);">
         <div class="container">
-            <h2 class="section-title">LLMO対策の具体的な効果</h2>
-            <p class="section-subtitle">データで見るAI検索時代の成功事例</p>
+            <h2 class="section-title">LLMO対策後のKPI理想値</h2>
+            <p class="section-subtitle">データで見るAI検索時代の成功例</p>
 
             <div
                 style="margin: 40px 0; background: white; border-radius: 8px; padding: 30px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
@@ -2564,22 +2698,22 @@
             <div class="testimonial-cards">
                 <div class="testimonial-card">
                     <p class="testimonial-text">
-                        「NotionでLLMO対策を実施してから、AIチャットボットからの流入が3倍に増加しました。特にPerplexityからの流入が目立ちます。コンテンツ更新の手軽さも大きなメリットです。」
+                        「NotionでLLMO対策を実施してから、AIチャットボットからの流入が目に見えて増加してきました。特にPerplexityからの流入です。コンテンツ更新の手軽さも大きなメリットです。」
                     </p>
-                    <p class="testimonial-author">マーケティング企業 A社 マーケティング部長</p>
+                    <p class="testimonial-author">R社 コンテンツマーケティング部・部長</p>
                 </div>
 
                 <div class="testimonial-card">
                     <p class="testimonial-text">「これまでSEO対策に苦戦していましたが、Notion×LLMOの導入でコンテンツ作成から公開までのフローが効率化。GoogleのAI
-                        Overviewへの掲載頻度が増え、ブランド認知が向上しました。」</p>
-                    <p class="testimonial-author">EC事業者 B社 コンテンツマネージャー</p>
+                        Overviewへの掲載頻度がもっと増えれば、競合他社を確実にリードすることができます。」</p>
+                    <p class="testimonial-author">EC事業者 コンテンツマネージャー</p>
                 </div>
 
                 <div class="testimonial-card">
                     <p class="testimonial-text">
-                        「専門的な医療情報を提供するサイトとして、信頼性と正確性が最重要です。Notion×LLMOの導入でコンテンツの構造化が進み、AIが情報を正確に理解して引用してくれるようになりました。」
+                        「専門的な医療情報を提供するサイトとして、信頼性と正確性が最重要です。Notion×LLMOの導入でコンテンツの構造化が進みAIが弊社の情報を引用してくれれば、そのことがブランディングにもつながります。」
                     </p>
-                    <p class="testimonial-author">医療情報サイト C社 編集長</p>
+                    <p class="testimonial-author">医療法人S社　院長</p>
                 </div>
             </div>
         </div>
@@ -2593,7 +2727,7 @@
             <div class="faq-item">
                 <div class="faq-question">NotionでLLMO対策を始めるために必要なものは何ですか？</div>
                 <div class="faq-answer">
-                    <p>基本的にはNotionアカウントと、NotionページをWebサイト化するサービス（Super、Fruition、Potion）などが必要です。技術的な知識がなくても、テンプレートを活用することで簡単に始められます。
+                    <p>基本的にはNotionアカウントがあればLLMO対策を取ったNotionブログを構築することができますが、有料プランやNotionAIに加入すると理想的です。LLMO対策は技術的な知識がなくても、テンプレートを活用することで簡単に始められます。
                     </p>
                 </div>
             </div>
@@ -2624,7 +2758,8 @@
             <div class="faq-item">
                 <div class="faq-question">既存のコンテンツをNotionに移行する最適な方法は？</div>
                 <div class="faq-answer">
-                    <p>NotionにはWordPressやHTMLからのインポート機能があります。また、段階的に重要ページから移行することも可能です。移行時にはLLMO視点でのコンテンツ再構築も検討すると効果的です。
+                    <p>Save to
+                        Notionなどを利用して、ページ単位でコンテンツを一旦Notion落とし込み、段階的に重要ページから移行するのが理想的です。Notionユーザーならそんなに難しい作業ではありません。移行時にはLLMO視点でのコンテンツ再構築も検討すると効果的です。
                     </p>
                 </div>
             </div>
@@ -2636,7 +2771,7 @@
         <h2>お問い合わせはこちら</h2>
         <p>確認後担当者より折り返し連絡させていただきます</p>
         <a href="https://effectmoe.notion.site/1f0b802cb0c68074bea8d2b5e000c54a" target="_blank"
-            class="notion-button">Notionフォームを開く</a>
+            rel="noopener noreferrer" class="notion-button">Notionフォームを開く</a>
     </div>
 
     <section class="cta-section">
@@ -2644,7 +2779,7 @@
             <h2 class="cta-title">AI検索時代の新たな一歩を踏み出しませんか？</h2>
             <p class="cta-text">Notion×LLMOで、あなたのコンテンツをAIに認識される価値ある情報源に変えましょう。SEOからLLMOへの移行は、単なるトレンドではなく、情報検索の未来です。</p>
             <div class="cta-buttons">
-                <a href="llmo.html" class="btn">LLMO書籍を詳しく見る</a>
+                <a href="llmo.html" target="_blank" class="btn">LLMO書籍を詳しく見る</a>
                 <a href="pricing.html" class="btn btn-outline">料金プランを確認する</a>
             </div>
         </div>
@@ -2658,7 +2793,7 @@
                 <a href="#" class="footer-link">SEO対策からLLMO対策へ</a>
                 <a href="https://effectmoe.notion.site/1f0b802cb0c68074bea8d2b5e000c54a?pvs=105" class="footer-link"
                     target="_blank" rel="noopener noreferrer">お問い合わせ</a>
-                <a href="#" class="footer-link">プライバシーポリシー</a>
+                <a href="privacypolicy.html" class="footer-linx">プライバシーポリシー</a>
             </div>
             <p class="copyright">© 2025 EFFECT Co. Ltd. All Rights Reserved.</p>
         </div>
@@ -2830,6 +2965,142 @@
         ]
       }
     }
+    </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // すべての比較テーブルを処理する関数
+            function processAllTables() {
+                // すべてのcomparison-tableクラスを持つテーブルを探す
+                const tables = document.querySelectorAll('.comparison-table');
+
+                tables.forEach(table => {
+                    // テーブルのコンテナを特定
+                    const tableWrapper = table.closest('.table-wrapper') || table.parentNode;
+                    const tableContainer = tableWrapper.parentNode;
+
+                    // テーブルのヘッダーを探す（存在する場合）
+                    let tableTitle = '';
+                    const h3 = tableContainer.querySelector('h3');
+                    if (h3) {
+                        tableTitle = h3.textContent;
+                    }
+
+                    // モバイルアコーディオン用のコンテナを作成
+                    const accordionContainer = document.createElement('div');
+                    accordionContainer.className = 'mobile-accordion-container';
+
+                    // タイトルがある場合、アコーディオンにも追加
+                    if (tableTitle) {
+                        const titleElement = document.createElement('h3');
+                        titleElement.className = 'accordion-title';
+                        // titleElement.textContent = tableTitle;
+                        accordionContainer.appendChild(titleElement);
+                    }
+
+                    // テーブルの行ごとにアコーディオンを作成
+                    const rows = table.querySelectorAll('tbody tr');
+
+                    rows.forEach(row => {
+                        const cells = row.querySelectorAll('td');
+                        if (cells.length < 3) return;
+
+                        // アコーディオン項目を作成
+                        const accordionItem = document.createElement('div');
+                        accordionItem.className = 'accordion-item';
+
+                        // ヘッダー（カテゴリ名）
+                        const header = document.createElement('div');
+                        header.className = 'accordion-header active';
+                        header.textContent = cells[0].textContent.trim();
+                        header.addEventListener('click', function () {
+                            this.classList.toggle('active');
+                            const content = this.nextElementSibling;
+                            content.classList.toggle('active');
+                        });
+
+                        // コンテンツ部分
+                        const content = document.createElement('div');
+                        content.className = 'accordion-content active';
+
+                        // 従来のWebサイト
+                        const traditionalContent = document.createElement('div');
+                        traditionalContent.className = 'accordion-item-content';
+
+                        const traditionalTitle = document.createElement('div');
+                        traditionalTitle.className = 'content-title';
+                        // 列の見出しを取得
+                        const thElements = table.querySelectorAll('thead th');
+                        traditionalTitle.textContent = thElements[1] ? thElements[1].textContent + ':' : '従来のWebサイト:';
+
+                        const traditionalDesc = document.createElement('div');
+                        traditionalDesc.className = 'content-description';
+                        traditionalDesc.textContent = cells[1].textContent.trim();
+
+                        traditionalContent.appendChild(traditionalTitle);
+                        traditionalContent.appendChild(traditionalDesc);
+
+                        // Notionブログ
+                        const notionContent = document.createElement('div');
+                        notionContent.className = 'accordion-item-content';
+
+                        const notionTitle = document.createElement('div');
+                        notionTitle.className = 'content-title';
+                        notionTitle.textContent = thElements[2] ? thElements[2].textContent + ':' : 'Notionブログ:';
+
+                        const notionDesc = document.createElement('div');
+                        notionDesc.className = 'content-description';
+                        notionDesc.textContent = cells[2].textContent.trim();
+
+                        // highlightクラスがある場合、それを反映
+                        if (cells[2].classList.contains('highlight')) {
+                            notionDesc.classList.add('highlight');
+                        }
+
+                        notionContent.appendChild(notionTitle);
+                        notionContent.appendChild(notionDesc);
+
+                        // コンテンツに追加
+                        content.appendChild(traditionalContent);
+                        content.appendChild(notionContent);
+
+                        // アコーディオン項目に追加
+                        accordionItem.appendChild(header);
+                        accordionItem.appendChild(content);
+
+                        // コンテナに追加
+                        accordionContainer.appendChild(accordionItem);
+                    });
+
+                    // テーブルの後ろにアコーディオンを挿入
+                    tableContainer.appendChild(accordionContainer);
+                });
+            }
+
+            // 初期処理を実行
+            processAllTables();
+
+            // モバイル表示の場合のみ元のテーブルを非表示にする
+            function handleResponsiveDisplay() {
+                const isMobile = window.innerWidth <= 768;
+
+                // テーブルとそのラッパー
+                document.querySelectorAll('.table-wrapper').forEach(wrapper => {
+                    wrapper.style.display = isMobile ? 'none' : '';
+                });
+
+                // アコーディオン
+                document.querySelectorAll('.mobile-accordion-container').forEach(container => {
+                    container.style.display = isMobile ? 'block' : 'none';
+                });
+            }
+
+            // 初期実行
+            handleResponsiveDisplay();
+
+            // リサイズ時にも実行
+            window.addEventListener('resize', handleResponsiveDisplay);
+        });
     </script>
 </body>
 

@@ -334,6 +334,8 @@
             line-height: 1;
         }
 
+
+
         /* 関連機能セクションのスタイル */
         .related-features-section {
             background: #f7f6f3;
@@ -501,6 +503,125 @@
             padding: 0;
             box-sizing: border-box;
         }
+
+        /* Notionボタンスタイル */
+        .notion-button {
+            display: inline-block;
+            background-color: #000;
+            color: white;
+            padding: 16px 32px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .notion-button:hover {
+            background-color: #333;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .integration-logos {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+            gap: 25px;
+            justify-content: center;
+            /* margin-top: 40px; */
+        }
+
+        .logo-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            padding: 15px;
+            border-radius: 8px;
+            background-color: white;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .logo-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+        }
+
+        .logo-item i {
+            font-size: 40px;
+            margin-bottom: 10px;
+        }
+
+        .logo-item span {
+            font-size: 10px;
+            color: #666;
+            /* font-weight: 500; */
+        }
+
+        @media (max-width: 768px) {
+            .integration-logos {
+                grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+                gap: 15px;
+            }
+
+            .logo-item {
+                padding: 10px 0 10px;
+            }
+
+            .logo-item i {
+                font-size: 30px;
+            }
+
+        }
+
+        /* Notionリンクセクションのスタイル */
+        .notion-link-section {
+            width: 100%;
+            max-width: 800px;
+            margin: 60px auto;
+            padding: 0 20px;
+            text-align: center;
+        }
+
+        .notion-link-section h2 {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        .notion-link-section p {
+            font-size: 16px;
+            line-height: 1.6;
+            margin-bottom: 30px;
+            color: #666;
+        }
+
+        .note {
+            margin-top: 15px;
+            font-size: 14px;
+            color: #888;
+        }
+
+        /* モバイル対応 */
+        @media (max-width: 768px) {
+            .notion-link-section {
+                margin: 40px auto;
+            }
+
+            .notion-link-section h2 {
+                font-size: 24px;
+            }
+
+            .notion-button {
+                padding: 14px 28px;
+                font-size: 16px;
+                width: 100%;
+                max-width: 300px;
+            }
+        }
     </style>
 
     <!-- Google tag (gtag.js) -->
@@ -613,14 +734,14 @@
                     <li><a href="notionllmo.html">LLMO対策</a></li>
                     <li><a href="pricing.html#pricing-faq">よくある質問</a></li>
                     <li><a href="company.html" aria-current="page">企業情報</a></li>
-                    <li><a href="https://effectmoe.notion.site/1f0b802cb0c68074bea8d2b5e000c54a?pvs=105" class="contact-btn"
-                        target="_blank" rel="noopener noreferrer">お問い合わせ</a></li>
+                    <li><a href="https://effectmoe.notion.site/1f0b802cb0c68074bea8d2b5e000c54a?pvs=105"
+                            class="contact-btn" target="_blank" rel="noopener noreferrer">お問い合わせ</a></li>
                 </ul>
             </nav>
 
             <!-- Hamburger Menu Button -->
             <button class="hamburger" id="hamburger-btn" aria-expanded="false" aria-controls="mobile-menu"
-                aria-label="メニューを開く" onclick="document.getElementById('mobile-menu').classList.toggle('active')">
+                aria-label="メニューを開く" onclick="toggleMobileMenu()">
                 <span></span>
                 <span></span>
                 <span></span>
@@ -635,7 +756,7 @@
                 <li><a href="pricing.html#pricing-faq">よくある質問</a></li>
                 <li><a href="company.html" aria-current="page">企業情報</a></li>
                 <li><a href="https://effectmoe.notion.site/1f0b802cb0c68074bea8d2b5e000c54a?pvs=105" class="contact-btn"
-                    target="_blank" rel="noopener noreferrer">お問い合わせ</a></li>
+                        target="_blank" rel="noopener noreferrer">お問い合わせ</a></li>
             </ul>
         </nav>
     </header>
@@ -672,17 +793,17 @@
                                     width="200" height="40">
                             </div>
                         </div>
-                        <h1>Notionで実現する<br><span>DXシステム開発とLLMO対策</span></h1>
-                        <p>Notionを活用した管理システム構築で業務プロセスを改革。<br>さらにはAIも駆使し時代に沿ったシステムを構築。並行して、次世代のSEOであるLLMO対策を徹底して行います。
+                        <h1>Notionで実現するDX<br><span>システム構築とLLMO対策</span></h1>
+                        <p>Notionを活用したシステム構築で貴社の業務改革をお手伝い。<br>さらにはAIも駆使し時代に沿ったシステムを提案。並行して、次世代のSEOであるLLMO対策を徹底して行います。
                         </p>
                         <div class="cta-buttons">
                             <a href="https://www.jicoo.com/t/effect/e/effect" class="btn primary-btn" target="_blank"
                                 rel="noopener noreferrer">無料相談を予約する</a>
-                            <a href="flow.html" class="btn flow-btn">導入の流れを見る</a>
+                            <a href="flow.html" class="btn flow-btn" target="_blank" rel="noopener">導入の流れを見る</a>
                             <a href="notionllmo.html" class="btn red-btn">LLMO対策をする</a>
                             <a href="pricing.html" class="btn orange-btn">料金プランを見る</a>
                             <a href="https://www.street-academy.com/myclass/178974?conversion_name=direct_message&tracking_code=56571496892d74a483f678721798aaeb"
-                            class="btn secondary-btn" target="_blank" rel="noopener noreferrer">Notionを学ぶ</a>
+                                class="btn secondary-btn" target="_blank" rel="noopener">Notionを学ぶ</a>
                             <a href="llmo.html" class="btn lightblue-btn">LLMOを読む</a>
                         </div>
                     </div>
@@ -971,126 +1092,7 @@
                     </div>
                 </div>
             </div>
-            <style>
-                .integration-logos {
-                    display: grid;
-                    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-                    gap: 25px;
-                    justify-content: center;
-                    /* margin-top: 40px; */
-                }
 
-                .logo-item {
-                    display: flex;
-                    flex-direction: column;
-                    align-items: center;
-                    text-align: center;
-                    padding: 15px;
-                    border-radius: 8px;
-                    background-color: white;
-                    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-                    transition: transform 0.3s, box-shadow 0.3s;
-                }
-
-                .logo-item:hover {
-                    transform: translateY(-5px);
-                    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
-                }
-
-                .logo-item i {
-                    font-size: 40px;
-                    margin-bottom: 10px;
-                }
-
-                .logo-item span {
-                    font-size: 10px;
-                    color: #666;
-                    /* font-weight: 500; */
-                }
-
-                @media (max-width: 768px) {
-                    .integration-logos {
-                        grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
-                        gap: 15px;
-                    }
-
-                    .logo-item {
-                        padding: 10px 0 10px;
-                    }
-
-                    .logo-item i {
-                        font-size: 30px;
-                    }
-
-                }
-
-                /* Notionリンクセクションのスタイル */
-                .notion-link-section {
-                    width: 100%;
-                    max-width: 800px;
-                    margin: 60px auto;
-                    padding: 0 20px;
-                    text-align: center;
-                }
-
-                .notion-link-section h2 {
-                    font-size: 28px;
-                    font-weight: 700;
-                    margin-bottom: 15px;
-                    color: #333;
-                }
-
-                .notion-link-section p {
-                    font-size: 16px;
-                    line-height: 1.6;
-                    margin-bottom: 30px;
-                    color: #666;
-                }
-
-                /* Notionボタンスタイル */
-                .notion-button {
-                    display: inline-block;
-                    background-color: #000;
-                    color: white;
-                    padding: 16px 32px;
-                    border-radius: 8px;
-                    text-decoration: none;
-                    font-weight: 600;
-                    font-size: 18px;
-                    transition: all 0.3s ease;
-                    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-                }
-
-                .notion-button:hover {
-                    background-color: #333;
-                    transform: translateY(-3px);
-                    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
-                }
-
-                .note {
-                    margin-top: 15px;
-                    font-size: 14px;
-                    color: #888;
-                }
-
-                /* モバイル対応 */
-                @media (max-width: 768px) {
-                    .notion-link-section {
-                        margin: 40px auto;
-                    }
-
-                    .notion-link-section h2 {
-                        font-size: 24px;
-                    }
-
-                    .notion-button {
-                        padding: 14px 28px;
-                        font-size: 16px;
-                        width: 100%;
-                        max-width: 300px;
-                    }
-                }
-            </style>
         </section>
 
         <section class="benefits" id="benefits">
@@ -1137,7 +1139,7 @@
                             <span class="badge"><i class="fas fa-medal"></i> 5つ星評価</span>
                         </div>
                         <a href="https://www.street-academy.com/steachers/271053?conversion_name=direct_message&tracking_code=0d6a1ed2a63bf7b41cba98113b1b1cc5"
-                            class="course-button" target="_blank" rel="noopener noreferrer">Notion活用講座を見る</a>
+                            class="course-button" target="_blank" rel="noopener">Notion活用講座を見る</a>
                     </div>
 
                     <div class="instructor-benefits">
@@ -1283,7 +1285,7 @@
             <h2>お問い合わせはこちら</h2>
             <p>確認後担当者より折り返し連絡させていただきます</p>
             <a href="https://effectmoe.notion.site/1f0b802cb0c68074bea8d2b5e000c54a" target="_blank"
-                class="notion-button">Notionフォームを開く</a>
+                rel="noopener noreferrer" class="notion-button">Notionフォームを開く</a>
         </div>
     </main>
 
@@ -1310,6 +1312,7 @@
                             <li><a href="./pricing.html#custom-plan">カスタムプラン</a></li>
                             <li><a href="./pricing.html#pricing-faq">よくある質問</a></li>
                             <li><a href="./company.html">会社概要</a></li>
+                            <li><a href="./privacypolicy.html">プライバシーポリシー</a></li>
                         </ul>
                     </div>
                     <div class="footer-section">
@@ -1452,22 +1455,32 @@
     </script> -->
 
     <!-- バックアップハンバーガーメニュー用スクリプト -->
-    <!-- <script>
-        window.addEventListener('load', function () {
-            const hamburgerBtn = document.getElementById('hamburger-btn');
+    <script>
+        function toggleMobileMenu() {
             const mobileMenu = document.getElementById('mobile-menu');
+            const hamburgerBtn = document.getElementById('hamburger-btn');
 
-            if (hamburgerBtn && mobileMenu) {
-                hamburgerBtn.addEventListener('click', function () {
-                    mobileMenu.classList.toggle('active');
-                    const isActive = mobileMenu.classList.contains('active');
-                    hamburgerBtn.setAttribute('aria-expanded', isActive ? 'true' : 'false');
-                    mobileMenu.setAttribute('aria-hidden', isActive ? 'false' : 'true');
-                    console.log('インデックスページのハンバーガーメニュークリック: 状態', isActive ? '表示' : '非表示');
-                });
+            // メニューのアクティブ状態を切り替え
+            mobileMenu.classList.toggle('active');
+
+            // メニューが開いているかどうかを確認
+            const isExpanded = mobileMenu.classList.contains('active');
+
+            // アクセシビリティ属性を更新
+            hamburgerBtn.setAttribute('aria-expanded', isExpanded);
+            mobileMenu.setAttribute('aria-hidden', !isExpanded);
+
+            // ボタンのラベルを更新
+            hamburgerBtn.setAttribute('aria-label', isExpanded ? 'メニューを閉じる' : 'メニューを開く');
+
+            // オプション：ハンバーガーボタン自体の見た目も変更
+            if (isExpanded) {
+                hamburgerBtn.classList.add('active');
+            } else {
+                hamburgerBtn.classList.remove('active');
             }
-        });
-    </script> -->
+        }
+    </script>
 </body>
 
 </html>
