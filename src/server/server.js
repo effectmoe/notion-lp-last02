@@ -1,21 +1,35 @@
-require('dotenv').config({ 
-  path: process.env.NODE_ENV === 'production' ? '.env.production' : '.env.local' 
+require('dotenv').config({
+  path: process.env.NODE_ENV === 'production' ? '.env.production' : '.env.local'
 });
 
 const express = require('express');
 const cors = require('cors');
 const path = require('path');
 const { OpenAI } = require('openai');
-
+const helmet = require('helmet');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
 // デバッグ設定
 const DEBUG = process.env.NODE_ENV !== 'production';
 
-// CORS設定
-const ALLOWED_ORIGINS = process.env.ALLOWED_ORIGINS 
-  ? process.env.ALLOWED_ORIGINS.split(',') 
+// helmetミドルウェアを追加（CORSの前に配置）
+app.use(helmet({
+  contentSecurityPolicy: {
+    directives: {
+      defaultSrc: ["'self'"],
+      scriptSrc: ["'self'", "'unsafe-inline'"],
+      styleSrc: ["'self'", "'unsafe-inline'"],
+      imgSrc: ["'self'", "data:", "https:"],
+      connectSrc: ["'self'", "https://nlweb.effect.moe"]  // APIエンドポイントを追加
+    }
+  },
+  referrerPolicy: { policy: 'strict-origin-when-cross-origin' }
+}));
+
+// CORS設定の強化
+const ALLOWED_ORIGINS = process.env.ALLOWED_ORIGINS
+  ? process.env.ALLOWED_ORIGINS.split(',').map(origin => origin.trim())
   : ['https://notion.effect.moe', 'http://localhost:3000'];
 
 app.use(cors({
@@ -26,16 +40,35 @@ app.use(cors({
       console.log('許可されたオリジン:', ALLOWED_ORIGINS);
     }
 
-    // オリジンチェック
-    if (!origin || ALLOWED_ORIGINS.includes(origin)) {
+    // オリジンチェックの強化
+    if (!origin) {
+      // オリジンが未定義の場合（同一オリジン）は許可
+      return callback(null, true);
+    }
+
+    // 完全一致と部分一致の確認
+    const isAllowed = ALLOWED_ORIGINS.some(allowedOrigin =>
+      origin === allowedOrigin ||
+      origin.startsWith(allowedOrigin)
+    );
+
+    if (isAllowed) {
       callback(null, true);
     } else {
+      // より詳細なエラーログ
+      console.warn(`CORSポリシーにより許可されていないオリジン: ${origin}`);
       callback(new Error(`CORSポリシーにより許可されていないオリジン: ${origin}`));
     }
   },
   methods: ['GET', 'POST', 'OPTIONS'],
-  allowedHeaders: ['Content-Type', 'Authorization'],
-  credentials: true
+  allowedHeaders: [
+    'Content-Type',
+    'Authorization',
+    'X-Requested-With',
+    'Accept'
+  ],
+  credentials: true,
+  maxAge: 86400  // プリフライトリクエストのキャッシュ
 }));
 
 // リクエストロギングミドルウェア
@@ -71,7 +104,7 @@ const openai = new OpenAI({
 app.post('/nlweb-chat', async (req, res) => {
   try {
     const { query } = req.body;
-    
+
     // 入力バリデーション
     if (!query || query.trim() === '') {
       return res.status(400).json({ error: '有効な質問を入力してください' });
@@ -87,7 +120,7 @@ app.post('/nlweb-chat', async (req, res) => {
       model: "gpt-3.5-turbo",
       messages: [
         {
-          role: "system", 
+          role: "system",
           content: `あなたはEFFECT Co. Ltd.の公式AIアシスタントです。以下のガイドラインに従ってください：
 
 1. 常に丁寧で専門的な言葉遣いを心がけてください
@@ -109,9 +142,9 @@ app.post('/nlweb-chat', async (req, res) => {
 - 業務効率の向上
 - デジタルトランスフォーメーション支援`
         },
-        { 
-          role: "user", 
-          content: query 
+        {
+          role: "user",
+          content: query
         }
       ],
       max_tokens: 200,  // トークン数を制限
@@ -130,35 +163,35 @@ app.post('/nlweb-chat', async (req, res) => {
   } catch (error) {
     // エラーハンドリング
     console.error('チャットエラー:', error);
-    
+
     if (error.response) {
       switch (error.response.status) {
         case 429:
-          res.status(429).json({ 
+          res.status(429).json({
             error: 'リクエスト制限に達しました。後でお試しください。',
             details: 'Rate limit exceeded'
           });
           break;
         case 401:
-          res.status(401).json({ 
+          res.status(401).json({
             error: '認証エラーが発生しました。APIキーを確認してください。',
             details: 'Authentication error'
           });
           break;
         case 500:
-          res.status(500).json({ 
+          res.status(500).json({
             error: 'サーバー側で問題が発生しました。',
             details: 'Internal server error'
           });
           break;
         default:
-          res.status(500).json({ 
+          res.status(500).json({
             error: '予期せぬエラーが発生しました。',
             details: error.message
           });
       }
     } else {
-      res.status(500).json({ 
+      res.status(500).json({
         error: 'サービスに接続できません。',
         details: error.message
       });
@@ -181,8 +214,8 @@ app.use((err, req, res, next) => {
   // クライアントへの応答
   res.status(err.status || 500).json({
     error: 'サーバー側で問題が発生しました',
-    message: process.env.NODE_ENV === 'production' 
-      ? 'エラーが発生しました' 
+    message: process.env.NODE_ENV === 'production'
+      ? 'エラーが発生しました'
       : err.message
   });
 });
@@ -190,7 +223,7 @@ app.use((err, req, res, next) => {
 // サーバー起動
 const server = app.listen(PORT, () => {
   console.log(`NLWebサーバーが${PORT}ポートで起動しました`);
-  
+
   // デバッグ情報
   if (DEBUG) {
     console.log('デバッグモード: 有効');

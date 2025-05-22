@@ -149,40 +149,69 @@ document.addEventListener('DOMContentLoaded', () => {
     const query = chatInput.value.trim();
     if (!query) return;
 
-    // 本番環境と開発環境で動的にエンドポイント切り替え
+    // デバッグ情報の追加
+    console.log('デバッグ情報:', {
+      hostname: window.location.hostname,
+      protocol: window.location.protocol,
+      apiEndpoint: window.location.hostname === 'localhost'
+        ? 'http://localhost:3000/nlweb-chat'
+        : 'https://nlweb.effect.moe/nlweb-chat'
+    });
+
     const apiEndpoint = window.location.hostname === 'localhost'
       ? 'http://localhost:3000/nlweb-chat'
       : 'https://nlweb.effect.moe/nlweb-chat';
 
-    // UI状態の更新
     chatInput.disabled = true;
     chatSubmit.disabled = true;
     chatOutput.innerHTML += `<p><strong>あなた:</strong> ${query}</p>`;
 
-    // フェッチオプションを拡張
+    // 詳細なフェッチオプション
     const fetchOptions = {
       method: 'POST',
+      mode: 'cors', // CORSモードを明示的に設定
+      cache: 'no-cache',
+      credentials: 'same-origin', // クレデンシャルポリシー
       headers: {
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
       },
       body: JSON.stringify({ query })
     };
 
-    // エラーハンドリングを強化
+    // 詳細なエラーロギング
     fetch(apiEndpoint, fetchOptions)
       .then(response => {
+        console.log('レスポンスステータス:', response.status);
+        console.log('レスポンスヘッダー:', Object.fromEntries(response.headers.entries()));
+
         if (!response.ok) {
-          throw new Error(`HTTPエラー! ステータス: ${response.status}`);
+          // より詳細なエラー情報の取得
+          return response.text().then(errorText => {
+            throw new Error(`HTTPエラー! ステータス: ${response.status}, メッセージ: ${errorText}`);
+          });
         }
         return response.json();
       })
       .then(data => {
+        console.log('受信データ:', data);
         chatOutput.innerHTML += `<p><strong>AI:</strong> ${data.response}</p>`;
         chatOutput.scrollTop = chatOutput.scrollHeight;
       })
       .catch(error => {
-        console.error('チャットエラー:', error);
-        chatOutput.innerHTML += `<p><strong>エラー:</strong> サービスに接続できません。後でお試しください。</p>`;
+        console.error('詳細なチャットエラー:', {
+          message: error.message,
+          name: error.name,
+          stack: error.stack
+        });
+
+        // より詳細なエラーメッセージ
+        chatOutput.innerHTML += `
+          <p><strong>エラー:</strong> 
+          サービスに接続できません。
+          詳細: ${error.message}
+          </p>
+        `;
       })
       .finally(() => {
         chatInput.disabled = false;
