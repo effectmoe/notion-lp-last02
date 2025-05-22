@@ -7,21 +7,24 @@
     "start": "node src/server/server.js",
     "dev": "nodemon src/server/server.js",
     "test:openai-key": "node src/tests/test-openai-key.js",
-    "test:cors": "node src/tests/test-cors.js"
+    "test:cors": "node src/tests/test-cors.js",
+    "security:audit": "npm audit",
+    "security:fix": "npm audit fix --force",
+    "security:check": "npx snyk test"
   },
   "dependencies": {
     "@notionhq/client": "^2.2.14",
     "axios": "^1.9.0",
     "cors": "^2.8.5",
     "dotenv": "^16.4.5",
-    "express": "^4.18.2",
+    "express": "^5.1.0",
     "express-rate-limit": "^7.5.0",
     "helmet": "^8.1.0",
-    "next": "^13.5.8",
+    "next": "^15.3.2",
     "nodemailer": "^6.10.0",
     "openai": "^4.102.0",
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1"
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0"
   },
   "devDependencies": {
     "nodemon": "^3.1.0"
