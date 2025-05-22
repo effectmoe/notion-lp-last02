@@ -149,29 +149,51 @@ document.addEventListener('DOMContentLoaded', () => {
     const query = chatInput.value.trim();
     if (!query) return;
 
-    // デバッグ情報の追加
-    console.log('デバッグ情報:', {
-      hostname: window.location.hostname,
-      protocol: window.location.protocol,
-      apiEndpoint: window.location.hostname === 'localhost'
-        ? 'http://localhost:3000/nlweb-chat'
-        : 'https://nlweb.effect.moe/nlweb-chat'
-    });
+    // デプロイメント環境に応じたエンドポイント判定
+    const determineApiEndpoint = () => {
+      const hostMap = {
+        'localhost': 'http://localhost:3000/nlweb-chat',
+        'notion.effect.moe': 'https://nlweb.effect.moe/nlweb-chat',
+        // GitHub Pagesのホスト名に対応
+        'your-username.github.io': 'https://nlweb.effect.moe/nlweb-chat'
+      };
 
-    const apiEndpoint = window.location.hostname === 'localhost'
-      ? 'http://localhost:3000/nlweb-chat'
-      : 'https://nlweb.effect.moe/nlweb-chat';
+      // 現在のホスト名を取得
+      const hostname = window.location.hostname;
 
+      // デバッグ情報
+      console.group('NLWeb Chat Deployment');
+      console.log('現在のホスト:', hostname);
+      console.log('プロトコル:', window.location.protocol);
+      console.log('完全URL:', window.location.href);
+
+      // エンドポイントの決定
+      const endpoint = hostMap[hostname] || 'https://nlweb.effect.moe/nlweb-chat';
+
+      console.log('選択されたエンドポイント:', endpoint);
+      console.groupEnd();
+
+      return endpoint;
+    };
+
+    const apiEndpoint = determineApiEndpoint();
+
+    // UIの更新
     chatInput.disabled = true;
     chatSubmit.disabled = true;
-    chatOutput.innerHTML += `<p><strong>あなた:</strong> ${query}</p>`;
 
-    // 詳細なフェッチオプション
+    // ユーザーメッセージの表示
+    const userMessageElement = document.createElement('p');
+    userMessageElement.classList.add('nlweb-message-user');
+    userMessageElement.textContent = query;
+    chatOutput.appendChild(userMessageElement);
+    chatOutput.scrollTop = chatOutput.scrollHeight;
+
+    // フェッチオプション
     const fetchOptions = {
       method: 'POST',
-      mode: 'cors', // CORSモードを明示的に設定
+      mode: 'cors',
       cache: 'no-cache',
-      credentials: 'same-origin', // クレデンシャルポリシー
       headers: {
         'Content-Type': 'application/json',
         'Accept': 'application/json'
@@ -179,45 +201,53 @@ document.addEventListener('DOMContentLoaded', () => {
       body: JSON.stringify({ query })
     };
 
-    // 詳細なエラーロギング
+    // メッセージ送信
     fetch(apiEndpoint, fetchOptions)
       .then(response => {
         console.log('レスポンスステータス:', response.status);
-        console.log('レスポンスヘッダー:', Object.fromEntries(response.headers.entries()));
 
         if (!response.ok) {
-          // より詳細なエラー情報の取得
+          // 詳細なエラー情報の取得
           return response.text().then(errorText => {
-            throw new Error(`HTTPエラー! ステータス: ${response.status}, メッセージ: ${errorText}`);
+            throw new Error(`通信エラー: ${response.status} - ${errorText}`);
           });
         }
         return response.json();
       })
       .then(data => {
-        console.log('受信データ:', data);
-        chatOutput.innerHTML += `<p><strong>AI:</strong> ${data.response}</p>`;
+        // AIメッセージの表示
+        const aiMessageElement = document.createElement('p');
+        aiMessageElement.classList.add('nlweb-message-ai');
+        aiMessageElement.textContent = data.response;
+        chatOutput.appendChild(aiMessageElement);
         chatOutput.scrollTop = chatOutput.scrollHeight;
       })
       .catch(error => {
-        console.error('詳細なチャットエラー:', {
+        console.error('チャットエラー詳細:', {
           message: error.message,
           name: error.name,
           stack: error.stack
         });
 
-        // より詳細なエラーメッセージ
-        chatOutput.innerHTML += `
-          <p><strong>エラー:</strong> 
-          サービスに接続できません。
-          詳細: ${error.message}
-          </p>
-        `;
+        // エラーメッセージの表示
+        const errorMessageElement = document.createElement('p');
+        errorMessageElement.classList.add('nlweb-message-ai');
+        errorMessageElement.textContent = `接続エラー: ${error.message}`;
+        chatOutput.appendChild(errorMessageElement);
       })
       .finally(() => {
+        // UI状態の復元
         chatInput.disabled = false;
         chatSubmit.disabled = false;
         chatInput.value = '';
         chatInput.focus();
       });
   }
+
+  // 既存のイベントリスナー部分はそのまま維持
+  chatSubmit.addEventListener('click', sendMessage);
+  chatInput.addEventListener('keypress', (e) => {
+    if (e.key === 'Enter') sendMessage();
+  });
+
 });
