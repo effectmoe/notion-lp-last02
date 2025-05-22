@@ -149,29 +149,40 @@ document.addEventListener('DOMContentLoaded', () => {
     const query = chatInput.value.trim();
     if (!query) return;
 
-    // 本番環境と開発環境で切り替え
+    // 本番環境と開発環境で動的にエンドポイント切り替え
     const apiEndpoint = window.location.hostname === 'localhost'
       ? 'http://localhost:3000/nlweb-chat'
       : 'https://nlweb.effect.moe/nlweb-chat';
 
+    // UI状態の更新
     chatInput.disabled = true;
     chatSubmit.disabled = true;
     chatOutput.innerHTML += `<p><strong>あなた:</strong> ${query}</p>`;
 
-    fetch(apiEndpoint, {
+    // フェッチオプションを拡張
+    const fetchOptions = {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({ query })
-    })
-      .then(response => response.json())
+    };
+
+    // エラーハンドリングを強化
+    fetch(apiEndpoint, fetchOptions)
+      .then(response => {
+        if (!response.ok) {
+          throw new Error(`HTTPエラー! ステータス: ${response.status}`);
+        }
+        return response.json();
+      })
       .then(data => {
         chatOutput.innerHTML += `<p><strong>AI:</strong> ${data.response}</p>`;
         chatOutput.scrollTop = chatOutput.scrollHeight;
       })
       .catch(error => {
-        chatOutput.innerHTML += `<p><strong>エラー:</strong> ${error.message}</p>`;
+        console.error('チャットエラー:', error);
+        chatOutput.innerHTML += `<p><strong>エラー:</strong> サービスに接続できません。後でお試しください。</p>`;
       })
       .finally(() => {
         chatInput.disabled = false;
