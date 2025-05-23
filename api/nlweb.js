@@ -18,7 +18,7 @@ export default async function handler(req, res) {
   try {
     // ここに実際のAPIのURLを入力してください
     // 例: https://api.example.com/nlweb
-    const API_URL = 'https://your-actual-api.com/nlweb';  // ← ここを変更！
+    const API_URL = 'https://nlweb.effect.moe/nlweb-chat';  // 実際のAPIのURL
     
     // 元のAPIにリクエストを転送
     const response = await fetch(API_URL, {
