@@ -915,10 +915,10 @@
 
             <!-- Hamburger Menu Button -->
             <button class="hamburger" id="hamburger-btn" aria-expanded="false" aria-controls="mobile-menu"
-                aria-label="メニューを開く">
-                <span></span>
-                <span></span>
-                <span></span>
+                aria-label="メニューを開く" style="display: flex !important; position: relative; z-index: 9999;">
+                <span style="background-color: #fff !important;"></span>
+                <span style="background-color: #fff !important;"></span>
+                <span style="background-color: #fff !important;"></span>
             </button>
         </div>
 
@@ -1563,39 +1563,24 @@
 
     <script src="script.js" defer></script>
 
-    <!-- ハンバーガーメニュー用スクリプト -->
+    <!-- ハンバーガーメニュー用スクリプト（最もシンプルな実装） -->
     <script>
-    // すぐに実行されるようにDOMContentLoadedを使用
-    document.addEventListener('DOMContentLoaded', function () {
-        console.log('ハンバーガーメニュー初期化開始');
-        
-        const hamburgerBtn = document.getElementById('hamburger-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
-
-        console.log('hamburgerBtn:', hamburgerBtn);
-        console.log('mobileMenu:', mobileMenu);
-
-        if (hamburgerBtn && mobileMenu) {
-            // クリックイベントの重複を防ぐため、一度クリアしてから追加
-            const newHamburgerBtn = hamburgerBtn.cloneNode(true);
-            hamburgerBtn.parentNode.replaceChild(newHamburgerBtn, hamburgerBtn);
+    // 即座に実行
+    (function() {
+        // 少し待ってから実行
+        setTimeout(function() {
+            const btn = document.getElementById('hamburger-btn');
+            const menu = document.getElementById('mobile-menu');
             
-            newHamburgerBtn.addEventListener('click', function (e) {
-                e.stopPropagation(); // イベントの伝播を停止
-                console.log('ハンバーガーボタンがクリックされました');
-                
-                mobileMenu.classList.toggle('active');
-                const isActive = mobileMenu.classList.contains('active');
-                newHamburgerBtn.setAttribute('aria-expanded', isActive ? 'true' : 'false');
-                mobileMenu.setAttribute('aria-hidden', isActive ? 'false' : 'true');
-                console.log('メニュー状態:', isActive ? '開く' : '閉じる');
-            });
-            
-            console.log('ハンバーガーメニューのイベントリスナーを設定しました');
-        } else {
-            console.error('ハンバーガーボタンまたはモバイルメニューが見つかりません');
-        }
-    });
+            if (btn && menu) {
+                console.log('ハンバーガーメニュー設定開始');
+                btn.onclick = function() {
+                    menu.classList.toggle('active');
+                    console.log('メニュー切り替え:', menu.classList.contains('active'));
+                };
+            }
+        }, 100);
+    })();
     </script>
 
     <!-- 問い合わせフォーム処理（直接的な実装） -->
