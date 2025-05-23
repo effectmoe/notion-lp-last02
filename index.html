@@ -915,7 +915,7 @@
 
             <!-- Hamburger Menu Button -->
             <button class="hamburger" id="hamburger-btn" aria-expanded="false" aria-controls="mobile-menu"
-                aria-label="メニューを開く" onclick="document.getElementById('mobile-menu').classList.toggle('active')">
+                aria-label="メニューを開く">
                 <span></span>
                 <span></span>
                 <span></span>
@@ -1562,6 +1562,24 @@
     </style>
 
     <script src="script.js" defer></script>
+
+    <!-- ハンバーガーメニュー用スクリプト -->
+    <script>
+    window.addEventListener('load', function () {
+        const hamburgerBtn = document.getElementById('hamburger-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        if (hamburgerBtn && mobileMenu) {
+            hamburgerBtn.addEventListener('click', function () {
+                mobileMenu.classList.toggle('active');
+                const isActive = mobileMenu.classList.contains('active');
+                hamburgerBtn.setAttribute('aria-expanded', isActive ? 'true' : 'false');
+                mobileMenu.setAttribute('aria-hidden', isActive ? 'false' : 'true');
+                console.log('ハンバーガーメニュークリック: 状態', isActive ? '表示' : '非表示');
+            });
+        }
+    });
+    </script>
 
     <!-- 問い合わせフォーム処理（直接的な実装） -->
     <!-- <script>
