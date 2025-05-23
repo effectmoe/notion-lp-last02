@@ -915,15 +915,15 @@
 
             <!-- Hamburger Menu Button -->
             <button class="hamburger" id="hamburger-btn" aria-expanded="false" aria-controls="mobile-menu"
-                aria-label="メニューを開く" style="display: flex !important; position: absolute; right: 20px; top: 50%; transform: translateY(-50%); z-index: 9999; flex-direction: column; gap: 4px; padding: 10px; background: transparent; border: none; cursor: pointer;">
-                <span style="display: block; width: 25px; height: 3px; background-color: #fff !important; border-radius: 2px;"></span>
-                <span style="display: block; width: 25px; height: 3px; background-color: #fff !important; border-radius: 2px;"></span>
-                <span style="display: block; width: 25px; height: 3px; background-color: #fff !important; border-radius: 2px;"></span>
+                aria-label="メニューを開く" onclick="document.getElementById('mobile-menu').classList.toggle('active')">
+                <span></span>
+                <span></span>
+                <span></span>
             </button>
         </div>
 
         <!-- Mobile Menu -->
-        <nav class="mobile-menu" id="mobile-menu" aria-hidden="true" aria-label="モバイルナビゲーション" style="display: none; position: absolute; top: 100%; left: 0; right: 0; background-color: #37352f; padding: 20px; z-index: 998;">
+        <nav class="mobile-menu" id="mobile-menu" aria-hidden="true" aria-label="モバイルナビゲーション">
             <ul>
                 <li><a href="pricing.html">料金プラン</a></li>
                 <li><a href="notionllmo.html">LLMO対策</a></li>
@@ -1563,35 +1563,22 @@
 
     <script src="script.js" defer></script>
 
-    <!-- ハンバーガーメニュー用スクリプト（インラインスタイル対応版） -->
+    <!-- バックアップハンバーガーメニュー用スクリプト -->
     <script>
-    // 即座に実行
-    (function() {
-        // 少し待ってから実行
-        setTimeout(function() {
-            const btn = document.getElementById('hamburger-btn');
-            const menu = document.getElementById('mobile-menu');
-            
-            if (btn && menu) {
-                console.log('ハンバーガーメニュー設定開始');
-                btn.onclick = function() {
-                    // インラインスタイルで表示/非表示を切り替え
-                    if (menu.style.display === 'none' || menu.style.display === '') {
-                        menu.style.display = 'flex';
-                        menu.style.flexDirection = 'column';
-                        btn.setAttribute('aria-expanded', 'true');
-                        menu.setAttribute('aria-hidden', 'false');
-                        console.log('メニューを開く');
-                    } else {
-                        menu.style.display = 'none';
-                        btn.setAttribute('aria-expanded', 'false');
-                        menu.setAttribute('aria-hidden', 'true');
-                        console.log('メニューを閉じる');
-                    }
-                };
-            }
-        }, 100);
-    })();
+    window.addEventListener('load', function () {
+        const hamburgerBtn = document.getElementById('hamburger-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        if (hamburgerBtn && mobileMenu) {
+            hamburgerBtn.addEventListener('click', function () {
+                mobileMenu.classList.toggle('active');
+                const isActive = mobileMenu.classList.contains('active');
+                hamburgerBtn.setAttribute('aria-expanded', isActive ? 'true' : 'false');
+                mobileMenu.setAttribute('aria-hidden', isActive ? 'false' : 'true');
+                console.log('ハンバーガーメニュークリック: 状態', isActive ? '表示' : '非表示');
+            });
+        }
+    });
     </script>
 
     <!-- 問い合わせフォーム処理（直接的な実装） -->
