@@ -9,37 +9,34 @@ document.addEventListener('DOMContentLoaded', function () {
         if (hamburgerBtn && mobileMenu) {
             console.log('ハンバーガーメニューを初期化');
             
-            // 既存のイベントリスナーをクリアして重複を防止
-            const newBtn = hamburgerBtn.cloneNode(true);
-            hamburgerBtn.parentNode.replaceChild(newBtn, hamburgerBtn);
-            
-            // 新しいイベントリスナーを追加
-            newBtn.addEventListener('click', function() {
-                const isActive = mobileMenu.classList.contains('active');
-                console.log('ハンバーガーメニュークリック:', isActive ? '閉じる' : '開く');
-                
-                mobileMenu.classList.toggle('active');
-                newBtn.setAttribute('aria-expanded', !isActive);
-                mobileMenu.setAttribute('aria-hidden', isActive);
-                
-                // ESCキーでモバイルメニューを閉じる機能
-                const onKeyDown = (e) => {
-                    if (e.key === 'Escape') {
-                        mobileMenu.classList.remove('active');
-                        newBtn.setAttribute('aria-expanded', 'false');
-                        mobileMenu.setAttribute('aria-hidden', 'true');
-                        document.removeEventListener('keydown', onKeyDown);
+            // toggleMobileMenu関数が存在しない場合は作成
+            if (typeof window.toggleMobileMenu !== 'function') {
+                window.toggleMobileMenu = function() {
+                    const isActive = mobileMenu.classList.contains('active');
+                    console.log('ハンバーガーメニュークリック:', isActive ? '閉じる' : '開く');
+                    
+                    mobileMenu.classList.toggle('active');
+                    hamburgerBtn.setAttribute('aria-expanded', !isActive);
+                    mobileMenu.setAttribute('aria-hidden', isActive);
+                    hamburgerBtn.setAttribute('aria-label', !isActive ? 'メニューを閉じる' : 'メニューを開く');
+                    
+                    // ボディのスクロールを制御
+                    if (!isActive) {
+                        document.body.style.overflow = 'hidden';
+                    } else {
+                        document.body.style.overflow = '';
                     }
                 };
-                
-                if (!isActive) {
-                    document.addEventListener('keydown', onKeyDown);
-                    
-                    // モバイルメニュー内の最初のリンクにフォーカスを移動
-                    const firstLink = mobileMenu.querySelector('a');
-                    if (firstLink) {
-                        setTimeout(() => firstLink.focus(), 100);
-                    }
+            }
+            
+            // ESCキーでモバイルメニューを閉じる機能
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape' && mobileMenu.classList.contains('active')) {
+                    mobileMenu.classList.remove('active');
+                    hamburgerBtn.setAttribute('aria-expanded', 'false');
+                    mobileMenu.setAttribute('aria-hidden', 'true');
+                    hamburgerBtn.setAttribute('aria-label', 'メニューを開く');
+                    document.body.style.overflow = '';
                 }
             });
         }

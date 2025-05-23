@@ -1464,20 +1464,31 @@
     </main>
 
     <script>
-    function toggleMobileMenu() {
+    // グローバルスコープでtoggleMobileMenu関数を定義
+    window.toggleMobileMenu = function() {
         const mobileMenu = document.getElementById('mobile-menu');
         const hamburgerBtn = document.getElementById('hamburger-btn');
+        
+        if (!mobileMenu || !hamburgerBtn) {
+            console.error('Mobile menu or hamburger button not found');
+            return;
+        }
+        
         mobileMenu.classList.toggle('active');
         const isExpanded = mobileMenu.classList.contains('active');
         hamburgerBtn.setAttribute('aria-expanded', isExpanded);
         mobileMenu.setAttribute('aria-hidden', !isExpanded);
         hamburgerBtn.setAttribute('aria-label', isExpanded ? 'メニューを閉じる' : 'メニューを開く');
+        
         if (isExpanded) {
             document.body.style.overflow = 'hidden';
         } else {
             document.body.style.overflow = '';
         }
+        
+        console.log('Menu toggled:', isExpanded ? 'open' : 'closed');
     }
+    
     // メニュー外クリックで閉じる
     window.addEventListener('click', function(e) {
         const menu = document.getElementById('mobile-menu');
@@ -1660,33 +1671,7 @@
         document.addEventListener('DOMContentLoaded', initForm);
     </script> -->
 
-    <!-- バックアップハンバーガーメニュー用スクリプト -->
-    <script>
-        function toggleMobileMenu() {
-            const mobileMenu = document.getElementById('mobile-menu');
-            const hamburgerBtn = document.getElementById('hamburger-btn');
-
-            // メニューのアクティブ状態を切り替え
-            mobileMenu.classList.toggle('active');
-
-            // メニューが開いているかどうかを確認
-            const isExpanded = mobileMenu.classList.contains('active');
-
-            // アクセシビリティ属性を更新
-            hamburgerBtn.setAttribute('aria-expanded', isExpanded);
-            mobileMenu.setAttribute('aria-hidden', !isExpanded);
-
-            // ボタンのラベルを更新
-            hamburgerBtn.setAttribute('aria-label', isExpanded ? 'メニューを閉じる' : 'メニューを開く');
-
-            // オプション：ハンバーガーボタン自体の見た目も変更
-            if (isExpanded) {
-                hamburgerBtn.classList.add('active');
-            } else {
-                hamburgerBtn.classList.remove('active');
-            }
-        }
-    </script>
+    <!-- 削除：重複したtoggleMobileMenu関数 -->
 
 <!-- NLWebチャットボット -->
     <!-- <script src="/notion-chat-integration.js"></script> -->
