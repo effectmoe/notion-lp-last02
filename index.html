@@ -1414,6 +1414,26 @@
         </div>
     </main>
 
+    <script>
+    function toggleMobileMenu() {
+      const menu = document.getElementById('mobile-menu');
+      const btn = document.getElementById('hamburger-btn');
+      const isOpen = menu.classList.toggle('open');
+      menu.setAttribute('aria-hidden', !isOpen);
+      btn.setAttribute('aria-expanded', isOpen);
+    }
+    </script>
+
+    <style>
+    .mobile-menu {
+      display: none;
+      /* ...既存のスタイル... */
+    }
+    .mobile-menu.open {
+      display: block;
+    }
+    </style>
+
     <footer>
         <div class="container">
             <div class="footer-content">
