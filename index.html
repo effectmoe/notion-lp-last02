@@ -915,7 +915,7 @@
 
             <!-- Hamburger Menu Button -->
             <button class="hamburger" id="hamburger-btn" aria-expanded="false" aria-controls="mobile-menu"
-                aria-label="メニューを開く" onclick="toggleMobileMenu()">
+                aria-label="メニューを開く" onclick="document.getElementById('mobile-menu').classList.toggle('active')">
                 <span></span>
                 <span></span>
                 <span></span>
@@ -1463,48 +1463,6 @@
         </div>
     </main>
 
-    <script>
-    // グローバルスコープでtoggleMobileMenu関数を定義
-    window.toggleMobileMenu = function() {
-        const mobileMenu = document.getElementById('mobile-menu');
-        const hamburgerBtn = document.getElementById('hamburger-btn');
-        
-        if (!mobileMenu || !hamburgerBtn) {
-            console.error('Mobile menu or hamburger button not found');
-            return;
-        }
-        
-        mobileMenu.classList.toggle('active');
-        const isExpanded = mobileMenu.classList.contains('active');
-        hamburgerBtn.setAttribute('aria-expanded', isExpanded);
-        mobileMenu.setAttribute('aria-hidden', !isExpanded);
-        hamburgerBtn.setAttribute('aria-label', isExpanded ? 'メニューを閉じる' : 'メニューを開く');
-        
-        if (isExpanded) {
-            document.body.style.overflow = 'hidden';
-        } else {
-            document.body.style.overflow = '';
-        }
-        
-        console.log('Menu toggled:', isExpanded ? 'open' : 'closed');
-    }
-    
-    // メニュー外クリックで閉じる
-    window.addEventListener('click', function(e) {
-        const menu = document.getElementById('mobile-menu');
-        const btn = document.getElementById('hamburger-btn');
-        if (!menu || !btn) return;
-        if (menu.classList.contains('active')) {
-            if (!menu.contains(e.target) && !btn.contains(e.target)) {
-                menu.classList.remove('active');
-                btn.setAttribute('aria-expanded', false);
-                menu.setAttribute('aria-hidden', true);
-                btn.setAttribute('aria-label', 'メニューを開く');
-                document.body.style.overflow = '';
-            }
-        }
-    });
-    </script>
 
     <footer>
         <div class="container">
