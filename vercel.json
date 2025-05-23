@@ -1,9 +1,11 @@
 {
-  "outputDirectory": ".next",
-  "builds": [
+  "buildCommand": "",
+  "outputDirectory": ".",
+  "framework": null,
+  "rewrites": [
     {
-      "src": "package.json",
-      "use": "@vercel/next"
+      "source": "/(.*)",
+      "destination": "/$1"
     }
   ]
 }
