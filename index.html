@@ -747,6 +747,55 @@
                 max-width: 300px;
             }
         }
+
+        .mobile-menu {
+            display: none;
+            position: absolute;
+            top: 60px;
+            right: 0;
+            width: 100vw;
+            max-width: 320px;
+            background: #fff;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+            z-index: 1000;
+            padding: 24px 0 16px 0;
+            border-radius: 0 0 8px 8px;
+        }
+
+        .mobile-menu.active {
+            display: block;
+        }
+
+        .hamburger {
+            display: none;
+            position: relative;
+            width: 40px;
+            height: 40px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            z-index: 1100;
+        }
+
+        .hamburger span {
+            display: block;
+            width: 28px;
+            height: 3px;
+            margin: 6px auto;
+            background: #333;
+            border-radius: 2px;
+            transition: all 0.3s;
+        }
+
+        @media (max-width: 900px) {
+            .nav-menu {
+                display: none;
+            }
+
+            .hamburger {
+                display: block;
+            }
+        }
     </style>
 
     <!-- Google tag (gtag.js) -->
@@ -1416,23 +1465,35 @@
 
     <script>
     function toggleMobileMenu() {
-      const menu = document.getElementById('mobile-menu');
-      const btn = document.getElementById('hamburger-btn');
-      const isOpen = menu.classList.toggle('open');
-      menu.setAttribute('aria-hidden', !isOpen);
-      btn.setAttribute('aria-expanded', isOpen);
+        const mobileMenu = document.getElementById('mobile-menu');
+        const hamburgerBtn = document.getElementById('hamburger-btn');
+        mobileMenu.classList.toggle('active');
+        const isExpanded = mobileMenu.classList.contains('active');
+        hamburgerBtn.setAttribute('aria-expanded', isExpanded);
+        mobileMenu.setAttribute('aria-hidden', !isExpanded);
+        hamburgerBtn.setAttribute('aria-label', isExpanded ? 'メニューを閉じる' : 'メニューを開く');
+        if (isExpanded) {
+            document.body.style.overflow = 'hidden';
+        } else {
+            document.body.style.overflow = '';
+        }
     }
+    // メニュー外クリックで閉じる
+    window.addEventListener('click', function(e) {
+        const menu = document.getElementById('mobile-menu');
+        const btn = document.getElementById('hamburger-btn');
+        if (!menu || !btn) return;
+        if (menu.classList.contains('active')) {
+            if (!menu.contains(e.target) && !btn.contains(e.target)) {
+                menu.classList.remove('active');
+                btn.setAttribute('aria-expanded', false);
+                menu.setAttribute('aria-hidden', true);
+                btn.setAttribute('aria-label', 'メニューを開く');
+                document.body.style.overflow = '';
+            }
+        }
+    });
     </script>
-
-    <style>
-    .mobile-menu {
-      display: none;
-      /* ...既存のスタイル... */
-    }
-    .mobile-menu.open {
-      display: block;
-    }
-    </style>
 
     <footer>
         <div class="container">
