@@ -152,10 +152,10 @@ document.addEventListener('DOMContentLoaded', () => {
     // デプロイメント環境に応じたエンドポイント判定
     const determineApiEndpoint = () => {
       const hostMap = {
-        'localhost': 'http://localhost:3000/nlweb-chat',
-        'notion.effect.moe': 'https://nlweb.effect.moe/nlweb-chat',
-        // GitHub Pagesのホスト名に対応
-        'your-username.github.io': 'https://nlweb.effect.moe/nlweb-chat'
+        'localhost': 'http://localhost:3000/api/nlweb',
+        'notion.effect.moe': '/api/nlweb',
+        // Vercelのプレビューデプロイメント用
+        'vercel.app': '/api/nlweb'
       };
 
       // 現在のホスト名を取得
@@ -168,7 +168,18 @@ document.addEventListener('DOMContentLoaded', () => {
       console.log('完全URL:', window.location.href);
 
       // エンドポイントの決定
-      const endpoint = hostMap[hostname] || 'https://nlweb.effect.moe/nlweb-chat';
+      // Vercelのプレビューデプロイメント(.vercel.app)の場合も対応
+      let endpoint = hostMap[hostname];
+      
+      // Vercelのプレビューデプロイメントの場合
+      if (!endpoint && hostname.includes('.vercel.app')) {
+        endpoint = '/api/nlweb';
+      }
+      
+      // デフォルトは相対パス（Vercel用）
+      if (!endpoint) {
+        endpoint = '/api/nlweb';
+      }
 
       console.log('選択されたエンドポイント:', endpoint);
       console.groupEnd();
