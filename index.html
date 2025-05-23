@@ -747,55 +747,6 @@
                 max-width: 300px;
             }
         }
-
-        .mobile-menu {
-            display: none;
-            position: absolute;
-            top: 60px;
-            right: 0;
-            width: 100vw;
-            max-width: 320px;
-            background: #fff;
-            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
-            z-index: 1000;
-            padding: 24px 0 16px 0;
-            border-radius: 0 0 8px 8px;
-        }
-
-        .mobile-menu.active {
-            display: block;
-        }
-
-        .hamburger {
-            display: none;
-            position: relative;
-            width: 40px;
-            height: 40px;
-            background: none;
-            border: none;
-            cursor: pointer;
-            z-index: 1100;
-        }
-
-        .hamburger span {
-            display: block;
-            width: 28px;
-            height: 3px;
-            margin: 6px auto;
-            background: #333;
-            border-radius: 2px;
-            transition: all 0.3s;
-        }
-
-        @media (max-width: 900px) {
-            .nav-menu {
-                display: none;
-            }
-
-            .hamburger {
-                display: block;
-            }
-        }
     </style>
 
     <!-- Google tag (gtag.js) -->
@@ -915,7 +866,7 @@
 
             <!-- Hamburger Menu Button -->
             <button class="hamburger" id="hamburger-btn" aria-expanded="false" aria-controls="mobile-menu"
-                aria-label="メニューを開く" onclick="document.getElementById('mobile-menu').classList.toggle('active')">
+                aria-label="メニューを開く" onclick="toggleMobileMenu()">
                 <span></span>
                 <span></span>
                 <span></span>
@@ -1463,7 +1414,6 @@
         </div>
     </main>
 
-
     <footer>
         <div class="container">
             <div class="footer-content">
@@ -1563,24 +1513,6 @@
 
     <script src="script.js" defer></script>
 
-    <!-- バックアップハンバーガーメニュー用スクリプト -->
-    <script>
-    window.addEventListener('load', function () {
-        const hamburgerBtn = document.getElementById('hamburger-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
-
-        if (hamburgerBtn && mobileMenu) {
-            hamburgerBtn.addEventListener('click', function () {
-                mobileMenu.classList.toggle('active');
-                const isActive = mobileMenu.classList.contains('active');
-                hamburgerBtn.setAttribute('aria-expanded', isActive ? 'true' : 'false');
-                mobileMenu.setAttribute('aria-hidden', isActive ? 'false' : 'true');
-                console.log('ハンバーガーメニュークリック: 状態', isActive ? '表示' : '非表示');
-            });
-        }
-    });
-    </script>
-
     <!-- 問い合わせフォーム処理（直接的な実装） -->
     <!-- <script>
         // フォーム処理を単純化
@@ -1647,7 +1579,33 @@
         document.addEventListener('DOMContentLoaded', initForm);
     </script> -->
 
-    <!-- 削除：重複したtoggleMobileMenu関数 -->
+    <!-- バックアップハンバーガーメニュー用スクリプト -->
+    <script>
+        function toggleMobileMenu() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            const hamburgerBtn = document.getElementById('hamburger-btn');
+
+            // メニューのアクティブ状態を切り替え
+            mobileMenu.classList.toggle('active');
+
+            // メニューが開いているかどうかを確認
+            const isExpanded = mobileMenu.classList.contains('active');
+
+            // アクセシビリティ属性を更新
+            hamburgerBtn.setAttribute('aria-expanded', isExpanded);
+            mobileMenu.setAttribute('aria-hidden', !isExpanded);
+
+            // ボタンのラベルを更新
+            hamburgerBtn.setAttribute('aria-label', isExpanded ? 'メニューを閉じる' : 'メニューを開く');
+
+            // オプション：ハンバーガーボタン自体の見た目も変更
+            if (isExpanded) {
+                hamburgerBtn.classList.add('active');
+            } else {
+                hamburgerBtn.classList.remove('active');
+            }
+        }
+    </script>
 
 <!-- NLWebチャットボット -->
     <!-- <script src="/notion-chat-integration.js"></script> -->
