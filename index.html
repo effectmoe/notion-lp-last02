@@ -915,15 +915,15 @@
 
             <!-- Hamburger Menu Button -->
             <button class="hamburger" id="hamburger-btn" aria-expanded="false" aria-controls="mobile-menu"
-                aria-label="メニューを開く" style="display: flex !important; position: relative; z-index: 9999;">
-                <span style="background-color: #fff !important;"></span>
-                <span style="background-color: #fff !important;"></span>
-                <span style="background-color: #fff !important;"></span>
+                aria-label="メニューを開く" style="display: flex !important; position: absolute; right: 20px; top: 50%; transform: translateY(-50%); z-index: 9999; flex-direction: column; gap: 4px; padding: 10px; background: transparent; border: none; cursor: pointer;">
+                <span style="display: block; width: 25px; height: 3px; background-color: #fff !important; border-radius: 2px;"></span>
+                <span style="display: block; width: 25px; height: 3px; background-color: #fff !important; border-radius: 2px;"></span>
+                <span style="display: block; width: 25px; height: 3px; background-color: #fff !important; border-radius: 2px;"></span>
             </button>
         </div>
 
         <!-- Mobile Menu -->
-        <nav class="mobile-menu" id="mobile-menu" aria-hidden="true" aria-label="モバイルナビゲーション">
+        <nav class="mobile-menu" id="mobile-menu" aria-hidden="true" aria-label="モバイルナビゲーション" style="display: none; position: absolute; top: 100%; left: 0; right: 0; background-color: #37352f; padding: 20px; z-index: 998;">
             <ul>
                 <li><a href="pricing.html">料金プラン</a></li>
                 <li><a href="notionllmo.html">LLMO対策</a></li>
@@ -1563,7 +1563,7 @@
 
     <script src="script.js" defer></script>
 
-    <!-- ハンバーガーメニュー用スクリプト（最もシンプルな実装） -->
+    <!-- ハンバーガーメニュー用スクリプト（インラインスタイル対応版） -->
     <script>
     // 即座に実行
     (function() {
@@ -1575,8 +1575,19 @@
             if (btn && menu) {
                 console.log('ハンバーガーメニュー設定開始');
                 btn.onclick = function() {
-                    menu.classList.toggle('active');
-                    console.log('メニュー切り替え:', menu.classList.contains('active'));
+                    // インラインスタイルで表示/非表示を切り替え
+                    if (menu.style.display === 'none' || menu.style.display === '') {
+                        menu.style.display = 'flex';
+                        menu.style.flexDirection = 'column';
+                        btn.setAttribute('aria-expanded', 'true');
+                        menu.setAttribute('aria-hidden', 'false');
+                        console.log('メニューを開く');
+                    } else {
+                        menu.style.display = 'none';
+                        btn.setAttribute('aria-expanded', 'false');
+                        menu.setAttribute('aria-hidden', 'true');
+                        console.log('メニューを閉じる');
+                    }
                 };
             }
         }, 100);
