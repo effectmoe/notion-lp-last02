@@ -1565,18 +1565,35 @@
 
     <!-- ハンバーガーメニュー用スクリプト -->
     <script>
-    window.addEventListener('load', function () {
+    // すぐに実行されるようにDOMContentLoadedを使用
+    document.addEventListener('DOMContentLoaded', function () {
+        console.log('ハンバーガーメニュー初期化開始');
+        
         const hamburgerBtn = document.getElementById('hamburger-btn');
         const mobileMenu = document.getElementById('mobile-menu');
 
+        console.log('hamburgerBtn:', hamburgerBtn);
+        console.log('mobileMenu:', mobileMenu);
+
         if (hamburgerBtn && mobileMenu) {
-            hamburgerBtn.addEventListener('click', function () {
+            // クリックイベントの重複を防ぐため、一度クリアしてから追加
+            const newHamburgerBtn = hamburgerBtn.cloneNode(true);
+            hamburgerBtn.parentNode.replaceChild(newHamburgerBtn, hamburgerBtn);
+            
+            newHamburgerBtn.addEventListener('click', function (e) {
+                e.stopPropagation(); // イベントの伝播を停止
+                console.log('ハンバーガーボタンがクリックされました');
+                
                 mobileMenu.classList.toggle('active');
                 const isActive = mobileMenu.classList.contains('active');
-                hamburgerBtn.setAttribute('aria-expanded', isActive ? 'true' : 'false');
+                newHamburgerBtn.setAttribute('aria-expanded', isActive ? 'true' : 'false');
                 mobileMenu.setAttribute('aria-hidden', isActive ? 'false' : 'true');
-                console.log('ハンバーガーメニュークリック: 状態', isActive ? '表示' : '非表示');
+                console.log('メニュー状態:', isActive ? '開く' : '閉じる');
             });
+            
+            console.log('ハンバーガーメニューのイベントリスナーを設定しました');
+        } else {
+            console.error('ハンバーガーボタンまたはモバイルメニューが見つかりません');
         }
     });
     </script>

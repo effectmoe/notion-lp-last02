@@ -1,6 +1,8 @@
 document.addEventListener('DOMContentLoaded', function () {
     console.log('DOMContentLoaded イベント発火 (script.js)');
     
+    // ハンバーガーメニューの設定は index.html の独自スクリプトで行うため、ここではコメントアウト
+    /*
     function setupHamburgerMenu() {
         // ハンバーガーメニュー機能
         const hamburgerBtn = document.getElementById('hamburger-btn');
@@ -44,6 +46,7 @@ document.addEventListener('DOMContentLoaded', function () {
     
     // ハンバーガーメニュー設定を実行
     setupHamburgerMenu();
+    */
     
     // ヒーローセクションのフェードイン効果
     const heroText = document.querySelector('.hero-text');
